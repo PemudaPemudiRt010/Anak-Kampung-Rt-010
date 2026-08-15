@@ -90,13 +90,13 @@ section{
     left:0;
     right:0;
     z-index:999;
-    background:rgba(255,255,255,.94);
+    background:rgba(255,255,255,.96);
     backdrop-filter:blur(18px);
     border-bottom:1px solid var(--border);
 }
 
 .nav{
-    height:78px;
+    min-height:78px;
     display:flex;
     align-items:center;
     justify-content:space-between;
@@ -148,7 +148,7 @@ section{
     color:#526071;
     font-size:.84rem;
     font-weight:700;
-    padding:9px 14px;
+    padding:9px 13px;
     border-radius:8px;
     transition:.25s;
 }
@@ -158,17 +158,13 @@ section{
     background:#eef2f6;
 }
 
-.nav-cta{
-    background:var(--navy)!important;
-    color:white!important;
-}
-
 .menu-btn{
     display:none;
     border:0;
     background:none;
     font-size:1.7rem;
     color:var(--navy);
+    cursor:pointer;
 }
 
 
@@ -296,6 +292,7 @@ section{
 
 .btn-orange:hover{
     background:#ca5e0c;
+    transform:translateY(-2px);
 }
 
 .btn-outline{
@@ -605,37 +602,6 @@ section{
 
 
 /* =========================================================
-   PENDAFTARAN
-========================================================= */
-
-.registration{
-    margin-top:22px;
-    padding:32px;
-    border-radius:18px;
-    background:var(--navy);
-    color:white;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:25px;
-}
-
-.registration h3{
-    font-size:1.4rem;
-    margin-bottom:4px;
-}
-
-.registration p{
-    color:#b9c5d1;
-    font-size:.85rem;
-}
-
-.registration .btn{
-    white-space:nowrap;
-}
-
-
-/* =========================================================
    PENGUMUMAN
 ========================================================= */
 
@@ -671,6 +637,7 @@ section{
 .notice p{
     color:var(--muted);
     font-size:.8rem;
+    margin:2px 0;
 }
 
 
@@ -752,25 +719,174 @@ section{
 
 
 /* =========================================================
-   GALERI
+   GALERI — ALBUM FOTO SEPERTI BUKU
 ========================================================= */
 
-.gallery-box{
-    background:#edf2f6;
-    border:1px dashed #cbd5df;
-    border-radius:18px;
-    padding:60px 25px;
+.gallery-section{
+    background:#f6f8fb;
+}
+
+.gallery-intro{
+    max-width:700px;
+    margin-bottom:45px;
+}
+
+.album{
+    position:relative;
+    width:min(900px,100%);
+    min-height:430px;
+    margin:auto;
+    perspective:1400px;
+}
+
+.album-cover{
+    position:absolute;
+    left:0;
+    top:0;
+    width:50%;
+    height:100%;
+    background:linear-gradient(145deg,#0d1b2a,#19324a);
+    border-radius:16px 0 0 16px;
+    box-shadow:-10px 18px 40px rgba(13,27,42,.15);
+    display:flex;
+    align-items:center;
+    justify-content:center;
     text-align:center;
+    padding:35px;
+    z-index:3;
 }
 
-.gallery-box h3{
+.album-cover-inner{
+    color:white;
+}
+
+.album-cover-inner .cover-small{
+    font-size:.68rem;
+    letter-spacing:2px;
+    font-weight:800;
+    color:#aebdcb;
+    margin-bottom:14px;
+}
+
+.album-cover-inner h3{
+    font-size:2rem;
+    line-height:1.05;
+    font-weight:900;
+    margin-bottom:15px;
+}
+
+.album-cover-inner p{
+    color:#c6d2dc;
+    font-size:.8rem;
+}
+
+.album-cover-line{
+    width:60px;
+    height:4px;
+    border-radius:10px;
+    background:var(--orange);
+    margin:20px auto;
+}
+
+.album-pages{
+    position:absolute;
+    right:0;
+    top:15px;
+    width:53%;
+    height:calc(100% - 30px);
+    background:white;
+    border-radius:0 14px 14px 0;
+    padding:24px;
+    box-shadow:10px 18px 40px rgba(13,27,42,.12);
+}
+
+.album-pages::before{
+    content:"";
+    position:absolute;
+    left:-12px;
+    top:10px;
+    bottom:10px;
+    width:20px;
+    background:
+        repeating-linear-gradient(
+            to bottom,
+            #dce2e8 0px,
+            #dce2e8 2px,
+            transparent 2px,
+            transparent 17px
+        );
+    border-radius:10px 0 0 10px;
+}
+
+.album-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:18px;
+}
+
+.album-title h4{
     color:var(--navy);
-    margin-bottom:5px;
+    font-size:.95rem;
+    font-weight:900;
 }
 
-.gallery-box p{
+.album-title span{
     color:var(--muted);
-    font-size:.85rem;
+    font-size:.65rem;
+}
+
+.photo-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.photo{
+    height:145px;
+    border-radius:10px;
+    overflow:hidden;
+    background:#edf2f6;
+    border:1px solid #dce3ea;
+    position:relative;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:.35s;
+}
+
+.photo:hover img{
+    transform:scale(1.06);
+}
+
+.photo-empty{
+    width:100%;
+    height:100%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding:15px;
+    color:#7b8794;
+    font-size:.7rem;
+}
+
+.gallery-note{
+    text-align:center;
+    margin-top:35px;
+    color:var(--muted);
+    font-size:.78rem;
+}
+
+.gallery-note code{
+    background:#e9eef3;
+    color:var(--navy);
+    padding:3px 7px;
+    border-radius:5px;
 }
 
 
@@ -957,7 +1073,7 @@ footer span{
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:850px){
+@media(max-width:950px){
 
     .menu-btn{
         display:block;
@@ -1011,6 +1127,42 @@ footer span{
         grid-template-columns:1fr 1fr;
     }
 
+    .album{
+        min-height:390px;
+    }
+
+}
+
+@media(max-width:700px){
+
+    .album{
+        min-height:auto;
+        display:flex;
+        flex-direction:column;
+        gap:0;
+    }
+
+    .album-cover{
+        position:relative;
+        width:100%;
+        height:230px;
+        border-radius:16px 16px 0 0;
+    }
+
+    .album-pages{
+        position:relative;
+        right:auto;
+        top:auto;
+        width:100%;
+        height:auto;
+        min-height:350px;
+        border-radius:0 0 16px 16px;
+    }
+
+    .album-pages::before{
+        display:none;
+    }
+
 }
 
 @media(max-width:600px){
@@ -1035,11 +1187,6 @@ footer span{
         grid-template-columns:1fr;
     }
 
-    .registration{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
     .notice{
         flex-direction:column;
         gap:8px;
@@ -1048,6 +1195,14 @@ footer span{
     .footer-grid{
         grid-template-columns:1fr;
         gap:30px;
+    }
+
+    .photo-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .photo{
+        height:115px;
     }
 
 }
@@ -1069,36 +1224,60 @@ footer span{
 
 <a href="#beranda" class="brand">
 
-<img src="logo-rt010.png"
-     alt="Logo Anak Kampung RT 010"
-     class="brand-logo">
+<img
+src="logo-rt010.png"
+alt="Logo Anak Kampung RT 010"
+class="brand-logo">
 
 <div class="brand-text">
-<strong>ANAK KAMPUNG <span style="color:#1769aa">RT 010</span></strong>
-<span>Bersama • Bergerak • Berkarya</span>
+
+<strong>
+ANAK KAMPUNG
+<span style="color:#1769aa">RT 010</span>
+</strong>
+
+<span>
+Bersama • Bergerak • Berkarya
+</span>
+
 </div>
 
 </a>
 
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<button
+class="menu-btn"
+onclick="toggleMenu()">
+
+☰
+
+</button>
 
 
 <ul class="nav-links" id="navLinks">
 
-<li><a href="#beranda">Beranda</a></li>
-<li><a href="#tentang">Tentang Kami</a></li>
-<li><a href="#kegiatan">Kegiatan</a></li>
-<li><a href="#pendaftaran">Pendaftaran</a></li>
-<li><a href="#pengumuman">Pengumuman</a></li>
-<li><a href="#aspirasi">Aspirasi</a></li>
+<li>
+<a href="#beranda">Beranda</a>
+</li>
 
 <li>
-<a href="https://wa.me/6285156889002"
-   target="_blank"
-   class="nav-cta">
-   WhatsApp
-</a>
+<a href="#tentang">Tentang Kami</a>
+</li>
+
+<li>
+<a href="#kegiatan">Kegiatan</a>
+</li>
+
+<li>
+<a href="#pengumuman">Pengumuman</a>
+</li>
+
+<li>
+<a href="#aspirasi">Aspirasi</a>
+</li>
+
+<li>
+<a href="#galeri">Galeri</a>
 </li>
 
 </ul>
@@ -1126,26 +1305,42 @@ ANAK KAMPUNG RT 010
 
 
 <h1>
+
 BARENG-BARENG,
+
 <br>
-<span>BIKIN LINGKUNGAN LEBIH HIDUP</span>
+
+<span>
+BIKIN LINGKUNGAN LEBIH HIDUP
+</span>
+
 </h1>
 
 
 <p class="hero-desc">
+
 Ruang bagi pemuda-pemudi RT 010 untuk berkarya,
 berkolaborasi, dan bikin kegiatan yang berdampak.
+
 </p>
 
 
 <div class="buttons">
 
-<a href="#kegiatan" class="btn btn-primary">
+<a
+href="#kegiatan"
+class="btn btn-primary">
+
 Lihat Kegiatan →
+
 </a>
 
-<a href="#tentang" class="btn btn-outline">
+<a
+href="#tentang"
+class="btn btn-outline">
+
 Tentang Kami
+
 </a>
 
 </div>
@@ -1190,11 +1385,15 @@ Lomba Anak Usia 4–6 Tahun
 
 <div class="lomba-preview">
 
-<strong>LOMBA</strong>
+<strong>
+LOMBA
+</strong>
 
 <p>
 CATUR (Semi Final dan Final)
-GAPLE</p>
+<br>
+GAPLE
+</p>
 
 </div>
 
@@ -1220,7 +1419,9 @@ Daftar Sekarang →
      TENTANG
 ===================================================== -->
 
-<section class="section" id="tentang">
+<section
+class="section"
+id="tentang">
 
 <div class="container about-grid">
 
@@ -1232,8 +1433,13 @@ TENTANG KAMI
 </div>
 
 <h2 class="section-title">
-BUKAN SEKADAR KUMPUL.<br>
+
+BUKAN SEKADAR KUMPUL.
+
+<br>
+
 KITA BIKIN GERAKAN.
+
 </h2>
 
 </div>
@@ -1242,14 +1448,18 @@ KITA BIKIN GERAKAN.
 <div class="about-text">
 
 <p>
+
 Anak Kampung RT 010 adalah ruang bersama bagi
 pemuda-pemudi untuk berkreasi, berkolaborasi,
 dan ikut membangun lingkungan.
+
 </p>
 
 <p>
+
 Mulai dari kegiatan sosial, olahraga, lingkungan,
 sampai acara warga—semuanya berawal dari satu hal:
+
 </p>
 
 <p class="big">
@@ -1259,9 +1469,12 @@ mau bergerak bareng.
 
 <div class="values">
 
+
 <div class="value">
 
-<div class="value-icon">🤝</div>
+<div class="value-icon">
+🤝
+</div>
 
 <h3>
 SOLIDARITAS
@@ -1276,7 +1489,9 @@ Saling dukung dan saling bantu.
 
 <div class="value">
 
-<div class="value-icon">💡</div>
+<div class="value-icon">
+💡
+</div>
 
 <h3>
 KREATIVITAS
@@ -1291,7 +1506,9 @@ Berani punya ide dan bikin sesuatu.
 
 <div class="value">
 
-<div class="value-icon">⚡</div>
+<div class="value-icon">
+⚡
+</div>
 
 <h3>
 KOLABORASI
@@ -1302,6 +1519,7 @@ Karena hal besar lebih seru kalau dikerjakan bersama.
 </p>
 
 </div>
+
 
 </div>
 
@@ -1317,7 +1535,9 @@ Karena hal besar lebih seru kalau dikerjakan bersama.
      KEGIATAN
 ===================================================== -->
 
-<section class="section section-alt" id="kegiatan">
+<section
+class="section section-alt"
+id="kegiatan">
 
 <div class="container">
 
@@ -1346,6 +1566,7 @@ Bukan cuma satu acara. Ada banyak keseruan yang menunggu.
 <div class="events-grid">
 
 
+
 <!-- LOMBA 4-6 -->
 
 <article class="event-card">
@@ -1369,14 +1590,24 @@ memeriahkan HUT Kemerdekaan RI.
 
 <div class="card-info">
 
-<span>📅 15 Agustus 2026</span>
-<span>⏰ 09.00 WIB</span>
-<span>📍 Balai Warga RW 007</span>
+<span>
+📅 15 Agustus 2026
+</span>
+
+<span>
+⏰ 09.00 WIB
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
 
 </div>
 
 
-<div class="detail" id="detail1">
+<div
+class="detail"
+id="detail1">
 
 <div class="detail-title">
 5 PERLOMBAAN
@@ -1405,7 +1636,8 @@ Daftar Lomba →
 </div>
 
 
-<button class="detail-btn"
+<button
+class="detail-btn"
 onclick="toggleDetail('detail1',this)">
 
 Lihat Detail →
@@ -1439,14 +1671,24 @@ usia sekolah dasar.
 
 <div class="card-info">
 
-<span>📅 16–17 Agustus 2026</span>
-<span>⏰ 08.00 WIB</span>
-<span>📍 Balai Warga RW 007</span>
+<span>
+📅 16–17 Agustus 2026
+</span>
+
+<span>
+⏰ 08.00 WIB
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
 
 </div>
 
 
-<div class="detail" id="detail2">
+<div
+class="detail"
+id="detail2">
 
 <div class="detail-title">
 5 PERLOMBAAN
@@ -1475,7 +1717,8 @@ Daftar Lomba →
 </div>
 
 
-<button class="detail-btn"
+<button
+class="detail-btn"
 onclick="toggleDetail('detail2',this)">
 
 Lihat Detail →
@@ -1509,14 +1752,24 @@ kecepatan, dan keberanian.
 
 <div class="card-info">
 
-<span>📅 16–17 Agustus 2026</span>
-<span>⏰ 08.00 WIB</span>
-<span>📍 Balai Warga RW 007</span>
+<span>
+📅 16–17 Agustus 2026
+</span>
+
+<span>
+⏰ 08.00 WIB
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
 
 </div>
 
 
-<div class="detail" id="detail3">
+<div
+class="detail"
+id="detail3">
 
 <div class="detail-title">
 6 PERLOMBAAN
@@ -1546,7 +1799,8 @@ Daftar Lomba →
 </div>
 
 
-<button class="detail-btn"
+<button
+class="detail-btn"
 onclick="toggleDetail('detail3',this)">
 
 Lihat Detail →
@@ -1578,11 +1832,17 @@ Kompak, santai, dan tetap kompetitif.
 </p>
 
 <div class="card-info">
-<span>📍 Balai Warga RW 007</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
+
 </div>
 
 
-<div class="detail" id="detail4">
+<div
+class="detail"
+id="detail4">
 
 <div class="detail-title">
 CABANG PERLOMBAAN
@@ -1612,7 +1872,8 @@ Daftar Lomba →
 </div>
 
 
-<button class="detail-btn"
+<button
+class="detail-btn"
 onclick="toggleDetail('detail4',this)">
 
 Lihat Detail →
@@ -1645,13 +1906,17 @@ Tunjukkan kreativitas warga.
 </p>
 
 <div class="card-info">
+
 <span>🏆 Penilaian Kreativitas</span>
 <span>🍚 Rasa</span>
 <span>✨ Penyajian</span>
+
 </div>
 
 
-<div class="detail" id="detail5">
+<div
+class="detail"
+id="detail5">
 
 <button
 class="btn btn-blue"
@@ -1664,7 +1929,8 @@ Daftar Lomba →
 </div>
 
 
-<button class="detail-btn"
+<button
+class="detail-btn"
 onclick="toggleDetail('detail5',this)">
 
 Lihat Detail →
@@ -1697,11 +1963,17 @@ Saatnya naik panggung. 🎤
 </p>
 
 <div class="card-info">
-<span>📍 Area Balai Warga RW 007</span>
+
+<span>
+📍 Area Balai Warga RW 007
+</span>
+
 </div>
 
 
-<div class="detail" id="detail6">
+<div
+class="detail"
+id="detail6">
 
 <button
 class="btn btn-blue"
@@ -1714,7 +1986,8 @@ Daftar Lomba →
 </div>
 
 
-<button class="detail-btn"
+<button
+class="detail-btn"
 onclick="toggleDetail('detail6',this)">
 
 Lihat Detail →
@@ -1733,48 +2006,12 @@ Lihat Detail →
 
 
 <!-- =====================================================
-     PENDAFTARAN
-===================================================== -->
-
-<section class="section" id="pendaftaran">
-
-<div class="container">
-
-<div class="registration">
-
-<div>
-
-<h3>
-MAU IKUT RAMAI-RAMAI?
-</h3>
-
-<p>
-Jangan cuma jadi penonton. Ikut ambil bagian dalam kegiatan Anak Kampung RT 010.
-</p>
-
-</div>
-
-<button
-class="btn btn-orange"
-onclick="openRegistration('Pendaftaran Kegiatan')">
-
-DAFTAR VIA WHATSAPP →
-
-</button>
-
-</div>
-
-</div>
-
-</section>
-
-
-
-<!-- =====================================================
      PENGUMUMAN
 ===================================================== -->
 
-<section class="section section-alt" id="pengumuman">
+<section
+class="section section-alt"
+id="pengumuman">
 
 <div class="container">
 
@@ -1795,7 +2032,11 @@ PENGUMUMAN
 <div class="notice">
 
 <div class="notice-date">
-22<br>AGUSTUS
+
+22
+<br>
+AGUSTUS
+
 </div>
 
 <div>
@@ -1828,7 +2069,11 @@ Area Balai Warga RW 07
 <div class="notice">
 
 <div class="notice-date">
-17<br>AGUSTUS
+
+17
+<br>
+AGUSTUS
+
 </div>
 
 <div>
@@ -1851,7 +2096,11 @@ dengan berbagai kegiatan dan perlombaan.
 <div class="notice">
 
 <div class="notice-date">
-INFO<br>WARGA
+
+INFO
+<br>
+WARGA
+
 </div>
 
 <div>
@@ -1862,7 +2111,7 @@ Punya ide kegiatan?
 
 <p>
 Punya usulan yang menarik?
-Sampaikan melalui WhatsApp.
+Sampaikan melalui form aspirasi.
 </p>
 
 </div>
@@ -1882,7 +2131,9 @@ Sampaikan melalui WhatsApp.
      ASPIRASI
 ===================================================== -->
 
-<section class="section" id="aspirasi">
+<section
+class="section"
+id="aspirasi">
 
 <div class="container aspiration-box">
 
@@ -1894,9 +2145,13 @@ SUARA WARGA
 </div>
 
 <h2>
+
 PUNYA IDE?
+
 <br>
+
 JANGAN CUMA DIOMONGIN.
+
 </h2>
 
 <p>
@@ -1917,7 +2172,9 @@ Kita gerakkan bersama.
 
 
 
-<form class="form" onsubmit="sendAspiration(event)">
+<form
+class="form"
+onsubmit="sendAspiration(event)">
 
 <div class="form-group">
 
@@ -1979,6 +2236,188 @@ KIRIM ASPIRASI →
 </button>
 
 </form>
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GALERI
+===================================================== -->
+
+<section
+class="section gallery-section"
+id="galeri">
+
+<div class="container">
+
+<div class="gallery-intro">
+
+<div class="section-label">
+GALERI
+</div>
+
+<h2 class="section-title">
+CERITA DALAM SETIAP MOMEN.
+</h2>
+
+<p class="section-desc">
+Dokumentasi kegiatan dan kebersamaan Anak Kampung RT 010.
+Simpan setiap momen, karena setiap kegiatan punya cerita.
+</p>
+
+</div>
+
+
+<div class="album">
+
+
+<!-- COVER ALBUM -->
+
+<div class="album-cover">
+
+<div class="album-cover-inner">
+
+<div class="cover-small">
+DOKUMENTASI
+</div>
+
+<h3>
+ANAK KAMPUNG
+<br>
+RT 010
+</h3>
+
+<div class="album-cover-line"></div>
+
+<p>
+Bersama • Bergerak • Berkarya
+</p>
+
+</div>
+
+</div>
+
+
+
+<!-- HALAMAN FOTO -->
+
+<div class="album-pages">
+
+<div class="album-title">
+
+<h4>
+Album Kegiatan
+</h4>
+
+<span>
+2026
+
+</span>
+
+</div>
+
+
+<div class="photo-grid">
+
+
+<!--
+=========================================================
+MASUKKAN FOTO JPEG DI SINI
+=========================================================
+
+Contoh:
+
+<img src="galeri/foto1.jpeg" alt="Kegiatan Anak Kampung RT 010">
+
+Pastikan foldernya:
+
+galeri/
+    foto1.jpeg
+    foto2.jpeg
+    foto3.jpeg
+    foto4.jpeg
+
+=========================================================
+-->
+
+<div class="photo">
+
+<img
+src="galeri/foto1.jpeg"
+alt="Dokumentasi kegiatan Anak Kampung RT 010"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div class="photo-empty">
+Foto 1
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="galeri/foto2.jpeg"
+alt="Dokumentasi kegiatan Anak Kampung RT 010"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div class="photo-empty">
+Foto 2
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="galeri/foto3.jpeg"
+alt="Dokumentasi kegiatan Anak Kampung RT 010"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div class="photo-empty">
+Foto 3
+</div>
+
+</div>
+
+
+<div class="photo">
+
+<img
+src="galeri/foto4.jpeg"
+alt="Dokumentasi kegiatan Anak Kampung RT 010"
+onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+
+<div class="photo-empty">
+Foto 4
+</div>
+
+</div>
+
+
+</div>
+
+</div>
+
+</div>
+
+
+<div class="gallery-note">
+
+Masukkan foto JPEG kamu ke folder
+<code>galeri</code>
+dengan nama
+<code>foto1.jpeg</code>,
+<code>foto2.jpeg</code>,
+<code>foto3.jpeg</code>,
+dan
+<code>foto4.jpeg</code>.
+
+</div>
 
 </div>
 
@@ -2089,7 +2528,7 @@ class="footer-logo">
 <div>
 
 <strong>
-ANAK KAMPUNG  RT 010
+ANAK KAMPUNG RT 010
 </strong>
 
 <br>
@@ -2119,11 +2558,25 @@ NAVIGASI
 
 <div class="footer-links">
 
-<a href="#tentang">Tentang Kami</a>
-<a href="#kegiatan">Kegiatan</a>
-<a href="#pendaftaran">Pendaftaran</a>
-<a href="#pengumuman">Pengumuman</a>
-<a href="#aspirasi">Aspirasi</a>
+<a href="#tentang">
+Tentang Kami
+</a>
+
+<a href="#kegiatan">
+Kegiatan
+</a>
+
+<a href="#pengumuman">
+Pengumuman
+</a>
+
+<a href="#aspirasi">
+Aspirasi
+</a>
+
+<a href="#galeri">
+Galeri
+</a>
 
 </div>
 
@@ -2139,19 +2592,28 @@ FOLLOW US
 
 <div class="footer-links">
 
-<a href="https://instagram.com/anakkampungcbs_010"
+<a
+href="https://instagram.com/anakkampungcbs_010"
 target="_blank">
+
 Instagram — @anakkampungcbs_010
+
 </a>
 
-<a href="https://www.tiktok.com/@anakkampungcbs_010"
+<a
+href="https://www.tiktok.com/@anakkampungcbs_010"
 target="_blank">
+
 TikTok — @anakkampungcbs_010
+
 </a>
 
-<a href="https://wa.me/6285156889002"
+<a
+href="https://wa.me/6285156889002"
 target="_blank">
+
 WhatsApp — 0851-5688-9002
+
 </a>
 
 </div>
@@ -2174,10 +2636,12 @@ Dibuat untuk kebersamaan warga.
 
 
 <!-- =====================================================
-     MODAL PENDAFTARAN
+     MODAL FORM PENDAFTARAN
 ===================================================== -->
 
-<div class="modal" id="registrationModal">
+<div
+class="modal"
+id="registrationModal">
 
 <div class="modal-content">
 
@@ -2194,12 +2658,18 @@ onclick="closeRegistration()">
 Form Pendaftaran
 </h2>
 
-<p class="modal-sub" id="selectedEvent">
+<p
+class="modal-sub"
+id="selectedEvent">
+
 Pendaftaran kegiatan
+
 </p>
 
 
-<form class="form" style="box-shadow:none;border:none;padding:0"
+<form
+class="form"
+style="box-shadow:none;border:none;padding:0"
 onsubmit="sendRegistration(event)">
 
 
@@ -2247,6 +2717,7 @@ required>
 
 </div>
 
+
 <div class="form-group">
 
 <label>
@@ -2256,7 +2727,8 @@ Catatan
 <textarea
 id="regNote"
 rows="3"
-placeholder="Tambahkan informasi jika diperlukan"></textarea>
+placeholder="Tambahkan informasi jika diperlukan">
+</textarea>
 
 </div>
 
@@ -2301,17 +2773,20 @@ function toggleMenu(){
 
 function toggleDetail(id,button){
 
-    const detail=document.getElementById(id);
+    const detail =
+    document.getElementById(id);
 
     detail.classList.toggle("open");
 
     if(detail.classList.contains("open")){
 
-        button.innerText="Tutup Detail ↑";
+        button.innerText =
+        "Tutup Detail ↑";
 
     }else{
 
-        button.innerText="Lihat Detail →";
+        button.innerText =
+        "Lihat Detail →";
 
     }
 
@@ -2322,14 +2797,17 @@ function toggleDetail(id,button){
    MODAL PENDAFTARAN
 ========================================================= */
 
-let selectedEvent="";
+let selectedEvent = "";
 
 
 function openRegistration(eventName){
 
-    selectedEvent=eventName;
+    selectedEvent =
+    eventName;
 
-    document.getElementById("selectedEvent").innerText=
+    document
+    .getElementById("selectedEvent")
+    .innerText =
     eventName;
 
     document
@@ -2337,7 +2815,8 @@ function openRegistration(eventName){
     .classList
     .add("show");
 
-    document.body.style.overflow="hidden";
+    document.body.style.overflow =
+    "hidden";
 
 }
 
@@ -2349,7 +2828,8 @@ function closeRegistration(){
     .classList
     .remove("show");
 
-    document.body.style.overflow="";
+    document.body.style.overflow =
+    "";
 
 }
 
@@ -2362,20 +2842,21 @@ function sendRegistration(event){
 
     event.preventDefault();
 
-    const name=
+
+    const name =
     document.getElementById("regName").value;
 
-    const phone=
+    const phone =
     document.getElementById("regPhone").value;
 
-    const age=
+    const age =
     document.getElementById("regAge").value;
 
-    const note=
+    const note =
     document.getElementById("regNote").value;
 
 
-    const message=
+    const message =
 `Halo Admin Anak Kampung RT 010 👋
 
 Saya ingin mendaftar kegiatan:
@@ -2390,12 +2871,15 @@ Saya ingin mendaftar kegiatan:
 Mohon informasi selanjutnya. Terima kasih.`;
 
 
-    const whatsapp=
+    const whatsapp =
     "https://wa.me/6285156889002?text="
-    +encodeURIComponent(message);
+    + encodeURIComponent(message);
 
 
-    window.open(whatsapp,"_blank");
+    window.open(
+        whatsapp,
+        "_blank"
+    );
 
 }
 
@@ -2409,17 +2893,17 @@ function sendAspiration(event){
     event.preventDefault();
 
 
-    const name=
+    const name =
     document.getElementById("aspName").value;
 
-    const category=
+    const category =
     document.getElementById("aspCategory").value;
 
-    const message=
+    const message =
     document.getElementById("aspMessage").value;
 
 
-    const text=
+    const text =
 `Halo Admin Anak Kampung RT 010 👋
 
 Saya ingin menyampaikan aspirasi.
@@ -2434,12 +2918,15 @@ ${message}
 Terima kasih.`;
 
 
-    const whatsapp=
+    const whatsapp =
     "https://wa.me/6285156889002?text="
-    +encodeURIComponent(text);
+    + encodeURIComponent(text);
 
 
-    window.open(whatsapp,"_blank");
+    window.open(
+        whatsapp,
+        "_blank"
+    );
 
 }
 
@@ -2450,32 +2937,39 @@ Terima kasih.`;
 
 document
 .getElementById("registrationModal")
-.addEventListener("click",function(e){
+.addEventListener(
+    "click",
+    function(e){
 
-    if(e.target===this){
+        if(e.target === this){
 
-        closeRegistration();
+            closeRegistration();
+
+        }
 
     }
-
-});
+);
 
 
 /* =========================================================
    CLOSE MENU SAAT KLIK LINK
 ========================================================= */
 
-document.querySelectorAll(".nav-links a")
+document
+.querySelectorAll(".nav-links a")
 .forEach(function(link){
 
-    link.addEventListener("click",function(){
+    link.addEventListener(
+        "click",
+        function(){
 
-        document
-        .getElementById("navLinks")
-        .classList
-        .remove("open");
+            document
+            .getElementById("navLinks")
+            .classList
+            .remove("open");
 
-    });
+        }
+    );
 
 });
 
