@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Anak Kampung RT 010</title>
+<title>Anak Kampung RT 010 | Bersama, Bergerak, Berkarya</title>
 
-<meta name="description" content="Website resmi Anak Kampung RT 010 - Bersama, Bergerak, dan Berkarya.">
+<meta name="description" content="Website resmi Anak Kampung RT 010 — informasi kegiatan, pendaftaran lomba, pengumuman, aspirasi, dan media sosial warga.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
@@ -29,9 +30,9 @@ html{
 }
 
 body{
-    font-family:"Inter",sans-serif;
-    background:#f8f9fc;
-    color:#18202f;
+    font-family:'Inter',sans-serif;
+    background:#f8fafc;
+    color:#172033;
     line-height:1.6;
 }
 
@@ -42,13 +43,13 @@ a{
 
 button,
 input,
-select,
-textarea{
+textarea,
+select{
     font-family:inherit;
 }
 
 .container{
-    width:min(1180px, calc(100% - 40px));
+    width:min(1160px,92%);
     margin:auto;
 }
 
@@ -56,24 +57,30 @@ section{
     scroll-margin-top:90px;
 }
 
+
 /* =========================================================
    COLORS
 ========================================================= */
 
 :root{
-    --pink:#e91e63;
-    --pink-light:#fff0f5;
-    --yellow:#ffc928;
-    --blue:#2563eb;
-    --green:#16a34a;
-    --purple:#7c3aed;
-    --orange:#f97316;
-    --dark:#18202f;
-    --gray:#667085;
-    --light:#f8f9fc;
+    --pink:#e83e8c;
+    --pink-dark:#c92e75;
+    --yellow:#f5b942;
+    --blue:#3182ce;
+    --green:#20a464;
+
+    --dark:#172033;
+    --text:#344054;
+    --muted:#667085;
+
+    --bg:#f8fafc;
     --white:#ffffff;
-    --border:#e8eaf0;
+
+    --border:#e7eaf0;
+
+    --shadow:0 15px 45px rgba(23,32,51,.08);
 }
+
 
 /* =========================================================
    HEADER
@@ -84,19 +91,24 @@ header{
     top:0;
     left:0;
     right:0;
-    z-index:1000;
-    background:rgba(255,255,255,.92);
+    z-index:999;
+
+    background:rgba(255,255,255,.94);
     backdrop-filter:blur(18px);
-    border-bottom:1px solid rgba(0,0,0,.06);
+    border-bottom:1px solid rgba(231,234,240,.8);
 }
 
 .navbar{
-    height:78px;
+    min-height:78px;
+
     display:flex;
     align-items:center;
     justify-content:space-between;
     gap:30px;
 }
+
+
+/* LOGO */
 
 .logo-area{
     display:flex;
@@ -105,30 +117,48 @@ header{
 }
 
 .logo-area img{
-    width:52px;
-    height:52px;
+    width:50px;
+    height:50px;
+
     border-radius:50%;
+
     object-fit:cover;
-    display:block;
+
+    border:3px solid white;
+
+    box-shadow:
+        0 4px 15px rgba(0,0,0,.12);
 }
 
 .logo-text{
-    line-height:1.15;
+    line-height:1.1;
 }
 
 .logo-text strong{
     display:block;
+
     font-size:17px;
     font-weight:900;
-    color:#111827;
+
+    letter-spacing:-.5px;
 }
 
 .logo-text span{
+    display:block;
+
+    margin-top:4px;
+
     font-size:10px;
-    letter-spacing:1.5px;
-    color:#8b93a3;
+    color:#8a94a6;
+
     font-weight:700;
+
+    letter-spacing:1.5px;
+    text-transform:uppercase;
 }
+
+
+/* NAV */
 
 .nav-links{
     display:flex;
@@ -137,26 +167,39 @@ header{
 }
 
 .nav-links a{
-    padding:9px 15px;
-    border-radius:30px;
+    padding:10px 14px;
+
+    border-radius:10px;
+
     font-size:13px;
     font-weight:600;
-    color:#596273;
+
+    color:#596579;
+
     transition:.25s;
 }
 
 .nav-links a:hover{
-    background:var(--pink-light);
+    background:#fff0f7;
     color:var(--pink);
+}
+
+.nav-cta{
+    background:var(--pink)!important;
+    color:white!important;
 }
 
 .menu-btn{
     display:none;
+
     border:0;
     background:none;
-    font-size:27px;
+
+    font-size:26px;
+
     cursor:pointer;
 }
+
 
 /* =========================================================
    HERO
@@ -164,37 +207,52 @@ header{
 
 .hero{
     padding:155px 0 90px;
+
     background:
-        radial-gradient(circle at 10% 20%, #ffe5ef 0, transparent 28%),
-        radial-gradient(circle at 90% 15%, #fff1c7 0, transparent 25%),
+        radial-gradient(circle at 10% 20%,rgba(232,62,140,.08),transparent 30%),
+        radial-gradient(circle at 90% 30%,rgba(49,130,206,.08),transparent 30%),
         #fff;
 }
 
 .hero-grid{
     display:grid;
-    grid-template-columns:1.05fr .95fr;
+    grid-template-columns:1.1fr .9fr;
+
     align-items:center;
-    gap:65px;
+
+    gap:70px;
 }
 
-.badge{
+.hero-label{
     display:inline-flex;
-    padding:8px 16px;
-    border-radius:30px;
-    background:var(--pink-light);
+
+    padding:7px 14px;
+
+    border-radius:50px;
+
+    background:#fff0f7;
     color:var(--pink);
+
     font-size:11px;
     font-weight:800;
+
     letter-spacing:1.5px;
+
     margin-bottom:20px;
 }
 
 .hero h1{
-    font-size:clamp(43px,6vw,76px);
-    line-height:1;
+    font-size:clamp(42px,6vw,72px);
+
+    line-height:1.02;
+
     letter-spacing:-3px;
+
     font-weight:900;
-    color:#121827;
+
+    color:#151b2b;
+
+    margin-bottom:22px;
 }
 
 .hero h1 span{
@@ -202,13 +260,16 @@ header{
 }
 
 .hero-desc{
-    margin:24px 0 32px;
-    max-width:580px;
+    max-width:600px;
+
+    color:var(--muted);
+
     font-size:17px;
-    color:#687386;
+
+    margin-bottom:32px;
 }
 
-.buttons{
+.hero-buttons{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
@@ -216,15 +277,23 @@ header{
 
 .btn{
     display:inline-flex;
+
     align-items:center;
     justify-content:center;
+
     gap:8px;
+
+    padding:13px 22px;
+
+    border-radius:12px;
+
     border:0;
-    cursor:pointer;
-    border-radius:50px;
-    padding:14px 24px;
+
     font-size:14px;
-    font-weight:800;
+    font-weight:700;
+
+    cursor:pointer;
+
     transition:.25s;
 }
 
@@ -235,93 +304,111 @@ header{
 .btn-primary{
     background:var(--pink);
     color:white;
-    box-shadow:0 10px 25px rgba(233,30,99,.2);
+
+    box-shadow:0 10px 25px rgba(232,62,140,.2);
 }
 
-.btn-outline{
-    border:1px solid #dfe3ea;
+.btn-secondary{
     background:white;
-    color:#333d4d;
+    border:1px solid var(--border);
+    color:var(--dark);
 }
 
 .btn-whatsapp{
-    background:#20c76b;
+    background:#20a464;
     color:white;
 }
 
-/* EVENT HERO CARD */
+
+/* EVENT FEATURE */
 
 .hero-event{
     background:white;
+
     border:1px solid var(--border);
-    border-radius:28px;
+
+    border-radius:26px;
+
     padding:32px;
-    box-shadow:0 20px 60px rgba(28,35,50,.08);
+
+    box-shadow:var(--shadow);
+
     position:relative;
     overflow:hidden;
 }
 
 .hero-event::before{
     content:"";
+
     position:absolute;
+
     width:180px;
     height:180px;
+
     border-radius:50%;
-    background:#ffe1ec;
+
+    background:rgba(232,62,140,.07);
+
     right:-70px;
     top:-70px;
 }
 
 .event-label{
     color:var(--pink);
+
     font-size:11px;
     font-weight:800;
+
     letter-spacing:1.5px;
-    position:relative;
+
+    margin-bottom:15px;
 }
 
 .hero-event h2{
-    margin-top:12px;
     font-size:26px;
-    line-height:1.25;
-    position:relative;
+    line-height:1.2;
+
+    margin-bottom:5px;
 }
 
 .hero-event h3{
+    color:var(--pink);
+
     font-size:17px;
-    margin-top:5px;
-    color:#667085;
+
+    margin-bottom:20px;
 }
 
 .event-info{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin:22px 0;
+    display:grid;
+    gap:9px;
+
+    margin-bottom:20px;
+
+    color:#596579;
+
+    font-size:14px;
 }
 
-.event-info span{
-    background:#f5f6f8;
-    border-radius:30px;
-    padding:8px 12px;
-    font-size:12px;
-    font-weight:600;
-}
-
-.lomba-preview{
+.event-tags{
     display:flex;
     flex-wrap:wrap;
     gap:7px;
 }
 
-.lomba-preview span{
-    background:#fff2f6;
-    color:#c81755;
+.event-tags span{
     padding:6px 10px;
+
     border-radius:8px;
+
+    background:#f5f7fa;
+
+    color:#596579;
+
     font-size:11px;
     font-weight:600;
 }
+
 
 /* =========================================================
    SECTION
@@ -331,7 +418,7 @@ header{
     padding:95px 0;
 }
 
-.section-light{
+.section-white{
     background:#fff;
 }
 
@@ -339,31 +426,44 @@ header{
     background:#f5f7fa;
 }
 
-.section-heading{
-    max-width:700px;
+.section-head{
     margin-bottom:45px;
 }
 
 .eyebrow{
     display:block;
+
     color:var(--pink);
+
     font-size:11px;
+
     font-weight:800;
+
     letter-spacing:2px;
-    margin-bottom:10px;
+
+    text-transform:uppercase;
+
+    margin-bottom:9px;
 }
 
-.section-heading h2{
-    font-size:clamp(32px,4vw,52px);
-    line-height:1.08;
-    letter-spacing:-1.8px;
-    margin-bottom:14px;
+.section-head h2{
+    font-size:42px;
+
+    line-height:1.1;
+
+    letter-spacing:-1.5px;
+
+    color:#151b2b;
+
+    margin-bottom:12px;
 }
 
-.section-heading p{
-    color:#687386;
-    font-size:15px;
+.section-head p{
+    color:var(--muted);
+
+    max-width:650px;
 }
+
 
 /* =========================================================
    ABOUT
@@ -371,61 +471,101 @@ header{
 
 .about-grid{
     display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:70px;
-    align-items:start;
+
+    grid-template-columns:.8fr 1.2fr;
+
+    gap:80px;
 }
 
-.about-title{
-    font-size:46px;
+.about-title h2{
+    font-size:44px;
+
     line-height:1.05;
+
     letter-spacing:-2px;
 }
 
-.about-title span{
+.about-title h2 span{
     color:var(--pink);
 }
 
-.about-text{
-    color:#687386;
+.about-content p{
+    color:var(--muted);
+
     font-size:16px;
+
+    margin-bottom:18px;
 }
 
-.about-text strong{
-    display:block;
-    margin-top:18px;
-    color:#202938;
+.about-content .bold-text{
+    color:#263044;
+
+    font-weight:700;
+
     font-size:18px;
 }
 
 .values{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
-    gap:14px;
-    margin-top:28px;
+
+    gap:15px;
+
+    margin-top:30px;
 }
 
 .value{
-    border:1px solid var(--border);
-    border-radius:18px;
-    padding:20px;
     background:#fff;
+
+    border:1px solid var(--border);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    transition:.25s;
 }
 
-.value .icon{
-    font-size:26px;
-    margin-bottom:10px;
+.value:hover{
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow);
+
+    border-color:#f3c5da;
+}
+
+.value-icon{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:#fff0f7;
+
+    color:var(--pink);
+
+    margin-bottom:14px;
+
+    font-size:20px;
 }
 
 .value h3{
-    font-size:15px;
+    font-size:16px;
+
     margin-bottom:5px;
 }
 
 .value p{
     font-size:12px;
-    color:#7a8494;
+
+    color:var(--muted);
 }
+
 
 /* =========================================================
    KEGIATAN
@@ -433,414 +573,560 @@ header{
 
 .events{
     display:grid;
+
     grid-template-columns:repeat(2,1fr);
+
     gap:20px;
 }
 
 .event-card{
-    background:white;
+    background:#fff;
+
     border:1px solid var(--border);
+
     border-radius:22px;
+
     padding:28px;
+
     transition:.3s;
+
+    position:relative;
 }
 
 .event-card:hover{
     transform:translateY(-5px);
-    box-shadow:0 15px 40px rgba(30,40,60,.08);
+
+    box-shadow:var(--shadow);
+
+    border-color:#f0bfd5;
 }
 
-.event-card .category{
+.event-card.featured{
+    grid-column:1/-1;
+
+    background:
+        linear-gradient(135deg,#fff7fb,#fff);
+
+    border-color:#f4d0df;
+}
+
+.card-category{
     display:inline-block;
-    padding:6px 11px;
-    border-radius:20px;
-    background:#fff1f6;
+
+    padding:5px 10px;
+
+    border-radius:7px;
+
+    background:#fff0f7;
+
     color:var(--pink);
+
     font-size:10px;
+
     font-weight:800;
+
     letter-spacing:.8px;
+
+    margin-bottom:14px;
 }
 
 .event-card h3{
-    margin:15px 0 5px;
     font-size:22px;
+
+    line-height:1.2;
+
+    margin-bottom:5px;
 }
 
-.event-card .age{
-    color:#697386;
+.event-age{
+    color:var(--pink);
+
     font-size:13px;
-    font-weight:600;
+
+    font-weight:700;
+
+    margin-bottom:15px;
 }
 
 .event-details{
-    margin:17px 0;
     display:flex;
+
     flex-wrap:wrap;
+
     gap:8px;
-}
 
-.event-details span{
-    background:#f5f6f8;
-    padding:7px 10px;
-    border-radius:8px;
-    font-size:11px;
-    color:#596273;
-}
-
-.event-card p{
-    color:#727d8e;
-    font-size:13px;
     margin-bottom:18px;
 }
 
-.card-actions{
+.event-details span{
+    background:#f5f7fa;
+
+    padding:6px 9px;
+
+    border-radius:7px;
+
+    color:#596579;
+
+    font-size:11px;
+}
+
+.event-description{
+    color:var(--muted);
+
+    font-size:13px;
+
+    margin-bottom:18px;
+}
+
+.lomba-list{
     display:flex;
-    gap:8px;
+
     flex-wrap:wrap;
+
+    gap:7px;
+
+    margin-bottom:20px;
 }
 
-.btn-small{
-    padding:10px 16px;
-    font-size:12px;
+.lomba-list span{
+    background:#f8fafc;
+
+    border:1px solid #e9edf3;
+
+    border-radius:8px;
+
+    padding:7px 10px;
+
+    font-size:11px;
+
+    color:#596579;
 }
 
-.btn-detail{
-    background:#f2f4f7;
-    color:#374151;
-}
 
 /* =========================================================
    REGISTRATION
 ========================================================= */
 
 .registration{
-    margin-top:70px;
-    background:linear-gradient(135deg,#fff0f5,#fff8df);
-    border-radius:30px;
+    margin-top:35px;
+
     padding:45px;
+
+    border-radius:25px;
+
+    background:
+        linear-gradient(135deg,#fff0f7,#fff9fc);
+
+    border:1px solid #f3d4e1;
+
     display:flex;
-    align-items:center;
+
     justify-content:space-between;
+
+    align-items:center;
+
     gap:30px;
 }
 
 .registration h2{
-    font-size:34px;
-    letter-spacing:-1px;
+    font-size:30px;
+
+    margin-bottom:8px;
 }
 
 .registration p{
-    color:#687386;
-    margin-top:5px;
+    color:var(--muted);
+
+    font-size:14px;
 }
+
 
 /* =========================================================
    ANNOUNCEMENT
 ========================================================= */
 
-.notices{
+.announcement{
     display:grid;
+
     grid-template-columns:repeat(3,1fr);
+
     gap:18px;
 }
 
 .notice{
     background:white;
+
     border:1px solid var(--border);
-    border-radius:20px;
+
+    border-radius:18px;
+
     padding:25px;
+
+    transition:.25s;
+}
+
+.notice:hover{
+    transform:translateY(-4px);
+
+    box-shadow:var(--shadow);
 }
 
 .notice-date{
     color:var(--pink);
+
     font-size:11px;
+
     font-weight:800;
+
+    letter-spacing:1px;
+
+    margin-bottom:12px;
 }
 
 .notice h3{
     font-size:17px;
-    margin:10px 0 6px;
+
+    line-height:1.3;
+
+    margin-bottom:8px;
 }
 
 .notice p{
-    color:#748092;
+    color:var(--muted);
+
     font-size:13px;
 }
 
+
 /* =========================================================
-   ASPIRATION
+   ASPIRASI
 ========================================================= */
 
-.aspiration-grid{
+.aspiration-wrap{
     display:grid;
-    grid-template-columns:.8fr 1.2fr;
-    gap:60px;
-    align-items:start;
+
+    grid-template-columns:.9fr 1.1fr;
+
+    gap:70px;
+
+    align-items:center;
 }
 
-.aspiration-title{
-    font-size:48px;
+.aspiration-text h2{
+    font-size:46px;
+
     line-height:1.05;
+
     letter-spacing:-2px;
+
+    margin-bottom:15px;
 }
 
-.aspiration-title span{
+.aspiration-text h2 span{
     color:var(--pink);
 }
 
-.aspiration-copy{
-    color:#687386;
-    margin-top:15px;
+.aspiration-text p{
+    color:var(--muted);
+
+    max-width:470px;
 }
 
-.contact-box{
-    margin-top:25px;
-    padding:18px;
-    background:#fff0f5;
-    border-radius:16px;
-    color:#b91852;
-    font-weight:800;
-}
+.form-card{
+    background:#fff;
 
-.form-box{
-    background:white;
     border:1px solid var(--border);
-    border-radius:25px;
-    padding:30px;
-    box-shadow:0 15px 45px rgba(20,30,50,.06);
-}
 
-.form-box h3{
-    margin-bottom:20px;
-    font-size:20px;
+    border-radius:24px;
+
+    padding:30px;
+
+    box-shadow:var(--shadow);
 }
 
 .form-group{
-    margin-bottom:16px;
+    margin-bottom:17px;
 }
 
 .form-group label{
     display:block;
+
     font-size:12px;
+
     font-weight:700;
+
+    color:#344054;
+
     margin-bottom:7px;
 }
 
 .form-group input,
-.form-group select,
-.form-group textarea{
+.form-group textarea,
+.form-group select{
     width:100%;
-    border:1px solid #dfe3e8;
-    border-radius:12px;
+
     padding:12px 14px;
+
+    border-radius:10px;
+
+    border:1px solid #dfe3e9;
+
     outline:none;
+
     font-size:13px;
-    color:#283242;
-    background:#fbfcfd;
+
+    background:#fbfcfe;
+
+    color:#172033;
+
     transition:.2s;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus{
-    border-color:var(--pink);
-    background:white;
-}
-
 .form-group textarea{
+    min-height:120px;
+
     resize:vertical;
 }
 
-.form-message{
-    display:none;
-    margin-top:15px;
-    padding:12px;
-    background:#ecfdf3;
-    color:#15803d;
-    border-radius:10px;
-    font-size:12px;
-    font-weight:600;
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus{
+    border-color:var(--pink);
+
+    box-shadow:0 0 0 3px rgba(232,62,140,.08);
+
+    background:white;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
+.form-note{
+    color:#98a2b3;
 
-footer{
-    background:#151a24;
-    color:white;
-    padding:65px 0 25px;
-}
-
-.footer-grid{
-    display:grid;
-    grid-template-columns:1.5fr 1fr 1fr;
-    gap:50px;
-}
-
-.footer-logo{
-    display:flex;
-    align-items:center;
-    gap:12px;
-}
-
-.footer-logo img{
-    width:50px;
-    height:50px;
-    border-radius:50%;
-    object-fit:cover;
-}
-
-.footer-brand h3{
-    font-size:18px;
-}
-
-.footer-brand p{
-    color:#929bab;
-    font-size:13px;
-    max-width:360px;
-    margin-top:15px;
-}
-
-.footer-column h4{
-    font-size:12px;
-    letter-spacing:1.5px;
-    margin-bottom:15px;
-    color:#fff;
-}
-
-.footer-column a{
-    display:block;
-    color:#929bab;
-    font-size:13px;
-    margin:8px 0;
-}
-
-.footer-column a:hover{
-    color:white;
-}
-
-.social{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-}
-
-.social-link{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.social-link img{
-    width:20px;
-    height:20px;
-    object-fit:contain;
-}
-
-.copyright{
-    border-top:1px solid rgba(255,255,255,.08);
-    margin-top:45px;
-    padding-top:20px;
-    text-align:center;
-    color:#777f8f;
     font-size:11px;
+
+    margin-top:10px;
 }
 
+
 /* =========================================================
-   MODAL
+   MODAL PENDAFTARAN
 ========================================================= */
 
 .modal{
     position:fixed;
+
     inset:0;
-    background:rgba(15,20,30,.55);
-    backdrop-filter:blur(7px);
-    display:none;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
+
     z-index:2000;
+
+    background:rgba(15,23,42,.45);
+
+    backdrop-filter:blur(8px);
+
+    display:none;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
 }
 
 .modal.show{
     display:flex;
 }
 
-.modal-content{
-    width:min(550px,100%);
+.modal-box{
+    width:min(520px,100%);
+
     max-height:90vh;
-    overflow-y:auto;
-    background:white;
-    border-radius:25px;
+
+    overflow:auto;
+
+    background:#fff;
+
+    border-radius:24px;
+
     padding:30px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.2);
+
     position:relative;
 }
 
-.close{
+.modal-close{
     position:absolute;
-    top:15px;
-    right:18px;
-    width:34px;
-    height:34px;
+
+    right:20px;
+    top:18px;
+
     border:0;
+
+    background:#f3f5f7;
+
+    width:36px;
+    height:36px;
+
     border-radius:50%;
-    background:#f1f3f6;
+
     cursor:pointer;
+
     font-size:18px;
 }
 
-.modal-content h2{
+.modal-box h2{
     font-size:25px;
+
     margin-bottom:5px;
+
+    padding-right:40px;
 }
 
-.modal-subtitle{
-    color:#758093;
+.modal-box .modal-subtitle{
+    color:var(--muted);
+
     font-size:13px;
-    margin-bottom:22px;
+
+    margin-bottom:25px;
 }
 
-.lomba-detail{
-    margin-bottom:20px;
-    padding:16px;
-    background:#f7f8fa;
-    border-radius:15px;
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+    background:#fff;
+
+    border-top:1px solid var(--border);
+
+    padding:60px 0 25px;
 }
 
-.lomba-detail h4{
-    margin-bottom:8px;
-    font-size:14px;
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:1.5fr .7fr 1fr;
+
+    gap:50px;
+
+    margin-bottom:45px;
 }
 
-.lomba-detail ul{
-    padding-left:20px;
+.footer-brand{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:15px;
+}
+
+.footer-brand img{
+    width:48px;
+    height:48px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+}
+
+.footer h3{
+    font-size:16px;
+
+    margin-bottom:14px;
+}
+
+.footer p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    max-width:330px;
+}
+
+.footer-links{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+}
+
+.footer-links a{
     color:#667085;
+
     font-size:13px;
 }
 
-.lomba-detail li{
-    margin:4px 0;
+.footer-links a:hover{
+    color:var(--pink);
 }
+
+.social{
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+}
+
+.social a{
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:#667085;
+
+    font-size:13px;
+
+    font-weight:600;
+}
+
+.social svg{
+    width:21px;
+    height:21px;
+
+    flex-shrink:0;
+}
+
+.copyright{
+    border-top:1px solid var(--border);
+
+    padding-top:22px;
+
+    text-align:center;
+
+    color:#98a2b3;
+
+    font-size:11px;
+}
+
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-@media(max-width:850px){
+@media(max-width:900px){
 
     .nav-links{
         position:absolute;
+
         top:78px;
-        left:20px;
-        right:20px;
-        background:white;
-        border:1px solid var(--border);
-        border-radius:18px;
-        padding:12px;
+        left:0;
+        right:0;
+
+        background:#fff;
+
+        border-bottom:1px solid var(--border);
+
+        padding:15px;
+
         display:none;
+
         flex-direction:column;
-        box-shadow:0 15px 40px rgba(0,0,0,.08);
     }
 
     .nav-links.open{
@@ -849,6 +1135,7 @@ footer{
 
     .nav-links a{
         width:100%;
+
         text-align:center;
     }
 
@@ -858,71 +1145,94 @@ footer{
 
     .hero-grid,
     .about-grid,
-    .aspiration-grid{
+    .aspiration-wrap{
         grid-template-columns:1fr;
     }
 
-    .hero{
-        padding-top:125px;
+    .hero-grid{
+        gap:45px;
+    }
+
+    .about-grid{
+        gap:35px;
     }
 
     .events{
         grid-template-columns:1fr;
     }
 
-    .notices{
+    .event-card.featured{
+        grid-column:auto;
+    }
+
+    .announcement{
         grid-template-columns:1fr;
     }
 
     .footer-grid{
-        grid-template-columns:1fr;
-        gap:30px;
+        grid-template-columns:1fr 1fr;
     }
 
     .registration{
         flex-direction:column;
+
         align-items:flex-start;
-        padding:30px;
     }
 }
 
-@media(max-width:550px){
+@media(max-width:600px){
 
-    .container{
-        width:min(100% - 28px,1180px);
+    .section{
+        padding:70px 0;
+    }
+
+    .hero{
+        padding:125px 0 65px;
     }
 
     .hero h1{
         font-size:43px;
+
         letter-spacing:-2px;
     }
 
-    .about-title,
-    .aspiration-title{
-        font-size:36px;
+    .hero-desc{
+        font-size:15px;
+    }
+
+    .section-head h2,
+    .about-title h2{
+        font-size:34px;
     }
 
     .values{
         grid-template-columns:1fr;
     }
 
-    .hero-event{
-        padding:24px;
+    .registration{
+        padding:28px;
     }
 
     .registration h2{
-        font-size:28px;
+        font-size:25px;
     }
 
-    .section{
-        padding:70px 0;
+    .aspiration-text h2{
+        font-size:36px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+        gap:30px;
     }
 }
 
 </style>
 </head>
 
+
 <body>
+
 
 <!-- ======================================================
      HEADER
@@ -934,24 +1244,30 @@ footer{
 
 <a href="#beranda" class="logo-area">
 
-<img src="logo-rt010.png" alt="Logo RT 010">
+<img src="logo-rt010.png" alt="Logo Anak Kampung RT 010">
 
 <div class="logo-text">
-<strong>ANAK KAMPUNG <span style="color:#e91e63">RT 010</span></strong>
-<span>BERSAMA • BERGERAK • BERKARYA</span>
+<strong>ANAK KAMPUNG <span style="color:#e83e8c;">RT 010</span></strong>
+<span>Bareng • Bergerak • Berkarya</span>
 </div>
 
 </a>
 
+
 <button class="menu-btn" onclick="toggleMenu()">☰</button>
 
+
 <nav class="nav-links" id="navLinks">
+
 <a href="#beranda">Beranda</a>
 <a href="#tentang">Tentang Kami</a>
 <a href="#kegiatan">Kegiatan</a>
 <a href="#pendaftaran">Pendaftaran</a>
 <a href="#pengumuman">Pengumuman</a>
 <a href="#aspirasi">Aspirasi</a>
+
+<a href="#pendaftaran" class="nav-cta">Daftar Sekarang</a>
+
 </nav>
 
 </div>
@@ -959,7 +1275,6 @@ footer{
 </header>
 
 
-<main>
 
 <!-- ======================================================
      HERO
@@ -969,27 +1284,36 @@ footer{
 
 <div class="container hero-grid">
 
+
 <div>
 
-<span class="badge">ANAK KAMPUNG RT 010</span>
+<span class="hero-label">
+ANAK KAMPUNG RT 010
+</span>
+
 
 <h1>
-BARENG-BARENG,<br>
-<span>BIKIN LINGKUNGAN LEBIH SERU.</span>
+BARENG-BARENG,
+<br>
+<span>BIKIN LINGKUNGAN</span>
+<br>
+LEBIH SERU.
 </h1>
+
 
 <p class="hero-desc">
 Ruang bagi pemuda-pemudi RT 010 untuk berkarya,
 berkolaborasi, dan bikin kegiatan yang berdampak.
 </p>
 
-<div class="buttons">
+
+<div class="hero-buttons">
 
 <a href="#kegiatan" class="btn btn-primary">
 Lihat Kegiatan →
 </a>
 
-<a href="#tentang" class="btn btn-outline">
+<a href="#tentang" class="btn btn-secondary">
 Tentang Kami
 </a>
 
@@ -998,27 +1322,41 @@ Tentang Kami
 </div>
 
 
+
+<!-- EVENT TERDEKAT -->
+
 <div class="hero-event">
 
 <div class="event-label">
 🇮🇩 EVENT TERDEKAT
 </div>
 
-<h2>SEMARAK KEMERDEKAAN</h2>
+<h2>
+SEMARAK KEMERDEKAAN
+</h2>
 
-<h3>Lomba Anak 4–6 Tahun</h3>
+<h3>
+Lomba Anak 4–6 Tahun
+</h3>
+
 
 <div class="event-info">
 
-<span>📅 15 Agustus 2026</span>
-<span>⏰ 09.00 WIB</span>
-<span>📍 Balai Warga RW 007</span>
+<span>📅 <strong>15 Agustus 2026</strong></span>
+
+<span>⏰ <strong>09.00 WIB</strong></span>
+
+<span>📍 <strong>Balai Warga RW 007</strong></span>
 
 </div>
 
-<strong>5 Lomba Seru</strong>
 
-<div class="lomba-preview">
+<div class="event-label">
+5 LOMBA SERU
+</div>
+
+
+<div class="event-tags">
 
 <span>Masukin Bendera ke Botol</span>
 <span>Masukin Paku ke Botol</span>
@@ -1028,71 +1366,100 @@ Tentang Kami
 
 </div>
 
-<br>
-
-<button class="btn btn-primary btn-small"
-onclick="openModal('anak46')">
-Lihat Detail →
-</button>
-
 </div>
 
 </div>
 
 </section>
+
 
 
 <!-- ======================================================
      TENTANG
 ====================================================== -->
 
-<section class="section section-light" id="tentang">
+<section class="section section-white" id="tentang">
 
-<div class="container about-grid">
+<div class="container">
 
-<div>
+<div class="about-grid">
 
-<span class="eyebrow">TENTANG KAMI</span>
 
-<h2 class="about-title">
-BUKAN SEKADAR KUMPUL.<br>
+<div class="about-title">
+
+<span class="eyebrow">
+TENTANG KAMI
+</span>
+
+<h2>
+BUKAN SEKADAR KUMPUL.
+<br>
 <span>KITA BIKIN GERAKAN.</span>
 </h2>
 
 </div>
 
-<div class="about-text">
+
+<div class="about-content">
 
 <p>
-Anak Kampung RT 010 adalah ruang bersama bagi pemuda-pemudi
-untuk berkreasi, berkolaborasi, dan ikut membangun lingkungan.
+Anak Kampung RT 010 adalah ruang bersama bagi
+pemuda-pemudi untuk berkreasi, berkolaborasi,
+dan ikut membangun lingkungan.
 </p>
 
 <p>
-Mulai dari kegiatan sosial, olahraga, lingkungan, sampai acara warga—
-semuanya berawal dari satu hal:
+Mulai dari kegiatan sosial, olahraga, lingkungan,
+sampai acara warga—semuanya berawal dari satu hal:
 </p>
 
-<strong>mau bergerak bareng.</strong>
+<p class="bold-text">
+mau bergerak bareng.
+</p>
+
 
 <div class="values">
 
+
 <div class="value">
-<div class="icon">🤝</div>
+
+<div class="value-icon">🤝</div>
+
 <h3>Solidaritas</h3>
-<p>Saling dukung dan saling bantu.</p>
+
+<p>
+Saling dukung dan saling bantu.
+</p>
+
 </div>
 
+
 <div class="value">
-<div class="icon">💡</div>
+
+<div class="value-icon">💡</div>
+
 <h3>Kreativitas</h3>
-<p>Berani punya ide dan bikin sesuatu.</p>
+
+<p>
+Berani punya ide dan bikin sesuatu.
+</p>
+
 </div>
 
+
 <div class="value">
-<div class="icon">🔥</div>
+
+<div class="value-icon">🚀</div>
+
 <h3>Kolaborasi</h3>
-<p>Karena hal besar lebih seru kalau dikerjakan bersama.</p>
+
+<p>
+Karena hal besar lebih seru kalau dikerjakan bersama.
+</p>
+
+</div>
+
+
 </div>
 
 </div>
@@ -1102,6 +1469,7 @@ semuanya berawal dari satu hal:
 </div>
 
 </section>
+
 
 
 <!-- ======================================================
@@ -1112,17 +1480,23 @@ semuanya berawal dari satu hal:
 
 <div class="container">
 
-<div class="section-heading">
+<div class="section-head">
 
-<span class="eyebrow">KEGIATAN</span>
+<span class="eyebrow">
+KEGIATAN
+</span>
 
-<h2>APA YANG LAGI KITA LAKUKAN?</h2>
+<h2>
+APA YANG LAGI KITA LAKUKAN?
+</h2>
 
 <p>
-Bukan cuma satu acara. Ada banyak keseruan yang menunggu.
+Bukan cuma satu acara. Ada banyak keseruan
+yang menunggu untuk diramaikan bersama.
 </p>
 
 </div>
+
 
 
 <div class="events">
@@ -1130,244 +1504,319 @@ Bukan cuma satu acara. Ada banyak keseruan yang menunggu.
 
 <!-- LOMBA 4-6 -->
 
-<div class="event-card">
+<article class="event-card featured">
 
-<span class="category">LOMBA ANAK</span>
+<span class="card-category">
+LOMBA ANAK
+</span>
 
-<h3>Lomba Anak 4–6 Tahun</h3>
+<h3>
+Lomba Anak 4–6 Tahun
+</h3>
 
-<div class="age">Usia 4–6 Tahun</div>
+<div class="event-age">
+Usia 4–6 Tahun
+</div>
+
 
 <div class="event-details">
+
 <span>📅 15 Agustus 2026</span>
 <span>⏰ 09.00 WIB</span>
 <span>📍 Balai Warga RW 007</span>
+
 </div>
 
-<p>
-5 perlombaan seru untuk anak-anak.
-</p>
 
-<div class="card-actions">
+<div class="lomba-list">
 
-<button class="btn btn-small btn-detail"
-onclick="openModal('anak46')">
-Lihat Detail
+<span>Bendera ke Botol</span>
+<span>Paku ke Botol</span>
+<span>Kelereng</span>
+<span>Jepit Balon</span>
+<span>Makan Kerupuk</span>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="openRegistration('Lomba Anak 4–6 Tahun')">
+
+Daftar Lomba →
+
 </button>
 
-<button class="btn btn-small btn-primary"
-onclick="openRegister('Lomba Anak 4–6 Tahun')">
-Daftar Lomba
-</button>
+</article>
 
-</div>
-
-</div>
 
 
 <!-- LOMBA 7-10 -->
 
-<div class="event-card">
+<article class="event-card">
 
-<span class="category">LOMBA ANAK</span>
+<span class="card-category">
+LOMBA ANAK
+</span>
 
-<h3>Lomba Anak 7–10 Tahun</h3>
+<h3>
+Lomba Anak 7–10 Tahun
+</h3>
 
-<div class="age">Usia 7–10 Tahun</div>
+<div class="event-age">
+Usia 7–10 Tahun
+</div>
+
 
 <div class="event-details">
+
 <span>📅 16–17 Agustus 2026</span>
 <span>⏰ 08.00 WIB</span>
 <span>📍 Balai Warga RW 007</span>
+
 </div>
 
-<p>
-Permainan seru untuk anak usia sekolah.
-</p>
 
-<div class="card-actions">
+<div class="lomba-list">
 
-<button class="btn btn-small btn-detail"
-onclick="openModal('anak710')">
-Lihat Detail
+<span>Balap Karung</span>
+<span>Makan Kerupuk</span>
+<span>Rebutan Bangku</span>
+<span>Tiup Gelas</span>
+<span>Bakiak</span>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="openRegistration('Lomba Anak 7–10 Tahun')">
+
+Daftar Lomba →
+
 </button>
 
-<button class="btn btn-small btn-primary"
-onclick="openRegister('Lomba Anak 7–10 Tahun')">
-Daftar Lomba
-</button>
+</article>
 
-</div>
-
-</div>
 
 
 <!-- REMAJA -->
 
-<div class="event-card">
+<article class="event-card">
 
-<span class="category">LOMBA REMAJA</span>
+<span class="card-category">
+LOMBA REMAJA
+</span>
 
-<h3>Lomba Remaja</h3>
+<h3>
+Lomba Remaja
+</h3>
 
-<div class="age">Usia 11–17 Tahun</div>
+<div class="event-age">
+Usia 11–17 Tahun
+</div>
+
 
 <div class="event-details">
+
 <span>📅 16–17 Agustus 2026</span>
 <span>⏰ 08.00 WIB</span>
 <span>📍 Balai Warga RW 007</span>
+
 </div>
 
-<p>
-Saatnya adu kekompakan, kecepatan, dan keseruan.
-</p>
 
-<div class="card-actions">
+<div class="lomba-list">
 
-<button class="btn btn-small btn-detail"
-onclick="openModal('remaja')">
-Lihat Detail
+<span>Balap Karung Helm</span>
+<span>Makan Kerupuk</span>
+<span>Rebutan Bangku</span>
+<span>Pecah Balon Air</span>
+<span>Bakiak</span>
+<span>Bola Master</span>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+onclick="openRegistration('Lomba Remaja 11–17 Tahun')">
+
+Daftar Lomba →
+
 </button>
 
-<button class="btn btn-small btn-primary"
-onclick="openRegister('Lomba Remaja 11–17 Tahun')">
-Daftar Lomba
-</button>
+</article>
 
-</div>
-
-</div>
 
 
 <!-- BAPAK -->
 
-<div class="event-card">
+<article class="event-card">
 
-<span class="category">LOMBA BAPAK-BAPAK</span>
+<span class="card-category">
+LOMBA BAPAK-BAPAK
+</span>
 
-<h3>Lomba Bapak-Bapak</h3>
+<h3>
+Lomba Bapak-Bapak
+</h3>
 
-<div class="age">8–17 Agustus 2026</div>
+<div class="event-age">
+8–17 Agustus 2026
+</div>
 
-<div class="event-details">
+
+<div class="lomba-list">
+
 <span>🏓 Tenis Meja</span>
 <span>♟️ Catur</span>
 <span>🃏 Gaple</span>
+<span>👟 Bakiak</span>
+<span>💪 Tarik Tambang</span>
+<span>⚽ Main Bola Dasar</span>
+
 </div>
 
-<p>
-Bakiak · Tarik Tambang · Main Bola Dasar
-</p>
 
-<div class="card-actions">
+<button
+class="btn btn-primary"
+onclick="openRegistration('Lomba Bapak-Bapak')">
 
-<button class="btn btn-small btn-detail"
-onclick="openModal('bapak')">
-Lihat Detail
+Daftar Lomba →
+
 </button>
 
-<button class="btn btn-small btn-primary"
-onclick="openRegister('Lomba Bapak-Bapak')">
-Daftar Lomba
-</button>
+</article>
 
-</div>
-
-</div>
 
 
 <!-- TUMPENG -->
 
-<div class="event-card">
+<article class="event-card">
 
-<span class="category">LOMBA WARGA</span>
+<span class="card-category">
+LOMBA WARGA
+</span>
 
-<h3>Lomba Tumpeng</h3>
+<h3>
+Lomba Tumpeng
+</h3>
 
-<div class="age">17 Agustus 2026</div>
-
-<div class="event-details">
-<span>🏆 Kreativitas</span>
-<span>🍚 Rasa</span>
-<span>✨ Penyajian</span>
+<div class="event-age">
+17 Agustus 2026
 </div>
 
-<p>
+
+<p class="event-description">
 Satu RT, satu kreasi terbaik.
 </p>
 
-<div class="card-actions">
 
-<button class="btn btn-small btn-detail"
-onclick="openModal('tumpeng')">
-Lihat Detail
-</button>
+<div class="lomba-list">
 
-<button class="btn btn-small btn-primary"
-onclick="openRegister('Lomba Tumpeng')">
-Daftar Lomba
-</button>
+<span>🏆 Kreativitas</span>
+<span>🍚 Rasa</span>
+<span>✨ Penyajian</span>
 
 </div>
 
-</div>
+
+<button
+class="btn btn-primary"
+onclick="openRegistration('Lomba Tumpeng')">
+
+Daftar Lomba →
+
+</button>
+
+</article>
+
 
 
 <!-- KARAOKE -->
 
-<div class="event-card">
+<article class="event-card">
 
-<span class="category">HIBURAN</span>
+<span class="card-category">
+HIBURAN
+</span>
 
-<h3>Lomba Karaoke</h3>
+<h3>
+Lomba Karaoke
+</h3>
 
-<div class="age">22 Agustus 2026 · 09.00 WIB</div>
-
-<div class="event-details">
-<span>🎤 Punya suara?</span>
-<span>🎶 Naik panggung!</span>
+<div class="event-age">
+22 Agustus 2026 · 09.00 WIB
 </div>
 
-<p>
-Saatnya menunjukkan suara terbaik kamu.
+
+<p class="event-description">
+
+Punya suara?
+
+<br>
+
+<strong>Saatnya naik panggung. 🎤</strong>
+
 </p>
 
-<div class="card-actions">
 
-<button class="btn btn-small btn-detail"
-onclick="openModal('karaoke')">
-Lihat Detail
+<button
+class="btn btn-primary"
+onclick="openRegistration('Lomba Karaoke')">
+
+Daftar Lomba →
+
 </button>
 
-<button class="btn btn-small btn-primary"
-onclick="openRegister('Lomba Karaoke')">
-Daftar Lomba
-</button>
+</article>
+
 
 </div>
 
 </div>
 
-</div>
+</section>
 
 
-<!-- PENDAFTARAN -->
 
-<div class="registration" id="pendaftaran">
+<!-- ======================================================
+     PENDAFTARAN
+====================================================== -->
+
+<section class="section section-white" id="pendaftaran">
+
+<div class="container">
+
+<div class="registration">
 
 <div>
 
-<h2>MAU IKUT RAMAI-RAMAI?</h2>
+<span class="eyebrow">
+PENDAFTARAN
+</span>
+
+<h2>
+MAU IKUT RAMAI-RAMAI?
+</h2>
 
 <p>
-Jangan cuma jadi penonton. Ikut ambil bagian
-dalam kegiatan Anak Kampung RT 010.
+Jangan cuma jadi penonton.
+<br>
+Ikut ambil bagian dalam kegiatan Anak Kampung RT 010.
 </p>
 
 </div>
 
-<a href="#kegiatan" class="btn btn-primary">
-DAFTAR LOMBA →
+
+<a
+href="https://wa.me/6285156889002?text=Halo%20Anak%20Kampung%20RT%20010,%20saya%20ingin%20mendaftar%20kegiatan."
+target="_blank"
+class="btn btn-whatsapp">
+
+💬 Daftar via WhatsApp →
+
 </a>
 
 </div>
@@ -1377,32 +1826,44 @@ DAFTAR LOMBA →
 </section>
 
 
+
 <!-- ======================================================
      PENGUMUMAN
 ====================================================== -->
 
-<section class="section section-light" id="pengumuman">
+<section class="section section-gray" id="pengumuman">
 
 <div class="container">
 
-<div class="section-heading">
+<div class="section-head">
 
-<span class="eyebrow">PENGUMUMAN</span>
+<span class="eyebrow">
+INFO TERBARU
+</span>
 
-<h2>INFO TERBARU</h2>
+<h2>
+PENGUMUMAN
+</h2>
 
 </div>
 
-<div class="notices">
+
+<div class="announcement">
+
 
 <div class="notice">
 
-<div class="notice-date">15 AGUSTUS</div>
+<div class="notice-date">
+15 AGUSTUS
+</div>
 
-<h3>Persiapan kegiatan 17 Agustus</h3>
+<h3>
+Persiapan kegiatan 17 Agustus
+</h3>
 
 <p>
-Seluruh panitia diharapkan hadir untuk membantu persiapan acara.
+Seluruh panitia diharapkan hadir untuk membantu
+persiapan acara.
 </p>
 
 </div>
@@ -1410,9 +1871,13 @@ Seluruh panitia diharapkan hadir untuk membantu persiapan acara.
 
 <div class="notice">
 
-<div class="notice-date">17 AGUSTUS</div>
+<div class="notice-date">
+17 AGUSTUS
+</div>
 
-<h3>Semarak Kemerdekaan RT 010</h3>
+<h3>
+Semarak Kemerdekaan RT 010
+</h3>
 
 <p>
 Saatnya merayakan kemerdekaan bersama warga.
@@ -1423,15 +1888,21 @@ Saatnya merayakan kemerdekaan bersama warga.
 
 <div class="notice">
 
-<div class="notice-date">INFO WARGA</div>
+<div class="notice-date">
+INFO WARGA
+</div>
 
-<h3>Punya ide kegiatan?</h3>
+<h3>
+Punya ide kegiatan?
+</h3>
 
 <p>
-Punya usulan yang menarik? Sampaikan melalui WhatsApp.
+Punya usulan yang menarik?
+Sampaikan melalui WhatsApp.
 </p>
 
 </div>
+
 
 </div>
 
@@ -1440,57 +1911,55 @@ Punya usulan yang menarik? Sampaikan melalui WhatsApp.
 </section>
 
 
+
 <!-- ======================================================
      ASPIRASI
 ====================================================== -->
 
-<section class="section section-gray" id="aspirasi">
+<section class="section section-white" id="aspirasi">
 
-<div class="container aspiration-grid">
+<div class="container aspiration-wrap">
 
-<div>
 
-<span class="eyebrow">ASPIRASI</span>
+<div class="aspiration-text">
 
-<h2 class="aspiration-title">
-PUNYA IDE?<br>
+<span class="eyebrow">
+SUARA WARGA
+</span>
+
+<h2>
+PUNYA IDE?
+<br>
 <span>JANGAN CUMA DIOMONGIN.</span>
 </h2>
 
-<p class="aspiration-copy">
-Punya usulan kegiatan, kritik, atau ide baru untuk lingkungan?
+<p>
+Punya usulan kegiatan, kritik, atau ide baru
+untuk lingkungan?
 </p>
 
-<div class="contact-box">
-💬 0851-5688-9002
-</div>
-
-<br>
-
-<a
-href="https://wa.me/6285156889002"
-target="_blank"
-class="btn btn-whatsapp">
-CHAT VIA WHATSAPP →
-</a>
+<p style="margin-top:12px;">
+Bicarakan. Kirim. Kita gerakkan bersama.
+</p>
 
 </div>
 
 
-<div class="form-box">
 
-<h3>Kirim Aspirasi</h3>
+<div class="form-card">
 
 <form id="aspirationForm">
 
 <div class="form-group">
 
-<label>Nama</label>
+<label>
+Nama
+</label>
 
 <input
 type="text"
-id="aspName"
-placeholder="Masukkan nama kamu"
+id="aspNama"
+placeholder="Masukkan nama"
 required>
 
 </div>
@@ -1498,27 +1967,17 @@ required>
 
 <div class="form-group">
 
-<label>Nomor WhatsApp</label>
+<label>
+Kategori
+</label>
 
-<input
-type="tel"
-id="aspPhone"
-placeholder="Contoh: 085156889002"
-required>
-
-</div>
-
-
-<div class="form-group">
-
-<label>Kategori</label>
-
-<select id="aspCategory">
+<select id="aspKategori">
 
 <option>Kegiatan</option>
 <option>Lingkungan</option>
 <option>Sosial</option>
 <option>Olahraga</option>
+<option>Kritik & Saran</option>
 <option>Lainnya</option>
 
 </select>
@@ -1528,24 +1987,31 @@ required>
 
 <div class="form-group">
 
-<label>Aspirasi / Usulan</label>
+<label>
+Aspirasi / Usulan
+</label>
 
 <textarea
-id="aspMessage"
-rows="5"
+id="aspPesan"
 placeholder="Tulis ide atau aspirasi kamu..."
 required></textarea>
 
 </div>
 
 
-<button class="btn btn-primary" type="submit">
-KIRIM ASPIRASI →
+<button
+type="submit"
+class="btn btn-primary"
+style="width:100%;">
+
+💬 Kirim Aspirasi →
+
 </button>
 
-<div class="form-message" id="aspSuccess">
-Aspirasi siap dikirim melalui WhatsApp.
-</div>
+
+<p class="form-note">
+Aspirasi akan diteruskan melalui WhatsApp pengurus.
+</p>
 
 </form>
 
@@ -1555,7 +2021,6 @@ Aspirasi siap dikirim melalui WhatsApp.
 
 </section>
 
-</main>
 
 
 <!-- ======================================================
@@ -1566,27 +2031,37 @@ Aspirasi siap dikirim melalui WhatsApp.
 
 <div class="container footer-grid">
 
-<div class="footer-brand">
 
-<div class="footer-logo">
+<div>
+
+<div class="footer-brand">
 
 <img src="logo-rt010.png" alt="Logo RT 010">
 
-<h3>ANAK KAMPUNG<br>RT 010</h3>
+<strong>
+ANAK KAMPUNG<br>
+<span style="color:#e83e8c;">RT 010</span>
+</strong>
 
 </div>
 
+
 <p>
-Bersama, bergerak, dan berkarya untuk
-lingkungan yang lebih baik.
+Bersama, bergerak, dan berkarya
+untuk lingkungan yang lebih baik.
 </p>
 
 </div>
 
 
-<div class="footer-column">
 
-<h4>NAVIGASI</h4>
+<div>
+
+<h3>
+NAVIGASI
+</h3>
+
+<div class="footer-links">
 
 <a href="#tentang">Tentang Kami</a>
 <a href="#kegiatan">Kegiatan</a>
@@ -1596,57 +2071,87 @@ lingkungan yang lebih baik.
 
 </div>
 
+</div>
 
-<div class="footer-column">
 
-<h4>FOLLOW US</h4>
+
+<div>
+
+<h3>
+FOLLOW US
+</h3>
+
 
 <div class="social">
 
+
+<!-- INSTAGRAM -->
+
 <a
-class="social-link"
-href="https://instagram.com/anakkampungcbs_010"
+href="https://www.instagram.com/anakkampungcbs_010/"
 target="_blank">
 
-<!-- LOGO INSTAGRAM RESMI -->
-<img
-src="https://cdn.simpleicons.org/instagram/E4405F"
-alt="Instagram">
+<svg viewBox="0 0 24 24" fill="none"
+stroke="currentColor" stroke-width="2">
 
-<span>@anakkampungcbs_010</span>
+<rect x="3" y="3" width="18" height="18" rx="5"></rect>
+
+<circle cx="12" cy="12" r="4"></circle>
+
+<circle cx="17.5" cy="6.5" r="1"></circle>
+
+</svg>
+
+Instagram
+@anakkampungcbs_010
 
 </a>
 
 
+
+<!-- TIKTOK -->
+
 <a
-class="social-link"
-href="https://tiktok.com/@anakkampungcbs_010"
+href="https://www.tiktok.com/@anakkampungcbs_010"
 target="_blank">
 
-<!-- LOGO TIKTOK RESMI -->
-<img
-src="https://cdn.simpleicons.org/tiktok/111111"
-alt="TikTok">
+<svg viewBox="0 0 24 24"
+fill="currentColor">
 
-<span>@anakkampungcbs_010</span>
+<path d="M16.5 3c.3 1.7 1.3 3 3 3.5v3.2c-1.2 0-2.4-.4-3.4-1.1v6.5c0 3.4-2.7 5.9-6.1 5.9S4 18.8 4 15.4c0-3.4 2.8-5.9 6.2-5.9.3 0 .7 0 1 .1v3.3c-.3-.1-.6-.2-1-.2-1.4 0-2.7 1.1-2.7 2.7 0 1.5 1.2 2.7 2.7 2.7s2.8-1.1 2.8-2.7V3h3.5z"></path>
+
+</svg>
+
+TikTok
+@anakkampungcbs_010
 
 </a>
 
 
+
+<!-- WHATSAPP -->
+
 <a
-class="social-link"
 href="https://wa.me/6285156889002"
 target="_blank">
 
-<span style="font-size:20px">💬</span>
+<svg viewBox="0 0 24 24"
+fill="currentColor">
 
-<span>0851-5688-9002</span>
+<path d="M12 2a9.9 9.9 0 0 0-8.6 14.8L2 22l5.4-1.4A10 10 0 1 0 12 2zm0 18a8 8 0 0 1-4-1.1l-.3-.2-3.2.8.9-3.1-.2-.3A8 8 0 1 1 12 20zm4.4-5.8c-.2-.1-1.3-.6-1.5-.7-.2-.1-.4-.1-.5.1-.2.2-.5.7-.6.8-.1.2-.3.2-.5.1-1.4-.7-2.4-1.3-3.4-2.8-.2-.3.2-.3.5-1 .1-.2.1-.3 0-.5 0-.1-.5-1.2-.7-1.7-.2-.4-.4-.4-.5-.4h-.4c-.2 0-.5.1-.7.3-.2.2-.8.8-.8 2s.8 2.3.9 2.4c.1.2 1.6 2.5 3.9 3.5 1.4.6 1.9.7 2.6.6.4-.1 1.3-.5 1.5-.9.2-.4.2-.8.1-.9-.1-.1-.2-.1-.4-.2z"></path>
+
+</svg>
+
+WhatsApp
+0851-5688-9002
 
 </a>
 
+
 </div>
 
 </div>
+
 
 </div>
 
@@ -1660,62 +2165,47 @@ target="_blank">
 </footer>
 
 
-<!-- ======================================================
-     MODAL DETAIL LOMBA
-====================================================== -->
-
-<div class="modal" id="detailModal">
-
-<div class="modal-content">
-
-<button class="close" onclick="closeModal()">×</button>
-
-<h2 id="modalTitle"></h2>
-
-<div class="modal-subtitle" id="modalInfo"></div>
-
-<div id="modalBody"></div>
-
-<button
-class="btn btn-primary"
-id="modalRegister"
-style="width:100%;margin-top:10px">
-
-DAFTAR LOMBA →
-
-</button>
-
-</div>
-
-</div>
-
 
 <!-- ======================================================
      MODAL PENDAFTARAN
 ====================================================== -->
 
-<div class="modal" id="registerModal">
+<div class="modal" id="registrationModal">
 
-<div class="modal-content">
+<div class="modal-box">
 
-<button class="close" onclick="closeRegister()">×</button>
 
-<h2>Form Pendaftaran</h2>
+<button
+class="modal-close"
+onclick="closeRegistration()">
 
-<div class="modal-subtitle" id="registerCategory">
-</div>
+×
+</button>
+
+
+<h2 id="modalTitle">
+Pendaftaran Lomba
+</h2>
+
+<p class="modal-subtitle">
+Isi data berikut. Setelah klik daftar,
+data akan otomatis diarahkan ke WhatsApp pengurus.
+</p>
 
 
 <form id="registrationForm">
 
+
 <div class="form-group">
 
-<label>Nama Peserta</label>
+<label>
+Nama Peserta
+</label>
 
 <input
 type="text"
-id="regName"
-placeholder="Nama lengkap peserta"
+id="regNama"
+placeholder="Nama peserta"
 required>
 
 </div>
@@ -1723,12 +2213,14 @@ required>
 
 <div class="form-group">
 
-<label>Usia</label>
+<label>
+Usia Peserta
+</label>
 
 <input
 type="number"
-id="regAge"
-placeholder="Usia peserta"
+id="regUsia"
+placeholder="Usia"
 required>
 
 </div>
@@ -1736,25 +2228,14 @@ required>
 
 <div class="form-group">
 
-<label>Nama Orang Tua / Wali</label>
+<label>
+Nama Orang Tua / Wali
+</label>
 
 <input
 type="text"
-id="regParent"
+id="regWali"
 placeholder="Nama orang tua / wali"
->
-
-</div>
-
-
-<div class="form-group">
-
-<label>Nomor WhatsApp</label>
-
-<input
-type="tel"
-id="regPhone"
-placeholder="085156889002"
 required>
 
 </div>
@@ -1762,60 +2243,48 @@ required>
 
 <div class="form-group">
 
-<label>Alamat</label>
+<label>
+Nomor WhatsApp
+</label>
 
-<textarea
-id="regAddress"
-rows="3"
-placeholder="Alamat tempat tinggal"
-required></textarea>
+<input
+type="tel"
+id="regWa"
+placeholder="Contoh: 085xxxxxxxxx"
+required>
 
 </div>
 
 
 <div class="form-group">
 
-<label>Pilihan Lomba</label>
+<label>
+Alamat / RT
+</label>
 
-<select id="regCompetition">
-
-<option value="">
--- Pilih Lomba --
-</option>
-
-<option>Masukin Bendera ke Botol</option>
-<option>Masukin Paku ke Botol</option>
-<option>Membawa Kelereng Pakai Sendok</option>
-<option>Jalan Menjepit Balon</option>
-<option>Makan Kerupuk</option>
-<option>Balap Karung</option>
-<option>Rebutan Bangku</option>
-<option>Tiup Gelas</option>
-<option>Bakiak</option>
-<option>Balap Karung Helm</option>
-<option>Pecah Balon Air</option>
-<option>Bola Master</option>
-<option>Tenis Meja</option>
-<option>Catur</option>
-<option>Gaple</option>
-<option>Tarik Tambang</option>
-<option>Main Bola Dasar</option>
-<option>Lomba Tumpeng</option>
-<option>Lomba Karaoke</option>
-
-</select>
+<input
+type="text"
+id="regAlamat"
+placeholder="Contoh: RT 010"
+required>
 
 </div>
 
 
 <button
-class="btn btn-primary"
 type="submit"
-style="width:100%">
+class="btn btn-whatsapp"
+style="width:100%;">
 
-DAFTAR SEKARANG →
+💬 Kirim Pendaftaran via WhatsApp →
 
 </button>
+
+
+<p class="form-note">
+Pastikan data yang dimasukkan sudah benar.
+</p>
+
 
 </form>
 
@@ -1824,11 +2293,12 @@ DAFTAR SEKARANG →
 </div>
 
 
+
 <script>
 
-/* ======================================================
-   MOBILE MENU
-====================================================== */
+/* =========================================================
+   MENU MOBILE
+========================================================= */
 
 function toggleMenu(){
 
@@ -1839,395 +2309,15 @@ function toggleMenu(){
 }
 
 
-/* ======================================================
-   DATA LOMBA
-====================================================== */
-
-const events = {
-
-anak46:{
-
-title:"Lomba Anak 4–6 Tahun",
-
-info:"15 Agustus 2026 · 09.00 WIB · Balai Warga RW 007",
-
-body:`
-
-<div class="lomba-detail">
-
-<h4>5 Perlombaan</h4>
-
-<ul>
-
-<li>Masukin Bendera ke Botol</li>
-<li>Masukin Paku ke Botol</li>
-<li>Membawa Kelereng Pakai Sendok</li>
-<li>Jalan Menjepit Balon</li>
-<li>Makan Kerupuk</li>
-
-</ul>
-
-</div>
-
-`
-
-},
-
-anak710:{
-
-title:"Lomba Anak 7–10 Tahun",
-
-info:"16–17 Agustus 2026 · 08.00 WIB · Balai Warga RW 007",
-
-body:`
-
-<div class="lomba-detail">
-
-<h4>5 Perlombaan</h4>
-
-<ul>
-
-<li>Balap Karung</li>
-<li>Makan Kerupuk</li>
-<li>Rebutan Bangku</li>
-<li>Tiup Gelas</li>
-<li>Bakiak</li>
-
-</ul>
-
-</div>
-
-`
-
-},
-
-remaja:{
-
-title:"Lomba Remaja 11–17 Tahun",
-
-info:"16–17 Agustus 2026 · 08.00 WIB · Balai Warga RW 007",
-
-body:`
-
-<div class="lomba-detail">
-
-<h4>6 Perlombaan</h4>
-
-<ul>
-
-<li>Balap Karung Helm</li>
-<li>Makan Kerupuk</li>
-<li>Rebutan Bangku</li>
-<li>Pecah Balon Air</li>
-<li>Bakiak</li>
-<li>Bola Master</li>
-
-</ul>
-
-</div>
-
-`
-
-},
-
-bapak:{
-
-title:"Lomba Bapak-Bapak",
-
-info:"8–17 Agustus 2026",
-
-body:`
-
-<div class="lomba-detail">
-
-<h4>Cabang Perlombaan</h4>
-
-<ul>
-
-<li>Tenis Meja</li>
-<li>Catur</li>
-<li>Gaple</li>
-<li>Bakiak</li>
-<li>Tarik Tambang</li>
-<li>Main Bola Dasar</li>
-
-</ul>
-
-</div>
-
-`
-
-},
-
-tumpeng:{
-
-title:"Lomba Tumpeng",
-
-info:"17 Agustus 2026",
-
-body:`
-
-<div class="lomba-detail">
-
-<h4>Kriteria Penilaian</h4>
-
-<ul>
-
-<li>🏆 Kreativitas</li>
-<li>🍚 Rasa</li>
-<li>✨ Penyajian</li>
-
-</ul>
-
-<p style="margin-top:10px;color:#667085;font-size:13px;">
-Satu RT, satu kreasi terbaik.
-</p>
-
-</div>
-
-`
-
-},
-
-karaoke:{
-
-title:"Lomba Karaoke",
-
-info:"22 Agustus 2026 · 09.00 WIB",
-
-body:`
-
-<div class="lomba-detail">
-
-<h4>Siap naik panggung?</h4>
-
-<p style="color:#667085;font-size:13px;">
-Punya suara? Saatnya menunjukkan kemampuan terbaik kamu.
-Pilih lagu favorit dan ramaikan acara bersama warga.
-</p>
-
-</div>
-
-`
-
-}
-
-};
-
-
-/* ======================================================
-   DETAIL MODAL
-====================================================== */
-
-let selectedEvent="";
-
-function openModal(id){
-
-    const event=events[id];
-
-    if(!event) return;
-
-    selectedEvent=id;
-
-    document.getElementById("modalTitle").innerText=event.title;
-
-    document.getElementById("modalInfo").innerText=event.info;
-
-    document.getElementById("modalBody").innerHTML=event.body;
-
-    document
-    .getElementById("detailModal")
-    .classList.add("show");
-
-    document
-    .getElementById("modalRegister")
-    .onclick=function(){
-
-        closeModal();
-
-        openRegister(event.title);
-
-    };
-
-}
-
-
-function closeModal(){
-
-    document
-    .getElementById("detailModal")
-    .classList.remove("show");
-
-}
-
-
-/* ======================================================
-   REGISTRATION MODAL
-====================================================== */
-
-let currentCategory="";
-
-function openRegister(category){
-
-    currentCategory=category;
-
-    document
-    .getElementById("registerCategory")
-    .innerText=category;
-
-    document
-    .getElementById("registerModal")
-    .classList.add("show");
-
-}
-
-
-function closeRegister(){
-
-    document
-    .getElementById("registerModal")
-    .classList.remove("show");
-
-}
-
-
-/* ======================================================
-   PENDAFTARAN → WHATSAPP
-====================================================== */
-
-document
-.getElementById("registrationForm")
-.addEventListener("submit",function(e){
-
-    e.preventDefault();
-
-    const name=
-    document.getElementById("regName").value;
-
-    const age=
-    document.getElementById("regAge").value;
-
-    const parent=
-    document.getElementById("regParent").value;
-
-    const phone=
-    document.getElementById("regPhone").value;
-
-    const address=
-    document.getElementById("regAddress").value;
-
-    const competition=
-    document.getElementById("regCompetition").value;
-
-    const message=
-
-`Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin mendaftarkan peserta untuk kegiatan:
-
-📌 Kategori:
-${currentCategory}
-
-👤 Nama Peserta:
-${name}
-
-🎂 Usia:
-${age}
-
-📍 Alamat / RT:
-${address}
-
-🏆 Pilihan Lomba:
-${competition || "-"}
-
-Mohon informasi selanjutnya. Terima kasih 🙏`;
-
-    window.open(
-        "https://wa.me/6285156889002?text="+
-        encodeURIComponent(message),
-        "_blank"
-    );
-
-});
-
-
-/* ======================================================
-   ASPIRASI → WHATSAPP
-====================================================== */
-
-document
-.getElementById("aspirationForm")
-.addEventListener("submit",function(e){
-
-    e.preventDefault();
-
-    const name=
-    document.getElementById("aspName").value;
-
-    const phone=
-    document.getElementById("aspPhone").value;
-
-    const category=
-    document.getElementById("aspCategory").value;
-
-    const message=
-    document.getElementById("aspMessage").value;
-
-    const text=
-
-`Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin menyampaikan aspirasi.
-
-👤 Nama:
-${name}
-
-📱 Nomor WhatsApp:
-${phone}
-
-📌 Kategori:
-${category}
-
-💡 Aspirasi:
-${message}
-
-Terima kasih.`;
-
-    window.open(
-        "https://wa.me/6285156889002?text="+
-        encodeURIComponent(text),
-        "_blank"
-    );
-
-});
-
-
-/* ======================================================
-   CLOSE MODAL WHEN CLICK OUTSIDE
-====================================================== */
-
-window.addEventListener("click",function(e){
-
-    if(e.target.id==="detailModal"){
-        closeModal();
-    }
-
-    if(e.target.id==="registerModal"){
-        closeRegister();
-    }
-
-});
-
-
-/* ======================================================
-   CLOSE MOBILE MENU AFTER CLICK
-====================================================== */
+/* =========================================================
+   CLOSE MENU SAAT LINK DIKLIK
+========================================================= */
 
 document
 .querySelectorAll(".nav-links a")
-.forEach(link=>{
+.forEach(function(link){
 
-    link.addEventListener("click",()=>{
+    link.addEventListener("click",function(){
 
         document
         .getElementById("navLinks")
@@ -2237,7 +2327,178 @@ document
 
 });
 
+
+/* =========================================================
+   MODAL PENDAFTARAN
+========================================================= */
+
+let selectedEvent = "";
+
+
+function openRegistration(eventName){
+
+    selectedEvent = eventName;
+
+    document
+    .getElementById("modalTitle")
+    .innerText = "Daftar — " + eventName;
+
+    document
+    .getElementById("registrationModal")
+    .classList.add("show");
+
+    document.body.style.overflow="hidden";
+
+}
+
+
+function closeRegistration(){
+
+    document
+    .getElementById("registrationModal")
+    .classList.remove("show");
+
+    document.body.style.overflow="";
+
+}
+
+
+/* =========================================================
+   KLIK LUAR MODAL
+========================================================= */
+
+document
+.getElementById("registrationModal")
+.addEventListener("click",function(e){
+
+    if(e.target === this){
+
+        closeRegistration();
+
+    }
+
+});
+
+
+/* =========================================================
+   FORM PENDAFTARAN
+========================================================= */
+
+document
+.getElementById("registrationForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+
+    const nama =
+    document.getElementById("regNama").value;
+
+    const usia =
+    document.getElementById("regUsia").value;
+
+    const wali =
+    document.getElementById("regWali").value;
+
+    const wa =
+    document.getElementById("regWa").value;
+
+    const alamat =
+    document.getElementById("regAlamat").value;
+
+
+    const message =
+`Halo Anak Kampung RT 010 👋
+
+Saya ingin mendaftarkan peserta untuk kegiatan:
+
+*${selectedEvent}*
+
+Data Peserta:
+Nama: ${nama}
+Usia: ${usia} tahun
+Orang Tua/Wali: ${wali}
+No. WhatsApp: ${wa}
+Alamat/RT: ${alamat}
+
+Mohon konfirmasi pendaftarannya.
+
+Terima kasih 🙏`;
+
+
+    const url =
+    "https://wa.me/6285156889002?text="
+    + encodeURIComponent(message);
+
+
+    window.open(url,"_blank");
+
+});
+
+
+/* =========================================================
+   FORM ASPIRASI
+========================================================= */
+
+document
+.getElementById("aspirationForm")
+.addEventListener("submit",function(e){
+
+    e.preventDefault();
+
+
+    const nama =
+    document.getElementById("aspNama").value;
+
+    const kategori =
+    document.getElementById("aspKategori").value;
+
+    const pesan =
+    document.getElementById("aspPesan").value;
+
+
+    const message =
+`Halo Anak Kampung RT 010 👋
+
+Saya ingin menyampaikan aspirasi.
+
+Nama: ${nama}
+
+Kategori:
+${kategori}
+
+Aspirasi / Usulan:
+${pesan}
+
+Terima kasih.`;
+
+
+    const url =
+    "https://wa.me/6285156889002?text="
+    + encodeURIComponent(message);
+
+
+    window.open(url,"_blank");
+
+});
+
+
+/* =========================================================
+   ESC UNTUK TUTUP MODAL
+========================================================= */
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key === "Escape"){
+
+        closeRegistration();
+
+    }
+
+});
+
 </script>
+
 
 </body>
 </html>
