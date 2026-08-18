@@ -33,6 +33,13 @@ a{
     color:inherit
 }
 
+button,
+input,
+select,
+textarea{
+    font-family:inherit
+}
+
 .container{
     width:min(1180px,calc(100% - 40px));
     margin:auto
@@ -46,16 +53,13 @@ section{
     --navy:#0d1b2a;
     --blue:#1769aa;
     --orange:#e97817;
-    --green:#198754;
-    --red:#dc3545;
+    --green:#16834b;
     --muted:#667085;
     --border:#e3e8ef;
     --shadow:0 15px 45px rgba(13,27,42,.08)
 }
 
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 .header{
     position:fixed;
@@ -131,13 +135,10 @@ section{
     border:0;
     background:none;
     font-size:1.7rem;
-    color:var(--navy);
-    cursor:pointer
+    color:var(--navy)
 }
 
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
     padding:145px 0 90px;
@@ -273,28 +274,7 @@ section{
     font-size:.8rem
 }
 
-.event-status{
-    display:inline-block;
-    margin-top:12px;
-    padding:6px 10px;
-    border-radius:7px;
-    font-size:.68rem;
-    font-weight:900
-}
-
-.status-upcoming{
-    background:#e8f5ed;
-    color:#198754
-}
-
-.status-done{
-    background:#fce8e8;
-    color:#dc3545
-}
-
-/* =========================
-   SECTION
-========================= */
+/* ================= SECTION ================= */
 
 .section{
     padding:95px 0
@@ -319,9 +299,7 @@ section{
     margin-top:14px
 }
 
-/* =========================
-   ABOUT
-========================= */
+/* ================= ABOUT ================= */
 
 .about-grid,
 .aspiration-box,
@@ -372,9 +350,7 @@ section{
     font-size:.78rem
 }
 
-/* =========================
-   EVENT
-========================= */
+/* ================= EVENTS ================= */
 
 .section-heading{
     margin-bottom:40px
@@ -397,8 +373,22 @@ section{
     transform:translateY(-5px)
 }
 
-.event-card.completed{
-    opacity:.72
+.event-card.done{
+    opacity:.72;
+    background:#f3f5f7
+}
+
+.event-card.done:before{
+    content:"✓ SUDAH DILAKSANAKAN";
+    display:block;
+    background:#e7f5ed;
+    color:var(--green);
+    border:1px solid #c8ead7;
+    padding:7px 10px;
+    border-radius:7px;
+    font-size:.65rem;
+    font-weight:900;
+    margin-bottom:15px
 }
 
 .event-tag{
@@ -445,7 +435,7 @@ section{
 }
 
 .detail.open{
-    max-height:800px;
+    max-height:600px;
     opacity:1;
     padding-top:18px;
     border-top:1px solid var(--border)
@@ -457,79 +447,46 @@ section{
     font-weight:900
 }
 
-/* =========================
-   CHECKBOX LOMBA
-========================= */
-
-.lomba-check-list{
-    display:grid;
-    gap:9px;
+.lomba-list{
+    display:flex;
+    flex-direction:column;
+    gap:8px;
     margin-top:12px
 }
 
-.lomba-check{
-    position:relative
-}
+/* CHECKBOX LOMBA */
 
-.lomba-check input{
-    position:absolute;
-    opacity:0;
-    pointer-events:none
-}
-
-.lomba-check label{
+.lomba-option{
     display:flex;
     align-items:center;
     gap:10px;
-    padding:11px 13px;
-    background:#f6f8fa;
-    border:1px solid #e2e7ec;
+    padding:10px 12px;
+    background:#f7f9fb;
+    border:1px solid #e3e8ef;
     border-radius:9px;
     cursor:pointer;
     color:#4d5b6a;
-    font-size:.75rem;
-    font-weight:700;
+    font-size:.78rem;
     transition:.2s
 }
 
-.lomba-check label:before{
-    content:"";
-    width:18px;
-    height:18px;
-    flex:none;
-    border:2px solid #b9c2cc;
-    border-radius:5px;
-    background:#fff;
-    transition:.2s
+.lomba-option:hover{
+    background:#eef5fb;
+    border-color:#b9d5ec
 }
 
-.lomba-check input:checked + label{
+.lomba-option input{
+    width:17px;
+    height:17px;
+    accent-color:var(--blue);
+    cursor:pointer
+}
+
+.lomba-option:has(input:checked){
     background:#eaf4ff;
-    border-color:#1769aa;
-    color:#1769aa
-}
-
-.lomba-check input:checked + label:before{
-    content:"✓";
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    background:#1769aa;
-    border-color:#1769aa;
-    font-size:12px;
-    font-weight:900
-}
-
-.lomba-note{
-    color:var(--muted);
-    font-size:.7rem;
-    margin-top:10px
-}
-
-.register-btn{
-    width:100%;
-    margin-top:15px
+    border-color:#91bee0;
+    color:var(--blue);
+    font-weight:800
 }
 
 .detail-btn{
@@ -541,9 +498,7 @@ section{
     cursor:pointer
 }
 
-/* =========================
-   ANNOUNCEMENT
-========================= */
+/* ================= NOTICE ================= */
 
 .notice-list{
     display:grid;
@@ -574,9 +529,7 @@ section{
     font-size:.8rem
 }
 
-/* =========================
-   ASPIRATION
-========================= */
+/* ================= ASPIRATION ================= */
 
 .aspiration-copy h2{
     font-size:clamp(2.3rem,4vw,3.7rem);
@@ -621,42 +574,33 @@ section{
     background:#f9fafb;
     border-radius:9px;
     padding:12px 14px;
-    outline:none;
-    font-family:inherit
+    outline:none
 }
 
 .form textarea{
     resize:vertical
 }
 
-/* =========================
-   REGISTRATION
-========================= */
-
-.registration-box{
-    margin-top:45px;
-    background:#f8fafc;
-    border:1px solid var(--border);
-    border-radius:22px;
-    padding:35px
+.form input:focus,
+.form select:focus,
+.form textarea:focus{
+    border-color:var(--blue);
+    background:#fff
 }
 
-.registration-title{
-    color:var(--navy);
-    font-size:1.5rem;
-    font-weight:900;
-    margin-bottom:5px
+.checkbox-group{
+    display:grid;
+    gap:8px;
+    margin-top:8px
 }
 
-.registration-desc{
+.form-note{
+    font-size:.7rem;
     color:var(--muted);
-    font-size:.82rem;
-    margin-bottom:25px
+    margin-top:6px
 }
 
-/* =========================
-   GALLERY
-========================= */
+/* ================= GALLERY ================= */
 
 .gallery-section{
     background:#f6f8fb
@@ -668,55 +612,68 @@ section{
 }
 
 .flipbook-section{
-    margin-bottom:90px
+    margin-bottom:75px
 }
 
 .flipbook-heading{
-    margin-bottom:25px
+    margin-bottom:22px
 }
 
 .flipbook-heading h3{
     color:var(--navy);
-    font-size:1.7rem;
+    font-size:1.5rem;
     font-weight:900
 }
 
 .flipbook-heading p{
     color:var(--muted);
-    font-size:.82rem
+    font-size:.82rem;
+    margin-top:5px
 }
 
+/* FLIPBOOK RESPONSIVE */
+
 .flipbook-wrap{
+    width:100%;
     max-width:900px;
     margin:0 auto;
-    perspective:1500px
+    perspective:1800px
 }
 
 .flipbook{
     position:relative;
     width:100%;
-    height:520px;
-    transform-style:preserve-3d
+    min-height:420px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:height .5s ease
 }
 
 .book-page{
     position:absolute;
-    top:0;
-    left:0;
+    top:50%;
+    left:50%;
     width:100%;
-    height:100%;
     transform-origin:left center;
     transform-style:preserve-3d;
-    transition:transform .7s cubic-bezier(.4,.0,.2,1);
+    transition:
+        transform .7s cubic-bezier(.4,0,.2,1),
+        opacity .3s;
     cursor:pointer;
     border-radius:12px;
     overflow:hidden;
     box-shadow:0 8px 30px rgba(0,0,0,.15);
-    backface-visibility:hidden
+    backface-visibility:hidden;
+    background:#fff
 }
 
 .book-page.flipped{
-    transform:rotateY(-180deg)
+    transform:translate(-50%,-50%) rotateY(-180deg)
+}
+
+.book-page:not(.flipped){
+    transform:translate(-50%,-50%)
 }
 
 .cover-page{
@@ -764,8 +721,7 @@ section{
 }
 
 .photo-page{
-    background:#fff;
-    padding:0
+    background:#fff
 }
 
 .page-inner{
@@ -789,14 +745,10 @@ section{
 .page-inner img{
     width:100%;
     height:calc(100% - 40px);
-    object-fit:cover;
+    object-fit:contain;
     border-radius:8px;
     background:#edf2f6;
-    border:1px solid #e3e8ef
-}
-
-.drive-photo{
-    background:#edf2f6
+    display:block
 }
 
 .flipbook-controls{
@@ -826,7 +778,8 @@ section{
     border-color:#0d1b2a
 }
 
-.page-indicator{
+#pageIndicator2026,
+#pageIndicator2025{
     font-size:.85rem;
     font-weight:700;
     color:#0d1b2a;
@@ -842,9 +795,7 @@ section{
     opacity:.7
 }
 
-/* =========================
-   SOCIAL
-========================= */
+/* ================= SOCIAL ================= */
 
 .social-section{
     background:var(--navy);
@@ -884,9 +835,7 @@ section{
     font-weight:800
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* ================= FOOTER ================= */
 
 footer{
     background:#09131e;
@@ -936,9 +885,7 @@ footer span{
     font-size:.7rem
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:950px){
 
@@ -985,7 +932,7 @@ footer span{
     }
 
     .flipbook{
-        height:400px
+        min-height:360px
     }
 }
 
@@ -1013,24 +960,20 @@ footer span{
     }
 
     .flipbook{
-        height:340px
+        min-height:300px
     }
 
     .page-inner{
         padding:10px
     }
 
-    .page-inner img{
-        height:calc(100% - 32px)
+    .page-label{
+        padding-bottom:7px
     }
 
     .flipbook-controls button{
-        width:36px;
-        height:36px
-    }
-
-    .registration-box{
-        padding:22px
+        width:38px;
+        height:38px
     }
 }
 </style>
@@ -1038,9 +981,7 @@ footer span{
 
 <body>
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+<!-- ================= HEADER ================= -->
 
 <header class="header">
 
@@ -1051,7 +992,8 @@ footer span{
 <img
 src="logo-rt010.png"
 alt="Logo Anak Kampung RT 010"
-class="brand-logo">
+class="brand-logo"
+>
 
 <div class="brand-text">
 
@@ -1070,35 +1012,19 @@ Bersama • Bergerak • Berkarya
 
 <button
 class="menu-btn"
-onclick="toggleMenu()">
+onclick="toggleMenu()"
+>
 ☰
 </button>
 
 <ul class="nav-links" id="navLinks">
 
-<li>
-<a href="#beranda">Beranda</a>
-</li>
-
-<li>
-<a href="#tentang">Tentang Kami</a>
-</li>
-
-<li>
-<a href="#kegiatan">Kegiatan</a>
-</li>
-
-<li>
-<a href="#pengumuman">Pengumuman</a>
-</li>
-
-<li>
-<a href="#aspirasi">Aspirasi</a>
-</li>
-
-<li>
-<a href="#galeri">Galeri</a>
-</li>
+<li><a href="#beranda">Beranda</a></li>
+<li><a href="#tentang">Tentang Kami</a></li>
+<li><a href="#kegiatan">Kegiatan</a></li>
+<li><a href="#pengumuman">Pengumuman</a></li>
+<li><a href="#aspirasi">Aspirasi</a></li>
+<li><a href="#galeri">Galeri</a></li>
 
 </ul>
 
@@ -1107,9 +1033,7 @@ onclick="toggleMenu()">
 </header>
 
 
-<!-- =====================================================
-     HERO
-===================================================== -->
+<!-- ================= HERO ================= -->
 
 <section class="hero" id="beranda">
 
@@ -1133,15 +1057,11 @@ berkolaborasi, dan bikin kegiatan yang berdampak.
 
 <div class="buttons">
 
-<a
-href="#kegiatan"
-class="btn btn-primary">
+<a href="#kegiatan" class="btn btn-primary">
 Lihat Kegiatan →
 </a>
 
-<a
-href="#tentang"
-class="btn btn-outline">
+<a href="#tentang" class="btn btn-outline">
 Tentang Kami
 </a>
 
@@ -1161,7 +1081,7 @@ MEMUAT...
 </h2>
 
 <h3 id="nearestEventSubtitle">
-Memuat event...
+Memuat event terdekat...
 </h3>
 
 <div class="event-info">
@@ -1182,12 +1102,10 @@ Memuat event...
 
 <div class="lomba-preview">
 
-<strong>
-STATUS
-</strong>
+<strong>INFO</strong>
 
-<p id="nearestEventStatus">
-Memuat status event...
+<p id="nearestEventInfo">
+Memuat informasi...
 </p>
 
 </div>
@@ -1199,9 +1117,7 @@ Memuat status event...
 </section>
 
 
-<!-- =====================================================
-     TENTANG
-===================================================== -->
+<!-- ================= TENTANG ================= -->
 
 <section class="section" id="tentang">
 
@@ -1220,6 +1136,7 @@ KITA BIKIN GERAKAN.
 
 </div>
 
+
 <div class="about-text">
 
 <p>
@@ -1237,17 +1154,14 @@ sampai acara warga—semuanya berawal dari satu hal:
 mau bergerak bareng.
 </p>
 
+
 <div class="values">
 
 <div class="value">
 
-<div class="value-icon">
-🤝
-</div>
+<div class="value-icon">🤝</div>
 
-<h3>
-SOLIDARITAS
-</h3>
+<h3>SOLIDARITAS</h3>
 
 <p>
 Saling dukung dan saling bantu.
@@ -1258,13 +1172,9 @@ Saling dukung dan saling bantu.
 
 <div class="value">
 
-<div class="value-icon">
-💡
-</div>
+<div class="value-icon">💡</div>
 
-<h3>
-KREATIVITAS
-</h3>
+<h3>KREATIVITAS</h3>
 
 <p>
 Berani punya ide dan bikin sesuatu.
@@ -1275,13 +1185,9 @@ Berani punya ide dan bikin sesuatu.
 
 <div class="value">
 
-<div class="value-icon">
-⚡
-</div>
+<div class="value-icon">⚡</div>
 
-<h3>
-KOLABORASI
-</h3>
+<h3>KOLABORASI</h3>
 
 <p>
 Karena hal besar lebih seru kalau dikerjakan bersama.
@@ -1298,13 +1204,9 @@ Karena hal besar lebih seru kalau dikerjakan bersama.
 </section>
 
 
-<!-- =====================================================
-     KEGIATAN
-===================================================== -->
+<!-- ================= KEGIATAN ================= -->
 
-<section
-class="section section-alt"
-id="kegiatan">
+<section class="section section-alt" id="kegiatan">
 
 <div class="container">
 
@@ -1325,838 +1227,9 @@ Bukan cuma satu acara. Ada banyak keseruan yang menunggu.
 </div>
 
 
-<div class="events-grid">
+<div class="events-grid" id="eventsGrid">
 
-
-<!-- EVENT 1 -->
-
-<article
-class="event-card"
-data-event-date="2026-08-15">
-
-<span class="event-tag">
-SEMARAK KEMERDEKAAN
-</span>
-
-<h3>
-Lomba Anak
-</h3>
-
-<div class="age">
-Usia 4–6 Tahun
-</div>
-
-<p>
-Perlombaan seru untuk anak-anak dalam rangka
-memeriahkan HUT Kemerdekaan RI.
-</p>
-
-<div class="card-info">
-
-<span>
-📅 15 Agustus 2026
-</span>
-
-<span>
-⏰ 09.00 WIB
-</span>
-
-<span>
-📍 Balai Warga RW 007
-</span>
-
-</div>
-
-<div
-class="event-status-box"
-data-status-for="2026-08-15">
-</div>
-
-
-<div
-class="detail"
-id="detail1">
-
-<div class="detail-title">
-PILIH LOMBA
-</div>
-
-<div class="lomba-check-list">
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l1"
-value="Bendera ke Botol">
-
-<label for="l1">
-Bendera ke Botol
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l2"
-value="Paku ke Botol">
-
-<label for="l2">
-Paku ke Botol
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l3"
-value="Kelereng">
-
-<label for="l3">
-Kelereng
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l4"
-value="Jepit Balon">
-
-<label for="l4">
-Jepit Balon
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l5"
-value="Makan Kerupuk">
-
-<label for="l5">
-Makan Kerupuk
-</label>
-
-</div>
-
-</div>
-
-<p class="lomba-note">
-☑️ Kamu boleh memilih lebih dari satu lomba.
-</p>
-
-<button
-class="btn btn-primary register-btn"
-onclick="registerLomba('Lomba Anak Usia 4–6 Tahun',['l1','l2','l3','l4','l5'])">
-DAFTAR LOMBA →
-</button>
-
-</div>
-
-<button
-class="detail-btn"
-onclick="toggleDetail('detail1',this)">
-Lihat Detail →
-</button>
-
-</article>
-
-
-<!-- EVENT 2 -->
-
-<article
-class="event-card"
-data-event-date="2026-08-16">
-
-<span class="event-tag">
-SEMARAK KEMERDEKAAN
-</span>
-
-<h3>
-Lomba Anak
-</h3>
-
-<div class="age">
-Usia 7–10 Tahun
-</div>
-
-<p>
-Permainan kompetitif dan seru untuk anak-anak
-usia sekolah dasar.
-</p>
-
-<div class="card-info">
-
-<span>
-📅 16–17 Agustus 2026
-</span>
-
-<span>
-⏰ 08.00 WIB
-</span>
-
-<span>
-📍 Balai Warga RW 007
-</span>
-
-</div>
-
-
-<div
-class="detail"
-id="detail2">
-
-<div class="detail-title">
-PILIH LOMBA
-</div>
-
-<div class="lomba-check-list">
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l6"
-value="Balap Karung">
-
-<label for="l6">
-Balap Karung
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l7"
-value="Makan Kerupuk">
-
-<label for="l7">
-Makan Kerupuk
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l8"
-value="Rebutan Bangku">
-
-<label for="l8">
-Rebutan Bangku
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l9"
-value="Tiup Gelas">
-
-<label for="l9">
-Tiup Gelas
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l10"
-value="Bakiak">
-
-<label for="l10">
-Bakiak
-</label>
-
-</div>
-
-</div>
-
-<p class="lomba-note">
-☑️ Bisa memilih beberapa lomba sekaligus.
-</p>
-
-<button
-class="btn btn-primary register-btn"
-onclick="registerLomba('Lomba Anak Usia 7–10 Tahun',['l6','l7','l8','l9','l10'])">
-DAFTAR LOMBA →
-</button>
-
-</div>
-
-<button
-class="detail-btn"
-onclick="toggleDetail('detail2',this)">
-Lihat Detail →
-</button>
-
-</article>
-
-
-<!-- EVENT 3 -->
-
-<article
-class="event-card"
-data-event-date="2026-08-16">
-
-<span class="event-tag">
-SEMARAK KEMERDEKAAN
-</span>
-
-<h3>
-Lomba Remaja
-</h3>
-
-<div class="age">
-Usia 11–17 Tahun
-</div>
-
-<p>
-Saatnya para remaja menunjukkan kekompakan,
-kecepatan, dan keberanian.
-</p>
-
-<div class="card-info">
-
-<span>
-📅 16–17 Agustus 2026
-</span>
-
-<span>
-⏰ 08.00 WIB
-</span>
-
-<span>
-📍 Balai Warga RW 007
-</span>
-
-</div>
-
-
-<div
-class="detail"
-id="detail3">
-
-<div class="detail-title">
-PILIH LOMBA
-</div>
-
-<div class="lomba-check-list">
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l11"
-value="Balap Karung Helm">
-
-<label for="l11">
-Balap Karung Helm
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l12"
-value="Makan Kerupuk">
-
-<label for="l12">
-Makan Kerupuk
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l13"
-value="Rebutan Bangku">
-
-<label for="l13">
-Rebutan Bangku
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l14"
-value="Pecah Balon Air">
-
-<label for="l14">
-Pecah Balon Air
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l15"
-value="Bakiak">
-
-<label for="l15">
-Bakiak
-</label>
-
-</div>
-
-
-<div class="lomba-check">
-
-<input
-type="checkbox"
-id="l16"
-value="Bola Master">
-
-<label for="l16">
-Bola Master
-</label>
-
-</div>
-
-</div>
-
-<p class="lomba-note">
-☑️ Bisa memilih beberapa lomba sekaligus.
-</p>
-
-<button
-class="btn btn-primary register-btn"
-onclick="registerLomba('Lomba Remaja Usia 11–17 Tahun',['l11','l12','l13','l14','l15','l16'])">
-DAFTAR LOMBA →
-</button>
-
-</div>
-
-<button
-class="detail-btn"
-onclick="toggleDetail('detail3',this)">
-Lihat Detail →
-</button>
-
-</article>
-
-
-<!-- EVENT 4 -->
-
-<article
-class="event-card"
-data-event-date="2026-08-17">
-
-<span class="event-tag">
-SEMARAK KEMERDEKAAN
-</span>
-
-<h3>
-Lomba Bapak-Bapak
-</h3>
-
-<div class="age">
-8–17 Agustus 2026
-</div>
-
-<p>
-Kompak, santai, dan tetap kompetitif.
-</p>
-
-<div class="card-info">
-
-<span>
-📅 8–17 Agustus 2026
-</span>
-
-<span>
-📍 Balai Warga RW 007
-</span>
-
-</div>
-
-
-<div
-class="detail"
-id="detail4">
-
-<div class="detail-title">
-PILIH LOMBA
-</div>
-
-<div class="lomba-check-list">
-
-<div class="lomba-check">
-<input type="checkbox" id="l17" value="Tenis Meja">
-<label for="l17">🏓 Tenis Meja</label>
-</div>
-
-<div class="lomba-check">
-<input type="checkbox" id="l18" value="Catur">
-<label for="l18">♟️ Catur</label>
-</div>
-
-<div class="lomba-check">
-<input type="checkbox" id="l19" value="Gaple">
-<label for="l19">🃏 Gaple</label>
-</div>
-
-<div class="lomba-check">
-<input type="checkbox" id="l20" value="Bakiak">
-<label for="l20">👟 Bakiak</label>
-</div>
-
-<div class="lomba-check">
-<input type="checkbox" id="l21" value="Tarik Tambang">
-<label for="l21">💪 Tarik Tambang</label>
-</div>
-
-<div class="lomba-check">
-<input type="checkbox" id="l22" value="Main Bola Dasar">
-<label for="l22">⚽ Main Bola Dasar</label>
-</div>
-
-</div>
-
-<p class="lomba-note">
-☑️ Bisa mengikuti beberapa cabang sekaligus.
-</p>
-
-<button
-class="btn btn-primary register-btn"
-onclick="registerLomba('Lomba Bapak-Bapak',['l17','l18','l19','l20','l21','l22'])">
-DAFTAR LOMBA →
-</button>
-
-</div>
-
-<button
-class="detail-btn"
-onclick="toggleDetail('detail4',this)">
-Lihat Detail →
-</button>
-
-</article>
-
-
-<!-- EVENT 5 -->
-
-<article
-class="event-card"
-data-event-date="2026-08-17">
-
-<span class="event-tag">
-KREASI WARGA
-</span>
-
-<h3>
-Lomba Tumpeng
-</h3>
-
-<div class="age">
-17 Agustus 2026
-</div>
-
-<p>
-Satu RT, satu kreasi terbaik.
-Tunjukkan kreativitas warga.
-</p>
-
-<div class="card-info">
-
-<span>
-📅 17 Agustus 2026
-</span>
-
-<span>
-🏆 Penilaian Kreativitas
-</span>
-
-<span>
-🍚 Rasa
-</span>
-
-<span>
-✨ Penyajian
-</span>
-
-</div>
-
-
-<div class="detail" id="detail5">
-
-<div class="detail-title">
-PENDAFTARAN
-</div>
-
-<p class="lomba-note">
-Pendaftaran lomba tumpeng dilakukan melalui WhatsApp.
-</p>
-
-<button
-class="btn btn-primary register-btn"
-onclick="registerSimple('Lomba Tumpeng')">
-DAFTAR LOMBA →
-</button>
-
-</div>
-
-<button
-class="detail-btn"
-onclick="toggleDetail('detail5',this)">
-Lihat Detail →
-</button>
-
-</article>
-
-
-<!-- EVENT 6 -->
-
-<article
-class="event-card"
-data-event-date="2026-08-22">
-
-<span class="event-tag">
-HIBURAN WARGA
-</span>
-
-<h3>
-Lomba Karaoke
-</h3>
-
-<div class="age">
-22 Agustus 2026 · 09.00 WIB
-</div>
-
-<p>
-Punya suara? Saatnya naik panggung. 🎤
-</p>
-
-<div class="card-info">
-
-<span>
-📅 22 Agustus 2026
-</span>
-
-<span>
-📍 Area Balai Warga RW 007
-</span>
-
-</div>
-
-
-<div
-class="detail"
-id="detail6">
-
-<div class="detail-title">
-PENDAFTARAN
-</div>
-
-<p class="lomba-note">
-Daftarkan diri untuk mengikuti lomba karaoke.
-</p>
-
-<button
-class="btn btn-primary register-btn"
-onclick="registerSimple('Lomba Karaoke')">
-DAFTAR LOMBA →
-</button>
-
-</div>
-
-<button
-class="detail-btn"
-onclick="toggleDetail('detail6',this)">
-Lihat Detail →
-</button>
-
-</article>
-
-
-</div>
-
-
-<!-- =====================================================
-     PENDAFTARAN MALAM PUNCAK
-===================================================== -->
-
-<div class="registration-box">
-
-<div class="section-label">
-MALAM PUNCAK / PENTAS SENI
-</div>
-
-<h3 class="registration-title">
-MAU IKUT MENGISI ACARA? 🎤
-</h3>
-
-<p class="registration-desc">
-Buat kamu yang ingin tampil di Malam Puncak,
-silakan isi formulir berikut. Bisa solo, duo,
-maupun kelompok.
-</p>
-
-
-<form
-class="form"
-onsubmit="registerPentas(event)">
-
-<div class="form-group">
-
-<label>
-Nama / Nama Kelompok
-</label>
-
-<input
-type="text"
-id="pentasName"
-placeholder="Contoh: Fitri / Anak Kampung Band"
-required>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Jenis Penampilan
-</label>
-
-<select
-id="pentasType"
-required>
-
-<option value="">
--- Pilih Penampilan --
-</option>
-
-<option>
-Solo Vocal
-</option>
-
-<option>
-Duo / Trio
-</option>
-
-<option>
-Band / Musik
-</option>
-
-<option>
-Tari
-</option>
-
-<option>
-Puisi
-</option>
-
-<option>
-Stand Up Comedy
-</option>
-
-<option>
-Drama / Teater
-</option>
-
-<option>
-Pencak Silat
-</option>
-
-<option>
-Lainnya
-</option>
-
-</select>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Jumlah Orang
-</label>
-
-<input
-type="number"
-id="pentasJumlah"
-min="1"
-placeholder="Jumlah orang yang tampil"
-required>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Judul / Nama Penampilan
-</label>
-
-<input
-type="text"
-id="pentasJudul"
-placeholder="Contoh: Medley Lagu Kemerdekaan"
-required>
-
-</div>
-
-
-<div class="form-group">
-
-<label>
-Catatan Tambahan
-</label>
-
-<textarea
-id="pentasCatatan"
-rows="4"
-placeholder="Durasi, kebutuhan alat, atau informasi lainnya"></textarea>
-
-</div>
-
-
-<button
-class="btn btn-primary"
-type="submit"
-style="width:100%">
-DAFTAR MENGISI ACARA →
-</button>
-
-</form>
+<!-- EVENT AKAN DIISI OTOMATIS JAVASCRIPT -->
 
 </div>
 
@@ -2165,13 +1238,9 @@ DAFTAR MENGISI ACARA →
 </section>
 
 
-<!-- =====================================================
-     PENGUMUMAN
-===================================================== -->
+<!-- ================= PENGUMUMAN ================= -->
 
-<section
-class="section section-alt"
-id="pengumuman">
+<section class="section section-alt" id="pengumuman">
 
 <div class="container">
 
@@ -2186,7 +1255,6 @@ PENGUMUMAN
 <br>
 
 <div class="notice-list">
-
 
 <div class="notice">
 
@@ -2212,7 +1280,7 @@ Sabtu, 22 Agustus 2026
 
 <p>
 <strong>Tempat:</strong>
-Area Balai Warga RW 07
+Area Balai Warga RW 007
 </p>
 
 </div>
@@ -2263,7 +1331,6 @@ Sampaikan melalui form aspirasi.
 
 </div>
 
-
 </div>
 
 </div>
@@ -2271,13 +1338,347 @@ Sampaikan melalui form aspirasi.
 </section>
 
 
-<!-- =====================================================
-     ASPIRASI
-===================================================== -->
+<!-- ================= PENDAFTARAN LOMBA ================= -->
 
-<section
-class="section"
-id="aspirasi">
+<section class="section" id="pendaftaran">
+
+<div class="container">
+
+<div class="section-label">
+PENDAFTARAN
+</div>
+
+<h2 class="section-title">
+IKUT LOMBA, BOLEH LEBIH DARI SATU.
+</h2>
+
+<p class="section-desc">
+Pilih satu atau beberapa lomba yang ingin kamu ikuti.
+Setelah dikirim, data pendaftaran akan diteruskan ke WhatsApp panitia.
+</p>
+
+<br>
+
+<form class="form" onsubmit="sendLombaRegistration(event)">
+
+<div class="form-group">
+
+<label>
+Nama Peserta
+</label>
+
+<input
+type="text"
+id="lombaName"
+placeholder="Nama lengkap"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Usia
+</label>
+
+<input
+type="number"
+id="lombaAge"
+placeholder="Usia"
+min="1"
+max="100"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Nomor WhatsApp
+</label>
+
+<input
+type="tel"
+id="lombaPhone"
+placeholder="08xxxxxxxxxx"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Pilih Lomba
+</label>
+
+<div class="checkbox-group">
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Bendera ke Botol">
+<span>Bendera ke Botol</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Paku ke Botol">
+<span>Paku ke Botol</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Kelereng">
+<span>Kelereng</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Jepit Balon">
+<span>Jepit Balon</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Makan Kerupuk">
+<span>Makan Kerupuk</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Balap Karung">
+<span>Balap Karung</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Rebutan Bangku">
+<span>Rebutan Bangku</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Tiup Gelas">
+<span>Tiup Gelas</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Bakiak">
+<span>Bakiak</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Balap Karung Helm">
+<span>Balap Karung Helm</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Pecah Balon Air">
+<span>Pecah Balon Air</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Bola Master">
+<span>Bola Master</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Tenis Meja">
+<span>Tenis Meja</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Catur">
+<span>Catur</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Gaple">
+<span>Gaple</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Tarik Tambang">
+<span>Tarik Tambang</span>
+</label>
+
+<label class="lomba-option">
+<input type="checkbox" name="lomba" value="Main Bola Dasar">
+<span>Main Bola Dasar</span>
+</label>
+
+</div>
+
+<p class="form-note">
+✓ Kamu boleh memilih lebih dari satu lomba.
+</p>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit"
+style="width:100%"
+>
+DAFTAR LOMBA →
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ================= PENDAFTARAN MALAM PUNCAK ================= -->
+
+<section class="section section-alt" id="malam-puncak">
+
+<div class="container aspiration-box">
+
+<div class="aspiration-copy">
+
+<div class="section-label">
+MALAM PUNCAK
+</div>
+
+<h2>
+MAU IKUT MENGISI ACARA?
+</h2>
+
+<p>
+Malam Puncak / Pentas Seni menjadi ruang bagi
+warga untuk menunjukkan bakat dan kreativitas.
+</p>
+
+<p>
+Mau nyanyi, dance, puisi, stand up, musik,
+atau penampilan lainnya? Daftarkan diri kamu.
+</p>
+
+</div>
+
+
+<form class="form" onsubmit="sendPentasRegistration(event)">
+
+<div class="form-group">
+
+<label>
+Nama / Nama Kelompok
+</label>
+
+<input
+type="text"
+id="pentasName"
+placeholder="Nama kamu / kelompok"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Nomor WhatsApp
+</label>
+
+<input
+type="tel"
+id="pentasPhone"
+placeholder="08xxxxxxxxxx"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Jenis Penampilan
+</label>
+
+<select id="pentasType">
+
+<option>Vokal / Menyanyi</option>
+<option>Dance / Tari</option>
+<option>Musik</option>
+<option>Puisi</option>
+<option>Stand Up Comedy</option>
+<option>Drama</option>
+<option>Fashion Show</option>
+<option>Lainnya</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Judul / Nama Penampilan
+</label>
+
+<input
+type="text"
+id="pentasTitle"
+placeholder="Contoh: Cover Lagu..."
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Jumlah Orang
+</label>
+
+<input
+type="number"
+id="pentasPeople"
+min="1"
+placeholder="Jumlah anggota"
+required
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Catatan Tambahan
+</label>
+
+<textarea
+id="pentasNote"
+rows="4"
+placeholder="Kebutuhan alat, durasi, atau informasi lainnya..."
+></textarea>
+
+</div>
+
+
+<button
+class="btn btn-primary"
+type="submit"
+style="width:100%"
+>
+DAFTAR PENTAS SENI →
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- ================= ASPIRASI ================= -->
+
+<section class="section" id="aspirasi">
 
 <div class="container aspiration-box">
 
@@ -2308,30 +1709,25 @@ Bicarakan. Kirim. Kita gerakkan bersama.
 </div>
 
 
-<form
-class="form"
-onsubmit="sendAspiration(event)">
+<form class="form" onsubmit="sendAspiration(event)">
 
 <div class="form-group">
 
-<label>
-Nama
-</label>
+<label>Nama</label>
 
 <input
 type="text"
 id="aspName"
 placeholder="Nama kamu"
-required>
+required
+>
 
 </div>
 
 
 <div class="form-group">
 
-<label>
-Kategori
-</label>
+<label>Kategori</label>
 
 <select id="aspCategory">
 
@@ -2349,15 +1745,14 @@ Kategori
 
 <div class="form-group">
 
-<label>
-Aspirasi / Usulan
-</label>
+<label>Aspirasi / Usulan</label>
 
 <textarea
 id="aspMessage"
 rows="5"
 placeholder="Tulis ide atau aspirasi kamu..."
-required></textarea>
+required
+></textarea>
 
 </div>
 
@@ -2365,7 +1760,8 @@ required></textarea>
 <button
 class="btn btn-primary"
 type="submit"
-style="width:100%">
+style="width:100%"
+>
 KIRIM ASPIRASI →
 </button>
 
@@ -2376,13 +1772,9 @@ KIRIM ASPIRASI →
 </section>
 
 
-<!-- =====================================================
-     GALERI
-===================================================== -->
+<!-- ================= GALERI ================= -->
 
-<section
-class="section gallery-section"
-id="galeri">
+<section class="section gallery-section" id="galeri">
 
 <div class="container">
 
@@ -2397,27 +1789,21 @@ CERITA DALAM SETIAP MOMEN.
 </h2>
 
 <p class="section-desc">
-Buka album dan geser halamannya untuk melihat
-dokumentasi Anak Kampung RT 010.
+Pilih album untuk melihat dokumentasi
+Anak Kampung RT 010.
 </p>
 
 </div>
 
 
-<!-- =====================================================
-     FLIPBOOK 2026
-===================================================== -->
+<!-- ============ FLIPBOOK 2026 ============ -->
 
 <div class="flipbook-section">
 
 <div class="flipbook-heading">
 
-<div class="section-label">
-DOKUMENTASI
-</div>
-
 <h3>
-📸 FOTO 2026
+📸 Foto 2026
 </h3>
 
 <p>
@@ -2431,14 +1817,15 @@ Dokumentasi kegiatan Anak Kampung RT 010 tahun 2026.
 
 <div
 class="flipbook"
-id="flipbook2026">
-
+id="flipbook2026"
+>
 
 <!-- COVER -->
 
 <div
 class="book-page cover-page"
-data-page="0">
+data-page="0"
+>
 
 <div class="cover-content">
 
@@ -2468,9 +1855,7 @@ KLIK HALAMAN UNTUK MEMBUKA
 
 <!-- FOTO 1 -->
 
-<div
-class="book-page photo-page"
-data-page="1">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2479,8 +1864,10 @@ MOMEN 01
 </div>
 
 <img
-src="galeri/foto1.jpeg"
-alt="Dokumentasi foto 1">
+src="foto1.jpeg"
+alt="Dokumentasi Foto 2026 - 1"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2489,9 +1876,7 @@ alt="Dokumentasi foto 1">
 
 <!-- FOTO 2 -->
 
-<div
-class="book-page photo-page"
-data-page="2">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2500,8 +1885,10 @@ MOMEN 02
 </div>
 
 <img
-src="galeri/foto2.jpeg"
-alt="Dokumentasi foto 2">
+src="foto2.jpeg"
+alt="Dokumentasi Foto 2026 - 2"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2510,9 +1897,7 @@ alt="Dokumentasi foto 2">
 
 <!-- FOTO 3 -->
 
-<div
-class="book-page photo-page"
-data-page="3">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2521,8 +1906,10 @@ MOMEN 03
 </div>
 
 <img
-src="galeri/foto3.jpeg"
-alt="Dokumentasi foto 3">
+src="foto3.jpeg"
+alt="Dokumentasi Foto 2026 - 3"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2531,9 +1918,7 @@ alt="Dokumentasi foto 3">
 
 <!-- FOTO 4 -->
 
-<div
-class="book-page photo-page"
-data-page="4">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2542,8 +1927,10 @@ MOMEN 04
 </div>
 
 <img
-src="galeri/foto4.jpeg"
-alt="Dokumentasi foto 4">
+src="foto4.jpeg"
+alt="Dokumentasi Foto 2026 - 4"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2552,9 +1939,7 @@ alt="Dokumentasi foto 4">
 
 <!-- FOTO 5 -->
 
-<div
-class="book-page photo-page"
-data-page="5">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2563,8 +1948,10 @@ MOMEN 05
 </div>
 
 <img
-src="galeri/foto5.jpeg"
-alt="Dokumentasi foto 5">
+src="foto5.jpeg"
+alt="Dokumentasi Foto 2026 - 5"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2573,9 +1960,7 @@ alt="Dokumentasi foto 5">
 
 <!-- FOTO 6 -->
 
-<div
-class="book-page photo-page"
-data-page="6">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2584,8 +1969,10 @@ MOMEN 06
 </div>
 
 <img
-src="galeri/foto6.jpeg"
-alt="Dokumentasi foto 6">
+src="foto6.jpeg"
+alt="Dokumentasi Foto 2026 - 6"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2594,9 +1981,7 @@ alt="Dokumentasi foto 6">
 
 <!-- FOTO 7 -->
 
-<div
-class="book-page photo-page"
-data-page="7">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2605,8 +1990,10 @@ MOMEN 07
 </div>
 
 <img
-src="galeri/foto7.jpeg"
-alt="Dokumentasi foto 7">
+src="foto7.jpeg"
+alt="Dokumentasi Foto 2026 - 7"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2615,9 +2002,7 @@ alt="Dokumentasi foto 7">
 
 <!-- FOTO 8 -->
 
-<div
-class="book-page photo-page"
-data-page="8">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2626,8 +2011,10 @@ MOMEN 08
 </div>
 
 <img
-src="galeri/foto8.jpeg"
-alt="Dokumentasi foto 8">
+src="foto8.jpeg"
+alt="Dokumentasi Foto 2026 - 8"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2636,9 +2023,7 @@ alt="Dokumentasi foto 8">
 
 <!-- FOTO 9 -->
 
-<div
-class="book-page photo-page"
-data-page="9">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2647,8 +2032,10 @@ MOMEN 09
 </div>
 
 <img
-src="galeri/foto9.jpeg"
-alt="Dokumentasi foto 9">
+src="foto9.jpeg"
+alt="Dokumentasi Foto 2026 - 9"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2657,9 +2044,7 @@ alt="Dokumentasi foto 9">
 
 <!-- FOTO 10 -->
 
-<div
-class="book-page photo-page"
-data-page="10">
+<div class="book-page photo-page">
 
 <div class="page-inner">
 
@@ -2668,8 +2053,10 @@ MOMEN 10
 </div>
 
 <img
-src="galeri/foto10.jpeg"
-alt="Dokumentasi foto 10">
+src="foto10.jpeg"
+alt="Dokumentasi Foto 2026 - 10"
+onload="resizeFlipbookImage(this)"
+>
 
 </div>
 
@@ -2681,28 +2068,26 @@ alt="Dokumentasi foto 10">
 <div class="flipbook-controls">
 
 <button
-onclick="prevBook('2026')"
-aria-label="Foto sebelumnya">
+onclick="prevPage('2026')"
+>
 ←
 </button>
 
-<span
-class="page-indicator"
-id="indicator2026">
+<span id="pageIndicator2026">
 Cover
 </span>
 
 <button
-onclick="nextBook('2026')"
-aria-label="Foto berikutnya">
+onclick="nextPage('2026')"
+>
 →
 </button>
 
 </div>
 
 <p class="flipbook-help">
-Klik sisi kanan buku untuk membuka halaman berikutnya
-• Klik sisi kiri untuk kembali
+Klik sisi kanan untuk halaman berikutnya •
+Klik sisi kiri untuk kembali
 </p>
 
 </div>
@@ -2710,24 +2095,18 @@ Klik sisi kanan buku untuk membuka halaman berikutnya
 </div>
 
 
-<!-- =====================================================
-     FLIPBOOK 2025
-===================================================== -->
+<!-- ============ FLIPBOOK 2025 ============ -->
 
 <div class="flipbook-section">
 
 <div class="flipbook-heading">
 
-<div class="section-label">
-ARSIP DOKUMENTASI
-</div>
-
 <h3>
-🕰️ FOTO 2025
+📷 Foto 2025
 </h3>
 
 <p>
-Dokumentasi kegiatan Anak Kampung RT 010 tahun 2025.
+Dokumentasi foto tahun 2025 dari Google Drive.
 </p>
 
 </div>
@@ -2737,14 +2116,15 @@ Dokumentasi kegiatan Anak Kampung RT 010 tahun 2025.
 
 <div
 class="flipbook"
-id="flipbook2025">
+id="flipbook2025"
+>
 
-
-<!-- COVER 2025 -->
+<!-- COVER -->
 
 <div
 class="book-page cover-page"
-data-page="0">
+data-page="0"
+>
 
 <div class="cover-content">
 
@@ -2772,287 +2152,240 @@ KLIK HALAMAN UNTUK MEMBUKA
 </div>
 
 
-<!--
-=====================================================
-FOTO GOOGLE DRIVE 2025
+<!-- FOTO GOOGLE DRIVE -->
 
-Format:
-https://drive.google.com/thumbnail?id=ID_FILE&sz=w1600
-
-Ini lebih cocok untuk ditampilkan sebagai gambar
-daripada memakai link /view biasa.
-=====================================================
--->
-
-
-<div class="book-page photo-page" data-page="1">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 01</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=19rEF9dRx767yEY0RI2svKR5upcYO3fyL&sz=w1600" alt="Dokumentasi 2025 01">
+<div class="page-label">MOMEN 01</div>
+<img src="https://drive.google.com/thumbnail?id=19rEF9dRx767yEY0RI2svKR5upcYO3fyL&sz=w1600" alt="Foto 2025 1" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="2">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 02</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1ILLEtJjWKD7378DI4sP9NJBH7XBoxzkr&sz=w1600" alt="Dokumentasi 2025 02">
+<div class="page-label">MOMEN 02</div>
+<img src="https://drive.google.com/thumbnail?id=1ILLEtJjWKD7378DI4sP9NJBH7XBoxzkr&sz=w1600" alt="Foto 2025 2" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="3">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 03</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1O_h3Qc3A6Pd4jvCQr00Yy6Rx7jVq3CYG&sz=w1600" alt="Dokumentasi 2025 03">
+<div class="page-label">MOMEN 03</div>
+<img src="https://drive.google.com/thumbnail?id=1O_h3Qc3A6Pd4jvCQr00Yy6Rx7jVq3CYG&sz=w1600" alt="Foto 2025 3" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="4">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 04</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=11dgKWhLIPdLnLiSOpHJAv9rD7ZMxgbnb&sz=w1600" alt="Dokumentasi 2025 04">
+<div class="page-label">MOMEN 04</div>
+<img src="https://drive.google.com/thumbnail?id=11dgKWhLIPdLnLiSOpHJAv9rD7ZMxgbnb&sz=w1600" alt="Foto 2025 4" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="5">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 05</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1DrRkx-K9ADROURHw5DVMd91QXjjFZk_k&sz=w1600" alt="Dokumentasi 2025 05">
+<div class="page-label">MOMEN 05</div>
+<img src="https://drive.google.com/thumbnail?id=1DrRkx-K9ADROURHw5DVMd91QXjjFZk_k&sz=w1600" alt="Foto 2025 5" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="6">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 06</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1u2V5sB0hb0KnN-zi_15r37k3NHevw6gh&sz=w1600" alt="Dokumentasi 2025 06">
+<div class="page-label">MOMEN 06</div>
+<img src="https://drive.google.com/thumbnail?id=1u2V5sB0hb0KnN-zi_15r37k3NHevw6gh&sz=w1600" alt="Foto 2025 6" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="7">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 07</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1h7Ypw7khtcmWT9-cAAT7YqmnauejpGKE&sz=w1600" alt="Dokumentasi 2025 07">
+<div class="page-label">MOMEN 07</div>
+<img src="https://drive.google.com/thumbnail?id=1h7Ypw7khtcmWT9-cAAT7YqmnauejpGKE&sz=w1600" alt="Foto 2025 7" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="8">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 08</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1UdpYy80EHbr7cSSNo5LlJebG8-Zz6jQP&sz=w1600" alt="Dokumentasi 2025 08">
+<div class="page-label">MOMEN 08</div>
+<img src="https://drive.google.com/thumbnail?id=1UdpYy80EHbr7cSSNo5LlJebG8-Zz6jQP&sz=w1600" alt="Foto 2025 8" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="9">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 09</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1hkxcGDCB2Mi3Ji-x6b49BlFgwyIhYnlh&sz=w1600" alt="Dokumentasi 2025 09">
+<div class="page-label">MOMEN 09</div>
+<img src="https://drive.google.com/thumbnail?id=1hkxcGDCB2Mi3Ji-x6b49BlFgwyIhYnlh&sz=w1600" alt="Foto 2025 9" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="10">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 10</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1PCdN1JjSgRw0Zkp6CyGy1EvZ3sLYqY3H&sz=w1600" alt="Dokumentasi 2025 10">
+<div class="page-label">MOMEN 10</div>
+<img src="https://drive.google.com/thumbnail?id=1PCdN1JjSgRw0Zkp6CyGy1EvZ3sLYqY3H&sz=w1600" alt="Foto 2025 10" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="11">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 11</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1xsxrrl8uFHQyOUdymHYBqy6eR7ZWB5ii&sz=w1600" alt="Dokumentasi 2025 11">
+<div class="page-label">MOMEN 11</div>
+<img src="https://drive.google.com/thumbnail?id=1xsxrrl8uFHQyOUdymHYBqy6eR7ZWB5ii&sz=w1600" alt="Foto 2025 11" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="12">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 12</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=13VsgYfl9rd278nqCVTKOxDcUua2t1VV1&sz=w1600" alt="Dokumentasi 2025 12">
+<div class="page-label">MOMEN 12</div>
+<img src="https://drive.google.com/thumbnail?id=13VsgYfl9rd278nqCVTKOxDcUua2t1VV1&sz=w1600" alt="Foto 2025 12" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="13">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 13</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1Fj7uuZPB6lFwJlFxEAo4Ab6kGfjl39p7&sz=w1600" alt="Dokumentasi 2025 13">
+<div class="page-label">MOMEN 13</div>
+<img src="https://drive.google.com/thumbnail?id=1Fj7uuZPB6lFwJlFxEAo4Ab6kGfjl39p7&sz=w1600" alt="Foto 2025 13" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="14">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 14</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1S64yOrlihZ1xxpWXJaahw5ykPiisLSNq&sz=w1600" alt="Dokumentasi 2025 14">
+<div class="page-label">MOMEN 14</div>
+<img src="https://drive.google.com/thumbnail?id=1S64yOrlihZ1xxpWXJaahw5ykPiisLSNq&sz=w1600" alt="Foto 2025 14" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="15">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 15</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=12aINQNHktG1VlWxjBQXPRrnzVWwThrwT&sz=w1600" alt="Dokumentasi 2025 15">
+<div class="page-label">MOMEN 15</div>
+<img src="https://drive.google.com/thumbnail?id=12aINQNHktG1VlWxjBQXPRrnzVWwThrwT&sz=w1600" alt="Foto 2025 15" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="16">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 16</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1pkM71yPpE8hMiB7oSYRIroix-OPE8tgw&sz=w1600" alt="Dokumentasi 2025 16">
+<div class="page-label">MOMEN 16</div>
+<img src="https://drive.google.com/thumbnail?id=1pkM71yPpE8hMiB7oSYRIroix-OPE8tgw&sz=w1600" alt="Foto 2025 16" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="17">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 17</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1_XRoyStxQuOJm6sEuQD4LzD85sBjtsZ7&sz=w1600" alt="Dokumentasi 2025 17">
+<div class="page-label">MOMEN 17</div>
+<img src="https://drive.google.com/thumbnail?id=1_XRoyStxQuOJm6sEuQD4LzD85sBjtsZ7&sz=w1600" alt="Foto 2025 17" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="18">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 18</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1g_QEtlmoRnigDRp9sK4YtfFHeXzwsE1y&sz=w1600" alt="Dokumentasi 2025 18">
+<div class="page-label">MOMEN 18</div>
+<img src="https://drive.google.com/thumbnail?id=1g_QEtlmoRnigDRp9sK4YtfFHeXzwsE1y&sz=w1600" alt="Foto 2025 18" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="19">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 19</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1bmSHtIhCFFMwc-3t6ReCHtAa5vF6CLz5&sz=w1600" alt="Dokumentasi 2025 19">
+<div class="page-label">MOMEN 19</div>
+<img src="https://drive.google.com/thumbnail?id=1bmSHtIhCFFMwc-3t6ReCHtAa5vF6CLz5&sz=w1600" alt="Foto 2025 19" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="20">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 20</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=15dy8C9IAfxGxi103W3MhTvbuZOIKu9wR&sz=w1600" alt="Dokumentasi 2025 20">
+<div class="page-label">MOMEN 20</div>
+<img src="https://drive.google.com/thumbnail?id=15dy8C9IAfxGxi103W3MhTvbuZOIKu9wR&sz=w1600" alt="Foto 2025 20" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="21">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 21</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1_RbZMALSp08OMH9_NzrDgD8tqz5zb0i7&sz=w1600" alt="Dokumentasi 2025 21">
+<div class="page-label">MOMEN 21</div>
+<img src="https://drive.google.com/thumbnail?id=1_RbZMALSp08OMH9_NzrDgD8tqz5zb0i7&sz=w1600" alt="Foto 2025 21" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="22">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 22</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1ECm-oT0jW7C-2vVggABzjbycEYuseh-U&sz=w1600" alt="Dokumentasi 2025 22">
+<div class="page-label">MOMEN 22</div>
+<img src="https://drive.google.com/thumbnail?id=1ECm-oT0jW7C-2vVggABzjbycEYuseh-U&sz=w1600" alt="Foto 2025 22" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="23">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 23</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=14ihBozusN3ZPVhIvfjs2bPDTKZnEmXNl&sz=w1600" alt="Dokumentasi 2025 23">
+<div class="page-label">MOMEN 23</div>
+<img src="https://drive.google.com/thumbnail?id=1quinenjgFNs6LmMomaKz4d78eL4-uRnn&sz=w1600" alt="Foto 2025 23" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="24">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 24</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=12NzEPX1gNVPsld-uXMLeutmA5fHSd_4b&sz=w1600" alt="Dokumentasi 2025 24">
+<div class="page-label">MOMEN 24</div>
+<img src="https://drive.google.com/thumbnail?id=1xxnwKFOiBIKqjRjV0QRfx91Ls3wzMajr&sz=w1600" alt="Foto 2025 24" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="25">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 25</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1Sb32YQAr-SnS8Aga0ozuVLASDfrVFDsR&sz=w1600" alt="Dokumentasi 2025 25">
+<div class="page-label">MOMEN 25</div>
+<img src="https://drive.google.com/thumbnail?id=1zEXdwa6WShNt3jeltbF3mGsbR_oodLwK&sz=w1600" alt="Foto 2025 25" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="26">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 26</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1-G0BNmKGd7fm8BKkqVN1z8tmMZkIEBgt&sz=w1600" alt="Dokumentasi 2025 26">
+<div class="page-label">MOMEN 26</div>
+<img src="https://drive.google.com/thumbnail?id=1aCxVynmUco9Ji55c4ReFsPWM4s3E5GQW&sz=w1600" alt="Foto 2025 26" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="27">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 27</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1TGEJtVT4c4HDu0HEZ05D0mGkUcYruaeF&sz=w1600" alt="Dokumentasi 2025 27">
+<div class="page-label">MOMEN 27</div>
+<img src="https://drive.google.com/thumbnail?id=1TGEJtVT4c4HDu0HEZ05D0mGkUcYruaeF&sz=w1600" alt="Foto 2025 27" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="28">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 28</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1YCuBUBjE2Y360KG15wWMNAD9ink2JfL3&sz=w1600" alt="Dokumentasi 2025 28">
+<div class="page-label">MOMEN 28</div>
+<img src="https://drive.google.com/thumbnail?id=14ihBozusN3ZPVhIvfjs2bPDTKZnEmXNl&sz=w1600" alt="Foto 2025 28" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="29">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 29</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=14g7cp2hXJCqT8hfARFP3xjTHv5NyuaI8&sz=w1600" alt="Dokumentasi 2025 29">
+<div class="page-label">MOMEN 29</div>
+<img src="https://drive.google.com/thumbnail?id=12NzEPX1gNVPsld-uXMLeutmA5fHSd_4b&sz=w1600" alt="Foto 2025 29" onload="resizeFlipbookImage(this)">
 </div>
 </div>
 
-
-<div class="book-page photo-page" data-page="30">
+<div class="book-page photo-page">
 <div class="page-inner">
-<div class="page-label">2025 • MOMEN 30</div>
-<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1vqMwrCC7GoXK0NPCdprtB4YHSy_kru9Q&sz=w1600" alt="Dokumentasi 2025 30">
+<div class="page-label">MOMEN 30</div>
+<img src="https://drive.google.com/thumbnail?id=1Sb32YQAr-SnS8Aga0ozuVLASDfrVFDsR&sz=w1600" alt="Foto 2025 30" onload="resizeFlipbookImage(this)">
 </div>
 </div>
-
 
 </div>
 
 
 <div class="flipbook-controls">
 
-<button
-onclick="prevBook('2025')"
-aria-label="Foto sebelumnya">
+<button onclick="prevPage('2025')">
 ←
 </button>
 
-<span
-class="page-indicator"
-id="indicator2025">
+<span id="pageIndicator2025">
 Cover
 </span>
 
-<button
-onclick="nextBook('2025')"
-aria-label="Foto berikutnya">
+<button onclick="nextPage('2025')">
 →
 </button>
 
 </div>
 
 <p class="flipbook-help">
-Klik sisi kanan buku untuk membuka halaman berikutnya
-• Klik sisi kiri untuk kembali
+Klik sisi kanan untuk halaman berikutnya •
+Klik sisi kiri untuk kembali
 </p>
 
 </div>
@@ -3064,9 +2397,7 @@ Klik sisi kanan buku untuk membuka halaman berikutnya
 </section>
 
 
-<!-- =====================================================
-     SOCIAL
-===================================================== -->
+<!-- ================= SOCIAL ================= -->
 
 <section class="section social-section">
 
@@ -3095,33 +2426,28 @@ dan update terbaru Anak Kampung RT 010.
 <a
 class="social"
 href="https://instagram.com/anakkampungcbs_010"
-target="_blank">
-
+target="_blank"
+>
 📷 Instagram<br>
 @anakkampungcbs_010
-
 </a>
-
 
 <a
 class="social"
 href="https://www.tiktok.com/@anakkampungcbs_010"
-target="_blank">
-
+target="_blank"
+>
 🎵 TikTok<br>
 @anakkampungcbs_010
-
 </a>
-
 
 <a
 class="social"
 href="https://wa.me/6285156889002"
-target="_blank">
-
+target="_blank"
+>
 💬 WhatsApp<br>
 0851-5688-9002
-
 </a>
 
 </div>
@@ -3131,9 +2457,7 @@ target="_blank">
 </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+<!-- ================= FOOTER ================= -->
 
 <footer>
 
@@ -3146,7 +2470,8 @@ target="_blank">
 <img
 src="logo-rt010.png"
 alt="Logo RT 010"
-class="footer-logo">
+class="footer-logo"
+>
 
 <div>
 
@@ -3188,6 +2513,14 @@ Tentang Kami
 Kegiatan
 </a>
 
+<a href="#pendaftaran">
+Pendaftaran Lomba
+</a>
+
+<a href="#malam-puncak">
+Pendaftaran Pentas Seni
+</a>
+
 <a href="#pengumuman">
 Pengumuman
 </a>
@@ -3215,26 +2548,23 @@ FOLLOW US
 
 <a
 href="https://instagram.com/anakkampungcbs_010"
-target="_blank">
-
+target="_blank"
+>
 Instagram — @anakkampungcbs_010
-
 </a>
 
 <a
 href="https://www.tiktok.com/@anakkampungcbs_010"
-target="_blank">
-
+target="_blank"
+>
 TikTok — @anakkampungcbs_010
-
 </a>
 
 <a
 href="https://wa.me/6285156889002"
-target="_blank">
-
+target="_blank"
+>
 WhatsApp — 0851-5688-9002
-
 </a>
 
 </div>
@@ -3256,455 +2586,392 @@ Dibuat untuk kebersamaan warga.
 
 <script>
 
-/* =====================================================
+/* =========================================================
    MENU
-===================================================== */
+========================================================= */
 
 function toggleMenu(){
 
-document
-.getElementById("navLinks")
-.classList
-.toggle("open");
+    document
+    .getElementById("navLinks")
+    .classList
+    .toggle("open");
 
 }
 
 
-/* =====================================================
-   TUTUP MENU SAAT LINK DIKLIK
-===================================================== */
-
-document
-.querySelectorAll(".nav-links a")
-.forEach(function(a){
-
-a.addEventListener("click",function(){
-
-document
-.getElementById("navLinks")
-.classList
-.remove("open");
-
-});
-
-});
-
-
-/* =====================================================
-   DETAIL EVENT
-===================================================== */
-
-function toggleDetail(id,button){
-
-const d=document.getElementById(id);
-
-d.classList.toggle("open");
-
-button.innerText=
-d.classList.contains("open")
-?
-"Tutup Detail ↑"
-:
-"Lihat Detail →";
-
-}
-
-
-/* =====================================================
+/* =========================================================
    DATA EVENT
-===================================================== */
+========================================================= */
 
-const events=[
+const events = [
 
 {
-title:"SEMARAK KEMERDEKAAN",
-subtitle:"Lomba Anak Usia 4–6 Tahun",
-date:"2026-08-15",
-dateText:"15 Agustus 2026",
-time:"09.00 WIB - Selesai",
-location:"Balai Warga RW 007"
+    title:"Lomba Anak",
+    age:"Usia 4–6 Tahun",
+    category:"SEMARAK KEMERDEKAAN",
+    date:"2026-08-15",
+    dateText:"15 Agustus 2026",
+    time:"09.00 WIB",
+    location:"Balai Warga RW 007",
+    description:"Perlombaan seru untuk anak-anak dalam rangka memeriahkan HUT Kemerdekaan RI.",
+    lomba:[
+        "Bendera ke Botol",
+        "Paku ke Botol",
+        "Kelereng",
+        "Jepit Balon",
+        "Makan Kerupuk"
+    ]
 },
 
 {
-title:"SEMARAK KEMERDEKAAN",
-subtitle:"Lomba Anak Usia 7–10 Tahun",
-date:"2026-08-16",
-dateText:"16–17 Agustus 2026",
-time:"08.00 WIB",
-location:"Balai Warga RW 007"
+    title:"Lomba Anak",
+    age:"Usia 7–10 Tahun",
+    category:"SEMARAK KEMERDEKAAN",
+    date:"2026-08-16",
+    dateText:"16–17 Agustus 2026",
+    time:"08.00 WIB",
+    location:"Balai Warga RW 007",
+    description:"Permainan kompetitif dan seru untuk anak-anak usia sekolah dasar.",
+    lomba:[
+        "Balap Karung",
+        "Makan Kerupuk",
+        "Rebutan Bangku",
+        "Tiup Gelas",
+        "Bakiak"
+    ]
 },
 
 {
-title:"SEMARAK KEMERDEKAAN",
-subtitle:"Lomba Remaja Usia 11–17 Tahun",
-date:"2026-08-16",
-dateText:"16–17 Agustus 2026",
-time:"08.00 WIB",
-location:"Balai Warga RW 007"
+    title:"Lomba Remaja",
+    age:"Usia 11–17 Tahun",
+    category:"SEMARAK KEMERDEKAAN",
+    date:"2026-08-16",
+    dateText:"16–17 Agustus 2026",
+    time:"08.00 WIB",
+    location:"Balai Warga RW 007",
+    description:"Saatnya para remaja menunjukkan kekompakan, kecepatan, dan keberanian.",
+    lomba:[
+        "Balap Karung Helm",
+        "Makan Kerupuk",
+        "Rebutan Bangku",
+        "Pecah Balon Air",
+        "Bakiak",
+        "Bola Master"
+    ]
 },
 
 {
-title:"SEMARAK KEMERDEKAAN",
-subtitle:"Lomba Bapak-Bapak",
-date:"2026-08-17",
-dateText:"8–17 Agustus 2026",
-time:"-",
-location:"Balai Warga RW 007"
+    title:"Lomba Bapak-Bapak",
+    age:"8–17 Agustus 2026",
+    category:"SEMARAK KEMERDEKAAN",
+    date:"2026-08-08",
+    dateText:"8–17 Agustus 2026",
+    time:"Sesuai jadwal panitia",
+    location:"Balai Warga RW 007",
+    description:"Kompak, santai, dan tetap kompetitif.",
+    lomba:[
+        "Tenis Meja",
+        "Catur",
+        "Gaple",
+        "Bakiak",
+        "Tarik Tambang",
+        "Main Bola Dasar"
+    ]
 },
 
 {
-title:"KREASI WARGA",
-subtitle:"Lomba Tumpeng",
-date:"2026-08-17",
-dateText:"17 Agustus 2026",
-time:"-",
-location:"Balai Warga RW 007"
+    title:"Lomba Tumpeng",
+    age:"17 Agustus 2026",
+    category:"KREASI WARGA",
+    date:"2026-08-17",
+    dateText:"17 Agustus 2026",
+    time:"Sesuai jadwal panitia",
+    location:"Balai Warga RW 007",
+    description:"Satu RT, satu kreasi terbaik. Tunjukkan kreativitas warga.",
+    lomba:[
+        "Kreativitas",
+        "Rasa",
+        "Penyajian"
+    ]
 },
 
 {
-title:"HIBURAN WARGA",
-subtitle:"Lomba Karaoke",
-date:"2026-08-22",
-dateText:"22 Agustus 2026",
-time:"09.00 WIB",
-location:"Area Balai Warga RW 007"
-},
-
-{
-title:"MALAM PUNCAK",
-subtitle:"Pentas Seni",
-date:"2026-08-22",
-dateText:"22 Agustus 2026",
-time:"19.30 WIB - Selesai",
-location:"Area Balai Warga RW 007"
+    title:"Malam Puncak / Pentas Seni",
+    age:"Untuk warga RT 010",
+    category:"HIBURAN WARGA",
+    date:"2026-08-22",
+    dateText:"22 Agustus 2026",
+    time:"19.30 WIB - Selesai",
+    location:"Area Balai Warga RW 007",
+    description:"Panggung kreativitas warga. Nyanyi, dance, musik, puisi, stand up, drama, dan berbagai penampilan lainnya.",
+    lomba:[]
 }
 
 ];
 
 
-/* =====================================================
+/* =========================================================
+   FORMAT TANGGAL
+========================================================= */
+
+function formatDate(dateString){
+
+    const date = new Date(dateString + "T00:00:00");
+
+    return date.toLocaleDateString(
+        "id-ID",
+        {
+            day:"numeric",
+            month:"long",
+            year:"numeric"
+        }
+    );
+
+}
+
+
+/* =========================================================
+   RENDER EVENT
+========================================================= */
+
+function renderEvents(){
+
+    const grid =
+    document.getElementById("eventsGrid");
+
+    const today = new Date();
+
+    today.setHours(0,0,0,0);
+
+    grid.innerHTML = "";
+
+    events.forEach((event,index)=>{
+
+        const eventDate =
+        new Date(event.date + "T00:00:00");
+
+        const done =
+        eventDate < today;
+
+        const lombaHTML =
+        event.lomba.length
+
+        ?
+
+        event.lomba.map(item=>`
+
+            <label class="lomba-option">
+
+                <input
+                    type="checkbox"
+                    name="eventLomba"
+                    value="${item}"
+                >
+
+                <span>${item}</span>
+
+            </label>
+
+        `).join("")
+
+        :
+
+        `
+        <p style="margin-top:10px">
+            Pendaftaran penampilan tersedia
+            di bagian Malam Puncak.
+        </p>
+        `;
+
+
+        grid.innerHTML += `
+
+        <article class="event-card ${done ? "done" : ""}">
+
+            <span class="event-tag">
+                ${event.category}
+            </span>
+
+            <h3>
+                ${event.title}
+            </h3>
+
+            <div class="age">
+                ${event.age}
+            </div>
+
+            <p>
+                ${event.description}
+            </p>
+
+            <div class="card-info">
+
+                <span>
+                    📅 ${event.dateText}
+                </span>
+
+                <span>
+                    ⏰ ${event.time}
+                </span>
+
+                <span>
+                    📍 ${event.location}
+                </span>
+
+            </div>
+
+            <div
+                class="detail"
+                id="detailEvent${index}"
+            >
+
+                <div class="detail-title">
+                    ${event.lomba.length
+                    ? "PILIHAN LOMBA"
+                    : "INFORMASI PENDAFTARAN"}
+                </div>
+
+                <div class="lomba-list">
+                    ${lombaHTML}
+                </div>
+
+            </div>
+
+            <button
+                class="detail-btn"
+                onclick="toggleDetail(
+                    'detailEvent${index}',
+                    this
+                )"
+            >
+                ${event.lomba.length
+                ? "Lihat Pilihan Lomba →"
+                : "Lihat Informasi →"}
+            </button>
+
+        </article>
+
+        `;
+
+    });
+
+}
+
+
+/* =========================================================
    EVENT TERDEKAT OTOMATIS
-===================================================== */
+========================================================= */
 
 function updateNearestEvent(){
 
-const today=new Date();
+    const today = new Date();
 
-today.setHours(0,0,0,0);
+    today.setHours(0,0,0,0);
 
-const upcoming=events
-.filter(function(event){
-
-const eventDate=new Date(event.date+"T00:00:00");
-
-return eventDate>=today;
-
-})
-.sort(function(a,b){
-
-return new Date(a.date)-new Date(b.date);
-
-});
+    const upcoming =
+    events
+    .filter(event =>
+        new Date(event.date + "T00:00:00") >= today
+    )
+    .sort(
+        (a,b) =>
+        new Date(a.date) -
+        new Date(b.date)
+    );
 
 
-const event=upcoming.length
-?
-upcoming[0]
-:
-events[events.length-1];
+    let nearest;
+
+    if(upcoming.length){
+
+        nearest = upcoming[0];
+
+    }else{
+
+        nearest = events[events.length - 1];
+
+    }
 
 
-document
-.getElementById("nearestEventTitle")
-.textContent=event.title;
-
-document
-.getElementById("nearestEventSubtitle")
-.textContent=event.subtitle;
-
-document
-.getElementById("nearestEventDate")
-.textContent=event.dateText;
-
-document
-.getElementById("nearestEventTime")
-.textContent=event.time;
-
-document
-.getElementById("nearestEventLocation")
-.textContent=event.location;
+    document.getElementById(
+        "nearestEventTitle"
+    ).textContent =
+    nearest.title.toUpperCase();
 
 
-if(upcoming.length){
-
-document
-.getElementById("nearestEventStatus")
-.innerHTML=
-'<span class="event-status status-upcoming">● EVENT TERDEKAT</span>';
-
-}else{
-
-document
-.getElementById("nearestEventStatus")
-.innerHTML=
-'<span class="event-status status-done">SEMUA EVENT SUDAH SELESAI</span>';
-
-}
-
-}
+    document.getElementById(
+        "nearestEventSubtitle"
+    ).textContent =
+    nearest.age;
 
 
-/* =====================================================
-   STATUS EVENT OTOMATIS
-===================================================== */
+    document.getElementById(
+        "nearestEventDate"
+    ).textContent =
+    nearest.dateText;
 
-function updateEventStatus(){
 
-const today=new Date();
+    document.getElementById(
+        "nearestEventTime"
+    ).textContent =
+    nearest.time;
 
-today.setHours(0,0,0,0);
 
-document
-.querySelectorAll(".event-card[data-event-date]")
-.forEach(function(card){
+    document.getElementById(
+        "nearestEventLocation"
+    ).textContent =
+    nearest.location;
 
-const date=card.getAttribute("data-event-date");
 
-const eventDate=
-new Date(date+"T00:00:00");
-
-if(eventDate<today){
-
-card.classList.add("completed");
-
-let oldStatus=
-card.querySelector(".automatic-status");
-
-if(!oldStatus){
-
-oldStatus=document.createElement("div");
-
-oldStatus.className=
-"event-status automatic-status status-done";
-
-oldStatus.innerHTML=
-"✓ SUDAH DILAKSANAKAN";
-
-card
-.querySelector(".card-info")
-.after(oldStatus);
-
-}
-
-}
-
-});
+    document.getElementById(
+        "nearestEventInfo"
+    ).innerHTML =
+    nearest.description;
 
 }
 
 
-/* =====================================================
-   DAFTAR LOMBA
-===================================================== */
+/* =========================================================
+   DETAIL EVENT
+========================================================= */
 
-function registerLomba(namaLomba,ids){
+function toggleDetail(id,button){
 
-const selected=[];
+    const d =
+    document.getElementById(id);
 
-ids.forEach(function(id){
+    d.classList.toggle("open");
 
-const checkbox=
-document.getElementById(id);
-
-if(checkbox && checkbox.checked){
-
-selected.push(checkbox.value);
-
-}
-
-});
-
-
-if(selected.length===0){
-
-alert(
-"Silakan pilih minimal satu lomba terlebih dahulu."
-);
-
-return;
+    button.innerText =
+    d.classList.contains("open")
+    ?
+    "Tutup Detail ↑"
+    :
+    "Lihat Detail →";
 
 }
 
 
-const nama=
-prompt(
-"Masukkan nama peserta:"
-);
-
-if(!nama){
-
-return;
-
-}
-
-
-const text=
-`Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin mendaftar lomba.
-
-*Nama Peserta:* ${nama}
-
-*Kategori:* ${namaLomba}
-
-*Lomba yang Dipilih:*
-${selected.map(function(item){
-return "☑️ "+item;
-}).join("\n")}
-
-Terima kasih.`;
-
-
-window.open(
-"https://wa.me/6285156889002?text="+
-encodeURIComponent(text),
-"_blank"
-);
-
-}
-
-
-/* =====================================================
-   PENDAFTARAN SEDERHANA
-===================================================== */
-
-function registerSimple(namaEvent){
-
-const nama=
-prompt(
-"Masukkan nama peserta:"
-);
-
-if(!nama){
-
-return;
-
-}
-
-
-const text=
-`Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin mendaftar.
-
-*Nama Peserta:* ${nama}
-
-*Pendaftaran:* ${namaEvent}
-
-Mohon informasi selanjutnya.
-
-Terima kasih.`;
-
-
-window.open(
-"https://wa.me/6285156889002?text="+
-encodeURIComponent(text),
-"_blank"
-);
-
-}
-
-
-/* =====================================================
-   PENDAFTARAN PENTAS SENI
-===================================================== */
-
-function registerPentas(e){
-
-e.preventDefault();
-
-
-const nama=
-document.getElementById("pentasName")
-.value;
-
-const jenis=
-document.getElementById("pentasType")
-.value;
-
-const jumlah=
-document.getElementById("pentasJumlah")
-.value;
-
-const judul=
-document.getElementById("pentasJudul")
-.value;
-
-const catatan=
-document.getElementById("pentasCatatan")
-.value;
-
-
-const text=
-`Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin mendaftar sebagai pengisi acara Malam Puncak / Pentas Seni.
-
-*Nama / Kelompok:*
-${nama}
-
-*Jenis Penampilan:*
-${jenis}
-
-*Jumlah Orang:*
-${jumlah}
-
-*Judul Penampilan:*
-${judul}
-
-*Catatan:*
-${catatan || "-"}
-
-Mohon konfirmasi untuk pendaftaran saya.
-
-Terima kasih.`;
-
-
-window.open(
-"https://wa.me/6285156889002?text="+
-encodeURIComponent(text),
-"_blank"
-);
-
-}
-
-
-/* =====================================================
-   ASPIRASI
-===================================================== */
+/* =========================================================
+   WHATSAPP ASPIRASI
+========================================================= */
 
 function sendAspiration(e){
 
-e.preventDefault();
+    e.preventDefault();
+
+    const n =
+    document.getElementById("aspName").value;
+
+    const c =
+    document.getElementById("aspCategory").value;
+
+    const m =
+    document.getElementById("aspMessage").value;
 
 
-const n=
-document
-.getElementById("aspName")
-.value;
-
-const c=
-document
-.getElementById("aspCategory")
-.value;
-
-const m=
-document
-.getElementById("aspMessage")
-.value;
-
-
-const text=
+    const text =
 `Halo Admin Anak Kampung RT 010 👋
 
 Saya ingin menyampaikan aspirasi.
@@ -3719,219 +2986,561 @@ ${m}
 Terima kasih.`;
 
 
-window.open(
-"https://wa.me/6285156889002?text="+
-encodeURIComponent(text),
-"_blank"
-);
+    window.open(
+        "https://wa.me/6285156889002?text="
+        +
+        encodeURIComponent(text),
+        "_blank"
+    );
 
 }
 
 
-/* =====================================================
+/* =========================================================
+   PENDAFTARAN LOMBA
+========================================================= */
+
+function sendLombaRegistration(e){
+
+    e.preventDefault();
+
+
+    const name =
+    document.getElementById("lombaName").value;
+
+    const age =
+    document.getElementById("lombaAge").value;
+
+    const phone =
+    document.getElementById("lombaPhone").value;
+
+
+    const checked =
+    document.querySelectorAll(
+        'input[name="lomba"]:checked'
+    );
+
+
+    if(checked.length === 0){
+
+        alert(
+            "Silakan pilih minimal satu lomba terlebih dahulu."
+        );
+
+        return;
+
+    }
+
+
+    const lomba =
+    Array.from(checked)
+    .map(item => "✓ " + item.value)
+    .join("\n");
+
+
+    const text =
+`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar lomba.
+
+*Nama Peserta:*
+${name}
+
+*Usia:*
+${age} tahun
+
+*Nomor WhatsApp:*
+${phone}
+
+*Lomba yang Dipilih:*
+${lomba}
+
+Mohon dicatat sebagai peserta.
+Terima kasih 🙏`;
+
+
+    window.open(
+        "https://wa.me/6285156889002?text="
+        +
+        encodeURIComponent(text),
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
+   PENDAFTARAN PENTAS SENI
+========================================================= */
+
+function sendPentasRegistration(e){
+
+    e.preventDefault();
+
+
+    const name =
+    document.getElementById("pentasName").value;
+
+    const phone =
+    document.getElementById("pentasPhone").value;
+
+    const type =
+    document.getElementById("pentasType").value;
+
+    const title =
+    document.getElementById("pentasTitle").value;
+
+    const people =
+    document.getElementById("pentasPeople").value;
+
+    const note =
+    document.getElementById("pentasNote").value;
+
+
+    const text =
+`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar untuk mengisi acara Malam Puncak / Pentas Seni.
+
+*Nama / Kelompok:*
+${name}
+
+*Nomor WhatsApp:*
+${phone}
+
+*Jenis Penampilan:*
+${type}
+
+*Judul / Nama Penampilan:*
+${title}
+
+*Jumlah Orang:*
+${people} orang
+
+*Catatan Tambahan:*
+${note || "-"}
+
+Mohon dicatat sebagai calon pengisi acara.
+Terima kasih 🙏`;
+
+
+    window.open(
+        "https://wa.me/6285156889002?text="
+        +
+        encodeURIComponent(text),
+        "_blank"
+    );
+
+}
+
+
+/* =========================================================
    FLIPBOOK ENGINE
-===================================================== */
+========================================================= */
 
-const books={
+const flipbooks = {
 
-2026:{
-current:0
-},
+    "2026":{
+        current:0
+    },
 
-2025:{
-current:0
-}
+    "2025":{
+        current:0
+    }
 
 };
 
 
-/* =====================================================
-   UPDATE FLIPBOOK
-===================================================== */
+function getPages(year){
+
+    return document.querySelectorAll(
+        "#flipbook" + year + " .book-page"
+    );
+
+}
+
 
 function updateBook(year){
 
-const bookId=
-"flipbook"+year;
+    const pages =
+    getPages(year);
 
-const indicator=
-document.getElementById(
-"indicator"+year
-);
+    const state =
+    flipbooks[year];
 
-const pages=
-document.querySelectorAll(
-"#"+bookId+" .book-page"
-);
+    const total =
+    pages.length - 1;
 
 
-const current=
-books[year].current;
+    pages.forEach((page,index)=>{
 
-const total=
-pages.length-1;
+        if(index === 0){
 
+            page.style.zIndex =
+            state.current === 0
+            ? total + 10
+            : 1;
 
-pages.forEach(function(page,index){
+        }else{
 
-if(index<=current-1){
+            page.style.zIndex =
+            index <= state.current
+            ? index
+            : total + 10 - index;
 
-page.classList.add("flipped");
-
-}else{
-
-page.classList.remove("flipped");
-
-}
-
-
-/*
-Mengatur tumpukan halaman.
-*/
-
-if(index<=current-1){
-
-page.style.zIndex=index;
-
-}else{
-
-page.style.zIndex=
-total+1-index;
-
-}
-
-});
+        }
 
 
-if(current===0){
+        page.classList.toggle(
+            "flipped",
+            index > 0 &&
+            index <= state.current
+        );
 
-indicator.textContent="Cover";
-
-}else{
-
-indicator.textContent=
-"Foto "+current+" / "+total;
-
-}
-
-}
+    });
 
 
-/* =====================================================
-   NEXT
-===================================================== */
-
-function nextBook(year){
-
-const pages=
-document.querySelectorAll(
-"#flipbook"+year+" .book-page"
-);
-
-const total=
-pages.length-1;
+    const indicator =
+    document.getElementById(
+        "pageIndicator" + year
+    );
 
 
-if(
-books[year].current<total
-){
+    if(state.current === 0){
 
-books[year].current++;
+        indicator.textContent =
+        "Cover";
 
-updateBook(year);
+    }else{
 
-}
+        indicator.textContent =
+        "Foto " +
+        state.current +
+        " / " +
+        total;
+
+    }
+
+
+    resizeCurrentFlipbook(year);
 
 }
 
 
-/* =====================================================
-   PREVIOUS
-===================================================== */
+function nextPage(year){
 
-function prevBook(year){
+    const pages =
+    getPages(year);
 
-if(
-books[year].current>0
-){
+    const total =
+    pages.length - 1;
 
-books[year].current--;
 
-updateBook(year);
+    if(
+        flipbooks[year].current <
+        total
+    ){
+
+        flipbooks[year].current++;
+
+        updateBook(year);
+
+    }
 
 }
 
+
+function prevPage(year){
+
+    if(
+        flipbooks[year].current >
+        0
+    ){
+
+        flipbooks[year].current--;
+
+        updateBook(year);
+
+    }
+
 }
 
 
-/* =====================================================
-   KLIK HALAMAN
-===================================================== */
+/* =========================================================
+   AUTO SIZE SESUAI FOTO
+========================================================= */
+
+function resizeFlipbookImage(img){
+
+    const page =
+    img.closest(".book-page");
+
+    if(!page) return;
+
+    img.dataset.loadedWidth =
+    img.naturalWidth;
+
+    img.dataset.loadedHeight =
+    img.naturalHeight;
+
+
+    const ratio =
+    img.naturalHeight /
+    img.naturalWidth;
+
+
+    page.dataset.ratio =
+    ratio;
+
+
+    const book =
+    img.closest(".flipbook");
+
+
+    if(book){
+
+        resizeCurrentFlipbook(
+            book.id.replace(
+                "flipbook",
+                ""
+            )
+        );
+
+    }
+
+}
+
+
+function resizeCurrentFlipbook(year){
+
+    const book =
+    document.getElementById(
+        "flipbook" + year
+    );
+
+    if(!book) return;
+
+
+    const pages =
+    book.querySelectorAll(".book-page");
+
+    const current =
+    flipbooks[year].current;
+
+
+    const currentPage =
+    pages[current];
+
+
+    if(
+        !currentPage ||
+        current === 0
+    ){
+
+        const width =
+        Math.min(
+            book.parentElement.clientWidth,
+            900
+        );
+
+        book.style.height =
+        Math.max(
+            360,
+            width * .58
+        )
+        + "px";
+
+        return;
+
+    }
+
+
+    const img =
+    currentPage.querySelector("img");
+
+
+    if(
+        !img ||
+        !img.naturalWidth
+    ){
+
+        return;
+
+    }
+
+
+    const ratio =
+    img.naturalHeight /
+    img.naturalWidth;
+
+
+    const maxWidth =
+    Math.min(
+        book.parentElement.clientWidth,
+        900
+    );
+
+
+    let height =
+    maxWidth * ratio;
+
+
+    /*
+      Batas supaya foto sangat portrait
+      tetap nyaman dibaca.
+    */
+
+    if(height > 760){
+
+        height = 760;
+
+    }
+
+
+    if(height < 360){
+
+        height = 360;
+
+    }
+
+
+    book.style.height =
+    height + "px";
+
+
+    pages.forEach(page=>{
+
+        page.style.height =
+        height + "px";
+
+    });
+
+}
+
+
+/* =========================================================
+   CLICK PAGE
+========================================================= */
 
 function setupFlipbook(year){
 
-const pages=
-document.querySelectorAll(
-"#flipbook"+year+" .book-page"
+    const pages =
+    getPages(year);
+
+
+    pages.forEach((page,index)=>{
+
+        page.addEventListener(
+            "click",
+            function(e){
+
+                const rect =
+                page.getBoundingClientRect();
+
+                const x =
+                e.clientX -
+                rect.left;
+
+
+                if(
+                    x >
+                    rect.width / 2
+                ){
+
+                    nextPage(year);
+
+                }else{
+
+                    prevPage(year);
+
+                }
+
+            }
+        );
+
+    });
+
+
+    updateBook(year);
+
+}
+
+
+/* =========================================================
+   KEYBOARD
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    function(e){
+
+        if(e.key === "ArrowRight"){
+
+            nextPage("2026");
+            nextPage("2025");
+
+        }
+
+        if(e.key === "ArrowLeft"){
+
+            prevPage("2026");
+            prevPage("2025");
+
+        }
+
+    }
 );
 
 
-pages.forEach(function(page){
+/* =========================================================
+   NAV MENU MOBILE
+========================================================= */
 
-page.addEventListener(
-"click",
-function(e){
+document
+.querySelectorAll(".nav-links a")
+.forEach(a => {
 
-const rect=
-page.getBoundingClientRect();
+    a.addEventListener(
+        "click",
+        () => {
 
-const x=
-e.clientX-rect.left;
+            document
+            .getElementById("navLinks")
+            .classList
+            .remove("open");
 
-
-if(x>rect.width/2){
-
-nextBook(year);
-
-}else{
-
-prevBook(year);
-
-}
+        }
+    );
 
 });
 
-});
 
-}
+/* =========================================================
+   RESPONSIVE RESIZE
+========================================================= */
+
+window.addEventListener(
+    "resize",
+    function(){
+
+        resizeCurrentFlipbook("2026");
+        resizeCurrentFlipbook("2025");
+
+    }
+);
 
 
-/* =====================================================
+/* =========================================================
    INITIALIZE
-===================================================== */
+========================================================= */
+
+renderEvents();
+
+updateNearestEvent();
 
 setupFlipbook("2026");
+
 setupFlipbook("2025");
-
-updateBook("2026");
-updateBook("2025");
-
-updateNearestEvent();
-updateEventStatus();
-
-
-/*
-Cek ulang setiap menit.
-Jadi jika halaman dibiarkan terbuka
-dan tanggal berganti, status event juga ikut berubah.
-*/
-
-setInterval(function(){
-
-updateNearestEvent();
-updateEventStatus();
-
-},60000);
 
 </script>
 
