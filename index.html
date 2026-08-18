@@ -11,7 +11,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -138,6 +137,25 @@ section{
     font-size:1.7rem;
     color:var(--navy);
     cursor:pointer;
+}
+
+@media(max-width:950px){
+    .menu-btn{
+        display:block;
+    }
+    .nav-links{
+        position:absolute;
+        top:78px;
+        left:0;
+        right:0;
+        background:#fff;
+        padding:15px 20px;
+        display:none;
+        flex-direction:column;
+    }
+    .nav-links.open{
+        display:flex;
+    }
 }
 
 /* ================= HERO ================= */
@@ -281,6 +299,27 @@ section{
     font-size:.8rem;
 }
 
+@media(max-width:950px){
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+    .hero{
+        padding-top:125px;
+    }
+}
+
+@media(max-width:600px){
+    .container{
+        width:min(100% - 28px,1180px);
+    }
+    .hero h1{
+        font-size:2.5rem;
+    }
+    .feature-card{
+        padding:25px;
+    }
+}
+
 /* ================= SECTION ================= */
 
 .section{
@@ -304,6 +343,12 @@ section{
     color:var(--muted);
     max-width:650px;
     margin-top:14px;
+}
+
+@media(max-width:600px){
+    .section{
+        padding:70px 0;
+    }
 }
 
 /* ================= ABOUT ================= */
@@ -357,6 +402,21 @@ section{
     font-size:.78rem;
 }
 
+@media(max-width:950px){
+    .about-grid,
+    .aspiration-box,
+    .social-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+}
+
+@media(max-width:600px){
+    .values{
+        grid-template-columns:1fr;
+    }
+}
+
 /* ================= EVENTS ================= */
 
 .section-heading{
@@ -370,6 +430,9 @@ section{
 }
 
 .event-card{
+    background:#fff;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
     border-radius:18px;
     padding:27px;
     transition:.3s;
@@ -482,6 +545,12 @@ section{
     cursor:pointer;
 }
 
+@media(max-width:950px){
+    .events-grid{
+        grid-template-columns:1fr;
+    }
+}
+
 /* ================= FORM ================= */
 
 .form{
@@ -523,12 +592,6 @@ section{
     background:#fff;
 }
 
-.form-note{
-    font-size:.7rem;
-    color:var(--muted);
-    margin-top:6px;
-}
-
 /* ================= DYNAMIC REGISTRATION ================= */
 
 .registration-highlight{
@@ -559,6 +622,9 @@ section{
 }
 
 .notice{
+    background:#fff;
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
     border-radius:15px;
     padding:23px 25px;
     display:flex;
@@ -580,6 +646,13 @@ section{
 .notice p{
     color:var(--muted);
     font-size:.8rem;
+}
+
+@media(max-width:600px){
+    .notice{
+        flex-direction:column;
+        gap:8px;
+    }
 }
 
 /* ================= ASPIRATION ================= */
@@ -795,6 +868,28 @@ section{
     opacity:.7;
 }
 
+@media(max-width:950px){
+    .flipbook{
+        min-height:360px;
+    }
+}
+
+@media(max-width:600px){
+    .flipbook{
+        min-height:300px;
+    }
+    .page-inner{
+        padding:10px;
+    }
+    .page-label{
+        padding-bottom:7px;
+    }
+    .flipbook-controls button{
+        width:38px;
+        height:38px;
+    }
+}
+
 /* ================= SOCIAL ================= */
 
 .social-section{
@@ -835,6 +930,22 @@ section{
     font-weight:800;
 }
 
+@media(max-width:950px){
+    .social-links{
+        justify-content:flex-start;
+    }
+}
+
+@media(max-width:600px){
+    .social-links{
+        flex-direction:column;
+    }
+    .social{
+        width:100%;
+        text-align:center;
+    }
+}
+
 /* ================= FOOTER ================= */
 
 footer{
@@ -871,9 +982,26 @@ footer span{
     font-size:.8rem;
 }
 
+footer a{
+    display:block;
+    transition:.2s;
+}
+
+footer a:hover{
+    color:#fff;
+}
+
 .footer-links{
     display:grid;
     gap:7px;
+}
+
+footer h3{
+    font-size:.8rem;
+    text-transform:uppercase;
+    letter-spacing:1px;
+    color:#b0c4d6;
+    margin-bottom:14px;
 }
 
 .copyright{
@@ -885,107 +1013,22 @@ footer span{
     font-size:.7rem;
 }
 
-/* ================= RESPONSIVE ================= */
-
 @media(max-width:950px){
-
-    .menu-btn{
-        display:block;
-    }
-
-    .nav-links{
-        position:absolute;
-        top:78px;
-        left:0;
-        right:0;
-        background:#fff;
-        padding:15px 20px;
-        display:none;
-        flex-direction:column;
-    }
-
-    .nav-links.open{
-        display:flex;
-    }
-
-    .hero-grid,
-    .about-grid,
-    .aspiration-box,
-    .social-grid{
-        grid-template-columns:1fr;
-    }
-
-    .hero{
-        padding-top:125px;
-    }
-
-    .events-grid{
-        grid-template-columns:1fr;
-    }
-
-    .social-links{
-        justify-content:flex-start;
-    }
-
     .footer-grid{
         grid-template-columns:1fr 1fr;
-    }
-
-    .flipbook{
-        min-height:360px;
     }
 }
 
 @media(max-width:600px){
-
-    .container{
-        width:min(100% - 28px,1180px);
-    }
-
-    .section{
-        padding:70px 0;
-    }
-
-    .values{
-        grid-template-columns:1fr;
-    }
-
-    .notice{
-        flex-direction:column;
-        gap:8px;
-    }
-
     .footer-grid{
         grid-template-columns:1fr;
-    }
-
-    .flipbook{
-        min-height:300px;
-    }
-
-    .page-inner{
-        padding:10px;
-    }
-
-    .page-label{
-        padding-bottom:7px;
-    }
-
-    .flipbook-controls button{
-        width:38px;
-        height:38px;
-    }
-
-    .feature-card{
-        padding:25px;
+        gap:30px;
     }
 }
-
 </style>
 </head>
 
 <body>
-
 
 <!-- =========================================================
      HEADER
@@ -1001,6 +1044,7 @@ footer span{
 src="logo-rt010.png"
 alt="Logo Anak Kampung RT 010"
 class="brand-logo"
+onerror="this.style.display='none'"
 >
 
 <div class="brand-text">
@@ -1083,7 +1127,6 @@ Tentang Kami
 
 
 <!-- EVENT TERDEKAT -->
-<!-- TIDAK ADA TOMBOL PENDAFTARAN -->
 
 <div class="feature-card">
 
@@ -1639,6 +1682,7 @@ Jenis Penampilan
 <option>Puisi</option>
 <option>Stand Up Comedy</option>
 <option>Drama</option>
+<option>Fashion Show</option>
 <option>Lainnya</option>
 
 </select>
@@ -1688,7 +1732,7 @@ Catatan Tambahan
 <textarea
 id="pentasNote"
 rows="4"
-placeholder="Durasi, atau informasi lainnya..."
+placeholder="Kebutuhan alat, durasi, atau informasi lainnya..."
 ></textarea>
 
 </div>
@@ -1850,7 +1894,7 @@ Anak Kampung RT 010.
 
 
 <!-- =====================================================
-     FLIPBOOK 2026
+     FLIPBOOK 2026 — DARI FOLDER LOKAL
 ===================================================== -->
 
 <div class="flipbook-section">
@@ -1909,214 +1953,7 @@ KLIK HALAMAN UNTUK MEMBUKA
 </div>
 
 
-<!-- FOTO 1 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 01
-</div>
-
-<img
-src="galeri/foto1.jpeg"
-alt="Dokumentasi Foto 2026 - 1"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 2 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 02
-</div>
-
-<img
-src="galeri/foto2.jpeg"
-alt="Dokumentasi Foto 2026 - 2"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 3 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 03
-</div>
-
-<img
-src="galeri/foto3.jpeg"
-alt="Dokumentasi Foto 2026 - 3"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 4 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 04
-</div>
-
-<img
-src="galeri/foto4.jpeg"
-alt="Dokumentasi Foto 2026 - 4"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 5 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 05
-</div>
-
-<img
-src="galeri/foto5.jpeg"
-alt="Dokumentasi Foto 2026 - 5"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 6 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 06
-</div>
-
-<img
-src="galeri/foto6.jpeg"
-alt="Dokumentasi Foto 2026 - 6"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 7 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 07
-</div>
-
-<img
-src="galeri/foto7.jpeg"
-alt="Dokumentasi Foto 2026 - 7"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 8 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 08
-</div>
-
-<img
-src="galeri/Foto8.jpeg"
-alt="Dokumentasi Foto 2026 - 8"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 9 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 09
-</div>
-
-<img
-src="galeri/Foto9.jpeg"
-alt="Dokumentasi Foto 2026 - 9"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
-
-
-<!-- FOTO 10 -->
-
-<div class="book-page photo-page">
-
-<div class="page-inner">
-
-<div class="page-label">
-MOMEN 10
-</div>
-
-<img
-src="galeri/Foto10.jpeg"
-alt="Dokumentasi Foto 2026 - 10"
-onload="resizeFlipbookImage(this)"
->
-
-</div>
-
-</div>
+<!-- FOTO 2026 AKAN DIISI OTOMATIS OLEH JAVASCRIPT -->
 
 
 </div>
@@ -2149,7 +1986,7 @@ Klik sisi kiri untuk kembali
 
 
 <!-- =====================================================
-     FLIPBOOK 2025
+     FLIPBOOK 2025 — DARI GOOGLE DRIVE
 ===================================================== -->
 
 <div class="flipbook-section">
@@ -2208,217 +2045,7 @@ KLIK HALAMAN UNTUK MEMBUKA
 </div>
 
 
-<!-- FOTO 2025 -->
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 01</div>
-<img src="https://drive.google.com/thumbnail?id=19rEF9dRx767yEY0RI2svKR5upcYO3fyL&sz=w1600" alt="Foto 2025 1" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 02</div>
-<img src="https://drive.google.com/thumbnail?id=1ILLEtJjWKD7378DI4sP9NJBH7XBoxzkr&sz=w1600" alt="Foto 2025 2" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 03</div>
-<img src="https://drive.google.com/thumbnail?id=1O_h3Qc3A6Pd4jvCQr00Yy6Rx7jVq3CYG&sz=w1600" alt="Foto 2025 3" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 04</div>
-<img src="https://drive.google.com/thumbnail?id=11dgKWhLIPdLnLiSOpHJAv9rD7ZMxgbnb&sz=w1600" alt="Foto 2025 4" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 05</div>
-<img src="https://drive.google.com/thumbnail?id=1DrRkx-K9ADROURHw5DVMd91QXjjFZk_k&sz=w1600" alt="Foto 2025 5" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 06</div>
-<img src="https://drive.google.com/thumbnail?id=1u2V5sB0hb0KnN-zi_15r37k3NHevw6gh&sz=w1600" alt="Foto 2025 6" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 07</div>
-<img src="https://drive.google.com/thumbnail?id=1h7Ypw7khtcmWT9-cAAT7YqmnauejpGKE&sz=w1600" alt="Foto 2025 7" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 08</div>
-<img src="https://drive.google.com/thumbnail?id=1UdpYy80EHbr7cSSNo5LlJebG8-Zz6jQP&sz=w1600" alt="Foto 2025 8" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 09</div>
-<img src="https://drive.google.com/thumbnail?id=1hkxcGDCB2Mi3Ji-x6b49BlFgwyIhYnlh&sz=w1600" alt="Foto 2025 9" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 10</div>
-<img src="https://drive.google.com/thumbnail?id=1PCdN1JjSgRw0Zkp6CyGy1EvZ3sLYqY3H&sz=w1600" alt="Foto 2025 10" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 11</div>
-<img src="https://drive.google.com/thumbnail?id=1xsxrrl8uFHQyOUdymHYBqy6eR7ZWB5ii&sz=w1600" alt="Foto 2025 11" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 12</div>
-<img src="https://drive.google.com/thumbnail?id=13VsgYfl9rd278nqCVTKOxDcUua2t1VV1&sz=w1600" alt="Foto 2025 12" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 13</div>
-<img src="https://drive.google.com/thumbnail?id=1Fj7uuZPB6lFwJlFxEAo4Ab6kGfjl39p7&sz=w1600" alt="Foto 2025 13" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 14</div>
-<img src="https://drive.google.com/thumbnail?id=1S64yOrlihZ1xxpWXJaahw5ykPiisLSNq&sz=w1600" alt="Foto 2025 14" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 15</div>
-<img src="https://drive.google.com/thumbnail?id=12aINQNHktG1VlWxjBQXPRrnzVWwThrwT&sz=w1600" alt="Foto 2025 15" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 16</div>
-<img src="https://drive.google.com/thumbnail?id=1pkM71yPpE8hMiB7oSYRIroix-OPE8tgw&sz=w1600" alt="Foto 2025 16" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 17</div>
-<img src="https://drive.google.com/thumbnail?id=1_XRoyStxQuOJm6sEuQD4LzD85sBjtsZ7&sz=w1600" alt="Foto 2025 17" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 18</div>
-<img src="https://drive.google.com/thumbnail?id=1g_QEtlmoRnigDRp9sK4YtfFHeXzwsE1y&sz=w1600" alt="Foto 2025 18" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 19</div>
-<img src="https://drive.google.com/thumbnail?id=1bmSHtIhCFFMwc-3t6ReCHtAa5vF6CLz5&sz=w1600" alt="Foto 2025 19" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 20</div>
-<img src="https://drive.google.com/thumbnail?id=15dy8C9IAfxGxi103W3MhTvbuZOIKu9wR&sz=w1600" alt="Foto 2025 20" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 21</div>
-<img src="https://drive.google.com/thumbnail?id=1_RbZMALSp08OMH9_NzrDgD8tqz5zb0i7&sz=w1600" alt="Foto 2025 21" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 22</div>
-<img src="https://drive.google.com/thumbnail?id=1ECm-oT0jW7C-2vVggABzjbycEYuseh-U&sz=w1600" alt="Foto 2025 22" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 23</div>
-<img src="https://drive.google.com/thumbnail?id=1quinenjgFNs6LmMomaKz4d78eL4-uRnn&sz=w1600" alt="Foto 2025 23" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 24</div>
-<img src="https://drive.google.com/thumbnail?id=1xxnwKFOiBIKqjRjV0QRfx91Ls3wzMajr&sz=w1600" alt="Foto 2025 24" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 25</div>
-<img src="https://drive.google.com/thumbnail?id=1zEXdwa6WShNt3jeltbF3mGsbR_oodLwK&sz=w1600" alt="Foto 2025 25" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 26</div>
-<img src="https://drive.google.com/thumbnail?id=1aCxVynmUco9Ji55c4ReFsPWM4s3E5GQW&sz=w1600" alt="Foto 2025 26" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 27</div>
-<img src="https://drive.google.com/thumbnail?id=1TGEJtVT4c4HDu0HEZ05D0mGkUcYruaeF&sz=w1600" alt="Foto 2025 27" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 28</div>
-<img src="https://drive.google.com/thumbnail?id=14ihBozusN3ZPVhIvfjs2bPDTKZnEmXNl&sz=w1600" alt="Foto 2025 28" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 29</div>
-<img src="https://drive.google.com/thumbnail?id=12NzEPX1gNVPsld-uXMLeutmA5fHSd_4b&sz=w1600" alt="Foto 2025 29" onload="resizeFlipbookImage(this)">
-</div>
-</div>
-
-<div class="book-page photo-page">
-<div class="page-inner">
-<div class="page-label">MOMEN 30</div>
-<img src="https://drive.google.com/thumbnail?id=1Sb32YQAr-SnS8Aga0ozuVLASDfrVFDsR&sz=w1600" alt="Foto 2025 30" onload="resizeFlipbookImage(this)">
-</div>
-</div>
+<!-- FOTO 2025 AKAN DIISI OTOMATIS OLEH JAVASCRIPT -->
 
 
 </div>
@@ -2532,6 +2159,7 @@ target="_blank"
 src="logo-rt010.png"
 alt="Logo RT 010"
 class="footer-logo"
+onerror="this.style.display='none'"
 >
 
 <div>
@@ -3124,11 +2752,6 @@ function openRegistration(index){
     }
 
 
-    /*
-       Pentas Seni menggunakan
-       form yang berbeda.
-    */
-
     if(
         event.registrationType === "pentas"
     ){
@@ -3210,10 +2833,6 @@ function openRegistration(index){
     );
 
 
-    /*
-       RESET FORM
-    */
-
     ageGroup.style.display =
     "none";
 
@@ -3244,10 +2863,6 @@ function openRegistration(index){
     "";
 
 
-    /*
-       NAMA KEGIATAN
-    */
-
     const activityName =
     event.title +
     " - " +
@@ -3275,10 +2890,6 @@ function openRegistration(index){
     ". Silakan lengkapi data di bawah.";
 
 
-    /*
-       LOMBA ANAK 4–6
-    */
-
     if(
         event.registrationType ===
         "lomba-anak-4-6"
@@ -3301,10 +2912,6 @@ function openRegistration(index){
 
     }
 
-
-    /*
-       LOMBA ANAK 7–10
-    */
 
     if(
         event.registrationType ===
@@ -3329,10 +2936,6 @@ function openRegistration(index){
     }
 
 
-    /*
-       LOMBA REMAJA
-    */
-
     if(
         event.registrationType ===
         "lomba-remaja"
@@ -3355,10 +2958,6 @@ function openRegistration(index){
 
     }
 
-
-    /*
-       LOMBA BAPAK-BAPAK
-    */
 
     if(
         event.registrationType ===
@@ -3383,10 +2982,6 @@ function openRegistration(index){
     }
 
 
-    /*
-       LOMBA TUMPENG
-    */
-
     if(
         event.registrationType ===
         "tumpeng"
@@ -3400,10 +2995,6 @@ function openRegistration(index){
 
     }
 
-
-    /*
-       LOMBA KARAOKE
-    */
 
     if(
         event.registrationType ===
@@ -3428,10 +3019,6 @@ function openRegistration(index){
 
     }
 
-
-    /*
-       TAMPILKAN FORM
-    */
 
     section.style.display =
     "block";
@@ -3713,468 +3300,273 @@ Terima kasih.`;
 
 
 /* =========================================================
-   FLIPBOOK
+   FLIPBOOK FOTO 2026 — DARI FOLDER LOKAL
+========================================================= */
+
+// Daftar nama file foto 2026 dari folder lokal
+const photoFiles2026 = [
+    'foto2026-1.jpg',
+    'foto2026-2.jpg',
+    'foto2026-3.jpg',
+    'foto2026-4.jpg',
+    'foto2026-5.jpg',
+    'foto2026-6.jpg',
+    'foto2026-7.jpg',
+    'foto2026-8.jpg',
+    'foto2026-9.jpg',
+    'foto2026-10.jpg'
+];
+
+// Path folder foto 2026
+const folderPath2026 = 'galeri/2026/';
+
+
+/* =========================================================
+   FLIPBOOK FOTO 2025 — DARI GOOGLE DRIVE
+========================================================= */
+
+// ID foto 2025 dari Google Drive (contoh 10 foto)
+// Kamu bisa tambah lebih banyak dengan menambahkan ID di array ini
+const photoIds2025 = [
+    '1iFI-SvCZLlFhAxS8nemR8jRc03fMDcRy',
+    '1OnrWk1f2ivJZbTsyvDaPj6msgesP7pjq',
+    '1gmNDxwZ-ww6kMafIakxvnRv9gFgLpPKk',
+    '1GK7sWxJgjYtJT6IU2i_DToAHQLKEkU2H',
+    '1M7L1FGJ5ZAaBBgFoheQmwy3ryJU_0pd3',
+    '147ipSmjY3u9JCyMPNMqwr7Zqy1yX3ZGW',
+    '1h5tdytXBp5GTonb2LaVA967DOl35NRwa',
+    '12rBBiLXOt3FuZx2eTFBitT6YOV5nH021',
+    '1fyjX8MAQtg4BA8xRah3PVdUsnipKrN3Z',
+    '13hO2D2HqGwABt-_M7J-r8AmDZvDLhu5b'
+];
+
+
+/* =========================================================
+   FUNGSI RENDER FLIPBOOK
+========================================================= */
+
+function renderFlipbook2026() {
+    const book = document.getElementById('flipbook2026');
+    if (!book) return;
+
+    // Hapus semua halaman foto (bukan cover)
+    const photoPages = book.querySelectorAll('.photo-page');
+    photoPages.forEach(p => p.remove());
+
+    // Tambah halaman foto dari folder lokal
+    photoFiles2026.forEach((fileName, index) => {
+        const page = document.createElement('div');
+        page.className = 'book-page photo-page';
+
+        const inner = document.createElement('div');
+        inner.className = 'page-inner';
+
+        const label = document.createElement('div');
+        label.className = 'page-label';
+        label.textContent = 'MOMEN ' + String(index + 1).padStart(2, '0');
+
+        const img = document.createElement('img');
+        img.src = folderPath2026 + fileName;
+        img.alt = 'Dokumentasi 2026 ' + (index + 1);
+        img.onerror = function() {
+            this.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;';
+            fallback.textContent = '📸 Foto 2026 ' + (index + 1);
+            this.parentElement.appendChild(fallback);
+        };
+
+        inner.appendChild(label);
+        inner.appendChild(img);
+        page.appendChild(inner);
+        book.appendChild(page);
+    });
+
+    // Setup flipbook
+    if (flipbooks['2026']) {
+        flipbooks['2026'].current = 0;
+        updateBook('2026');
+    }
+}
+
+function renderFlipbook2025() {
+    const book = document.getElementById('flipbook2025');
+    if (!book) return;
+
+    // Hapus semua halaman foto (bukan cover)
+    const photoPages = book.querySelectorAll('.photo-page');
+    photoPages.forEach(p => p.remove());
+
+    // Tambah halaman foto dari Google Drive
+    photoIds2025.forEach((fileId, index) => {
+        const page = document.createElement('div');
+        page.className = 'book-page photo-page';
+
+        const inner = document.createElement('div');
+        inner.className = 'page-inner';
+
+        const label = document.createElement('div');
+        label.className = 'page-label';
+        label.textContent = 'MOMEN ' + String(index + 1).padStart(2, '0');
+
+        const img = document.createElement('img');
+        img.src = 'https://drive.google.com/thumbnail?id=' + fileId + '&sz=w1600';
+        img.alt = 'Dokumentasi 2025 ' + (index + 1);
+        img.onerror = function() {
+            this.style.display = 'none';
+            const fallback = document.createElement('div');
+            fallback.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;';
+            fallback.textContent = '📸 Foto 2025 ' + (index + 1);
+            this.parentElement.appendChild(fallback);
+        };
+
+        inner.appendChild(label);
+        inner.appendChild(img);
+        page.appendChild(inner);
+        book.appendChild(page);
+    });
+
+    // Setup flipbook
+    if (flipbooks['2025']) {
+        flipbooks['2025'].current = 0;
+        updateBook('2025');
+    }
+}
+
+
+/* =========================================================
+   FLIPBOOK STATE
 ========================================================= */
 
 const flipbooks = {
-
-    "2026":{
-        current:0
-    },
-
-    "2025":{
-        current:0
-    }
-
+    '2026': { current: 0 },
+    '2025': { current: 0 }
 };
 
-
-function getPages(year){
-
-    return document.querySelectorAll(
-
-        "#flipbook" +
-        year +
-        " .book-page"
-
-    );
-
+function getPages(year) {
+    return document.querySelectorAll('#flipbook' + year + ' .book-page');
 }
 
+function updateBook(year) {
+    const pages = getPages(year);
+    const state = flipbooks[year];
+    const total = pages.length - 1;
 
-function updateBook(year){
-
-    const pages =
-    getPages(year);
-
-    const state =
-    flipbooks[year];
-
-    const total =
-    pages.length - 1;
-
-
-    pages.forEach((page,index)=>{
-
-        if(index === 0){
-
-            page.style.zIndex =
-
-            state.current === 0
-
-            ?
-
-            total + 10
-
-            :
-
-            1;
-
-        }else{
-
-            page.style.zIndex =
-
-            index <= state.current
-
-            ?
-
-            index
-
-            :
-
-            total + 10 - index;
-
+    pages.forEach((page, index) => {
+        if (index === 0) {
+            page.style.zIndex = state.current === 0 ? total + 10 : 1;
+        } else {
+            page.style.zIndex = index <= state.current ? index : total + 10 - index;
         }
-
-
-        page.classList.toggle(
-
-            "flipped",
-
-            index > 0 &&
-            index <= state.current
-
-        );
-
+        page.classList.toggle('flipped', index > 0 && index <= state.current);
     });
 
-
-    const indicator =
-    document.getElementById(
-
-        "pageIndicator" +
-        year
-
-    );
-
-
-    if(state.current === 0){
-
-        indicator.textContent =
-        "Cover";
-
-    }else{
-
-        indicator.textContent =
-
-        "Foto " +
-        state.current +
-        " / " +
-        total;
-
+    const indicator = document.getElementById('pageIndicator' + year);
+    if (state.current === 0) {
+        indicator.textContent = 'Cover';
+    } else {
+        indicator.textContent = 'Foto ' + state.current + ' / ' + total;
     }
-
 
     resizeCurrentFlipbook(year);
-
 }
 
-
-function nextPage(year){
-
-    const pages =
-    getPages(year);
-
-    const total =
-    pages.length - 1;
-
-
-    if(
-        flipbooks[year].current <
-        total
-    ){
-
+function nextPage(year) {
+    const pages = getPages(year);
+    const total = pages.length - 1;
+    if (flipbooks[year].current < total) {
         flipbooks[year].current++;
-
         updateBook(year);
-
     }
-
 }
 
-
-function prevPage(year){
-
-    if(
-        flipbooks[year].current >
-        0
-    ){
-
+function prevPage(year) {
+    if (flipbooks[year].current > 0) {
         flipbooks[year].current--;
-
         updateBook(year);
-
     }
-
 }
 
+function resizeCurrentFlipbook(year) {
+    const book = document.getElementById('flipbook' + year);
+    if (!book) return;
 
-/* =========================================================
-   AUTO SIZE FOTO
-========================================================= */
+    const pages = book.querySelectorAll('.book-page');
+    const current = flipbooks[year].current;
+    const currentPage = pages[current];
 
-function resizeFlipbookImage(img){
-
-    const page =
-    img.closest(".book-page");
-
-    if(!page) return;
-
-
-    img.dataset.loadedWidth =
-    img.naturalWidth;
-
-
-    img.dataset.loadedHeight =
-    img.naturalHeight;
-
-
-    const ratio =
-    img.naturalHeight /
-    img.naturalWidth;
-
-
-    page.dataset.ratio =
-    ratio;
-
-
-    const book =
-    img.closest(".flipbook");
-
-
-    if(book){
-
-        resizeCurrentFlipbook(
-
-            book.id.replace(
-                "flipbook",
-                ""
-            )
-
-        );
-
-    }
-
-}
-
-
-function resizeCurrentFlipbook(year){
-
-    const book =
-    document.getElementById(
-
-        "flipbook" +
-        year
-
-    );
-
-
-    if(!book) return;
-
-
-    const pages =
-    book.querySelectorAll(
-        ".book-page"
-    );
-
-
-    const current =
-    flipbooks[year].current;
-
-
-    const currentPage =
-    pages[current];
-
-
-    if(
-        !currentPage ||
-        current === 0
-    ){
-
-        const width =
-        Math.min(
-
-            book.parentElement.clientWidth,
-
-            900
-
-        );
-
-
-        book.style.height =
-
-        Math.max(
-
-            360,
-
-            width * .58
-
-        )
-
-        +
-
-        "px";
-
-
-        pages.forEach(page=>{
-
-            page.style.height =
-            book.style.height;
-
-        });
-
-
+    if (!currentPage || current === 0) {
+        const width = Math.min(book.parentElement.clientWidth, 900);
+        book.style.height = Math.max(360, width * 0.58) + 'px';
+        pages.forEach(page => { page.style.height = book.style.height; });
         return;
-
     }
 
+    const img = currentPage.querySelector('img');
+    if (!img || !img.naturalWidth) return;
 
-    const img =
-    currentPage.querySelector("img");
+    const ratio = img.naturalHeight / img.naturalWidth;
+    const maxWidth = Math.min(book.parentElement.clientWidth, 900);
+    let height = maxWidth * ratio;
+    if (height > 760) height = 760;
+    if (height < 360) height = 360;
 
-
-    if(
-        !img ||
-        !img.naturalWidth
-    ){
-
-        return;
-
-    }
-
-
-    const ratio =
-    img.naturalHeight /
-    img.naturalWidth;
-
-
-    const maxWidth =
-    Math.min(
-
-        book.parentElement.clientWidth,
-
-        900
-
-    );
-
-
-    let height =
-    maxWidth * ratio;
-
-
-    if(height > 760){
-
-        height = 760;
-
-    }
-
-
-    if(height < 360){
-
-        height = 360;
-
-    }
-
-
-    book.style.height =
-    height + "px";
-
-
-    pages.forEach(page=>{
-
-        page.style.height =
-        height + "px";
-
-    });
-
+    book.style.height = height + 'px';
+    pages.forEach(page => { page.style.height = height + 'px'; });
 }
 
-
-/* =========================================================
-   CLICK FLIPBOOK
-========================================================= */
-
-function setupFlipbook(year){
-
-    const pages =
-    getPages(year);
-
-
-    pages.forEach((page,index)=>{
-
-        page.addEventListener(
-
-            "click",
-
-            function(e){
-
-                const rect =
-                page.getBoundingClientRect();
-
-
-                const x =
-                e.clientX -
-                rect.left;
-
-
-                if(
-                    x >
-                    rect.width / 2
-                ){
-
-                    nextPage(year);
-
-                }else{
-
-                    prevPage(year);
-
-                }
-
+function setupFlipbook(year) {
+    const pages = getPages(year);
+    pages.forEach((page) => {
+        page.addEventListener('click', function(e) {
+            const rect = page.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            if (x > rect.width / 2) {
+                nextPage(year);
+            } else {
+                prevPage(year);
             }
-
-        );
-
+        });
     });
-
-
     updateBook(year);
-
 }
 
 
 /* =========================================================
-   KEYBOARD
+   KEYBOARD NAVIGATION
 ========================================================= */
 
-document.addEventListener(
-
-    "keydown",
-
-    function(e){
-
-        if(e.key === "ArrowRight"){
-
-            nextPage("2026");
-            nextPage("2025");
-
-        }
-
-
-        if(e.key === "ArrowLeft"){
-
-            prevPage("2026");
-            prevPage("2025");
-
-        }
-
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight') {
+        nextPage('2026');
+        nextPage('2025');
     }
+    if (e.key === 'ArrowLeft') {
+        prevPage('2026');
+        prevPage('2025');
+    }
+});
 
-);
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+window.addEventListener('resize', function() {
+    resizeCurrentFlipbook('2026');
+    resizeCurrentFlipbook('2025');
+});
 
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
-document
-.querySelectorAll(".nav-links a")
-.forEach(a => {
-
-    a.addEventListener(
-
-        "click",
-
-        () => {
-
-            document
-            .getElementById("navLinks")
-            .classList
-            .remove("open");
-
-        }
-
-    );
-
+document.querySelectorAll(".nav-links a").forEach(a => {
+    a.addEventListener("click", () => {
+        document.getElementById("navLinks").classList.remove("open");
+    });
 });
-
-
-/* =========================================================
-   RESPONSIVE FLIPBOOK
-========================================================= */
-
-window.addEventListener(
-
-    "resize",
-
-    function(){
-
-        resizeCurrentFlipbook("2026");
-
-        resizeCurrentFlipbook("2025");
-
-    }
-
-);
 
 
 /* =========================================================
@@ -4182,12 +3574,15 @@ window.addEventListener(
 ========================================================= */
 
 renderEvents();
-
 updateNearestEvent();
 
-setupFlipbook("2026");
+// Render flipbook
+renderFlipbook2026();
+renderFlipbook2025();
 
-setupFlipbook("2025");
+// Setup flipbook
+setupFlipbook('2026');
+setupFlipbook('2025');
 
 </script>
 
