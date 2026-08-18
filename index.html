@@ -50,6 +50,7 @@
       --shadow: 0 15px 45px rgba(13, 27, 42, .08);
       --green: #22a65e;
       --gray: #8a9aa8;
+      --red: #dc3545;
     }
 
     /* =====================================================
@@ -62,7 +63,7 @@
       right: 0;
       z-index: 999;
       background: rgba(255, 255, 255, .96);
-      backdrop-filter: blur(0,5px);
+      backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid var(--border);
     }
@@ -86,6 +87,9 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--navy);
+    }
+
+    .brand-logo.fallback {
       background: linear-gradient(135deg, #0d1b2a, #1769aa);
       display: flex;
       align-items: center;
@@ -93,13 +97,6 @@
       color: #fff;
       font-weight: 900;
       font-size: 1.2rem;
-    }
-
-    .brand-logo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
     }
 
     .brand-text {
@@ -174,36 +171,11 @@
     }
 
     /* =====================================================
-       HERO — DENGAN BACKGROUND FOTO
+       HERO
        ===================================================== */
     .hero {
       padding: 145px 0 90px;
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      background: linear-gradient(135deg, rgba(13, 27, 42, 0.8), rgba(23, 105, 170, 0.7));
-    }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('galeri/Foto9.jpg') center center / cover no-repeat;
-      z-index: 0;
-    }
-
-    /* Fallback jika foto tidak ada */
-    .hero.no-bg::before {
-      background: linear-gradient(135deg, #0d1b2a, #1769aa);
-    }
-
-    .hero .container {
-      position: relative;
-      z-index: 1;
+      background: linear-gradient(135deg, #f8fafc, #eef4f8);
     }
 
     .hero-grid {
@@ -213,55 +185,41 @@
       align-items: center;
     }
 
-    .hero-content .badge {
+    .badge {
       display: inline-block;
       padding: 7px 14px;
       border-radius: 30px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      color: #fff;
+      background: #e7eef5;
+      color: var(--navy);
       font-size: .68rem;
       font-weight: 800;
       letter-spacing: 1.3px;
       margin-bottom: 20px;
     }
 
-    .hero-content h1 {
+    .hero h1 {
       font-size: clamp(3rem, 6vw, 5.3rem);
       line-height: .98;
       letter-spacing: -3px;
-      color: #fff;
+      color: var(--navy);
       font-weight: 900;
     }
 
-    .hero-content h1 span {
-      color: #ffd700;
+    .hero h1 span {
+      color: var(--blue);
     }
 
     .hero-desc {
       max-width: 570px;
-      color: rgba(255, 255, 255, 0.8);
+      color: var(--muted);
       font-size: 1.05rem;
       margin: 25px 0 30px;
     }
 
-    .buttons .btn-primary {
-      background: #ffd700;
-      color: var(--navy);
-    }
-
-    .buttons .btn-primary:hover {
-      background: #f5c800;
-    }
-
-    .buttons .btn-outline {
-      background: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      border: 1.5px solid rgba(255, 255, 255, 0.3);
-    }
-
-    .buttons .btn-outline:hover {
-      background: rgba(255, 255, 255, 0.2);
+    .buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     .btn {
@@ -328,11 +286,21 @@
       justify-content: center;
     }
 
+    .btn-disabled {
+      background: var(--gray);
+      color: #fff;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .btn-disabled:hover {
+      transform: none;
+    }
+
     /* Feature Card */
     .feature-card {
-      background: rgba(255, 255, 255, 0.95);
-      backdrop-filter: blur(20px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: #fff;
+      border: 1px solid var(--border);
       box-shadow: var(--shadow);
       border-radius: 22px;
       padding: 34px;
@@ -428,7 +396,6 @@
       }
       .hero {
         padding-top: 125px;
-        min-height: auto;
       }
     }
 
@@ -579,6 +546,21 @@
     .event-card.done {
       opacity: 0.7;
       border-color: #d1d9e0;
+    }
+
+    .event-card.done .done-badge {
+      display: inline-block;
+    }
+
+    .done-badge {
+      display: none;
+      background: var(--green);
+      color: #fff;
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: .6rem;
+      font-weight: 800;
+      margin-left: 8px;
     }
 
     .event-tag {
@@ -816,6 +798,7 @@
       resize: vertical;
     }
 
+    /* Checkbox group */
     .checkbox-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1146,6 +1129,9 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #fff;
+    }
+
+    .footer-logo.fallback {
       background: linear-gradient(135deg, #0d1b2a, #1769aa);
       display: flex;
       align-items: center;
@@ -1153,13 +1139,6 @@
       color: #fff;
       font-weight: 900;
       font-size: 1.2rem;
-    }
-
-    .footer-logo img {
-      width: 100%;
-      height: 100%;
-      border-radius: 50%;
-      object-fit: cover;
     }
 
     footer p,
@@ -1212,6 +1191,189 @@
         gap: 30px;
       }
     }
+
+    /* =====================================================
+       FLIPBOOK
+       ===================================================== */
+    .flipbook-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      perspective: 1500px;
+    }
+
+    .flipbook {
+      position: relative;
+      width: 100%;
+      height: 520px;
+      transform-style: preserve-3d;
+    }
+
+    .book-page {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform-origin: left center;
+      transform-style: preserve-3d;
+      transition: transform .7s cubic-bezier(.4, .0, .2, 1);
+      cursor: pointer;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, .15);
+      backface-visibility: hidden;
+    }
+
+    .book-page.flipped {
+      transform: rotateY(-180deg);
+    }
+
+    .cover-page {
+      background: linear-gradient(145deg, #0d1b2a, #1a334a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px;
+      z-index: 8;
+      color: #fff;
+    }
+
+    .cover-content .cover-small {
+      font-size: .7rem;
+      letter-spacing: 3px;
+      font-weight: 800;
+      color: #aebdcb;
+    }
+
+    .cover-content h3 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.1;
+      margin: 20px 0 25px;
+      font-weight: 900;
+    }
+
+    .cover-line {
+      width: 60px;
+      height: 3px;
+      border-radius: 10px;
+      background: #e97817;
+      margin: 0 auto 25px;
+    }
+
+    .cover-content p {
+      color: #c6d2dc;
+      font-size: .95rem;
+    }
+
+    .cover-hint {
+      margin-top: 40px;
+      font-size: .65rem;
+      color: #6a849c;
+      letter-spacing: 1px;
+    }
+
+    .photo-page {
+      background: #fff;
+      padding: 0;
+      z-index: 7;
+    }
+
+    .photo-page.flipped {
+      z-index: 1;
+    }
+
+    .page-inner {
+      width: 100%;
+      height: 100%;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+    }
+
+    .page-label {
+      font-size: .65rem;
+      font-weight: 800;
+      color: #667085;
+      letter-spacing: 2px;
+      padding: 0 8px 10px;
+      text-transform: uppercase;
+    }
+
+    .page-inner img {
+      width: 100%;
+      height: calc(100% - 40px);
+      object-fit: cover;
+      border-radius: 8px;
+      background: #edf2f6;
+      border: 1px solid #e3e8ef;
+    }
+
+    .flipbook-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .flipbook-controls button {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid #e3e8ef;
+      background: #fff;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #0d1b2a;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .flipbook-controls button:hover {
+      background: #0d1b2a;
+      color: #fff;
+      border-color: #0d1b2a;
+    }
+
+    #pageIndicator {
+      font-size: .85rem;
+      font-weight: 700;
+      color: #0d1b2a;
+      min-width: 100px;
+      text-align: center;
+    }
+
+    .flipbook-help {
+      text-align: center;
+      margin-top: 12px;
+      color: #667085;
+      font-size: .75rem;
+      opacity: .7;
+    }
+
+    @media (max-width: 950px) {
+      .flipbook {
+        height: 400px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .flipbook {
+        height: 340px;
+      }
+      .page-inner {
+        padding: 10px;
+      }
+      .page-inner img {
+        height: calc(100% - 32px);
+      }
+      .flipbook-controls button {
+        width: 36px;
+        height: 36px;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1222,9 +1384,7 @@
   <header class="header">
     <div class="container nav">
       <a href="#beranda" class="brand">
-        <div class="brand-logo" id="brandLogo">
-          <img src="logo-rt010.png" alt="Logo Anak Kampung RT 010" onerror="this.style.display='none';this.parentElement.textContent='AK'">
-        </div>
+        <img src="logo-rt010.png" alt="Logo Anak Kampung RT 010" class="brand-logo" onerror="this.classList.add('fallback');this.src='';this.innerText='AK'">
         <div class="brand-text">
           <strong>ANAK KAMPUNG <span class="highlight">RT 010</span></strong>
           <span>Bersama • Bergerak • Berkarya</span>
@@ -1243,41 +1403,39 @@
   </header>
 
   <!-- ===================================================
-       HERO — DENGAN BACKGROUND FOTO
+       HERO
        =================================================== -->
   <section class="hero" id="beranda">
-    <div class="container">
-      <div class="hero-grid">
-        <div class="hero-content">
-          <div class="badge">🔥 ANAK KAMPUNG RT 010</div>
-          <h1>BARENG-BARENG,<br><span>BIKIN LINGKUNGAN LEBIH HIDUP</span></h1>
-          <p class="hero-desc">Ruang bagi pemuda-pemudi RT 010 untuk berkarya, berkolaborasi, dan bikin kegiatan yang berdampak.</p>
-          <div class="buttons">
-            <a href="#kegiatan" class="btn btn-primary">Lihat Kegiatan →</a>
-            <a href="#tentang" class="btn btn-outline">Tentang Kami</a>
-          </div>
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">🔥 ANAK KAMPUNG RT 010</div>
+        <h1>BARENG-BARENG,<br><span>BIKIN LINGKUNGAN LEBIH HIDUP</span></h1>
+        <p class="hero-desc">Ruang bagi pemuda-pemudi RT 010 untuk berkarya, berkolaborasi, dan bikin kegiatan yang berdampak.</p>
+        <div class="buttons">
+          <a href="#kegiatan" class="btn btn-primary">Lihat Kegiatan →</a>
+          <a href="#tentang" class="btn btn-outline">Tentang Kami</a>
         </div>
+      </div>
 
-        <!-- EVENT TERDEKAT -->
-        <div class="feature-card" id="nearestEvent">
-          <div class="feature-label">
-            🔥 EVENT TERDEKAT
-            <span class="countdown-badge" id="countdownBadge">H-?</span>
-          </div>
-          <h2 id="nearestTitle">Memuat...</h2>
-          <div class="event-sub" id="nearestSub"></div>
-          <div class="event-info" id="nearestInfo">
-            <div>📅 <b id="nearestDate">-</b></div>
-            <div>⏰ <b id="nearestTime">-</b></div>
-            <div>📍 <b id="nearestLocation">-</b></div>
-          </div>
-          <div class="lomba-preview" id="nearestPreview">
-            <strong id="nearestPreviewTitle">PERLOMBAAN</strong>
-            <p id="nearestPreviewList">-</p>
-          </div>
-          <div style="margin-top:16px;">
-            <button class="btn btn-orange btn-sm" id="nearestDaftarBtn" onclick="openForm()">📝 Daftar Sekarang</button>
-          </div>
+      <!-- EVENT TERDEKAT — OTOMATIS BERUBAH -->
+      <div class="feature-card" id="nearestEvent">
+        <div class="feature-label">
+          🔥 EVENT TERDEKAT
+          <span class="countdown-badge" id="countdownBadge">H-?</span>
+        </div>
+        <h2 id="nearestTitle">Memuat...</h2>
+        <div class="event-sub" id="nearestSub"></div>
+        <div class="event-info" id="nearestInfo">
+          <div>📅 <b id="nearestDate">-</b></div>
+          <div>⏰ <b id="nearestTime">-</b></div>
+          <div>📍 <b id="nearestLocation">-</b></div>
+        </div>
+        <div class="lomba-preview" id="nearestPreview">
+          <strong id="nearestPreviewTitle">PERLOMBAAN</strong>
+          <p id="nearestPreviewList">-</p>
+        </div>
+        <div style="margin-top:16px;">
+          <button class="btn btn-orange btn-sm" id="nearestDaftarBtn" onclick="openForm()">📝 Daftar Sekarang</button>
         </div>
       </div>
     </div>
@@ -1329,7 +1487,10 @@
           <p class="section-desc">Bukan cuma satu acara. Ada banyak keseruan yang menunggu.</p>
         </div>
       </div>
-      <div class="events-grid" id="eventsGrid"></div>
+
+      <div class="events-grid" id="eventsGrid">
+        <!-- Diisi oleh JavaScript -->
+      </div>
     </div>
   </section>
 
@@ -1423,36 +1584,80 @@
       <div class="gallery-intro">
         <div class="section-label">GALERI</div>
         <h2 class="section-title">CERITA DALAM SETIAP MOMEN.</h2>
-        <p class="section-desc">Dokumentasi kebersamaan Anak Kampung RT 010 dalam setiap kegiatan.</p>
+        <p class="section-desc">Buka album dan geser halamannya untuk melihat dokumentasi Anak Kampung RT 010.</p>
       </div>
-   <div class="gallery-grid" id="galleryGrid">
-          <div class="gallery-grid">
-      <div class="gallery-item">
-      <img src="galeri/foto1.jpg" alt="Dokumentasi 1" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-      <img src="galeri/foto2.jpg" alt="Dokumentasi 2" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-      <img src="galeri/foto3.jpg" alt="Dokumentasi 3" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-     <img src="galeri/foto4.jpg" alt="Dokumentasi 4" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-    <img src="galeri/foto5.jpg" alt="Dokumentasi 5" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-    <img src="galeri/foto6.jpg" alt="Dokumentasi 6" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-      <img src="galeri/foto7.jpg" alt="Dokumentasi 7" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-      <div class="gallery-item">
-      <img src="galeri/foto8.jpg" alt="Dokumentasi 8" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-</div>
-        <!-- Diisi oleh JavaScript -->
+
+      <div class="flipbook-wrap">
+        <div class="flipbook" id="flipbook">
+
+          <div class="book-page cover-page" data-page="0">
+            <div class="cover-content">
+              <div class="cover-small">DOKUMENTASI</div>
+              <h3>ANAK KAMPUNG<br>RT 010</h3>
+              <div class="cover-line"></div>
+              <p>Bersama • Bergerak • Berkarya</p>
+              <div class="cover-hint">KLIK HALAMAN UNTUK MEMBUKA</div>
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="1">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 01</div>
+              <img src="galeri/foto1.jpeg" alt="Dokumentasi foto 1" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 1</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="2">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 02</div>
+              <img src="galeri/foto2.jpeg" alt="Dokumentasi foto 2" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 2</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="3">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 03</div>
+              <img src="galeri/foto3.jpeg" alt="Dokumentasi foto 3" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 3</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="4">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 04</div>
+              <img src="galeri/foto4.jpeg" alt="Dokumentasi foto 4" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 4</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="5">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 05</div>
+              <img src="galeri/foto5.jpeg" alt="Dokumentasi foto 5" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 5</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="6">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 06</div>
+              <img src="galeri/foto6.jpeg" alt="Dokumentasi foto 6" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 6</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="7">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 07</div>
+              <img src="galeri/foto7.jpeg" alt="Dokumentasi foto 7" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 7</div>'">
+            </div>
+          </div>
+
+        </div>
+
+        <div class="flipbook-controls">
+          <button onclick="prevPage()" aria-label="Halaman sebelumnya">←</button>
+          <span id="pageIndicator">Cover</span>
+          <button onclick="nextPage()" aria-label="Halaman berikutnya">→</button>
+        </div>
+
+        <p class="flipbook-help">Klik sisi kanan buku untuk membuka halaman berikutnya • Klik sisi kiri untuk kembali</p>
       </div>
     </div>
   </section>
@@ -1491,9 +1696,7 @@
     <div class="container footer-grid">
       <div>
         <div class="footer-brand">
-          <div class="footer-logo" id="footerLogo">
-            <img src="logo-rt010.png" alt="Logo RT 010" onerror="this.style.display='none';this.parentElement.textContent='AK'">
-          </div>
+          <img src="logo-rt010.png" alt="Logo RT 010" class="footer-logo" onerror="this.classList.add('fallback');this.src='';this.innerText='AK'">
           <div>
             <strong>ANAK KAMPUNG RT 010</strong><br>
             <span style="color:#94a5b5;font-size:.8rem;">Bersama • Bergerak • Berkarya</span>
@@ -1524,7 +1727,7 @@
   </footer>
 
   <!-- ===================================================
-       MODAL FORM PENDAFTARAN
+       MODAL FORM PENDAFTARAN LOMBA
        =================================================== -->
   <div class="modal-overlay" id="registrationModal">
     <div class="modal">
@@ -1562,7 +1765,9 @@
 
         <div class="form-group" id="regLombaGroup">
           <label>Pilih Lomba yang Diikuti <span class="required">*</span></label>
-          <div class="checkbox-group" id="checkboxLomba"></div>
+          <div class="checkbox-group" id="checkboxLomba">
+            <!-- Diisi oleh JavaScript -->
+          </div>
         </div>
 
         <div class="form-group" id="regLaguGroup" style="display:none;">
@@ -1585,6 +1790,7 @@
           <input type="text" id="regRT" placeholder="RT ..." value="RT 010">
         </div>
 
+        <!-- Untuk Pentas Seni -->
         <div class="form-group" id="regJenisTampil" style="display:none;">
           <label>Jenis Penampilan <span class="required">*</span></label>
           <select id="regJenisTampilSelect">
@@ -1601,6 +1807,11 @@
         <div class="form-group" id="regDurasiGroup" style="display:none;">
           <label>Durasi Penampilan (menit)</label>
           <input type="number" id="regDurasi" placeholder="Perkiraan durasi (menit)" min="1" max="30">
+        </div>
+
+        <div class="form-group" id="regJumlahGroup" style="display:none;">
+          <label>Jumlah Peserta <span class="required">*</span></label>
+          <input type="number" id="regJumlah" placeholder="Jumlah peserta" min="1" max="20">
         </div>
 
         <button class="btn btn-primary btn-block" type="submit">📤 DAFTAR SEKARANG</button>
@@ -1827,25 +2038,6 @@
     }
 
     // =========================================================
-    // RENDER GALERI
-    // =========================================================
-    function renderGallery() {
-      const grid = document.getElementById('galleryGrid');
-      const totalPhotos = 8;
-      grid.innerHTML = '';
-
-      for (let i = 1; i <= totalPhotos; i++) {
-        const div = document.createElement('div');
-        div.className = 'gallery-item';
-        div.innerHTML = `
-          <img src="galeri/foto1.jpg" alt="Dokumentasi" 
-               onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto ${i}</span></div>'">
-        `;
-        grid.appendChild(div);
-      }
-    }
-
-    // =========================================================
     // TOGGLE DETAIL
     // =========================================================
     function toggleDetail(id, button) {
@@ -1873,6 +2065,7 @@
       const sub = document.getElementById('modalSub');
       const lombaInput = document.getElementById('regLomba');
 
+      // Reset semua field visibility
       document.getElementById('regAgeGroup').style.display = 'block';
       document.getElementById('regParentGroup').style.display = 'block';
       document.getElementById('regLombaGroup').style.display = 'block';
@@ -1882,9 +2075,12 @@
       document.getElementById('regRTGroup').style.display = 'none';
       document.getElementById('regJenisTampil').style.display = 'none';
       document.getElementById('regDurasiGroup').style.display = 'none';
+      document.getElementById('regJumlahGroup').style.display = 'none';
 
+      // Reset form
       document.querySelector('#registrationModal form').reset();
 
+      // Cari data lomba
       let eventData = eventsData.find(e => e.lombaId === lombaName);
       if (!eventData) {
         eventData = eventsData.find(e => lombaName.includes(e.title));
@@ -1895,6 +2091,7 @@
         sub.textContent = 'Isi data diri untuk mendaftar ' + eventData.title + ' (' + eventData.age + ')';
         lombaInput.value = eventData.lombaId;
 
+        // Sembunyikan field yang tidak perlu
         if (!eventData.hasParent) {
           document.getElementById('regParentGroup').style.display = 'none';
         }
@@ -1911,6 +2108,7 @@
           document.getElementById('regPenyanyiGroup').style.display = 'block';
         }
 
+        // Buat checkbox pilihan lomba
         const checkboxContainer = document.getElementById('checkboxLomba');
         checkboxContainer.innerHTML = '';
         eventData.lomba.forEach((l, idx) => {
@@ -1935,6 +2133,7 @@
       const sub = document.getElementById('modalSub');
       const lombaInput = document.getElementById('regLomba');
 
+      // Reset semua field
       document.getElementById('regAgeGroup').style.display = 'none';
       document.getElementById('regParentGroup').style.display = 'none';
       document.getElementById('regLombaGroup').style.display = 'none';
@@ -1944,12 +2143,16 @@
       document.getElementById('regRTGroup').style.display = 'none';
       document.getElementById('regJenisTampil').style.display = 'block';
       document.getElementById('regDurasiGroup').style.display = 'block';
+      document.getElementById('regJumlahGroup').style.display = 'block';
 
+      // Reset form
       document.querySelector('#registrationModal form').reset();
 
       title.textContent = '🎭 Daftar Pentas Seni';
       sub.textContent = 'Isi data diri untuk tampil di Malam Puncak 22 Agustus 2026';
       lombaInput.value = 'Pentas Seni - Malam Puncak';
+
+      // Sembunyikan checkbox lomba
       document.getElementById('checkboxLomba').innerHTML = '';
 
       modal.classList.add('active');
@@ -1987,7 +2190,9 @@
       const rt = document.getElementById('regRT').value;
       const jenisTampil = document.getElementById('regJenisTampilSelect').value;
       const durasi = document.getElementById('regDurasi').value;
+      const jumlah = document.getElementById('regJumlah').value;
 
+      // Ambil pilihan lomba dari checkbox
       const checkboxes = document.querySelectorAll('#checkboxLomba input[type="checkbox"]:checked');
       const pilihanLomba = Array.from(checkboxes).map(cb => cb.value);
 
@@ -1997,6 +2202,7 @@
         message += `Saya ingin mendaftar untuk tampil di Malam Puncak Pentas Seni:\n\n`;
         message += `*🎭 Jenis Tampilan:* ${jenisTampil || 'Belum dipilih'}\n`;
         if (durasi) message += `*⏱️ Durasi:* ${durasi} menit\n`;
+        if (jumlah) message += `*👥 Jumlah Peserta:* ${jumlah} orang\n`;
       } else {
         message += `Saya ingin mendaftar untuk kegiatan:\n\n`;
         message += `*📌 Lomba:* ${lomba}\n`;
@@ -2020,6 +2226,7 @@
 
       const waUrl = `https://wa.me/6285156889002?text=${encodeURIComponent(message)}`;
       window.open(waUrl, '_blank');
+
       closeForm();
     }
 
@@ -2049,6 +2256,7 @@ Terima kasih.`;
 
       const waUrl = `https://wa.me/6285156889002?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
+
       e.target.reset();
     }
 
@@ -2062,24 +2270,53 @@ Terima kasih.`;
     });
 
     // =========================================================
-    // CEK FOTO HERO — TAMBAHKAN CLASS NO-BG JIKA FOTO TIDAK ADA
+    // FLIPBOOK
     // =========================================================
-    function checkHeroImage() {
-      const img = new Image();
-      img.src = galeri/Foto9.jpg';
-      img.onerror = function() {
-        document.querySelector('.hero').classList.add('no-bg');
-      };
+    let currentPage = 0;
+    const totalPages = 7;
+
+    function updateBook() {
+      const pages = document.querySelectorAll("#flipbook .book-page");
+      pages.forEach((page, index) => {
+        page.classList.toggle("flipped", index <= currentPage - 1);
+        page.style.zIndex = index <= currentPage - 1 ? index : totalPages + 1 - index;
+      });
+
+      const indicator = document.getElementById("pageIndicator");
+      if (currentPage === 0) {
+        indicator.textContent = "Cover";
+      } else {
+        indicator.textContent = "Foto " + currentPage + " / 7";
+      }
     }
+
+    function nextPage() {
+      if (currentPage < totalPages) currentPage++;
+      updateBook();
+    }
+
+    function prevPage() {
+      if (currentPage > 0) currentPage--;
+      updateBook();
+    }
+
+    document.querySelectorAll("#flipbook .book-page").forEach((page, index) => {
+      page.addEventListener("click", function(e) {
+        const rect = page.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        if (x > rect.width / 2) nextPage();
+        else prevPage();
+      });
+    });
 
     // =========================================================
     // INIT
     // =========================================================
     renderNearestEvent();
     renderEventCards();
-    renderGallery();
-    checkHeroImage();
+    updateBook();
 
+    // Auto-refresh setiap 5 menit
     setInterval(() => {
       renderNearestEvent();
       renderEventCards();
