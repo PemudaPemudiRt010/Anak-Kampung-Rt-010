@@ -161,11 +161,31 @@
     }
 
     /* =====================================================
-       HERO
+       HERO — DENGAN BACKGROUND FOTO
        ===================================================== */
     .hero {
       padding: 145px 0 90px;
-      background: linear-gradient(135deg, #f8fafc, #eef4f8);
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(13, 27, 42, 0.75), rgba(23, 105, 170, 0.65));
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('galeri/Foto9.jpg') center center / cover no-repeat;
+      z-index: 0;
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-grid {
@@ -175,41 +195,55 @@
       align-items: center;
     }
 
-    .badge {
+    .hero-content .badge {
       display: inline-block;
       padding: 7px 14px;
       border-radius: 30px;
-      background: #e7eef5;
-      color: var(--navy);
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      color: #fff;
       font-size: .68rem;
       font-weight: 800;
       letter-spacing: 1.3px;
       margin-bottom: 20px;
     }
 
-    .hero h1 {
+    .hero-content h1 {
       font-size: clamp(3rem, 6vw, 5.3rem);
       line-height: .98;
       letter-spacing: -3px;
-      color: var(--navy);
+      color: #fff;
       font-weight: 900;
     }
 
-    .hero h1 span {
-      color: var(--blue);
+    .hero-content h1 span {
+      color: #ffd700;
     }
 
     .hero-desc {
       max-width: 570px;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.8);
       font-size: 1.05rem;
       margin: 25px 0 30px;
     }
 
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
+    .buttons .btn-primary {
+      background: #ffd700;
+      color: var(--navy);
+    }
+
+    .buttons .btn-primary:hover {
+      background: #f5c800;
+    }
+
+    .buttons .btn-outline {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border: 1.5px solid rgba(255, 255, 255, 0.3);
+    }
+
+    .buttons .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.2);
     }
 
     .btn {
@@ -276,21 +310,11 @@
       justify-content: center;
     }
 
-    .btn-disabled {
-      background: var(--gray);
-      color: #fff;
-      cursor: not-allowed;
-      opacity: 0.6;
-    }
-
-    .btn-disabled:hover {
-      transform: none;
-    }
-
     /* Feature Card */
     .feature-card {
-      background: #fff;
-      border: 1px solid var(--border);
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       box-shadow: var(--shadow);
       border-radius: 22px;
       padding: 34px;
@@ -382,9 +406,11 @@
     @media (max-width: 950px) {
       .hero-grid {
         grid-template-columns: 1fr;
+        gap: 40px;
       }
       .hero {
         padding-top: 125px;
+        min-height: auto;
       }
     }
 
@@ -399,17 +425,6 @@
         padding: 24px;
       }
     }
-
-    <div class="feature-card" id="nearestEvent">
-  <!-- Tambahkan foto di sini -->
-  <img src="galeri/Foto9.jpg" alt="Event Banner" style="width:100%;border-radius:12px;margin-bottom:16px;">
-  
-  <div class="feature-label">
-    🔥 EVENT TERDEKAT
-    <span class="countdown-badge" id="countdownBadge">H-?</span>
-  </div>
-  <!-- ... -->
-</div>
 
     /* =====================================================
        SECTION
@@ -955,7 +970,7 @@
     }
 
     /* =====================================================
-       GALERI
+       GALERI — UKURAN LEBIH KECIL
        ===================================================== */
     .gallery-section {
       background: #f6f8fb;
@@ -969,11 +984,11 @@
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 16px;
+      gap: 12px;
     }
 
     .gallery-item {
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
       background: #fff;
       border: 1px solid var(--border);
@@ -982,32 +997,46 @@
       align-items: center;
       justify-content: center;
       color: var(--muted);
-      font-size: .8rem;
+      font-size: .7rem;
       font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.02);
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
 
     .gallery-item .placeholder {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       opacity: 0.3;
     }
 
     .gallery-item .placeholder .icon {
-      font-size: 2.5rem;
+      font-size: 2rem;
     }
 
     @media (max-width: 768px) {
       .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
       }
     }
 
     @media (max-width: 480px) {
       .gallery-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
       }
     }
 
@@ -1197,39 +1226,41 @@
   </header>
 
   <!-- ===================================================
-       HERO
+       HERO — DENGAN BACKGROUND FOTO
        =================================================== -->
   <section class="hero" id="beranda">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge">ANAK KAMPUNG RT 010</div>
-        <h1>BARENG-BARENG,<br><span>BIKIN LINGKUNGAN LEBIH HIDUP</span></h1>
-        <p class="hero-desc">Ruang bagi pemuda-pemudi RT 010 untuk berkarya, berkolaborasi, dan bikin kegiatan yang berdampak.</p>
-        <div class="buttons">
-          <a href="#kegiatan" class="btn btn-primary">Lihat Kegiatan →</a>
-          <a href="#tentang" class="btn btn-outline">Tentang Kami</a>
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="badge">🔥 ANAK KAMPUNG RT 010</div>
+          <h1>BARENG-BARENG,<br><span>BIKIN LINGKUNGAN LEBIH HIDUP</span></h1>
+          <p class="hero-desc">Ruang bagi pemuda-pemudi RT 010 untuk berkarya, berkolaborasi, dan bikin kegiatan yang berdampak.</p>
+          <div class="buttons">
+            <a href="#kegiatan" class="btn btn-primary">Lihat Kegiatan →</a>
+            <a href="#tentang" class="btn btn-outline">Tentang Kami</a>
+          </div>
         </div>
-      </div>
 
-      <!-- EVENT TERDEKAT — OTOMATIS BERUBAH -->
-      <div class="feature-card" id="nearestEvent">
-        <div class="feature-label">
-          🔥 EVENT TERDEKAT
-          <span class="countdown-badge" id="countdownBadge">H-?</span>
-        </div>
-        <h2 id="nearestTitle">Memuat...</h2>
-        <div class="event-sub" id="nearestSub"></div>
-        <div class="event-info" id="nearestInfo">
-          <div>📅 <b id="nearestDate">-</b></div>
-          <div>⏰ <b id="nearestTime">-</b></div>
-          <div>📍 <b id="nearestLocation">-</b></div>
-        </div>
-        <div class="lomba-preview" id="nearestPreview">
-          <strong id="nearestPreviewTitle">PERLOMBAAN</strong>
-          <p id="nearestPreviewList">-</p>
-        </div>
-        <div style="margin-top:16px;">
-          <button class="btn btn-orange btn-sm" id="nearestDaftarBtn" onclick="openForm()">📝 Daftar Sekarang</button>
+        <!-- EVENT TERDEKAT — OTOMATIS BERUBAH -->
+        <div class="feature-card" id="nearestEvent">
+          <div class="feature-label">
+            🔥 EVENT TERDEKAT
+            <span class="countdown-badge" id="countdownBadge">H-?</span>
+          </div>
+          <h2 id="nearestTitle">Memuat...</h2>
+          <div class="event-sub" id="nearestSub"></div>
+          <div class="event-info" id="nearestInfo">
+            <div>📅 <b id="nearestDate">-</b></div>
+            <div>⏰ <b id="nearestTime">-</b></div>
+            <div>📍 <b id="nearestLocation">-</b></div>
+          </div>
+          <div class="lomba-preview" id="nearestPreview">
+            <strong id="nearestPreviewTitle">PERLOMBAAN</strong>
+            <p id="nearestPreviewList">-</p>
+          </div>
+          <div style="margin-top:16px;">
+            <button class="btn btn-orange btn-sm" id="nearestDaftarBtn" onclick="openForm()">📝 Daftar Sekarang</button>
+          </div>
         </div>
       </div>
     </div>
@@ -1371,88 +1402,44 @@
   </section>
 
   <!-- ===================================================
-       GALERI
+       GALERI — UKURAN LEBIH KECIL
        =================================================== -->
-<div class="container">
-  <div class="gallery-intro">
-  <div class="section-label">GALERI</div>
-<h2 class="section-title">CERITA DALAM SETIAP MOMEN.</h2>
-  <p class="section-desc">Buka album dan geser halamannya untuk melihat dokumentasi Anak Kampung RT 010.</p>
-</div>
+  <section class="section gallery-section" id="galeri">
+    <div class="container">
+      <div class="gallery-intro">
+        <div class="section-label">GALERI</div>
+        <h2 class="section-title">CERITA DALAM SETIAP MOMEN.</h2>
+        <p class="section-desc">Dokumentasi kebersamaan Anak Kampung RT 010 dalam setiap kegiatan.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <img src="galeri/foto1.jpg" alt="Dokumentasi 1" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 1</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto2.jpg" alt="Dokumentasi 2" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 2</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto3.jpg" alt="Dokumentasi 3" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 3</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto4.jpg" alt="Dokumentasi 4" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 4</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto5.jpg" alt="Dokumentasi 5" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 5</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto6.jpg" alt="Dokumentasi 6" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 6</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto7.jpg" alt="Dokumentasi 7" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 7</span></div>'">
+        </div>
+        <div class="gallery-item">
+          <img src="galeri/foto8.jpg" alt="Dokumentasi 8" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 8</span></div>'">
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="flipbook-wrap">
-<div class="flipbook" id="flipbook">
-
-<div class="book-page cover-page" data-page="0">
-<div class="cover-content">
-<div class="cover-small">DOKUMENTASI</div>
-<h3>ANAK KAMPUNG<br>RT 010</h3>
-<div class="cover-line"></div>
-<p>Bersama • Bergerak • Berkarya</p>
-<div class="cover-hint">KLIK HALAMAN UNTUK MEMBUKA</div>
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="1">
-<div class="page-inner">
-<div class="page-label">MOMEN 01</div>
-<img src="galeri/foto1.jpeg" alt="Dokumentasi foto 1">
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="2">
-<div class="page-inner">
-<div class="page-label">MOMEN 02</div>
-<img src="galeri/foto2.jpeg" alt="Dokumentasi foto 2">
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="3">
-<div class="page-inner">
-<div class="page-label">MOMEN 03</div>
-<img src="galeri/foto3.jpeg" alt="Dokumentasi foto 3">
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="4">
-<div class="page-inner">
-<div class="page-label">MOMEN 04</div>
-<img src="galeri/foto4.jpeg" alt="Dokumentasi foto 4">
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="5">
-<div class="page-inner">
-<div class="page-label">MOMEN 05</div>
-<img src="galeri/foto5.jpeg" alt="Dokumentasi foto 5">
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="6">
-<div class="page-inner">
-<div class="page-label">MOMEN 06</div>
-<img src="galeri/foto6.jpeg" alt="Dokumentasi foto 6">
-</div>
-</div>
-
-<div class="book-page photo-page" data-page="7">
-<div class="page-inner">
-<div class="page-label">MOMEN 07</div>
-<img src="galeri/foto7.jpeg" alt="Dokumentasi foto 7">
-</div>
-</div>
-
-</div>
-
-<div class="flipbook-controls">
-<button onclick="prevPage()" aria-label="Halaman sebelumnya">←</button>
-<span id="pageIndicator">Cover</span>
-<button onclick="nextPage()" aria-label="Halaman berikutnya">→</button>
-</div>
-
-<p class="flipbook-help">Klik sisi kanan buku untuk membuka halaman berikutnya • Klik sisi kiri untuk kembali</p>
-</div>
-</div>
   <!-- ===================================================
        SOSIAL MEDIA
        =================================================== -->
@@ -1924,11 +1911,6 @@
             <label for="lomba_${idx}">${l}</label>
           `;
           checkboxContainer.appendChild(div);
-        });
-
-        // Set required untuk lomba
-        document.querySelectorAll('#checkboxLomba input[type="checkbox"]').forEach(cb => {
-          cb.setAttribute('required', 'required');
         });
 
         // Tampilkan modal
