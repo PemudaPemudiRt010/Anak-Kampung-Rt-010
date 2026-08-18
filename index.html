@@ -10,9 +10,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    /* =====================================================
-       RESET & BASE
-       ===================================================== */
     * {
       margin: 0;
       padding: 0;
@@ -51,6 +48,9 @@
       --muted: #667085;
       --border: #e3e8ef;
       --shadow: 0 15px 45px rgba(13, 27, 42, .08);
+      --green: #22a65e;
+      --red: #dc3545;
+      --gray: #8a9aa8;
     }
 
     /* =====================================================
@@ -276,6 +276,17 @@
       justify-content: center;
     }
 
+    .btn-disabled {
+      background: var(--gray);
+      color: #fff;
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+
+    .btn-disabled:hover {
+      transform: none;
+    }
+
     /* Feature Card */
     .feature-card {
       background: #fff;
@@ -283,6 +294,11 @@
       box-shadow: var(--shadow);
       border-radius: 22px;
       padding: 34px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      transform: translateY(-4px);
     }
 
     .feature-label {
@@ -290,6 +306,24 @@
       font-size: .67rem;
       font-weight: 900;
       letter-spacing: 1.8px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .countdown-badge {
+      display: inline-block;
+      background: var(--orange);
+      color: #fff;
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: .65rem;
+      font-weight: 800;
+    }
+
+    .countdown-badge.done {
+      background: var(--green);
     }
 
     .feature-card h2 {
@@ -298,9 +332,10 @@
       margin-top: 14px;
     }
 
-    .feature-card h3 {
+    .feature-card .event-sub {
       color: var(--blue);
       font-size: 1rem;
+      font-weight: 700;
       margin: 5px 0 22px;
     }
 
@@ -332,6 +367,18 @@
       font-size: .8rem;
     }
 
+    .feature-empty {
+      text-align: center;
+      padding: 30px 20px;
+      color: var(--muted);
+    }
+
+    .feature-empty .emoji {
+      font-size: 3rem;
+      display: block;
+      margin-bottom: 12px;
+    }
+
     @media (max-width: 950px) {
       .hero-grid {
         grid-template-columns: 1fr;
@@ -347,6 +394,9 @@
       }
       .hero h1 {
         font-size: 2.5rem;
+      }
+      .feature-card {
+        padding: 24px;
       }
     }
 
@@ -475,10 +525,31 @@
       border-radius: 18px;
       padding: 27px;
       transition: all 0.3s;
+      position: relative;
     }
 
     .event-card:hover {
       transform: translateY(-5px);
+    }
+
+    .event-card.done {
+      opacity: 0.7;
+      border-color: #d1d9e0;
+    }
+
+    .event-card.done .done-badge {
+      display: inline-block;
+    }
+
+    .done-badge {
+      display: none;
+      background: var(--green);
+      color: #fff;
+      padding: 2px 12px;
+      border-radius: 20px;
+      font-size: .6rem;
+      font-weight: 800;
+      margin-left: 8px;
     }
 
     .event-tag {
@@ -492,6 +563,11 @@
       text-transform: uppercase;
     }
 
+    .event-tag.done-tag {
+      background: #e8f5e9;
+      color: var(--green);
+    }
+
     .event-card h3 {
       color: var(--navy);
       font-size: 1.25rem;
@@ -502,6 +578,10 @@
       color: var(--orange);
       font-size: .8rem;
       font-weight: 800;
+    }
+
+    .age.done-age {
+      color: var(--gray);
     }
 
     .event-card p {
@@ -576,6 +656,21 @@
       text-decoration: underline;
     }
 
+    .detail-btn.done-btn {
+      color: var(--gray);
+      cursor: not-allowed;
+    }
+
+    .detail-btn.done-btn:hover {
+      text-decoration: none;
+    }
+
+    @media (max-width: 950px) {
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
     /* =====================================================
        FORM MODAL
        ===================================================== */
@@ -603,7 +698,7 @@
       background: #fff;
       border-radius: 20px;
       padding: 40px;
-      max-width: 560px;
+      max-width: 600px;
       width: 100%;
       max-height: 90vh;
       overflow-y: auto;
@@ -692,10 +787,64 @@
       resize: vertical;
     }
 
-    .form-hint {
-      font-size: .7rem;
-      color: var(--muted);
+    /* Checkbox group untuk pilihan lomba */
+    .checkbox-group {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
       margin-top: 4px;
+    }
+
+    .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .checkbox-item:hover {
+      background: #eef2f6;
+    }
+
+    .checkbox-item input[type="checkbox"] {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--blue);
+      cursor: pointer;
+      flex-shrink: 0;
+    }
+
+    .checkbox-item label {
+      font-size: .8rem;
+      font-weight: 500;
+      color: var(--navy);
+      cursor: pointer;
+      margin: 0;
+    }
+
+    .modal::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    .modal::-webkit-scrollbar-track {
+      background: #f1f4f7;
+      border-radius: 10px;
+    }
+
+    .modal::-webkit-scrollbar-thumb {
+      background: #c4cbd5;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 500px) {
+      .checkbox-group {
+        grid-template-columns: 1fr;
+      }
     }
 
     /* =====================================================
@@ -714,6 +863,11 @@
       padding: 23px 25px;
       display: flex;
       gap: 25px;
+      transition: 0.3s;
+    }
+
+    .notice:hover {
+      transform: translateY(-2px);
     }
 
     .notice-date {
@@ -733,6 +887,10 @@
       color: var(--muted);
       font-size: .8rem;
       margin-top: 2px;
+    }
+
+    .notice-actions {
+      margin-top: 12px;
     }
 
     @media (max-width: 600px) {
@@ -999,36 +1157,6 @@
         gap: 30px;
       }
     }
-
-    /* =====================================================
-       RESPONSIVE EVENTS
-       ===================================================== */
-    @media (max-width: 950px) {
-      .events-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    /* =====================================================
-       MODAL SCROLL
-       ===================================================== */
-    .modal::-webkit-scrollbar {
-      width: 6px;
-    }
-
-    .modal::-webkit-scrollbar-track {
-      background: #f1f4f7;
-      border-radius: 10px;
-    }
-
-    .modal::-webkit-scrollbar-thumb {
-      background: #c4cbd5;
-      border-radius: 10px;
-    }
-
-    .modal::-webkit-scrollbar-thumb:hover {
-      background: #a0aab8;
-    }
   </style>
 </head>
 <body>
@@ -1039,7 +1167,7 @@
   <header class="header">
     <div class="container nav">
       <a href="#beranda" class="brand">
-        <img src="logo-rt010.png" alt="Logo Anak Kampung RT 010" class="brand-logo">
+        <img src="logo-rt010.png" alt="Logo Anak Kampung RT 010" class="brand-logo" onerror="this.style.display='none'">
         <div class="brand-text">
           <strong>ANAK KAMPUNG <span class="highlight">RT 010</span></strong>
           <span>Bersama • Bergerak • Berkarya</span>
@@ -1071,18 +1199,26 @@
           <a href="#tentang" class="btn btn-outline">Tentang Kami</a>
         </div>
       </div>
-      <div class="feature-card">
-        <div class="feature-label">🇮🇩 EVENT TERDEKAT</div>
-        <h2>SEMARAK KEMERDEKAAN</h2>
-        <h3>Lomba Anak Usia 4–6 Tahun</h3>
-        <div class="event-info">
-          <div>📅 <b>15 Agustus 2026</b></div>
-          <div>⏰ <b>09.00 WIB</b></div>
-          <div>📍 <b>Balai Warga RW 007</b></div>
+
+      <!-- EVENT TERDEKAT — OTOMATIS BERUBAH -->
+      <div class="feature-card" id="nearestEvent">
+        <div class="feature-label">
+          🔥 EVENT TERDEKAT
+          <span class="countdown-badge" id="countdownBadge">H-?</span>
         </div>
-        <div class="lomba-preview">
-          <strong>5 PERLOMBAAN</strong>
-          <p>Bendera ke Botol · Paku ke Botol · Kelereng · Jepit Balon · Makan Kerupuk</p>
+        <h2 id="nearestTitle">Memuat...</h2>
+        <div class="event-sub" id="nearestSub"></div>
+        <div class="event-info" id="nearestInfo">
+          <div>📅 <b id="nearestDate">-</b></div>
+          <div>⏰ <b id="nearestTime">-</b></div>
+          <div>📍 <b id="nearestLocation">-</b></div>
+        </div>
+        <div class="lomba-preview" id="nearestPreview">
+          <strong id="nearestPreviewTitle">PERLOMBAAN</strong>
+          <p id="nearestPreviewList">-</p>
+        </div>
+        <div style="margin-top:16px;">
+          <button class="btn btn-orange btn-sm" id="nearestDaftarBtn" onclick="openForm()">📝 Daftar Sekarang</button>
         </div>
       </div>
     </div>
@@ -1135,166 +1271,8 @@
         </div>
       </div>
 
-      <div class="events-grid">
-
-        <!-- EVENT 1 -->
-        <article class="event-card">
-          <span class="event-tag">SEMARAK KEMERDEKAAN</span>
-          <h3>Lomba Anak</h3>
-          <div class="age">Usia 4–6 Tahun</div>
-          <p>Perlombaan seru untuk anak-anak dalam rangka memeriahkan HUT Kemerdekaan RI.</p>
-          <div class="card-info">
-            <span>📅 15 Agustus 2026</span>
-            <span>⏰ 09.00 WIB</span>
-            <span>📍 Balai Warga RW 007</span>
-          </div>
-          <div class="detail" id="detail1">
-            <div class="detail-title">5 PERLOMBAAN</div>
-            <div class="lomba-list">
-              <span>Bendera ke Botol</span>
-              <span>Paku ke Botol</span>
-              <span>Kelereng</span>
-              <span>Jepit Balon</span>
-              <span>Makan Kerupuk</span>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button class="detail-btn" onclick="toggleDetail('detail1',this)">Lihat Detail →</button>
-            <button class="btn btn-orange btn-sm" onclick="openForm('Lomba Anak 4-6 Tahun')">📝 Daftar Lomba</button>
-          </div>
-        </article>
-
-        <!-- EVENT 2 -->
-        <article class="event-card">
-          <span class="event-tag">SEMARAK KEMERDEKAAN</span>
-          <h3>Lomba Anak</h3>
-          <div class="age">Usia 7–10 Tahun</div>
-          <p>Permainan kompetitif dan seru untuk anak-anak usia sekolah dasar.</p>
-          <div class="card-info">
-            <span>📅 16–17 Agustus 2026</span>
-            <span>⏰ 08.00 WIB</span>
-            <span>📍 Balai Warga RW 007</span>
-          </div>
-          <div class="detail" id="detail2">
-            <div class="detail-title">5 PERLOMBAAN</div>
-            <div class="lomba-list">
-              <span>Balap Karung</span>
-              <span>Makan Kerupuk</span>
-              <span>Rebutan Bangku</span>
-              <span>Tiup Gelas</span>
-              <span>Bakiak</span>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button class="detail-btn" onclick="toggleDetail('detail2',this)">Lihat Detail →</button>
-            <button class="btn btn-orange btn-sm" onclick="openForm('Lomba Anak 7-10 Tahun')">📝 Daftar Lomba</button>
-          </div>
-        </article>
-
-        <!-- EVENT 3 -->
-        <article class="event-card">
-          <span class="event-tag">SEMARAK KEMERDEKAAN</span>
-          <h3>Lomba Remaja</h3>
-          <div class="age">Usia 11–17 Tahun</div>
-          <p>Saatnya para remaja menunjukkan kekompakan, kecepatan, dan keberanian.</p>
-          <div class="card-info">
-            <span>📅 16–17 Agustus 2026</span>
-            <span>⏰ 08.00 WIB</span>
-            <span>📍 Balai Warga RW 007</span>
-          </div>
-          <div class="detail" id="detail3">
-            <div class="detail-title">6 PERLOMBAAN</div>
-            <div class="lomba-list">
-              <span>Balap Karung Helm</span>
-              <span>Makan Kerupuk</span>
-              <span>Rebutan Bangku</span>
-              <span>Pecah Balon Air</span>
-              <span>Bakiak</span>
-              <span>Bola Master</span>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button class="detail-btn" onclick="toggleDetail('detail3',this)">Lihat Detail →</button>
-            <button class="btn btn-orange btn-sm" onclick="openForm('Lomba Remaja 11-17 Tahun')">📝 Daftar Lomba</button>
-          </div>
-        </article>
-
-        <!-- EVENT 4 -->
-        <article class="event-card">
-          <span class="event-tag">SEMARAK KEMERDEKAAN</span>
-          <h3>Lomba Bapak-Bapak</h3>
-          <div class="age">8–17 Agustus 2026</div>
-          <p>Kompak, santai, dan tetap kompetitif untuk para bapak-bapak.</p>
-          <div class="card-info">
-            <span>📍 Balai Warga RW 007</span>
-          </div>
-          <div class="detail" id="detail4">
-            <div class="detail-title">CABANG PERLOMBAAN</div>
-            <div class="lomba-list">
-              <span>🏓 Tenis Meja</span>
-              <span>♟️ Catur</span>
-              <span>🃏 Gaple</span>
-              <span>👟 Bakiak</span>
-              <span>💪 Tarik Tambang</span>
-              <span>⚽ Main Bola Dasar</span>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button class="detail-btn" onclick="toggleDetail('detail4',this)">Lihat Detail →</button>
-            <button class="btn btn-orange btn-sm" onclick="openForm('Lomba Bapak-Bapak')">📝 Daftar Lomba</button>
-          </div>
-        </article>
-
-        <!-- EVENT 5 -->
-        <article class="event-card">
-          <span class="event-tag">KREASI WARGA</span>
-          <h3>Lomba Tumpeng</h3>
-          <div class="age">17 Agustus 2026</div>
-          <p>Satu RT, satu kreasi terbaik. Tunjukkan kreativitas warga.</p>
-          <div class="card-info">
-            <span>🏆 Kreativitas</span>
-            <span>🍚 Rasa</span>
-            <span>✨ Penyajian</span>
-          </div>
-          <div class="detail" id="detail5">
-            <div class="detail-title">KRITERIA PENILAIAN</div>
-            <div class="lomba-list">
-              <span>Kreativitas</span>
-              <span>Rasa</span>
-              <span>Penyajian</span>
-              <span>Perwakilan Setiap RT</span>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button class="detail-btn" onclick="toggleDetail('detail5',this)">Lihat Detail →</button>
-            <button class="btn btn-orange btn-sm" onclick="openForm('Lomba Tumpeng')">📝 Daftar Lomba</button>
-          </div>
-        </article>
-
-        <!-- EVENT 6 -->
-        <article class="event-card">
-          <span class="event-tag">HIBURAN WARGA</span>
-          <h3>Lomba Karaoke</h3>
-          <div class="age">22 Agustus 2026 · 09.00 WIB</div>
-          <p>Punya suara? Saatnya naik panggung. 🎤</p>
-          <div class="card-info">
-            <span>📍 Area Balai Warga RW 007</span>
-          </div>
-          <div class="detail" id="detail6">
-            <div class="detail-title">KATEGORI</div>
-            <div class="lomba-list">
-              <span>Penampilan Solo</span>
-              <span>Penampilan Terbaik</span>
-              <span>Kreativitas</span>
-              <span>Hadiah Menarik</span>
-            </div>
-          </div>
-          <div class="event-actions">
-            <button class="detail-btn" onclick="toggleDetail('detail6',this)">Lihat Detail →</button>
-            <button class="btn btn-orange btn-sm" onclick="openForm('Lomba Karaoke')">📝 Daftar Lomba</button>
-          </div>
-        </article>
-
+      <div class="events-grid" id="eventsGrid">
+        <!-- Diisi oleh JavaScript -->
       </div>
     </div>
   </section>
@@ -1308,478 +1286,12 @@
       <h2 class="section-title">PENGUMUMAN</h2>
       <br>
       <div class="notice-list">
-        <div class="notice">
+        <div class="notice" id="noticeMalamPuncak">
           <div class="notice-date">22<br>AGUSTUS</div>
           <div>
-            <h3>Malam Puncak / Pentas Seni</h3>
+            <h3>🎭 Malam Puncak / Pentas Seni</h3>
             <p><strong>Hari/Tanggal:</strong> Sabtu, 22 Agustus 2026</p>
             <p><strong>Waktu:</strong> 19.30 WIB - Selesai</p>
             <p><strong>Tempat:</strong> Area Balai Warga RW 07</p>
-          </div>
-        </div>
-        <div class="notice">
-          <div class="notice-date">17<br>AGUSTUS</div>
-          <div>
-            <h3>Semarak Kemerdekaan RT 010</h3>
-            <p>Saatnya merayakan kemerdekaan bersama warga dengan berbagai kegiatan dan perlombaan.</p>
-          </div>
-        </div>
-        <div class="notice">
-          <div class="notice-date">INFO<br>WARGA</div>
-          <div>
-            <h3>Punya ide kegiatan?</h3>
-            <p>Punya usulan yang menarik? Sampaikan melalui form aspirasi.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       ASPIRASI
-       =================================================== -->
-  <section class="section" id="aspirasi">
-    <div class="container aspiration-box">
-      <div class="aspiration-copy">
-        <div class="section-label">SUARA WARGA</div>
-        <h2>PUNYA IDE?<br>JANGAN CUMA DIOMONGIN.</h2>
-        <p>Punya usulan kegiatan, kritik, atau ide baru untuk lingkungan?</p>
-        <p><strong>Bicarakan. Kirim. Kita gerakkan bersama.</strong></p>
-        <div class="contact-number">💬 0851-5688-9002</div>
-        <a href="https://wa.me/6285156889002" target="_blank" class="btn btn-whatsapp" style="margin-top:16px;">CHAT VIA WHATSAPP →</a>
-      </div>
-
-      <form class="aspiration-form" onsubmit="sendAspiration(event)">
-        <div class="form-group">
-          <label>Nama <span class="required">*</span></label>
-          <input type="text" id="aspName" placeholder="Nama kamu" required>
-        </div>
-        <div class="form-group">
-          <label>Nomor WhatsApp <span class="required">*</span></label>
-          <input type="tel" id="aspPhone" placeholder="08xx-xxxx-xxxx" required>
-        </div>
-        <div class="form-group">
-          <label>Kategori</label>
-          <select id="aspCategory">
-            <option>Kegiatan</option>
-            <option>Lingkungan</option>
-            <option>Sosial</option>
-            <option>Olahraga</option>
-            <option>Saran</option>
-            <option>Lainnya</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label>Aspirasi / Usulan <span class="required">*</span></label>
-          <textarea id="aspMessage" rows="4" placeholder="Tulis ide atau aspirasi kamu..." required></textarea>
-        </div>
-        <button class="btn btn-primary btn-block" type="submit">KIRIM ASPIRASI →</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       GALERI
-       =================================================== -->
-  <section class="section gallery-section" id="galeri">
-    <div class="container">
-      <div class="gallery-intro">
-        <div class="section-label">GALERI</div>
-        <h2 class="section-title">CERITA DALAM SETIAP MOMEN.</h2>
-        <p class="section-desc">Dokumentasi kebersamaan Anak Kampung RT 010 dalam setiap kegiatan.</p>
-      </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 1</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 2</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 3</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 4</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 5</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 6</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 7</span>
-          </div>
-        </div>
-        <div class="gallery-item">
-          <div class="placeholder">
-            <span class="icon">📸</span>
-            <span>Foto 8</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       SOSIAL MEDIA
-       =================================================== -->
-  <section class="section social-section">
-    <div class="container social-grid">
-      <div>
-        <div class="section-label">FOLLOW US</div>
-        <h2 class="section-title">IKUTIN KESERUANNYA.</h2>
-        <p class="section-desc">Pantau informasi kegiatan, dokumentasi, dan update terbaru Anak Kampung RT 010.</p>
-      </div>
-      <div class="social-links">
-        <a class="social-link" href="https://instagram.com/anakkampungcbs_010" target="_blank">
-          <span class="social-icon">📷</span>
-          Instagram<br>@anakkampungcbs_010
-        </a>
-        <a class="social-link" href="https://www.tiktok.com/@anakkampungcbs_010" target="_blank">
-          <span class="social-icon">🎵</span>
-          TikTok<br>@anakkampungcbs_010
-        </a>
-        <a class="social-link" href="https://wa.me/6285156889002" target="_blank">
-          <span class="social-icon">💬</span>
-          WhatsApp<br>0851-5688-9002
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===================================================
-       FOOTER
-       =================================================== -->
-  <footer>
-    <div class="container footer-grid">
-      <div>
-        <div class="footer-brand">
-          <img src="logo-rt010.png" alt="Logo RT 010" class="footer-logo">
-          <div>
-            <strong>ANAK KAMPUNG RT 010</strong><br>
-            <span style="color:#94a5b5;font-size:.8rem;">Bersama • Bergerak • Berkarya</span>
-          </div>
-        </div>
-        <p>Bersama, bergerak, dan berkarya untuk lingkungan yang lebih baik.</p>
-      </div>
-      <div>
-        <h3>NAVIGASI</h3>
-        <div class="footer-links">
-          <a href="#tentang">Tentang Kami</a>
-          <a href="#kegiatan">Kegiatan</a>
-          <a href="#pengumuman">Pengumuman</a>
-          <a href="#aspirasi">Aspirasi</a>
-          <a href="#galeri">Galeri</a>
-        </div>
-      </div>
-      <div>
-        <h3>FOLLOW US</h3>
-        <div class="footer-links">
-          <a href="https://instagram.com/anakkampungcbs_010" target="_blank">Instagram — @anakkampungcbs_010</a>
-          <a href="https://www.tiktok.com/@anakkampungcbs_010" target="_blank">TikTok — @anakkampungcbs_010</a>
-          <a href="https://wa.me/6285156889002" target="_blank">WhatsApp — 0851-5688-9002</a>
-        </div>
-      </div>
-    </div>
-    <div class="container copyright">© 2026 Anak Kampung RT 010. Dibuat untuk kebersamaan warga.</div>
-  </footer>
-
-  <!-- ===================================================
-       MODAL FORM PENDAFTARAN
-       =================================================== -->
-  <div class="modal-overlay" id="registrationModal">
-    <div class="modal">
-      <button class="modal-close" onclick="closeForm()">✕</button>
-      <h2 id="modalTitle">📝 Daftar Lomba</h2>
-      <p class="modal-sub" id="modalSub">Isi data diri kamu untuk mendaftar</p>
-
-      <form onsubmit="submitRegistration(event)">
-        <input type="hidden" id="regLomba" value="">
-
-        <div class="form-group">
-          <label>Nama Lengkap <span class="required">*</span></label>
-          <input type="text" id="regName" placeholder="Nama lengkap peserta" required>
-        </div>
-
-        <div class="form-group" id="regAgeGroup">
-          <label>Usia <span class="required">*</span></label>
-          <input type="number" id="regAge" placeholder="Usia peserta" min="1" max="99" required>
-        </div>
-
-        <div class="form-group" id="regParentGroup">
-          <label>Nama Orang Tua / Wali</label>
-          <input type="text" id="regParent" placeholder="Nama orang tua atau wali">
-        </div>
-
-        <div class="form-group">
-          <label>Nomor WhatsApp <span class="required">*</span></label>
-          <input type="tel" id="regPhone" placeholder="08xx-xxxx-xxxx" required>
-        </div>
-
-        <div class="form-group">
-          <label>Alamat <span class="required">*</span></label>
-          <input type="text" id="regAddress" placeholder="Alamat lengkap / RT" required>
-        </div>
-
-        <div class="form-group" id="regLombaGroup">
-          <label>Pilihan Lomba <span class="required">*</span></label>
-          <select id="regLombaPilihan" required>
-            <option value="">Pilih lomba yang diikuti</option>
-          </select>
-        </div>
-
-        <div class="form-group" id="regLaguGroup" style="display:none;">
-          <label>Judul Lagu <span class="required">*</span></label>
-          <input type="text" id="regLagu" placeholder="Judul lagu yang akan dibawakan">
-        </div>
-
-        <div class="form-group" id="regPenyanyiGroup" style="display:none;">
-          <label>Penyanyi Asli</label>
-          <input type="text" id="regPenyanyi" placeholder="Nama penyanyi asli lagu">
-        </div>
-
-        <div class="form-group" id="regTumpengGroup" style="display:none;">
-          <label>Nama / Tema Tumpeng</label>
-          <input type="text" id="regTumpeng" placeholder="Nama atau tema kreasi tumpeng">
-        </div>
-
-        <div class="form-group" id="regRTGroup" style="display:none;">
-          <label>Asal RT <span class="required">*</span></label>
-          <input type="text" id="regRT" placeholder="RT ..." value="RT 010">
-        </div>
-
-        <button class="btn btn-primary btn-block" type="submit">📤 DAFTAR SEKARANG</button>
-      </form>
-    </div>
-  </div>
-
-  <!-- ===================================================
-       JAVASCRIPT
-       =================================================== -->
-  <script>
-    // ========================
-    // MENU TOGGLE
-    // ========================
-    function toggleMenu() {
-      document.getElementById("navLinks").classList.toggle("open");
-    }
-
-    // ========================
-    // DETAIL TOGGLE
-    // ========================
-    function toggleDetail(id, button) {
-      const d = document.getElementById(id);
-      d.classList.toggle("open");
-      button.innerText = d.classList.contains("open") ? "Tutup Detail ↑" : "Lihat Detail →";
-    }
-
-    // ========================
-    // FORM MODAL
-    // ========================
-    function openForm(lombaName) {
-      const modal = document.getElementById('registrationModal');
-      const title = document.getElementById('modalTitle');
-      const sub = document.getElementById('modalSub');
-      const lombaInput = document.getElementById('regLomba');
-      const lombaSelect = document.getElementById('regLombaPilihan');
-
-      // Set judul
-      title.textContent = '📝 ' + lombaName;
-      sub.textContent = 'Isi data diri kamu untuk mendaftar ' + lombaName;
-
-      // Set hidden
-      lombaInput.value = lombaName;
-
-      // Reset form
-      document.querySelector('#registrationModal form').reset();
-
-      // Reset semua field visibility
-      document.getElementById('regAgeGroup').style.display = 'block';
-      document.getElementById('regParentGroup').style.display = 'block';
-      document.getElementById('regLombaGroup').style.display = 'block';
-      document.getElementById('regLaguGroup').style.display = 'none';
-      document.getElementById('regPenyanyiGroup').style.display = 'none';
-      document.getElementById('regTumpengGroup').style.display = 'none';
-      document.getElementById('regRTGroup').style.display = 'none';
-
-      // Sesuaikan pilihan lomba
-      lombaSelect.innerHTML = '<option value="">Pilih lomba yang diikuti</option>';
-
-      if (lombaName === 'Lomba Anak 4-6 Tahun') {
-        const list = ['Bendera ke Botol', 'Paku ke Botol', 'Kelereng', 'Jepit Balon', 'Makan Kerupuk'];
-        list.forEach(item => {
-          lombaSelect.innerHTML += `<option value="${item}">${item}</option>`;
-        });
-        document.getElementById('regParentGroup').style.display = 'block';
-        document.getElementById('regRTGroup').style.display = 'none';
-      } else if (lombaName === 'Lomba Anak 7-10 Tahun') {
-        const list = ['Balap Karung', 'Makan Kerupuk', 'Rebutan Bangku', 'Tiup Gelas', 'Bakiak'];
-        list.forEach(item => {
-          lombaSelect.innerHTML += `<option value="${item}">${item}</option>`;
-        });
-        document.getElementById('regParentGroup').style.display = 'block';
-        document.getElementById('regRTGroup').style.display = 'none';
-      } else if (lombaName === 'Lomba Remaja 11-17 Tahun') {
-        const list = ['Balap Karung Helm', 'Makan Kerupuk', 'Rebutan Bangku', 'Pecah Balon Air', 'Bakiak', 'Bola Master'];
-        list.forEach(item => {
-          lombaSelect.innerHTML += `<option value="${item}">${item}</option>`;
-        });
-        document.getElementById('regParentGroup').style.display = 'none';
-        document.getElementById('regRTGroup').style.display = 'none';
-      } else if (lombaName === 'Lomba Bapak-Bapak') {
-        const list = ['Tenis Meja', 'Catur', 'Gaple', 'Bakiak', 'Tarik Tambang', 'Main Bola Dasar'];
-        list.forEach(item => {
-          lombaSelect.innerHTML += `<option value="${item}">${item}</option>`;
-        });
-        document.getElementById('regParentGroup').style.display = 'none';
-        document.getElementById('regRTGroup').style.display = 'none';
-      } else if (lombaName === 'Lomba Tumpeng') {
-        const list = ['Kreativitas', 'Rasa', 'Penyajian'];
-        list.forEach(item => {
-          lombaSelect.innerHTML += `<option value="${item}">${item}</option>`;
-        });
-        document.getElementById('regParentGroup').style.display = 'none';
-        document.getElementById('regAgeGroup').style.display = 'none';
-        document.getElementById('regTumpengGroup').style.display = 'block';
-        document.getElementById('regRTGroup').style.display = 'block';
-      } else if (lombaName === 'Lomba Karaoke') {
-        const list = ['Penampilan Solo', 'Penampilan Terbaik', 'Kreativitas'];
-        list.forEach(item => {
-          lombaSelect.innerHTML += `<option value="${item}">${item}</option>`;
-        });
-        document.getElementById('regParentGroup').style.display = 'none';
-        document.getElementById('regAgeGroup').style.display = 'none';
-        document.getElementById('regLaguGroup').style.display = 'block';
-        document.getElementById('regPenyanyiGroup').style.display = 'block';
-        document.getElementById('regRTGroup').style.display = 'none';
-        document.getElementById('regLombaPilihan').setAttribute('required', 'required');
-      }
-
-      // Tampilkan modal
-      modal.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeForm() {
-      document.getElementById('registrationModal').classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    // Tutup modal saat klik overlay
-    document.getElementById('registrationModal').addEventListener('click', function(e) {
-      if (e.target === this) closeForm();
-    });
-
-    // ========================
-    // SUBMIT REGISTRATION
-    // ========================
-    function submitRegistration(e) {
-      e.preventDefault();
-
-      const lomba = document.getElementById('regLomba').value;
-      const name = document.getElementById('regName').value;
-      const age = document.getElementById('regAge').value;
-      const parent = document.getElementById('regParent').value;
-      const phone = document.getElementById('regPhone').value;
-      const address = document.getElementById('regAddress').value;
-      const pilihan = document.getElementById('regLombaPilihan').value;
-      const lagu = document.getElementById('regLagu').value;
-      const penyanyi = document.getElementById('regPenyanyi').value;
-      const tumpeng = document.getElementById('regTumpeng').value;
-      const rt = document.getElementById('regRT').value;
-
-      let message = `Halo Admin Anak Kampung RT 010 👋\n\n`;
-      message += `Saya ingin mendaftar untuk kegiatan:\n\n`;
-      message += `*📌 Lomba:* ${lomba}\n`;
-      message += `*👤 Nama:* ${name}\n`;
-
-      if (age) message += `*📅 Usia:* ${age} tahun\n`;
-      if (parent) message += `*👨‍👩‍👦 Orang Tua/Wali:* ${parent}\n`;
-      message += `*📱 WhatsApp:* ${phone}\n`;
-      message += `*📍 Alamat:* ${address}\n`;
-
-      if (pilihan) message += `*🏆 Pilihan Lomba:* ${pilihan}\n`;
-      if (lagu) message += `*🎵 Judul Lagu:* ${lagu}\n`;
-      if (penyanyi) message += `*🎤 Penyanyi Asli:* ${penyanyi}\n`;
-      if (tumpeng) message += `*🍚 Nama/Tema Tumpeng:* ${tumpeng}\n`;
-      if (rt) message += `*🏠 Asal RT:* ${rt}\n`;
-
-      message += `\nTerima kasih.`;
-
-      const waUrl = `https://wa.me/6285156889002?text=${encodeURIComponent(message)}`;
-      window.open(waUrl, '_blank');
-
-      closeForm();
-    }
-
-    // ========================
-    // SEND ASPIRASI
-    // ========================
-    function sendAspiration(e) {
-      e.preventDefault();
-
-      const name = document.getElementById('aspName').value;
-      const phone = document.getElementById('aspPhone').value;
-      const category = document.getElementById('aspCategory').value;
-      const message = document.getElementById('aspMessage').value;
-
-      const text = `Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin menyampaikan aspirasi:
-
-*Nama:* ${name}
-*WhatsApp:* ${phone}
-*Kategori:* ${category}
-
-*Aspirasi/Usulan:*
-${message}
-
-Terima kasih.`;
-
-      const waUrl = `https://wa.me/6285156889002?text=${encodeURIComponent(text)}`;
-      window.open(waUrl, '_blank');
-
-      // Reset form
-      e.target.reset();
-    }
-
-    // ========================
-    // CLOSE MENU ON NAV CLICK
-    // ========================
-    document.querySelectorAll(".nav-links a").forEach(a => {
-      a.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("open");
-      });
-    });
-
-    // ========================
-    // TUTUP MODAL DENGAN ESC
-    // ========================
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') closeForm();
-    });
-  </script>
-
-</body>
-</html>
+            <div class="notice-actions">
+              <button class="btn btn-orange btn-sm" onclick="openFormPentasSeni()">
