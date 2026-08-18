@@ -402,7 +402,7 @@
 
     <div class="feature-card" id="nearestEvent">
   <!-- Tambahkan foto di sini -->
-  <img src=".jpg" alt="Event Banner" style="width:100%;border-radius:12px;margin-bottom:16px;">
+  <img src="galeri/Foto9.jpg" alt="Event Banner" style="width:100%;border-radius:12px;margin-bottom:16px;">
   
   <div class="feature-label">
     🔥 EVENT TERDEKAT
@@ -1373,31 +1373,85 @@
   <!-- ===================================================
        GALERI
        =================================================== -->
- <div class="gallery-grid">
-  <div class="gallery-item">
-    <img src="galeri/foto1.jpg" alt="Dokumentasi 1" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto2.jpg" alt="Dokumentasi 2" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto3.jpg" alt="Dokumentasi 3" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto4.jpg" alt="Dokumentasi 4" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto5.jpg" alt="Dokumentasi 5" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto6.jpg" alt="Dokumentasi 6" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto7.jpg" alt="Dokumentasi 7" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
-  <div class="gallery-item">
-    <img src="galeri/foto8.jpg" alt="Dokumentasi 8" style="width:100%;height:100%;object-fit:cover;border-radius:14px;">
-  </div>
+<div class="container">
+  <div class="gallery-intro">
+  <div class="section-label">GALERI</div>
+<h2 class="section-title">CERITA DALAM SETIAP MOMEN.</h2>
+  <p class="section-desc">Buka album dan geser halamannya untuk melihat dokumentasi Anak Kampung RT 010.</p>
+</div>
+
+<div class="flipbook-wrap">
+<div class="flipbook" id="flipbook">
+
+<div class="book-page cover-page" data-page="0">
+<div class="cover-content">
+<div class="cover-small">DOKUMENTASI</div>
+<h3>ANAK KAMPUNG<br>RT 010</h3>
+<div class="cover-line"></div>
+<p>Bersama • Bergerak • Berkarya</p>
+<div class="cover-hint">KLIK HALAMAN UNTUK MEMBUKA</div>
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="1">
+<div class="page-inner">
+<div class="page-label">MOMEN 01</div>
+<img src="galeri/foto1.jpeg" alt="Dokumentasi foto 1">
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="2">
+<div class="page-inner">
+<div class="page-label">MOMEN 02</div>
+<img src="galeri/foto2.jpeg" alt="Dokumentasi foto 2">
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="3">
+<div class="page-inner">
+<div class="page-label">MOMEN 03</div>
+<img src="galeri/foto3.jpeg" alt="Dokumentasi foto 3">
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="4">
+<div class="page-inner">
+<div class="page-label">MOMEN 04</div>
+<img src="galeri/foto4.jpeg" alt="Dokumentasi foto 4">
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="5">
+<div class="page-inner">
+<div class="page-label">MOMEN 05</div>
+<img src="galeri/foto5.jpeg" alt="Dokumentasi foto 5">
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="6">
+<div class="page-inner">
+<div class="page-label">MOMEN 06</div>
+<img src="galeri/foto6.jpeg" alt="Dokumentasi foto 6">
+</div>
+</div>
+
+<div class="book-page photo-page" data-page="7">
+<div class="page-inner">
+<div class="page-label">MOMEN 07</div>
+<img src="galeri/foto7.jpeg" alt="Dokumentasi foto 7">
+</div>
+</div>
+
+</div>
+
+<div class="flipbook-controls">
+<button onclick="prevPage()" aria-label="Halaman sebelumnya">←</button>
+<span id="pageIndicator">Cover</span>
+<button onclick="nextPage()" aria-label="Halaman berikutnya">→</button>
+</div>
+
+<p class="flipbook-help">Klik sisi kanan buku untuk membuka halaman berikutnya • Klik sisi kiri untuk kembali</p>
+</div>
 </div>
   <!-- ===================================================
        SOSIAL MEDIA
