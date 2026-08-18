@@ -49,7 +49,6 @@
       --border: #e3e8ef;
       --shadow: 0 15px 45px rgba(13, 27, 42, .08);
       --green: #22a65e;
-      --red: #dc3545;
       --gray: #8a9aa8;
     }
 
@@ -87,6 +86,20 @@
       border-radius: 50%;
       object-fit: cover;
       border: 3px solid var(--navy);
+      background: linear-gradient(135deg, #0d1b2a, #1769aa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .brand-logo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     .brand-text {
@@ -169,7 +182,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      background: linear-gradient(135deg, rgba(13, 27, 42, 0.75), rgba(23, 105, 170, 0.65));
+      background: linear-gradient(135deg, rgba(13, 27, 42, 0.8), rgba(23, 105, 170, 0.7));
     }
 
     .hero::before {
@@ -181,6 +194,11 @@
       bottom: 0;
       background: url('galeri/Foto9.jpg') center center / cover no-repeat;
       z-index: 0;
+    }
+
+    /* Fallback jika foto tidak ada */
+    .hero.no-bg::before {
+      background: linear-gradient(135deg, #0d1b2a, #1769aa);
     }
 
     .hero .container {
@@ -563,21 +581,6 @@
       border-color: #d1d9e0;
     }
 
-    .event-card.done .done-badge {
-      display: inline-block;
-    }
-
-    .done-badge {
-      display: none;
-      background: var(--green);
-      color: #fff;
-      padding: 2px 12px;
-      border-radius: 20px;
-      font-size: .6rem;
-      font-weight: 800;
-      margin-left: 8px;
-    }
-
     .event-tag {
       display: inline-block;
       background: #eaf4ff;
@@ -813,7 +816,6 @@
       resize: vertical;
     }
 
-    /* Checkbox group untuk pilihan lomba */
     .checkbox-group {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -970,7 +972,7 @@
     }
 
     /* =====================================================
-       GALERI — UKURAN LEBIH KECIL
+       GALERI
        ===================================================== */
     .gallery-section {
       background: #f6f8fb;
@@ -990,8 +992,8 @@
     .gallery-item {
       border-radius: 12px;
       overflow: hidden;
-      background: #fff;
-      border: 1px solid var(--border);
+      background: #f0f2f5;
+      border: 2px dashed var(--border);
       aspect-ratio: 1;
       display: flex;
       align-items: center;
@@ -1004,7 +1006,6 @@
 
     .gallery-item:hover {
       transform: scale(1.02);
-      box-shadow: var(--shadow);
     }
 
     .gallery-item img {
@@ -1019,7 +1020,7 @@
       flex-direction: column;
       align-items: center;
       gap: 6px;
-      opacity: 0.3;
+      opacity: 0.5;
     }
 
     .gallery-item .placeholder .icon {
@@ -1145,6 +1146,20 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid #fff;
+      background: linear-gradient(135deg, #0d1b2a, #1769aa);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 900;
+      font-size: 1.2rem;
+    }
+
+    .footer-logo img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
     }
 
     footer p,
@@ -1207,7 +1222,9 @@
   <header class="header">
     <div class="container nav">
       <a href="#beranda" class="brand">
-        <img src="logo-rt010.png" alt="Logo Anak Kampung RT 010" class="brand-logo" onerror="this.style.display='none'">
+        <div class="brand-logo" id="brandLogo">
+          <img src="logo-rt010.png" alt="Logo Anak Kampung RT 010" onerror="this.style.display='none';this.parentElement.textContent='AK'">
+        </div>
         <div class="brand-text">
           <strong>ANAK KAMPUNG <span class="highlight">RT 010</span></strong>
           <span>Bersama • Bergerak • Berkarya</span>
@@ -1241,7 +1258,7 @@
           </div>
         </div>
 
-        <!-- EVENT TERDEKAT — OTOMATIS BERUBAH -->
+        <!-- EVENT TERDEKAT -->
         <div class="feature-card" id="nearestEvent">
           <div class="feature-label">
             🔥 EVENT TERDEKAT
@@ -1312,10 +1329,7 @@
           <p class="section-desc">Bukan cuma satu acara. Ada banyak keseruan yang menunggu.</p>
         </div>
       </div>
-
-      <div class="events-grid" id="eventsGrid">
-        <!-- Diisi oleh JavaScript -->
-      </div>
+      <div class="events-grid" id="eventsGrid"></div>
     </div>
   </section>
 
@@ -1402,7 +1416,7 @@
   </section>
 
   <!-- ===================================================
-       GALERI — UKURAN LEBIH KECIL
+       GALERI
        =================================================== -->
   <section class="section gallery-section" id="galeri">
     <div class="container">
@@ -1411,31 +1425,8 @@
         <h2 class="section-title">CERITA DALAM SETIAP MOMEN.</h2>
         <p class="section-desc">Dokumentasi kebersamaan Anak Kampung RT 010 dalam setiap kegiatan.</p>
       </div>
-      <div class="gallery-grid">
-        <div class="gallery-item">
-          <img src="galeri/foto1.jpg" alt="Dokumentasi 1" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 1</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto2.jpg" alt="Dokumentasi 2" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 2</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto3.jpg" alt="Dokumentasi 3" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 3</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto4.jpg" alt="Dokumentasi 4" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 4</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto5.jpg" alt="Dokumentasi 5" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 5</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto6.jpg" alt="Dokumentasi 6" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 6</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto7.jpg" alt="Dokumentasi 7" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 7</span></div>'">
-        </div>
-        <div class="gallery-item">
-          <img src="galeri/foto8.jpg" alt="Dokumentasi 8" onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto 8</span></div>'">
-        </div>
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Diisi oleh JavaScript -->
       </div>
     </div>
   </section>
@@ -1474,7 +1465,9 @@
     <div class="container footer-grid">
       <div>
         <div class="footer-brand">
-          <img src="logo-rt010.png" alt="Logo RT 010" class="footer-logo" onerror="this.style.display='none'">
+          <div class="footer-logo" id="footerLogo">
+            <img src="logo-rt010.png" alt="Logo RT 010" onerror="this.style.display='none';this.parentElement.textContent='AK'">
+          </div>
           <div>
             <strong>ANAK KAMPUNG RT 010</strong><br>
             <span style="color:#94a5b5;font-size:.8rem;">Bersama • Bergerak • Berkarya</span>
@@ -1505,7 +1498,7 @@
   </footer>
 
   <!-- ===================================================
-       MODAL FORM PENDAFTARAN LOMBA
+       MODAL FORM PENDAFTARAN
        =================================================== -->
   <div class="modal-overlay" id="registrationModal">
     <div class="modal">
@@ -1543,9 +1536,7 @@
 
         <div class="form-group" id="regLombaGroup">
           <label>Pilih Lomba yang Diikuti <span class="required">*</span></label>
-          <div class="checkbox-group" id="checkboxLomba">
-            <!-- Diisi oleh JavaScript -->
-          </div>
+          <div class="checkbox-group" id="checkboxLomba"></div>
         </div>
 
         <div class="form-group" id="regLaguGroup" style="display:none;">
@@ -1568,7 +1559,6 @@
           <input type="text" id="regRT" placeholder="RT ..." value="RT 010">
         </div>
 
-        <!-- Untuk Pentas Seni -->
         <div class="form-group" id="regJenisTampil" style="display:none;">
           <label>Jenis Penampilan <span class="required">*</span></label>
           <select id="regJenisTampilSelect">
@@ -1717,16 +1707,9 @@
     // RENDER EVENT TERDEKAT
     // =========================================================
     function renderNearestEvent() {
-      const today = getToday();
-
-      // Filter event yang belum selesai
       const upcoming = eventsData.filter(e => !isEventDone(e.tanggal));
 
-      let nearest = null;
-      let minDays = Infinity;
-
       if (upcoming.length === 0) {
-        // Semua event selesai
         document.getElementById('nearestTitle').textContent = '🎉 Semua Kegiatan Selesai!';
         document.getElementById('nearestSub').textContent = 'Terima kasih atas partisipasinya!';
         document.getElementById('nearestDate').textContent = '-';
@@ -1740,18 +1723,11 @@
         return;
       }
 
-      // Cari event terdekat
-      upcoming.forEach(e => {
-        const days = getDaysLeft(e.tanggal);
-        if (days < minDays && days >= 0) {
-          minDays = days;
-          nearest = e;
-        }
+      let nearest = upcoming.reduce((a, b) => {
+        const daysA = getDaysLeft(a.tanggal);
+        const daysB = getDaysLeft(b.tanggal);
+        return (daysA < daysB && daysA >= 0) ? a : b;
       });
-
-      if (!nearest) {
-        nearest = upcoming[0];
-      }
 
       const daysLeft = getDaysLeft(nearest.tanggal);
 
@@ -1790,19 +1766,15 @@
       const grid = document.getElementById('eventsGrid');
       grid.innerHTML = '';
 
-      eventsData.forEach((e, index) => {
+      eventsData.forEach((e) => {
         const done = isEventDone(e.tanggal);
-        const daysLeft = getDaysLeft(e.tanggal);
-
-        const card = document.createElement('article');
-        card.className = 'event-card' + (done ? ' done' : '');
-
         const tagClass = done ? 'event-tag done-tag' : 'event-tag';
         const ageClass = done ? 'age done-age' : 'age';
         const detailBtnClass = done ? 'detail-btn done-btn' : 'detail-btn';
-
         const lombaListHtml = e.lomba.map(l => `<span>${l}</span>`).join('');
 
+        const card = document.createElement('article');
+        card.className = 'event-card' + (done ? ' done' : '');
         card.innerHTML = `
           <span class="${tagClass}">${e.tag}${done ? ' ✅ Selesai' : ''}</span>
           <h3>${e.title}</h3>
@@ -1824,9 +1796,27 @@
             ${done ? '' : `<button class="btn btn-orange btn-sm" onclick="openForm('${e.lombaId}')">📝 Daftar Lomba</button>`}
           </div>
         `;
-
         grid.appendChild(card);
       });
+    }
+
+    // =========================================================
+    // RENDER GALERI
+    // =========================================================
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      const totalPhotos = 8;
+      grid.innerHTML = '';
+
+      for (let i = 1; i <= totalPhotos; i++) {
+        const div = document.createElement('div');
+        div.className = 'gallery-item';
+        div.innerHTML = `
+          <img src="galeri/foto${i}.jpg" alt="Dokumentasi ${i}" 
+               onerror="this.style.display='none';this.parentElement.innerHTML='<div class=placeholder><span class=icon>📸</span><span>Foto ${i}</span></div>'">
+        `;
+        grid.appendChild(div);
+      }
     }
 
     // =========================================================
@@ -1848,7 +1838,7 @@
     // =========================================================
     // FORM MODAL
     // =========================================================
-    let currentFormType = 'lomba'; // 'lomba' or 'pentas'
+    let currentFormType = 'lomba';
 
     function openForm(lombaName) {
       currentFormType = 'lomba';
@@ -1857,7 +1847,6 @@
       const sub = document.getElementById('modalSub');
       const lombaInput = document.getElementById('regLomba');
 
-      // Reset semua field visibility
       document.getElementById('regAgeGroup').style.display = 'block';
       document.getElementById('regParentGroup').style.display = 'block';
       document.getElementById('regLombaGroup').style.display = 'block';
@@ -1868,13 +1857,10 @@
       document.getElementById('regJenisTampil').style.display = 'none';
       document.getElementById('regDurasiGroup').style.display = 'none';
 
-      // Reset form
       document.querySelector('#registrationModal form').reset();
 
-      // Cari data lomba
       let eventData = eventsData.find(e => e.lombaId === lombaName);
       if (!eventData) {
-        // Coba cari berdasarkan nama
         eventData = eventsData.find(e => lombaName.includes(e.title));
       }
 
@@ -1883,7 +1869,6 @@
         sub.textContent = 'Isi data diri untuk mendaftar ' + eventData.title + ' (' + eventData.age + ')';
         lombaInput.value = eventData.lombaId;
 
-        // Sembunyikan field yang tidak perlu
         if (!eventData.hasParent) {
           document.getElementById('regParentGroup').style.display = 'none';
         }
@@ -1900,7 +1885,6 @@
           document.getElementById('regPenyanyiGroup').style.display = 'block';
         }
 
-        // Buat checkbox pilihan lomba
         const checkboxContainer = document.getElementById('checkboxLomba');
         checkboxContainer.innerHTML = '';
         eventData.lomba.forEach((l, idx) => {
@@ -1913,7 +1897,6 @@
           checkboxContainer.appendChild(div);
         });
 
-        // Tampilkan modal
         modal.classList.add('active');
         document.body.style.overflow = 'hidden';
       }
@@ -1926,7 +1909,6 @@
       const sub = document.getElementById('modalSub');
       const lombaInput = document.getElementById('regLomba');
 
-      // Reset semua field
       document.getElementById('regAgeGroup').style.display = 'none';
       document.getElementById('regParentGroup').style.display = 'none';
       document.getElementById('regLombaGroup').style.display = 'none';
@@ -1937,14 +1919,11 @@
       document.getElementById('regJenisTampil').style.display = 'block';
       document.getElementById('regDurasiGroup').style.display = 'block';
 
-      // Reset form
       document.querySelector('#registrationModal form').reset();
 
       title.textContent = '🎭 Daftar Pentas Seni';
       sub.textContent = 'Isi data diri untuk tampil di Malam Puncak 22 Agustus 2026';
       lombaInput.value = 'Pentas Seni - Malam Puncak';
-
-      // Sembunyikan checkbox lomba
       document.getElementById('checkboxLomba').innerHTML = '';
 
       modal.classList.add('active');
@@ -1983,7 +1962,6 @@
       const jenisTampil = document.getElementById('regJenisTampilSelect').value;
       const durasi = document.getElementById('regDurasi').value;
 
-      // Ambil pilihan lomba dari checkbox
       const checkboxes = document.querySelectorAll('#checkboxLomba input[type="checkbox"]:checked');
       const pilihanLomba = Array.from(checkboxes).map(cb => cb.value);
 
@@ -2016,7 +1994,6 @@
 
       const waUrl = `https://wa.me/6285156889002?text=${encodeURIComponent(message)}`;
       window.open(waUrl, '_blank');
-
       closeForm();
     }
 
@@ -2046,7 +2023,6 @@ Terima kasih.`;
 
       const waUrl = `https://wa.me/6285156889002?text=${encodeURIComponent(text)}`;
       window.open(waUrl, '_blank');
-
       e.target.reset();
     }
 
@@ -2060,12 +2036,24 @@ Terima kasih.`;
     });
 
     // =========================================================
+    // CEK FOTO HERO — TAMBAHKAN CLASS NO-BG JIKA FOTO TIDAK ADA
+    // =========================================================
+    function checkHeroImage() {
+      const img = new Image();
+      img.src = 'galeri/Foto9.jpg';
+      img.onerror = function() {
+        document.querySelector('.hero').classList.add('no-bg');
+      };
+    }
+
+    // =========================================================
     // INIT
     // =========================================================
     renderNearestEvent();
     renderEventCards();
+    renderGallery();
+    checkHeroImage();
 
-    // Auto-refresh setiap 5 menit
     setInterval(() => {
       renderNearestEvent();
       renderEventCards();
