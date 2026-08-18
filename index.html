@@ -960,7 +960,151 @@ footer p,footer a,footer span {
     }
 
 }
-  </style>
+  
+.registrationOptions,
+#registrationOptions {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+}
+
+.registration-event-group {
+    padding: 16px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+}
+
+.registration-event-title {
+    color: var(--navy);
+    font-size: .86rem;
+    font-weight: 900;
+    margin-bottom: 3px;
+}
+
+.registration-event-title span {
+    color: var(--muted);
+    font-size: .7rem;
+    font-weight: 700;
+    margin-left: 5px;
+}
+
+.registration-event-date {
+    color: var(--muted);
+    font-size: .7rem;
+    margin-bottom: 11px;
+}
+
+.registration-checks {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+}
+
+.registration-checks .check-option {
+    align-items: center;
+}
+
+@media(max-width:600px) {
+    .registration-checks {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+.inline-register-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:8px;
+  padding:9px 14px;
+  border-radius:9px;
+  background:var(--red,#d71920);
+  color:#fff!important;
+  text-decoration:none;
+  font-size:.76rem;
+  font-weight:900;
+}
+.inline-register-btn:hover{filter:brightness(.94)}
+.upcoming-registration{
+  margin-top:28px;
+  padding:22px;
+  border:1px solid var(--border,#e5e7eb);
+  border-radius:16px;
+  background:#fff;
+}
+.upcoming-registration-head{margin-bottom:16px}
+.upcoming-registration-head h3{
+  color:var(--navy,#172554);
+  font-size:1.05rem;
+  font-weight:900;
+  margin-bottom:4px;
+}
+.upcoming-registration-head p{
+  color:var(--muted,#6b7280);
+  font-size:.78rem;
+}
+#upcomingRegistrationOptions{
+  display:grid;
+  grid-template-columns:1fr;
+  gap:14px;
+  margin-bottom:16px;
+}
+.upcoming-form-grid{
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:10px;
+  margin-top:14px;
+}
+.upcoming-form-grid input{
+  width:100%;
+  padding:12px 13px;
+  border:1px solid var(--border,#d1d5db);
+  border-radius:10px;
+  outline:none;
+}
+.upcoming-submit{
+  margin-top:12px;
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
+  background:var(--red,#d71920);
+  color:#fff;
+  font-weight:900;
+  cursor:pointer;
+}
+@media(max-width:650px){
+  .upcoming-form-grid{grid-template-columns:1fr}
+}
+
+
+.register-card-btn{display:block;width:100%;margin-top:10px;padding:11px 14px;border:0;border-radius:10px;background:#1769aa;color:#fff;font-weight:800;cursor:pointer}
+.event-register-form{display:none;margin-top:12px;padding:16px;border:1px solid var(--border);border-radius:12px;background:#f8fafc}
+.event-register-form.open{display:block}
+.event-register-title{font-weight:900;color:var(--navy);margin-bottom:10px}
+.event-form-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:8px;margin-top:12px}
+.event-form-grid input{width:100%;padding:10px;border:1px solid var(--border);border-radius:8px}
+.event-submit-btn{margin-top:10px;padding:10px 14px;border:0;border-radius:8px;background:#16834b;color:#fff;font-weight:800;cursor:pointer}
+@media(max-width:650px){.event-form-grid{grid-template-columns:1fr}}
+
+
+.nearest-registration{margin-top:18px;display:grid;gap:14px}
+.nearest-form-block{padding:16px;border:1px solid var(--border);border-radius:14px;background:#fff}
+.nearest-form-block h3{font-size:15px;margin-bottom:12px;color:var(--navy)}
+.nearest-fields{display:grid;gap:9px}
+.nearest-fields input{width:100%;padding:10px 12px;border:1px solid var(--border);border-radius:9px;background:#fff;color:#172033;outline:none}
+.nearest-fields input:focus{border-color:#1769aa}
+.nearest-submit{width:100%;margin-top:10px;padding:10px 12px;border:0;border-radius:9px;background:#1769aa;color:#fff;font-weight:800;cursor:pointer}
+
+
+.nearest-choice{display:grid;gap:10px}
+.nearest-choice strong{font-size:15px;color:var(--navy)}
+.nearest-choice-btn{width:100%;padding:12px 14px;border:1px solid var(--border);border-radius:10px;background:#fff;color:var(--navy);font-weight:800;text-align:left;cursor:pointer;transition:.2s}
+.nearest-choice-btn:hover{border-color:#1769aa;background:#f5f9ff}
+.nearest-hidden{display:none}
+.nearest-back{border:0;background:transparent;color:#1769aa;font-weight:700;cursor:pointer;padding:0;margin-bottom:12px}
+
+.brand-icon{width:22px;height:22px;display:inline-flex;vertical-align:middle;margin-right:7px}.brand-icon svg{width:100%;height:100%;fill:currentColor}</style>
  </head>
  <body>
   <header class="header">
@@ -983,41 +1127,12 @@ footer p,footer a,footer span {
      ☰
     </button>
     <ul class="nav-links" id="navLinks">
-     <li>
-      <a href="#beranda">
-       Beranda
-      </a>
-     </li>
-     <li>
-      <a href="#tentang">
-       Tentang Kami
-      </a>
-     </li>
-     <li>
-      <a href="#kegiatan">
-       Kegiatan
-      </a>
-     </li>
-     <li>
-      <a href="#pendaftaran">
-       Pendaftaran
-      </a>
-     </li>
-     <li>
-      <a href="#pengumuman">
-       Pengumuman
-      </a>
-     </li>
-     <li>
-      <a href="#aspirasi">
-       Aspirasi
-      </a>
-     </li>
-     <li>
-      <a href="#galeri">
-       Galeri
-      </a>
-     </li>
+     <li><a href="#beranda">Beranda</a></li>
+     <li><a href="#tentang">Tentang Kami</a></li>
+     <li><a href="#pengumuman">Pengumuman</a></li>
+     <li><a href="#kegiatan">Kegiatan</a></li>
+     <li><a href="#galeri">Galeri</a></li>
+     <li><a href="#aspirasi">Aspirasi/Saran</a></li>
     </ul>
    </div>
   </header>
@@ -1084,6 +1199,40 @@ footer p,footer a,footer span {
        Memuat informasi...
       </p>
      </div>
+     <div class="nearest-registration">
+      <div class="nearest-choice">
+       <strong>Daftar:</strong>
+       <button type="button" class="nearest-choice-btn" onclick="showNearestForm('karaoke')">🎤 Lomba Karaoke</button>
+       <button type="button" class="nearest-choice-btn" onclick="showNearestForm('pentas')">🎭 Mengisi Acara</button>
+      </div>
+
+      <div id="nearestKaraokeForm" class="nearest-form-block nearest-hidden">
+       <button type="button" class="nearest-back" onclick="hideNearestForms()">← Kembali</button>
+       <h3>🎤 Pendaftaran Lomba Karaoke</h3>
+       <form onsubmit="sendNearestKaraoke(event)">
+        <div class="nearest-fields">
+         <input id="nearestKaraokeName" type="text" placeholder="Nama" required>
+         <input id="nearestKaraokeRt" type="text" placeholder="RT" required>
+         <input id="nearestKaraokeSong" type="text" placeholder="Judul lagu" required>
+        </div>
+        <button type="submit" class="nearest-submit">Daftar Karaoke</button>
+       </form>
+      </div>
+
+      <div id="nearestPentasForm" class="nearest-form-block nearest-hidden">
+       <button type="button" class="nearest-back" onclick="hideNearestForms()">← Kembali</button>
+       <h3>🎭 Pendaftaran Mengisi Acara</h3>
+       <form onsubmit="sendNearestPentas(event)">
+        <div class="nearest-fields">
+         <input id="nearestPentasName" type="text" placeholder="Nama" required>
+         <input id="nearestPentasRt" type="text" placeholder="RT" required>
+         <input id="nearestPentasShow" type="text" placeholder="Acara yang ingin ditampilkan" required>
+         <input id="nearestPentasDuration" type="text" placeholder="Durasi tampil" required>
+        </div>
+        <button type="submit" class="nearest-submit">Daftar Mengisi Acara</button>
+       </form>
+      </div>
+     </div>
     </div>
    </div>
   </section>
@@ -1147,71 +1296,6 @@ footer p,footer a,footer span {
     </div>
    </div>
   </section>
-  <section class="section section-alt" id="kegiatan">
-   <div class="container">
-    <div class="section-heading">
-     <div class="section-label">
-      KEGIATAN
-     </div>
-     <h2 class="section-title">
-      APA YANG LAGI KITA LAKUKAN?
-     </h2>
-     <p class="section-desc">
-      Status kegiatan dan event terdekat akan menyesuaikan otomatis berdasarkan tanggal.
-     </p>
-    </div>
-    <div class="events-grid" id="eventsGrid">
-    </div>
-   </div>
-  </section>
-  <section class="section" id="pendaftaran">
-   <div class="container aspiration-box">
-    <div class="aspiration-copy">
-     <div class="section-label">
-      PENDAFTARAN LOMBA
-     </div>
-     <h2>
-      PILIH LEBIH DARI SATU LOMBA.
-     </h2>
-     <p>
-      Pilih beberapa lomba sekaligus menggunakan ceklis. Lomba yang tanggalnya sudah lewat otomatis tidak dapat dipilih.
-     </p>
-    </div>
-    <form class="form" onsubmit="sendLombaRegistration(event)">
-     <div class="form-group">
-      <label>
-       Nama Peserta
-      </label>
-      <input id="lombaName" placeholder="Nama lengkap" required="" type="text"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Usia
-      </label>
-      <input id="lombaAge" max="100" min="1" placeholder="Usia" required="" type="number"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Nomor WhatsApp
-      </label>
-      <input id="lombaPhone" placeholder="08xxxxxxxxxx" required="" type="tel"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Pilih Lomba
-      </label>
-      <div class="checkbox-group" id="registrationOptions">
-      </div>
-      <p class="form-note">
-       Kamu boleh memilih lebih dari satu lomba yang masih dibuka.
-      </p>
-     </div>
-     <button class="btn btn-primary" id="registerButton" style="width:100%" type="submit">
-      DAFTAR LOMBA →
-     </button>
-    </form>
-   </div>
-  </section>
   <section class="section section-alt" id="pengumuman">
    <div class="container">
     <div class="section-label">
@@ -1251,9 +1335,6 @@ footer p,footer a,footer span {
         Area Balai Warga RW 007
        </p>
        <p style="margin-top:8px">
-        <a href="#malam-puncak" style="color:#1769aa;font-weight:800">
-         Daftar sebagai pengisi acara →
-        </a>
        </p>
       </div>
      </div>
@@ -1290,150 +1371,21 @@ footer p,footer a,footer span {
     </div>
    </div>
   </section>
-  <section class="section" id="malam-puncak">
-   <div class="container aspiration-box">
-    <div class="aspiration-copy">
+  <section class="section section-alt" id="kegiatan">
+   <div class="container">
+    <div class="section-heading">
      <div class="section-label">
-      PENTAS SENI
+      KEGIATAN
      </div>
-     <h2>
-      MAU IKUT MENGISI ACARA?
+     <h2 class="section-title">
+      APA YANG LAGI KITA LAKUKAN?
      </h2>
-     <p>
-      Daftarkan penampilan untuk Malam Puncak: vokal, dance, musik, puisi, stand up, drama, atau kreasi lainnya.
+     <p class="section-desc">
+      Status kegiatan dan event terdekat akan menyesuaikan otomatis berdasarkan tanggal.
      </p>
     </div>
-    <form class="form" onsubmit="sendPentasRegistration(event)">
-     <div class="form-group">
-      <label>
-       Nama / Nama Kelompok
-      </label>
-      <input id="pentasName" placeholder="Nama kamu / kelompok" required="" type="text"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Nomor WhatsApp
-      </label>
-      <input id="pentasPhone" placeholder="08xxxxxxxxxx" required="" type="tel"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Jenis Penampilan
-      </label>
-      <select id="pentasType">
-       <option>
-        Vokal / Menyanyi
-       </option>
-       <option>
-        Dance / Tari
-       </option>
-       <option>
-        Musik
-       </option>
-       <option>
-        Puisi
-       </option>
-       <option>
-        Stand Up Comedy
-       </option>
-       <option>
-        Drama
-       </option>
-       <option>
-        Fashion Show
-       </option>
-       <option>
-        Lainnya
-       </option>
-      </select>
-     </div>
-     <div class="form-group">
-      <label>
-       Judul / Nama Penampilan
-      </label>
-      <input id="pentasTitle" placeholder="Judul penampilan" required="" type="text"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Jumlah Orang
-      </label>
-      <input id="pentasPeople" min="1" placeholder="Jumlah anggota" required="" type="number"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Catatan Tambahan
-      </label>
-      <textarea id="pentasNote" placeholder="Kebutuhan alat, durasi, dll." rows="4"></textarea>
-     </div>
-     <button class="btn btn-primary" style="width:100%" type="submit">
-      DAFTAR PENTAS SENI →
-     </button>
-    </form>
-   </div>
-  </section>
-  <section class="section section-alt" id="aspirasi">
-   <div class="container aspiration-box">
-    <div class="aspiration-copy">
-     <div class="section-label">
-      SUARA WARGA
-     </div>
-     <h2>
-      PUNYA IDE?
-      <br/>
-      JANGAN CUMA DIOMONGIN.
-     </h2>
-     <p>
-      Punya usulan kegiatan, kritik, atau ide baru untuk lingkungan?
-     </p>
-     <p>
-      Bicarakan. Kirim. Kita gerakkan bersama.
-     </p>
-     <div class="contact-number">
-      💬 0851-5688-9002
-     </div>
+    <div class="events-grid" id="eventsGrid">
     </div>
-    <form class="form" onsubmit="sendAspiration(event)">
-     <div class="form-group">
-      <label>
-       Nama
-      </label>
-      <input id="aspName" placeholder="Nama kamu" required="" type="text"/>
-     </div>
-     <div class="form-group">
-      <label>
-       Kategori
-      </label>
-      <select id="aspCategory">
-       <option>
-        Kegiatan
-       </option>
-       <option>
-        Lingkungan
-       </option>
-       <option>
-        Sosial
-       </option>
-       <option>
-        Olahraga
-       </option>
-       <option>
-        Saran
-       </option>
-       <option>
-        Lainnya
-       </option>
-      </select>
-     </div>
-     <div class="form-group">
-      <label>
-       Aspirasi / Usulan
-      </label>
-      <textarea id="aspMessage" placeholder="Tulis ide atau aspirasi kamu..." required="" rows="5"></textarea>
-     </div>
-     <button class="btn btn-primary" style="width:100%" type="submit">
-      KIRIM ASPIRASI →
-     </button>
-    </form>
    </div>
   </section>
   <section class="section gallery-section" id="galeri">
@@ -1446,7 +1398,7 @@ footer p,footer a,footer span {
       CERITA DALAM SETIAP MOMEN.
      </h2>
      <p class="section-desc">
-      Dua album terpisah. Ukuran buku menyesuaikan rasio foto aktif agar portrait, landscape, dan square tetap proporsional.
+      Jejak kebersamaan, keseruan, dan cerita warga yang terekam dalam setiap momen. 📸✨
      </p>
     </div>
     <div class="album">
@@ -1514,6 +1466,71 @@ footer p,footer a,footer span {
     </div>
    </div>
   </section>
+  <section class="section section-alt" id="aspirasi">
+   <div class="container aspiration-box">
+    <div class="aspiration-copy">
+     <div class="section-label">
+      SUARA WARGA
+     </div>
+     <h2>
+      PUNYA IDE?
+      <br/>
+      JANGAN CUMA DIOMONGIN.
+     </h2>
+     <p>
+      Punya usulan kegiatan, kritik, atau ide baru untuk lingkungan?
+     </p>
+     <p>
+      Bicarakan. Kirim. Kita gerakkan bersama.
+     </p>
+     <div class="contact-number">
+      💬 0851-5688-9002
+     </div>
+    </div>
+    <form class="form" onsubmit="sendAspiration(event)">
+     <div class="form-group">
+      <label>
+       Nama
+      </label>
+      <input id="aspName" placeholder="Nama kamu" required="" type="text"/>
+     </div>
+     <div class="form-group">
+      <label>
+       Kategori
+      </label>
+      <select id="aspCategory">
+       <option>
+        Kegiatan
+       </option>
+       <option>
+        Lingkungan
+       </option>
+       <option>
+        Sosial
+       </option>
+       <option>
+        Olahraga
+       </option>
+       <option>
+        Saran
+       </option>
+       <option>
+        Lainnya
+       </option>
+      </select>
+     </div>
+     <div class="form-group">
+      <label>
+       Aspirasi / Usulan
+      </label>
+      <textarea id="aspMessage" placeholder="Tulis ide atau aspirasi kamu..." required="" rows="5"></textarea>
+     </div>
+     <button class="btn btn-primary" style="width:100%" type="submit">
+      KIRIM ASPIRASI →
+     </button>
+    </form>
+   </div>
+  </section>
   <section class="section social-section">
    <div class="container social-grid">
     <div>
@@ -1529,17 +1546,17 @@ footer p,footer a,footer span {
     </div>
     <div class="social-links">
      <a class="social" href="https://instagram.com/anakkampungcbs_010" target="_blank">
-      📷 Instagram
+      <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="M7.8 2h8.4A5.8 5.8 0 0 1 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8A5.8 5.8 0 0 1 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2Zm0 2A3.8 3.8 0 0 0 4 7.8v8.4A3.8 3.8 0 0 0 7.8 20h8.4a3.8 3.8 0 0 0 3.8-3.8V7.8A3.8 3.8 0 0 0 16.2 4H7.8ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm4.7-3.5a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4Z"/></svg></span> Instagram
       <br/>
       @anakkampungcbs_010
      </a>
      <a class="social" href="https://www.tiktok.com/@anakkampungcbs_010" target="_blank">
-      🎵 TikTok
+      <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="M16.7 5.7A5 5 0 0 1 13.6 1h-3.1v14.8a2.7 2.7 0 1 1-2.3-2.7V10a5.8 5.8 0 1 0 5.4 5.8V8.2a8 8 0 0 0 4.7 1.5V6.6c-.6 0-1.1-.3-1.6-.9Z"/></svg></span> TikTok
       <br/>
       @anakkampungcbs_010
      </a>
      <a class="social" href="https://wa.me/6285156889002" target="_blank">
-      💬 WhatsApp
+      <span class="brand-icon"><svg viewBox="0 0 24 24"><path d="M12 2a9.8 9.8 0 0 0-8.4 14.9L2.2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 20Zm4.4-6c-.2-.1-1.4-.7-1.7-.8-.2-.1-.4-.1-.5.2l-.8 1c-.1.2-.3.2-.5.1a6.5 6.5 0 0 1-3.2-2.8c-.2-.3 0-.4.1-.5l.4-.5.2-.4c.1-.2 0-.4 0-.5l-.7-1.7c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.1s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.2-.3-.3-.8-.5Z"/></svg></span> WhatsApp
       <br/>
       0851-5688-9002
      </a>
@@ -1570,24 +1587,12 @@ footer p,footer a,footer span {
       NAVIGASI
      </h3>
      <div class="footer-links">
-      <a href="#tentang">
-       Tentang Kami
-      </a>
-      <a href="#kegiatan">
-       Kegiatan
-      </a>
-      <a href="#pendaftaran">
-       Pendaftaran
-      </a>
-      <a href="#pengumuman">
-       Pengumuman
-      </a>
-      <a href="#aspirasi">
-       Aspirasi
-      </a>
-      <a href="#galeri">
-       Galeri
-      </a>
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang Kami</a>
+      <a href="#pengumuman">Pengumuman</a>
+      <a href="#kegiatan">Kegiatan</a>
+      <a href="#galeri">Galeri</a>
+      <a href="#aspirasi">Aspirasi/Saran</a>
      </div>
     </div>
     <div>
@@ -1620,16 +1625,124 @@ const events=[
 {title:'Lomba Remaja',age:'Usia 11–17 Tahun',category:'SEMARAK KEMERDEKAAN',start:'2026-08-16',end:'2026-08-17',dateText:'16–17 Agustus 2026',time:'08.00 WIB',location:'Balai Warga RW 007',description:'Saatnya para remaja menunjukkan kekompakan, kecepatan, dan keberanian.',lomba:['Balap Karung Helm','Makan Kerupuk','Rebutan Bangku','Pecah Balon Air','Bakiak','Bola Master']},
 {title:'Lomba Bapak-Bapak',age:'Dewasa',category:'SEMARAK KEMERDEKAAN',start:'2026-08-08',end:'2026-08-17',dateText:'8–17 Agustus 2026',time:'Sesuai jadwal panitia',location:'Balai Warga RW 007',description:'Kompak, santai, dan tetap kompetitif.',lomba:['Tenis Meja','Catur','Gaple','Bakiak','Tarik Tambang','Main Bola Dasar']},
 {title:'Lomba Tumpeng',age:'Kreasi Warga',category:'KREASI WARGA',start:'2026-08-17',end:'2026-08-17',dateText:'17 Agustus 2026',time:'Sesuai jadwal panitia',location:'Balai Warga RW 007',description:'Satu RT, satu kreasi terbaik. Tunjukkan kreativitas warga.',lomba:['Lomba Tumpeng']},
-{title:'Lomba Karaoke',age:'Hiburan Warga',category:'HIBURAN WARGA',start:'2026-08-22',end:'2026-08-22',dateText:'22 Agustus 2026',time:'09.00 WIB',location:'Area Balai Warga RW 007',description:'Punya suara? Saatnya naik panggung.',lomba:['Lomba Karaoke']},
+{title:'Lomba Karaoke',age:'Hiburan Warga',category:'HIBURAN WARGA',start:'2026-08-22',end:'2026-08-22',dateText:'22 Agustus 2026',time:'09.00 WIB',location:'Area Balai Warga RW 007',description:'Tunjukkan bakatmu, ramaikan panggung malam puncak! 🎤✨',lomba:['Lomba Karaoke']},
 {title:'Malam Puncak / Pentas Seni',age:'Untuk Warga RT 010',category:'MALAM PUNCAK',start:'2026-08-22',end:'2026-08-22',dateText:'22 Agustus 2026',time:'19.30 WIB - Selesai',location:'Area Balai Warga RW 007',description:'Panggung kreativitas warga dan penampilan pentas seni.',lomba:[]}
 ];
 function localDate(s){return new Date(s+'T00:00:00')}
 function todayLocal(){const d=new Date();d.setHours(0,0,0,0);return d}
 function isDone(e){return localDate(e.end)<todayLocal()}
-function renderEvents(){const grid=document.getElementById('eventsGrid');grid.innerHTML='';events.forEach((e,i)=>{const done=isDone(e);const list=e.lomba.length?e.lomba.map(x=>`<div class="lomba-chip">${x}</div>`).join(''):'<div class="lomba-chip">Pendaftaran pengisi acara tersedia di bagian Pentas Seni.</div>';grid.insertAdjacentHTML('beforeend',`<article class="event-card ${done?'done':''}">${done?'<span class="done-badge">✓ SUDAH DILAKSANAKAN</span>':''}<br><span class="event-tag">${e.category}</span><h3>${e.title}</h3><div class="age">${e.age}</div><p>${e.description}</p><div class="card-info"><span>📅 ${e.dateText}</span><span>⏰ ${e.time}</span><span>📍 ${e.location}</span></div><div class="detail" id="detail${i}"><div class="detail-title">${e.lomba.length?'DAFTAR LOMBA':'INFORMASI'}</div><div class="lomba-list">${list}</div></div><button class="detail-btn" onclick="toggleDetail('detail${i}',this)">Lihat Detail →</button></article>`)});}
+function renderEvents(){const grid=document.getElementById('eventsGrid');grid.innerHTML='';events.forEach((e,i)=>{const done=isDone(e);const list=e.lomba.length?e.lomba.map(x=>`<div class="lomba-chip">${x}</div>`).join(''):'<div class="lomba-chip">Pendaftaran pengisi acara tersedia di Event Terdekat.</div>';grid.insertAdjacentHTML('beforeend',`<article class="event-card ${done?'done':''}">${done?'<span class="done-badge">✓ SUDAH DILAKSANAKAN</span>':''}<br><span class="event-tag">${e.category}</span><h3>${e.title}</h3><div class="age">${e.age}</div><p>${e.description}</p><div class="card-info"><span>📅 ${e.dateText}</span><span>⏰ ${e.time}</span><span>📍 ${e.location}</span></div><div class="detail" id="detail${i}"><div class="detail-title">${e.lomba.length?'DAFTAR LOMBA':'INFORMASI'}</div><div class="lomba-list">${list}</div></div><button class="detail-btn" onclick="toggleDetail('detail${i}',this)">Lihat Detail →</button>${e.lomba.length&&!done?`<button class="register-card-btn" onclick="openEventRegistration(${i})">Daftar Sekarang</button><div class="event-register-form" id="eventRegister${i}"><div class="event-register-title">Pendaftaran ${e.title}</div>${e.title==='Lomba Karaoke'?`<div class="event-form-grid"><input id="cardNama${i}" type="text" placeholder="Nama"><input id="cardRt${i}" type="text" placeholder="RT"><input id="cardLagu${i}" type="text" placeholder="Judul lagu"></div><button class="event-submit-btn" type="button" onclick="submitKaraokeCardRegistration(${i})">Kirim Pendaftaran</button>`:`<div class="registration-checks">${e.lomba.map((name,j)=>`<label class="check-option"><input type="checkbox" name="cardLomba${i}" value="${name}"><span>${name}</span></label>`).join('')}</div><div class="event-form-grid"><input id="cardNama${i}" type="text" placeholder="Nama peserta"><input id="cardUsia${i}" type="text" placeholder="Usia"><input id="cardRt${i}" type="text" placeholder="RT"></div><button class="event-submit-btn" type="button" onclick="submitEventRegistration(${i})">Kirim Pendaftaran</button>`}</div>`:''}</article>`)});}
+
+function openEventRegistration(i){
+ const el=document.getElementById('eventRegister'+i);
+ if(el) el.classList.toggle('open');
+}
+
+function submitKaraokeCardRegistration(i){
+ const nama=document.getElementById('cardNama'+i).value.trim();
+ const rt=document.getElementById('cardRt'+i).value.trim();
+ const lagu=document.getElementById('cardLagu'+i).value.trim();
+ if(!nama||!rt||!lagu){
+  alert('Mohon lengkapi Nama, RT, dan Judul lagu.');
+  return;
+ }
+ const pesan=`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar *Lomba Karaoke*.
+
+*Nama:* ${nama}
+*RT:* ${rt}
+*Judul Lagu:* ${lagu}
+
+Terima kasih.`;
+ window.open('https://wa.me/6285156889002?text='+encodeURIComponent(pesan),'_blank');
+}
+
+function submitEventRegistration(i){
+ const e=events[i];
+ const nama=(document.getElementById('cardNama'+i)?.value||'').trim();
+ const usia=(document.getElementById('cardUsia'+i)?.value||'').trim();
+ const rt=(document.getElementById('cardRt'+i)?.value||'').trim();
+ const lomba=[...document.querySelectorAll(`input[name="cardLomba${i}"]:checked`)].map(x=>x.value);
+ if(!nama){alert('Isi nama peserta terlebih dahulu.');return;}
+ if(!lomba.length){alert('Centang minimal satu lomba.');return;}
+ const msg=`Halo, saya ingin mendaftar lomba.%0A%0AEvent: ${encodeURIComponent(e.title)}%0ANama: ${encodeURIComponent(nama)}%0AUsia: ${encodeURIComponent(usia)}%0ART: ${encodeURIComponent(rt)}%0ALomba:%0A- ${lomba.map(encodeURIComponent).join('%0A- ')}`;
+ const links=[...document.querySelectorAll('a[href*="wa.me/"]')];
+ let wa='';
+ if(links.length){const m=links[0].href.match(/wa\.me\/(\d+)/);if(m)wa=m[1];}
+ if(wa) window.open(`https://wa.me/${wa}?text=${msg}`,'_blank');
+ else alert('Pendaftaran sudah terisi. Silakan hubungi panitia untuk mengirim data.');
+}
+
 function toggleDetail(id,b){const d=document.getElementById(id);d.classList.toggle('open');b.textContent=d.classList.contains('open')?'Tutup Detail ↑':'Lihat Detail →'}
 function updateNearestEvent(){const t=todayLocal();const upcoming=events.filter(e=>localDate(e.end)>=t).sort((a,b)=>localDate(a.start)-localDate(b.start));const n=upcoming[0];if(!n){document.getElementById('nearestEventTitle').textContent='SEMUA EVENT SELESAI';document.getElementById('nearestEventSubtitle').textContent='Terima kasih sudah meramaikan kegiatan.';document.getElementById('nearestEventDate').textContent='-';document.getElementById('nearestEventTime').textContent='-';document.getElementById('nearestEventLocation').textContent='RT 010';document.getElementById('nearestEventInfo').textContent='Nantikan kegiatan berikutnya.';return}document.getElementById('nearestEventTitle').textContent=n.title.toUpperCase();document.getElementById('nearestEventSubtitle').textContent=n.age;document.getElementById('nearestEventDate').textContent=n.dateText;document.getElementById('nearestEventTime').textContent=n.time;document.getElementById('nearestEventLocation').textContent=n.location;document.getElementById('nearestEventInfo').textContent=n.description}
-function renderRegistrationOptions(){const box=document.getElementById('registrationOptions');const opts=[];events.forEach(e=>{if(!isDone(e)&&e.lomba.length)e.lomba.forEach(x=>opts.push({name:x,event:e.title,date:e.dateText}))});const unique=[];const seen=new Set();opts.forEach(o=>{const k=o.name+'|'+o.date;if(!seen.has(k)){seen.add(k);unique.push(o)}});if(!unique.length){box.innerHTML='<div class="empty-registration">Belum ada lomba yang masih membuka pendaftaran.</div>';document.getElementById('registerButton').disabled=true;return}box.innerHTML=unique.map((o,i)=>`<label class="check-option"><input type="checkbox" name="lomba" value="${o.name} — ${o.event} (${o.date})"><span>${o.name}<br><small>${o.event} • ${o.date}</small></span></label>`).join('')}
+function renderRegistrationOptions(){
+const box=document.getElementById('registrationOptions');
+const activeEvents=events.filter(e=>!isDone(e)&&e.lomba.length);
+if(!activeEvents.length){
+box.innerHTML='<div class="empty-registration">Belum ada lomba yang masih membuka pendaftaran.</div>';
+document.getElementById('registerButton').disabled=true;
+return;
+}
+box.innerHTML=activeEvents.map((e,eventIndex)=>`
+<div class="registration-event-group">
+<div class="registration-event-title">${e.title} <span>${e.age}</span></div>
+<div class="registration-event-date">${e.dateText}</div>
+<div class="registration-checks">
+${e.lomba.map((name,lombaIndex)=>`
+<label class="check-option" for="lomba-${eventIndex}-${lombaIndex}">
+<input type="checkbox" id="lomba-${eventIndex}-${lombaIndex}" name="lomba" value="${name} — ${e.title} (${e.dateText})">
+<span>${name}</span>
+</label>`).join('')}
+</div>
+</div>`).join('');
+}
+
+
+function showNearestForm(type){
+ const choice=document.querySelector('.nearest-choice');
+ const karaoke=document.getElementById('nearestKaraokeForm');
+ const pentas=document.getElementById('nearestPentasForm');
+ choice.style.display='none';
+ karaoke.classList.add('nearest-hidden');
+ pentas.classList.add('nearest-hidden');
+ if(type==='karaoke') karaoke.classList.remove('nearest-hidden');
+ if(type==='pentas') pentas.classList.remove('nearest-hidden');
+}
+function hideNearestForms(){
+ document.getElementById('nearestKaraokeForm').classList.add('nearest-hidden');
+ document.getElementById('nearestPentasForm').classList.add('nearest-hidden');
+ document.querySelector('.nearest-choice').style.display='grid';
+}
+
+function sendNearestKaraoke(e){
+ e.preventDefault();
+ const text=`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar *Lomba Karaoke*.
+
+*Nama:* ${document.getElementById('nearestKaraokeName').value}
+*RT:* ${document.getElementById('nearestKaraokeRt').value}
+*Judul Lagu:* ${document.getElementById('nearestKaraokeSong').value}
+
+Terima kasih.`;
+ window.open('https://wa.me/6285156889002?text='+encodeURIComponent(text),'_blank');
+}
+function sendNearestPentas(e){
+ e.preventDefault();
+ const text=`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar sebagai *Pengisi Acara Malam Puncak*.
+
+*Nama:* ${document.getElementById('nearestPentasName').value}
+*RT:* ${document.getElementById('nearestPentasRt').value}
+*Acara yang ingin ditampilkan:* ${document.getElementById('nearestPentasShow').value}
+*Durasi tampil:* ${document.getElementById('nearestPentasDuration').value}
+
+Terima kasih.`;
+ window.open('https://wa.me/6285156889002?text='+encodeURIComponent(text),'_blank');
+}
+
 function sendLombaRegistration(e){e.preventDefault();const selected=[...document.querySelectorAll('input[name="lomba"]:checked')].map(x=>x.value);if(!selected.length){alert('Silakan pilih minimal satu lomba.');return}const text=`Halo Admin Anak Kampung RT 010 👋\n\nSaya ingin mendaftar lomba.\n\n*Nama:* ${document.getElementById('lombaName').value}\n*Usia:* ${document.getElementById('lombaAge').value} tahun\n*WhatsApp:* ${document.getElementById('lombaPhone').value}\n\n*Lomba yang dipilih:*\n${selected.map(x=>'✓ '+x).join('\n')}\n\nTerima kasih.`;window.open('https://wa.me/6285156889002?text='+encodeURIComponent(text),'_blank')}
 function sendPentasRegistration(e){e.preventDefault();const text=`Halo Admin Anak Kampung RT 010 👋\n\nSaya ingin mendaftar sebagai pengisi Malam Puncak / Pentas Seni.\n\n*Nama / Kelompok:* ${document.getElementById('pentasName').value}\n*WhatsApp:* ${document.getElementById('pentasPhone').value}\n*Jenis Penampilan:* ${document.getElementById('pentasType').value}\n*Judul:* ${document.getElementById('pentasTitle').value}\n*Jumlah Orang:* ${document.getElementById('pentasPeople').value}\n*Catatan:* ${document.getElementById('pentasNote').value||'-'}\n\nTerima kasih.`;window.open('https://wa.me/6285156889002?text='+encodeURIComponent(text),'_blank')}
 function sendAspiration(e){e.preventDefault();const text=`Halo Admin Anak Kampung RT 010 👋\n\nSaya ingin menyampaikan aspirasi.\n\n*Nama:* ${document.getElementById('aspName').value}\n*Kategori:* ${document.getElementById('aspCategory').value}\n\n*Aspirasi/Usulan:*\n${document.getElementById('aspMessage').value}\n\nTerima kasih.`;window.open('https://wa.me/6285156889002?text='+encodeURIComponent(text),'_blank')}
@@ -2573,7 +2686,50 @@ function nextPage(year){const s=books[year];if(s.current<s.total){s.current++;re
 function prevPage(year){const s=books[year];if(s.current>0){s.current--;renderBook(year,'prev')}}
 function setupBookClicks(year){document.getElementById('surface'+year).addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();if(e.clientX-r.left>r.width/2)nextPage(year);else prevPage(year)})}
 let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{['2026','2025'].forEach(y=>{const s=books[y];if(s.current===0)sizeCover(document.getElementById('flipbook'+y),document.getElementById('stage'+y));else{const img=document.getElementById('img'+y);if(img&&img.complete)sizeToImage(document.getElementById('flipbook'+y),document.getElementById('stage'+y),img)}})},150)});
-renderEvents();updateNearestEvent();renderRegistrationOptions();setupBookClicks('2026');setupBookClicks('2025');renderBook('2026');renderBook('2025');
-  </script>
+renderEvents();updateNearestEvent();setupBookClicks('2026');setupBookClicks('2025');renderBook('2026');renderBook('2025');
+  
+function renderUpcomingRegistrationOptions(){
+  const box=document.getElementById('upcomingRegistrationOptions');
+  if(!box || typeof events==='undefined') return;
+  const activeEvents=events.filter(e=>!isDone(e)&&e.lomba&&e.lomba.length);
+  if(!activeEvents.length){
+    box.innerHTML='<div class="empty-registration">Belum ada lomba yang masih membuka pendaftaran.</div>';
+    return;
+  }
+  box.innerHTML=activeEvents.map((e,eventIndex)=>`
+    <div class="registration-event-group">
+      <div class="registration-event-title">${e.title} <span>${e.age||''}</span></div>
+      <div class="registration-event-date">${e.dateText||''}</div>
+      <div class="registration-checks">
+        ${e.lomba.map((name,lombaIndex)=>`
+          <label class="check-option" for="up-lomba-${eventIndex}-${lombaIndex}">
+            <input type="checkbox" id="up-lomba-${eventIndex}-${lombaIndex}" name="upcomingLomba"
+              value="${name} — ${e.title} (${e.dateText||''})">
+            <span>${name}</span>
+          </label>`).join('')}
+      </div>
+    </div>`).join('');
+}
+function submitUpcomingRegistration(){
+  const nama=(document.getElementById('upcomingNama')||{}).value||'';
+  const usia=(document.getElementById('upcomingUsia')||{}).value||'';
+  const rt=(document.getElementById('upcomingRt')||{}).value||'';
+  const selected=[...document.querySelectorAll('input[name="upcomingLomba"]:checked')].map(x=>x.value);
+  if(!nama.trim()){alert('Isi nama peserta terlebih dahulu.');return;}
+  if(!selected.length){alert('Centang minimal satu lomba.');return;}
+  const msg=`Halo, saya ingin mendaftar lomba.%0A%0ANama: ${encodeURIComponent(nama)}%0AUsia: ${encodeURIComponent(usia)}%0ART: ${encodeURIComponent(rt)}%0ALomba:%0A- ${selected.map(encodeURIComponent).join('%0A- ')}`;
+  // Gunakan nomor WhatsApp yang sudah dipakai website bila tersedia.
+  let wa='';
+  const links=[...document.querySelectorAll('a[href*="wa.me/"]')];
+  if(links.length){
+    const m=links[0].href.match(/wa\.me\/(\d+)/);
+    if(m) wa=m[1];
+  }
+  if(wa) window.open(`https://wa.me/${wa}?text=${msg}`,'_blank');
+  else window.location.href='#pendaftaran';
+}
+document.addEventListener('DOMContentLoaded',renderUpcomingRegistrationOptions);
+
+</script>
  </body>
 </html>
