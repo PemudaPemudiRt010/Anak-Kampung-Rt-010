@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Anak Kampung RT 010 | Bersama, Bergerak, Berkarya</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -32,13 +33,6 @@ a{
     color:inherit
 }
 
-button,
-input,
-select,
-textarea{
-    font-family:inherit
-}
-
 .container{
     width:min(1180px,calc(100% - 40px));
     margin:auto
@@ -53,7 +47,7 @@ section{
     --blue:#1769aa;
     --orange:#e97817;
     --green:#198754;
-    --red:#d92d20;
+    --red:#dc3545;
     --muted:#667085;
     --border:#e3e8ef;
     --shadow:0 15px 45px rgba(13,27,42,.08)
@@ -279,8 +273,27 @@ section{
     font-size:.8rem
 }
 
+.event-status{
+    display:inline-block;
+    margin-top:12px;
+    padding:6px 10px;
+    border-radius:7px;
+    font-size:.68rem;
+    font-weight:900
+}
+
+.status-upcoming{
+    background:#e8f5ed;
+    color:#198754
+}
+
+.status-done{
+    background:#fce8e8;
+    color:#dc3545
+}
+
 /* =========================
-   GENERAL SECTION
+   SECTION
 ========================= */
 
 .section{
@@ -305,6 +318,10 @@ section{
     max-width:650px;
     margin-top:14px
 }
+
+/* =========================
+   ABOUT
+========================= */
 
 .about-grid,
 .aspiration-box,
@@ -381,8 +398,7 @@ section{
 }
 
 .event-card.completed{
-    opacity:.82;
-    background:#f8fafb
+    opacity:.72
 }
 
 .event-tag{
@@ -421,33 +437,6 @@ section{
     font-size:.74rem
 }
 
-.event-status{
-    display:inline-flex;
-    align-items:center;
-    gap:6px;
-    padding:6px 10px;
-    border-radius:7px;
-    font-size:.67rem;
-    font-weight:900;
-    margin-top:5px;
-    margin-bottom:10px
-}
-
-.status-upcoming{
-    background:#eaf4ff;
-    color:var(--blue)
-}
-
-.status-today{
-    background:#fff4e8;
-    color:var(--orange)
-}
-
-.status-completed{
-    background:#e9f7ef;
-    color:var(--green)
-}
-
 .detail{
     max-height:0;
     overflow:hidden;
@@ -456,7 +445,7 @@ section{
 }
 
 .detail.open{
-    max-height:700px;
+    max-height:800px;
     opacity:1;
     padding-top:18px;
     border-top:1px solid var(--border)
@@ -468,20 +457,79 @@ section{
     font-weight:900
 }
 
-.lomba-list{
+/* =========================
+   CHECKBOX LOMBA
+========================= */
+
+.lomba-check-list{
+    display:grid;
+    gap:9px;
+    margin-top:12px
+}
+
+.lomba-check{
+    position:relative
+}
+
+.lomba-check input{
+    position:absolute;
+    opacity:0;
+    pointer-events:none
+}
+
+.lomba-check label{
     display:flex;
-    flex-wrap:wrap;
-    gap:7px;
+    align-items:center;
+    gap:10px;
+    padding:11px 13px;
+    background:#f6f8fa;
+    border:1px solid #e2e7ec;
+    border-radius:9px;
+    cursor:pointer;
+    color:#4d5b6a;
+    font-size:.75rem;
+    font-weight:700;
+    transition:.2s
+}
+
+.lomba-check label:before{
+    content:"";
+    width:18px;
+    height:18px;
+    flex:none;
+    border:2px solid #b9c2cc;
+    border-radius:5px;
+    background:#fff;
+    transition:.2s
+}
+
+.lomba-check input:checked + label{
+    background:#eaf4ff;
+    border-color:#1769aa;
+    color:#1769aa
+}
+
+.lomba-check input:checked + label:before{
+    content:"✓";
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    background:#1769aa;
+    border-color:#1769aa;
+    font-size:12px;
+    font-weight:900
+}
+
+.lomba-note{
+    color:var(--muted);
+    font-size:.7rem;
     margin-top:10px
 }
 
-.lomba-list span{
-    padding:6px 9px;
-    background:#f1f4f7;
-    border:1px solid #e4e9ee;
-    border-radius:6px;
-    color:#4d5b6a;
-    font-size:.7rem
+.register-btn{
+    width:100%;
+    margin-top:15px
 }
 
 .detail-btn{
@@ -491,165 +539,6 @@ section{
     border:0;
     font-weight:900;
     cursor:pointer
-}
-
-/* =========================
-   REGISTRATION
-========================= */
-
-.registration-box{
-    margin-top:45px;
-    background:linear-gradient(135deg,#0d1b2a,#16324a);
-    border-radius:24px;
-    padding:40px;
-    color:#fff;
-    display:grid;
-    grid-template-columns:.85fr 1.15fr;
-    gap:45px
-}
-
-.registration-copy h2{
-    font-size:clamp(2rem,4vw,3.2rem);
-    line-height:1.05;
-    margin:10px 0 18px;
-    letter-spacing:-1.5px
-}
-
-.registration-copy p{
-    color:#b8c7d5;
-    font-size:.9rem
-}
-
-.registration-note{
-    margin-top:20px;
-    padding:14px;
-    border:1px solid #2b465d;
-    background:#12283b;
-    border-radius:10px;
-    font-size:.75rem;
-    color:#c9d6e1
-}
-
-.form{
-    border-radius:20px;
-    padding:30px
-}
-
-.form-group{
-    margin-bottom:17px
-}
-
-.form label{
-    display:block;
-    color:var(--navy);
-    font-size:.75rem;
-    font-weight:800;
-    margin-bottom:7px
-}
-
-.form input,
-.form select,
-.form textarea{
-    width:100%;
-    border:1px solid var(--border);
-    background:#f9fafb;
-    border-radius:9px;
-    padding:12px 14px;
-    outline:none
-}
-
-.form input:focus,
-.form select:focus,
-.form textarea:focus{
-    border-color:var(--blue)
-}
-
-.form textarea{
-    resize:vertical
-}
-
-/* CHECKBOX LOMBA */
-
-.checkbox-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:9px;
-    margin-top:8px
-}
-
-.checkbox-item{
-    position:relative
-}
-
-.checkbox-item input{
-    position:absolute;
-    opacity:0;
-    pointer-events:none
-}
-
-.checkbox-item label{
-    display:flex;
-    align-items:center;
-    gap:10px;
-    background:#f8fafc;
-    border:1px solid var(--border);
-    padding:11px 12px;
-    border-radius:9px;
-    cursor:pointer;
-    font-size:.72rem;
-    font-weight:700;
-    color:#526071;
-    transition:.2s
-}
-
-.checkbox-item label::before{
-    content:"";
-    width:18px;
-    height:18px;
-    min-width:18px;
-    border:2px solid #b9c4cf;
-    border-radius:5px;
-    background:#fff;
-    transition:.2s
-}
-
-.checkbox-item input:checked + label{
-    border-color:var(--blue);
-    background:#eef7ff;
-    color:var(--navy)
-}
-
-.checkbox-item input:checked + label::before{
-    content:"✓";
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:var(--blue);
-    border-color:var(--blue);
-    color:#fff;
-    font-size:12px;
-    font-weight:900
-}
-
-.checkbox-item.disabled label{
-    opacity:.45;
-    cursor:not-allowed;
-    text-decoration:line-through
-}
-
-.checkbox-item.disabled label::after{
-    content:"Sudah lewat";
-    margin-left:auto;
-    font-size:.55rem;
-    color:var(--red);
-    text-decoration:none
-}
-
-.selected-count{
-    margin-top:8px;
-    color:var(--blue);
-    font-size:.7rem;
-    font-weight:800
 }
 
 /* =========================
@@ -707,41 +596,62 @@ section{
     font-weight:900
 }
 
+.form{
+    border-radius:20px;
+    padding:30px
+}
+
+.form-group{
+    margin-bottom:17px
+}
+
+.form label{
+    display:block;
+    color:var(--navy);
+    font-size:.75rem;
+    font-weight:800;
+    margin-bottom:7px
+}
+
+.form input,
+.form select,
+.form textarea{
+    width:100%;
+    border:1px solid var(--border);
+    background:#f9fafb;
+    border-radius:9px;
+    padding:12px 14px;
+    outline:none;
+    font-family:inherit
+}
+
+.form textarea{
+    resize:vertical
+}
+
 /* =========================
-   NIGHT PEAK
+   REGISTRATION
 ========================= */
 
-.night-peak{
-    margin-top:30px;
-    background:#fff7ed;
-    border:1px solid #fed7aa;
-    border-radius:18px;
-    padding:25px
+.registration-box{
+    margin-top:45px;
+    background:#f8fafc;
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:35px
 }
 
-.night-peak h3{
-    color:#9a3412;
-    margin-bottom:6px
+.registration-title{
+    color:var(--navy);
+    font-size:1.5rem;
+    font-weight:900;
+    margin-bottom:5px
 }
 
-.night-peak p{
-    color:#7c5a43;
-    font-size:.82rem
-}
-
-.performance-list{
-    display:grid;
-    gap:8px;
-    margin-top:15px
-}
-
-.performance-item{
-    background:#fff;
-    border:1px solid #fed7aa;
-    padding:11px 13px;
-    border-radius:8px;
-    font-size:.76rem;
-    color:#6b4a36
+.registration-desc{
+    color:var(--muted);
+    font-size:.82rem;
+    margin-bottom:25px
 }
 
 /* =========================
@@ -755,6 +665,25 @@ section{
 .gallery-intro{
     max-width:700px;
     margin-bottom:45px
+}
+
+.flipbook-section{
+    margin-bottom:90px
+}
+
+.flipbook-heading{
+    margin-bottom:25px
+}
+
+.flipbook-heading h3{
+    color:var(--navy);
+    font-size:1.7rem;
+    font-weight:900
+}
+
+.flipbook-heading p{
+    color:var(--muted);
+    font-size:.82rem
 }
 
 .flipbook-wrap{
@@ -778,7 +707,7 @@ section{
     height:100%;
     transform-origin:left center;
     transform-style:preserve-3d;
-    transition:transform .7s cubic-bezier(.4,0,.2,1);
+    transition:transform .7s cubic-bezier(.4,.0,.2,1);
     cursor:pointer;
     border-radius:12px;
     overflow:hidden;
@@ -797,7 +726,6 @@ section{
     justify-content:center;
     text-align:center;
     padding:40px;
-    z-index:8;
     color:#fff
 }
 
@@ -837,12 +765,7 @@ section{
 
 .photo-page{
     background:#fff;
-    padding:0;
-    z-index:7
-}
-
-.photo-page.flipped{
-    z-index:1
+    padding:0
 }
 
 .page-inner{
@@ -873,8 +796,7 @@ section{
 }
 
 .drive-photo{
-    object-fit:contain !important;
-    background:#f1f4f7 !important
+    background:#edf2f6
 }
 
 .flipbook-controls{
@@ -904,11 +826,11 @@ section{
     border-color:#0d1b2a
 }
 
-#pageIndicator{
+.page-indicator{
     font-size:.85rem;
     font-weight:700;
     color:#0d1b2a;
-    min-width:120px;
+    min-width:100px;
     text-align:center
 }
 
@@ -918,13 +840,6 @@ section{
     color:#667085;
     font-size:.75rem;
     opacity:.7
-}
-
-.gallery-count{
-    text-align:center;
-    color:#667085;
-    font-size:.7rem;
-    margin-top:10px
 }
 
 /* =========================
@@ -967,10 +882,6 @@ section{
     color:#fff;
     font-size:.8rem;
     font-weight:800
-}
-
-.social:hover{
-    background:#213a52
 }
 
 /* =========================
@@ -1026,32 +937,6 @@ footer span{
 }
 
 /* =========================
-   TOAST
-========================= */
-
-.toast{
-    position:fixed;
-    bottom:25px;
-    right:25px;
-    background:#0d1b2a;
-    color:#fff;
-    padding:14px 18px;
-    border-radius:10px;
-    font-size:.78rem;
-    font-weight:700;
-    box-shadow:0 15px 40px rgba(0,0,0,.2);
-    transform:translateY(100px);
-    opacity:0;
-    transition:.3s;
-    z-index:2000
-}
-
-.toast.show{
-    transform:translateY(0);
-    opacity:1
-}
-
-/* =========================
    RESPONSIVE
 ========================= */
 
@@ -1079,8 +964,7 @@ footer span{
     .hero-grid,
     .about-grid,
     .aspiration-box,
-    .social-grid,
-    .registration-box{
+    .social-grid{
         grid-template-columns:1fr
     }
 
@@ -1145,12 +1029,8 @@ footer span{
         height:36px
     }
 
-    .checkbox-grid{
-        grid-template-columns:1fr
-    }
-
     .registration-box{
-        padding:25px
+        padding:22px
     }
 }
 </style>
@@ -1158,44 +1038,78 @@ footer span{
 
 <body>
 
-<!-- =========================
+<!-- =====================================================
      HEADER
-========================= -->
+===================================================== -->
 
 <header class="header">
+
 <div class="container nav">
 
 <a href="#beranda" class="brand">
-<img src="logo-rt010.png"
-     alt="Logo Anak Kampung RT 010"
-     class="brand-logo">
+
+<img
+src="logo-rt010.png"
+alt="Logo Anak Kampung RT 010"
+class="brand-logo">
 
 <div class="brand-text">
+
 <strong>
-ANAK KAMPUNG <span style="color:#1769aa">RT 010</span>
+ANAK KAMPUNG
+<span style="color:#1769aa">RT 010</span>
 </strong>
-<span>Bersama • Bergerak • Berkarya</span>
+
+<span>
+Bersama • Bergerak • Berkarya
+</span>
+
 </div>
+
 </a>
 
-<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<button
+class="menu-btn"
+onclick="toggleMenu()">
+☰
+</button>
 
 <ul class="nav-links" id="navLinks">
-<li><a href="#beranda">Beranda</a></li>
-<li><a href="#tentang">Tentang Kami</a></li>
-<li><a href="#kegiatan">Kegiatan</a></li>
-<li><a href="#pengumuman">Pengumuman</a></li>
-<li><a href="#aspirasi">Aspirasi</a></li>
-<li><a href="#galeri">Galeri</a></li>
+
+<li>
+<a href="#beranda">Beranda</a>
+</li>
+
+<li>
+<a href="#tentang">Tentang Kami</a>
+</li>
+
+<li>
+<a href="#kegiatan">Kegiatan</a>
+</li>
+
+<li>
+<a href="#pengumuman">Pengumuman</a>
+</li>
+
+<li>
+<a href="#aspirasi">Aspirasi</a>
+</li>
+
+<li>
+<a href="#galeri">Galeri</a>
+</li>
+
 </ul>
 
 </div>
+
 </header>
 
 
-<!-- =========================
+<!-- =====================================================
      HERO
-========================= -->
+===================================================== -->
 
 <section class="hero" id="beranda">
 
@@ -1218,19 +1132,23 @@ berkolaborasi, dan bikin kegiatan yang berdampak.
 </p>
 
 <div class="buttons">
-<a href="#kegiatan" class="btn btn-primary">
+
+<a
+href="#kegiatan"
+class="btn btn-primary">
 Lihat Kegiatan →
 </a>
 
-<a href="#tentang" class="btn btn-outline">
+<a
+href="#tentang"
+class="btn btn-outline">
 Tentang Kami
 </a>
-</div>
 
 </div>
 
+</div>
 
-<!-- EVENT TERDEKAT OTOMATIS -->
 
 <div class="feature-card">
 
@@ -1238,19 +1156,52 @@ Tentang Kami
 🇮🇩 EVENT TERDEKAT
 </div>
 
-<div id="nearestEvent">
-Memuat event terdekat...
+<h2 id="nearestEventTitle">
+MEMUAT...
+</h2>
+
+<h3 id="nearestEventSubtitle">
+Memuat event...
+</h3>
+
+<div class="event-info">
+
+<div>
+📅 <b id="nearestEventDate">-</b>
+</div>
+
+<div>
+⏰ <b id="nearestEventTime">-</b>
+</div>
+
+<div>
+📍 <b id="nearestEventLocation">-</b>
 </div>
 
 </div>
 
+<div class="lomba-preview">
+
+<strong>
+STATUS
+</strong>
+
+<p id="nearestEventStatus">
+Memuat status event...
+</p>
+
 </div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      TENTANG
-========================= -->
+===================================================== -->
 
 <section class="section" id="tentang">
 
@@ -1289,38 +1240,71 @@ mau bergerak bareng.
 <div class="values">
 
 <div class="value">
-<div class="value-icon">🤝</div>
-<h3>SOLIDARITAS</h3>
-<p>Saling dukung dan saling bantu.</p>
+
+<div class="value-icon">
+🤝
 </div>
 
-<div class="value">
-<div class="value-icon">💡</div>
-<h3>KREATIVITAS</h3>
-<p>Berani punya ide dan bikin sesuatu.</p>
-</div>
+<h3>
+SOLIDARITAS
+</h3>
 
-<div class="value">
-<div class="value-icon">⚡</div>
-<h3>KOLABORASI</h3>
 <p>
-Karena hal besar lebih seru kalau
-dikerjakan bersama.
+Saling dukung dan saling bantu.
 </p>
+
+</div>
+
+
+<div class="value">
+
+<div class="value-icon">
+💡
+</div>
+
+<h3>
+KREATIVITAS
+</h3>
+
+<p>
+Berani punya ide dan bikin sesuatu.
+</p>
+
+</div>
+
+
+<div class="value">
+
+<div class="value-icon">
+⚡
+</div>
+
+<h3>
+KOLABORASI
+</h3>
+
+<p>
+Karena hal besar lebih seru kalau dikerjakan bersama.
+</p>
+
+</div>
+
 </div>
 
 </div>
 
 </div>
-</div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      KEGIATAN
-========================= -->
+===================================================== -->
 
-<section class="section section-alt" id="kegiatan">
+<section
+class="section section-alt"
+id="kegiatan">
 
 <div class="container">
 
@@ -1341,57 +1325,725 @@ Bukan cuma satu acara. Ada banyak keseruan yang menunggu.
 </div>
 
 
-<div class="events-grid" id="eventsGrid">
+<div class="events-grid">
 
-<!-- EVENT AKAN DIBUAT OTOMATIS OLEH JAVASCRIPT -->
+
+<!-- EVENT 1 -->
+
+<article
+class="event-card"
+data-event-date="2026-08-15">
+
+<span class="event-tag">
+SEMARAK KEMERDEKAAN
+</span>
+
+<h3>
+Lomba Anak
+</h3>
+
+<div class="age">
+Usia 4–6 Tahun
+</div>
+
+<p>
+Perlombaan seru untuk anak-anak dalam rangka
+memeriahkan HUT Kemerdekaan RI.
+</p>
+
+<div class="card-info">
+
+<span>
+📅 15 Agustus 2026
+</span>
+
+<span>
+⏰ 09.00 WIB
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
+
+</div>
+
+<div
+class="event-status-box"
+data-status-for="2026-08-15">
+</div>
+
+
+<div
+class="detail"
+id="detail1">
+
+<div class="detail-title">
+PILIH LOMBA
+</div>
+
+<div class="lomba-check-list">
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l1"
+value="Bendera ke Botol">
+
+<label for="l1">
+Bendera ke Botol
+</label>
 
 </div>
 
 
-<!-- =========================
-     PENDAFTARAN LOMBA
-========================= -->
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l2"
+value="Paku ke Botol">
+
+<label for="l2">
+Paku ke Botol
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l3"
+value="Kelereng">
+
+<label for="l3">
+Kelereng
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l4"
+value="Jepit Balon">
+
+<label for="l4">
+Jepit Balon
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l5"
+value="Makan Kerupuk">
+
+<label for="l5">
+Makan Kerupuk
+</label>
+
+</div>
+
+</div>
+
+<p class="lomba-note">
+☑️ Kamu boleh memilih lebih dari satu lomba.
+</p>
+
+<button
+class="btn btn-primary register-btn"
+onclick="registerLomba('Lomba Anak Usia 4–6 Tahun',['l1','l2','l3','l4','l5'])">
+DAFTAR LOMBA →
+</button>
+
+</div>
+
+<button
+class="detail-btn"
+onclick="toggleDetail('detail1',this)">
+Lihat Detail →
+</button>
+
+</article>
+
+
+<!-- EVENT 2 -->
+
+<article
+class="event-card"
+data-event-date="2026-08-16">
+
+<span class="event-tag">
+SEMARAK KEMERDEKAAN
+</span>
+
+<h3>
+Lomba Anak
+</h3>
+
+<div class="age">
+Usia 7–10 Tahun
+</div>
+
+<p>
+Permainan kompetitif dan seru untuk anak-anak
+usia sekolah dasar.
+</p>
+
+<div class="card-info">
+
+<span>
+📅 16–17 Agustus 2026
+</span>
+
+<span>
+⏰ 08.00 WIB
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
+
+</div>
+
+
+<div
+class="detail"
+id="detail2">
+
+<div class="detail-title">
+PILIH LOMBA
+</div>
+
+<div class="lomba-check-list">
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l6"
+value="Balap Karung">
+
+<label for="l6">
+Balap Karung
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l7"
+value="Makan Kerupuk">
+
+<label for="l7">
+Makan Kerupuk
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l8"
+value="Rebutan Bangku">
+
+<label for="l8">
+Rebutan Bangku
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l9"
+value="Tiup Gelas">
+
+<label for="l9">
+Tiup Gelas
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l10"
+value="Bakiak">
+
+<label for="l10">
+Bakiak
+</label>
+
+</div>
+
+</div>
+
+<p class="lomba-note">
+☑️ Bisa memilih beberapa lomba sekaligus.
+</p>
+
+<button
+class="btn btn-primary register-btn"
+onclick="registerLomba('Lomba Anak Usia 7–10 Tahun',['l6','l7','l8','l9','l10'])">
+DAFTAR LOMBA →
+</button>
+
+</div>
+
+<button
+class="detail-btn"
+onclick="toggleDetail('detail2',this)">
+Lihat Detail →
+</button>
+
+</article>
+
+
+<!-- EVENT 3 -->
+
+<article
+class="event-card"
+data-event-date="2026-08-16">
+
+<span class="event-tag">
+SEMARAK KEMERDEKAAN
+</span>
+
+<h3>
+Lomba Remaja
+</h3>
+
+<div class="age">
+Usia 11–17 Tahun
+</div>
+
+<p>
+Saatnya para remaja menunjukkan kekompakan,
+kecepatan, dan keberanian.
+</p>
+
+<div class="card-info">
+
+<span>
+📅 16–17 Agustus 2026
+</span>
+
+<span>
+⏰ 08.00 WIB
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
+
+</div>
+
+
+<div
+class="detail"
+id="detail3">
+
+<div class="detail-title">
+PILIH LOMBA
+</div>
+
+<div class="lomba-check-list">
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l11"
+value="Balap Karung Helm">
+
+<label for="l11">
+Balap Karung Helm
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l12"
+value="Makan Kerupuk">
+
+<label for="l12">
+Makan Kerupuk
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l13"
+value="Rebutan Bangku">
+
+<label for="l13">
+Rebutan Bangku
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l14"
+value="Pecah Balon Air">
+
+<label for="l14">
+Pecah Balon Air
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l15"
+value="Bakiak">
+
+<label for="l15">
+Bakiak
+</label>
+
+</div>
+
+
+<div class="lomba-check">
+
+<input
+type="checkbox"
+id="l16"
+value="Bola Master">
+
+<label for="l16">
+Bola Master
+</label>
+
+</div>
+
+</div>
+
+<p class="lomba-note">
+☑️ Bisa memilih beberapa lomba sekaligus.
+</p>
+
+<button
+class="btn btn-primary register-btn"
+onclick="registerLomba('Lomba Remaja Usia 11–17 Tahun',['l11','l12','l13','l14','l15','l16'])">
+DAFTAR LOMBA →
+</button>
+
+</div>
+
+<button
+class="detail-btn"
+onclick="toggleDetail('detail3',this)">
+Lihat Detail →
+</button>
+
+</article>
+
+
+<!-- EVENT 4 -->
+
+<article
+class="event-card"
+data-event-date="2026-08-17">
+
+<span class="event-tag">
+SEMARAK KEMERDEKAAN
+</span>
+
+<h3>
+Lomba Bapak-Bapak
+</h3>
+
+<div class="age">
+8–17 Agustus 2026
+</div>
+
+<p>
+Kompak, santai, dan tetap kompetitif.
+</p>
+
+<div class="card-info">
+
+<span>
+📅 8–17 Agustus 2026
+</span>
+
+<span>
+📍 Balai Warga RW 007
+</span>
+
+</div>
+
+
+<div
+class="detail"
+id="detail4">
+
+<div class="detail-title">
+PILIH LOMBA
+</div>
+
+<div class="lomba-check-list">
+
+<div class="lomba-check">
+<input type="checkbox" id="l17" value="Tenis Meja">
+<label for="l17">🏓 Tenis Meja</label>
+</div>
+
+<div class="lomba-check">
+<input type="checkbox" id="l18" value="Catur">
+<label for="l18">♟️ Catur</label>
+</div>
+
+<div class="lomba-check">
+<input type="checkbox" id="l19" value="Gaple">
+<label for="l19">🃏 Gaple</label>
+</div>
+
+<div class="lomba-check">
+<input type="checkbox" id="l20" value="Bakiak">
+<label for="l20">👟 Bakiak</label>
+</div>
+
+<div class="lomba-check">
+<input type="checkbox" id="l21" value="Tarik Tambang">
+<label for="l21">💪 Tarik Tambang</label>
+</div>
+
+<div class="lomba-check">
+<input type="checkbox" id="l22" value="Main Bola Dasar">
+<label for="l22">⚽ Main Bola Dasar</label>
+</div>
+
+</div>
+
+<p class="lomba-note">
+☑️ Bisa mengikuti beberapa cabang sekaligus.
+</p>
+
+<button
+class="btn btn-primary register-btn"
+onclick="registerLomba('Lomba Bapak-Bapak',['l17','l18','l19','l20','l21','l22'])">
+DAFTAR LOMBA →
+</button>
+
+</div>
+
+<button
+class="detail-btn"
+onclick="toggleDetail('detail4',this)">
+Lihat Detail →
+</button>
+
+</article>
+
+
+<!-- EVENT 5 -->
+
+<article
+class="event-card"
+data-event-date="2026-08-17">
+
+<span class="event-tag">
+KREASI WARGA
+</span>
+
+<h3>
+Lomba Tumpeng
+</h3>
+
+<div class="age">
+17 Agustus 2026
+</div>
+
+<p>
+Satu RT, satu kreasi terbaik.
+Tunjukkan kreativitas warga.
+</p>
+
+<div class="card-info">
+
+<span>
+📅 17 Agustus 2026
+</span>
+
+<span>
+🏆 Penilaian Kreativitas
+</span>
+
+<span>
+🍚 Rasa
+</span>
+
+<span>
+✨ Penyajian
+</span>
+
+</div>
+
+
+<div class="detail" id="detail5">
+
+<div class="detail-title">
+PENDAFTARAN
+</div>
+
+<p class="lomba-note">
+Pendaftaran lomba tumpeng dilakukan melalui WhatsApp.
+</p>
+
+<button
+class="btn btn-primary register-btn"
+onclick="registerSimple('Lomba Tumpeng')">
+DAFTAR LOMBA →
+</button>
+
+</div>
+
+<button
+class="detail-btn"
+onclick="toggleDetail('detail5',this)">
+Lihat Detail →
+</button>
+
+</article>
+
+
+<!-- EVENT 6 -->
+
+<article
+class="event-card"
+data-event-date="2026-08-22">
+
+<span class="event-tag">
+HIBURAN WARGA
+</span>
+
+<h3>
+Lomba Karaoke
+</h3>
+
+<div class="age">
+22 Agustus 2026 · 09.00 WIB
+</div>
+
+<p>
+Punya suara? Saatnya naik panggung. 🎤
+</p>
+
+<div class="card-info">
+
+<span>
+📅 22 Agustus 2026
+</span>
+
+<span>
+📍 Area Balai Warga RW 007
+</span>
+
+</div>
+
+
+<div
+class="detail"
+id="detail6">
+
+<div class="detail-title">
+PENDAFTARAN
+</div>
+
+<p class="lomba-note">
+Daftarkan diri untuk mengikuti lomba karaoke.
+</p>
+
+<button
+class="btn btn-primary register-btn"
+onclick="registerSimple('Lomba Karaoke')">
+DAFTAR LOMBA →
+</button>
+
+</div>
+
+<button
+class="detail-btn"
+onclick="toggleDetail('detail6',this)">
+Lihat Detail →
+</button>
+
+</article>
+
+
+</div>
+
+
+<!-- =====================================================
+     PENDAFTARAN MALAM PUNCAK
+===================================================== -->
 
 <div class="registration-box">
 
-<div class="registration-copy">
-
-<div class="section-label" style="color:#ff9a4c">
-DAFTAR LOMBA
+<div class="section-label">
+MALAM PUNCAK / PENTAS SENI
 </div>
 
-<h2>
-MAU IKUT LOMBA?
-PILIH YANG KAMU MAU.
-</h2>
+<h3 class="registration-title">
+MAU IKUT MENGISI ACARA? 🎤
+</h3>
 
-<p>
-Kamu bisa mengikuti lebih dari satu perlombaan.
-Centang semua lomba yang ingin kamu ikuti,
-kemudian kirim pendaftaran melalui WhatsApp.
+<p class="registration-desc">
+Buat kamu yang ingin tampil di Malam Puncak,
+silakan isi formulir berikut. Bisa solo, duo,
+maupun kelompok.
 </p>
 
-<div class="registration-note">
-✓ Bisa memilih beberapa lomba sekaligus.<br>
-✓ Lomba yang sudah lewat otomatis tidak dapat dipilih.<br>
-✓ Pendaftaran akan dikirim langsung ke WhatsApp panitia.
-</div>
 
-</div>
-
-
-<form class="form" onsubmit="sendCompetitionRegistration(event)">
+<form
+class="form"
+onsubmit="registerPentas(event)">
 
 <div class="form-group">
 
 <label>
-Nama Peserta
+Nama / Nama Kelompok
 </label>
 
 <input
 type="text"
-id="participantName"
-placeholder="Nama lengkap"
+id="pentasName"
+placeholder="Contoh: Fitri / Anak Kampung Band"
 required>
 
 </div>
@@ -1400,15 +2052,69 @@ required>
 <div class="form-group">
 
 <label>
-Usia
+Jenis Penampilan
+</label>
+
+<select
+id="pentasType"
+required>
+
+<option value="">
+-- Pilih Penampilan --
+</option>
+
+<option>
+Solo Vocal
+</option>
+
+<option>
+Duo / Trio
+</option>
+
+<option>
+Band / Musik
+</option>
+
+<option>
+Tari
+</option>
+
+<option>
+Puisi
+</option>
+
+<option>
+Stand Up Comedy
+</option>
+
+<option>
+Drama / Teater
+</option>
+
+<option>
+Pencak Silat
+</option>
+
+<option>
+Lainnya
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>
+Jumlah Orang
 </label>
 
 <input
 type="number"
-id="participantAge"
-placeholder="Contoh: 15"
+id="pentasJumlah"
 min="1"
-max="100"
+placeholder="Jumlah orang yang tampil"
 required>
 
 </div>
@@ -1417,13 +2123,13 @@ required>
 <div class="form-group">
 
 <label>
-Nomor WhatsApp
+Judul / Nama Penampilan
 </label>
 
 <input
-type="tel"
-id="participantPhone"
-placeholder="08xxxxxxxxxx"
+type="text"
+id="pentasJudul"
+placeholder="Contoh: Medley Lagu Kemerdekaan"
 required>
 
 </div>
@@ -1432,18 +2138,13 @@ required>
 <div class="form-group">
 
 <label>
-Pilih Lomba
+Catatan Tambahan
 </label>
 
-<div class="checkbox-grid" id="competitionCheckboxes">
-
-<!-- CHECKBOX OTOMATIS -->
-
-</div>
-
-<div class="selected-count" id="selectedCount">
-0 lomba dipilih
-</div>
+<textarea
+id="pentasCatatan"
+rows="4"
+placeholder="Durasi, kebutuhan alat, atau informasi lainnya"></textarea>
 
 </div>
 
@@ -1452,77 +2153,25 @@ Pilih Lomba
 class="btn btn-primary"
 type="submit"
 style="width:100%">
-DAFTAR LOMBA →
+DAFTAR MENGISI ACARA →
 </button>
 
 </form>
 
 </div>
 
-
-<!-- =========================
-     PENDAFTARAN MALAM PUNCAK
-========================= -->
-
-<div class="night-peak">
-
-<h3>
-🎤 Pendaftaran Pengisi Acara Malam Puncak
-</h3>
-
-<p>
-Buat warga yang ingin tampil mengisi acara
-Malam Puncak / Pentas Seni pada
-Sabtu, 22 Agustus 2026.
-</p>
-
-<div class="performance-list">
-
-<div class="performance-item">
-🎤 Solo / Duet / Group Vocal
 </div>
 
-<div class="performance-item">
-💃 Tari / Dance
-</div>
-
-<div class="performance-item">
-🎸 Musik / Band
-</div>
-
-<div class="performance-item">
-😂 Komedi / Stand Up
-</div>
-
-<div class="performance-item">
-🎭 Drama / Teater
-</div>
-
-<div class="performance-item">
-✨ Bakat lainnya
-</div>
-
-</div>
-
-<br>
-
-<button
-class="btn btn-primary"
-onclick="openPerformanceForm()">
-DAFTAR PENGISI ACARA →
-</button>
-
-</div>
-
-</div>
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      PENGUMUMAN
-========================= -->
+===================================================== -->
 
-<section class="section section-alt" id="pengumuman">
+<section
+class="section section-alt"
+id="pengumuman">
 
 <div class="container">
 
@@ -1537,6 +2186,7 @@ PENGUMUMAN
 <br>
 
 <div class="notice-list">
+
 
 <div class="notice">
 
@@ -1563,10 +2213,6 @@ Sabtu, 22 Agustus 2026
 <p>
 <strong>Tempat:</strong>
 Area Balai Warga RW 07
-</p>
-
-<p style="margin-top:8px;color:#1769aa;font-weight:800">
-🎤 Pendaftaran pengisi acara sudah dibuka.
 </p>
 
 </div>
@@ -1617,17 +2263,21 @@ Sampaikan melalui form aspirasi.
 
 </div>
 
+
 </div>
 
 </div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      ASPIRASI
-========================= -->
+===================================================== -->
 
-<section class="section" id="aspirasi">
+<section
+class="section"
+id="aspirasi">
 
 <div class="container aspiration-box">
 
@@ -1658,7 +2308,9 @@ Bicarakan. Kirim. Kita gerakkan bersama.
 </div>
 
 
-<form class="form" onsubmit="sendAspiration(event)">
+<form
+class="form"
+onsubmit="sendAspiration(event)">
 
 <div class="form-group">
 
@@ -1720,14 +2372,17 @@ KIRIM ASPIRASI →
 </form>
 
 </div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      GALERI
-========================= -->
+===================================================== -->
 
-<section class="section gallery-section" id="galeri">
+<section
+class="section gallery-section"
+id="galeri">
 
 <div class="container">
 
@@ -1749,18 +2404,46 @@ dokumentasi Anak Kampung RT 010.
 </div>
 
 
+<!-- =====================================================
+     FLIPBOOK 2026
+===================================================== -->
+
+<div class="flipbook-section">
+
+<div class="flipbook-heading">
+
+<div class="section-label">
+DOKUMENTASI
+</div>
+
+<h3>
+📸 FOTO 2026
+</h3>
+
+<p>
+Dokumentasi kegiatan Anak Kampung RT 010 tahun 2026.
+</p>
+
+</div>
+
+
 <div class="flipbook-wrap">
 
-<div class="flipbook" id="flipbook">
+<div
+class="flipbook"
+id="flipbook2026">
+
 
 <!-- COVER -->
 
-<div class="book-page cover-page" data-page="0">
+<div
+class="book-page cover-page"
+data-page="0">
 
 <div class="cover-content">
 
 <div class="cover-small">
-DOKUMENTASI
+DOKUMENTASI 2026
 </div>
 
 <h3>
@@ -1783,10 +2466,11 @@ KLIK HALAMAN UNTUK MEMBUKA
 </div>
 
 
-<!-- FOTO LOKAL TETAP -->
-<!-- JANGAN DIUBAH -->
+<!-- FOTO 1 -->
 
-<div class="book-page photo-page" data-page="1">
+<div
+class="book-page photo-page"
+data-page="1">
 
 <div class="page-inner">
 
@@ -1803,7 +2487,11 @@ alt="Dokumentasi foto 1">
 </div>
 
 
-<div class="book-page photo-page" data-page="2">
+<!-- FOTO 2 -->
+
+<div
+class="book-page photo-page"
+data-page="2">
 
 <div class="page-inner">
 
@@ -1820,7 +2508,11 @@ alt="Dokumentasi foto 2">
 </div>
 
 
-<div class="book-page photo-page" data-page="3">
+<!-- FOTO 3 -->
+
+<div
+class="book-page photo-page"
+data-page="3">
 
 <div class="page-inner">
 
@@ -1837,7 +2529,11 @@ alt="Dokumentasi foto 3">
 </div>
 
 
-<div class="book-page photo-page" data-page="4">
+<!-- FOTO 4 -->
+
+<div
+class="book-page photo-page"
+data-page="4">
 
 <div class="page-inner">
 
@@ -1854,7 +2550,11 @@ alt="Dokumentasi foto 4">
 </div>
 
 
-<div class="book-page photo-page" data-page="5">
+<!-- FOTO 5 -->
+
+<div
+class="book-page photo-page"
+data-page="5">
 
 <div class="page-inner">
 
@@ -1871,7 +2571,11 @@ alt="Dokumentasi foto 5">
 </div>
 
 
-<div class="book-page photo-page" data-page="6">
+<!-- FOTO 6 -->
+
+<div
+class="book-page photo-page"
+data-page="6">
 
 <div class="page-inner">
 
@@ -1888,7 +2592,11 @@ alt="Dokumentasi foto 6">
 </div>
 
 
-<div class="book-page photo-page" data-page="7">
+<!-- FOTO 7 -->
+
+<div
+class="book-page photo-page"
+data-page="7">
 
 <div class="page-inner">
 
@@ -1904,7 +2612,68 @@ alt="Dokumentasi foto 7">
 
 </div>
 
-<!-- FOTO GOOGLE DRIVE AKAN DITAMBAHKAN OTOMATIS DI SINI -->
+
+<!-- FOTO 8 -->
+
+<div
+class="book-page photo-page"
+data-page="8">
+
+<div class="page-inner">
+
+<div class="page-label">
+MOMEN 08
+</div>
+
+<img
+src="galeri/foto8.jpeg"
+alt="Dokumentasi foto 8">
+
+</div>
+
+</div>
+
+
+<!-- FOTO 9 -->
+
+<div
+class="book-page photo-page"
+data-page="9">
+
+<div class="page-inner">
+
+<div class="page-label">
+MOMEN 09
+</div>
+
+<img
+src="galeri/foto9.jpeg"
+alt="Dokumentasi foto 9">
+
+</div>
+
+</div>
+
+
+<!-- FOTO 10 -->
+
+<div
+class="book-page photo-page"
+data-page="10">
+
+<div class="page-inner">
+
+<div class="page-label">
+MOMEN 10
+</div>
+
+<img
+src="galeri/foto10.jpeg"
+alt="Dokumentasi foto 10">
+
+</div>
+
+</div>
 
 </div>
 
@@ -1912,18 +2681,20 @@ alt="Dokumentasi foto 7">
 <div class="flipbook-controls">
 
 <button
-onclick="prevPage()"
-aria-label="Halaman sebelumnya">
+onclick="prevBook('2026')"
+aria-label="Foto sebelumnya">
 ←
 </button>
 
-<span id="pageIndicator">
+<span
+class="page-indicator"
+id="indicator2026">
 Cover
 </span>
 
 <button
-onclick="nextPage()"
-aria-label="Halaman berikutnya">
+onclick="nextBook('2026')"
+aria-label="Foto berikutnya">
 →
 </button>
 
@@ -1934,16 +2705,368 @@ Klik sisi kanan buku untuk membuka halaman berikutnya
 • Klik sisi kiri untuk kembali
 </p>
 
-<div class="gallery-count" id="galleryCount"></div>
+</div>
 
 </div>
+
+
+<!-- =====================================================
+     FLIPBOOK 2025
+===================================================== -->
+
+<div class="flipbook-section">
+
+<div class="flipbook-heading">
+
+<div class="section-label">
+ARSIP DOKUMENTASI
 </div>
+
+<h3>
+🕰️ FOTO 2025
+</h3>
+
+<p>
+Dokumentasi kegiatan Anak Kampung RT 010 tahun 2025.
+</p>
+
+</div>
+
+
+<div class="flipbook-wrap">
+
+<div
+class="flipbook"
+id="flipbook2025">
+
+
+<!-- COVER 2025 -->
+
+<div
+class="book-page cover-page"
+data-page="0">
+
+<div class="cover-content">
+
+<div class="cover-small">
+DOKUMENTASI 2025
+</div>
+
+<h3>
+ANAK KAMPUNG<br>
+RT 010
+</h3>
+
+<div class="cover-line"></div>
+
+<p>
+Kenangan • Kebersamaan • Cerita
+</p>
+
+<div class="cover-hint">
+KLIK HALAMAN UNTUK MEMBUKA
+</div>
+
+</div>
+
+</div>
+
+
+<!--
+=====================================================
+FOTO GOOGLE DRIVE 2025
+
+Format:
+https://drive.google.com/thumbnail?id=ID_FILE&sz=w1600
+
+Ini lebih cocok untuk ditampilkan sebagai gambar
+daripada memakai link /view biasa.
+=====================================================
+-->
+
+
+<div class="book-page photo-page" data-page="1">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 01</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=19rEF9dRx767yEY0RI2svKR5upcYO3fyL&sz=w1600" alt="Dokumentasi 2025 01">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="2">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 02</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1ILLEtJjWKD7378DI4sP9NJBH7XBoxzkr&sz=w1600" alt="Dokumentasi 2025 02">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="3">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 03</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1O_h3Qc3A6Pd4jvCQr00Yy6Rx7jVq3CYG&sz=w1600" alt="Dokumentasi 2025 03">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="4">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 04</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=11dgKWhLIPdLnLiSOpHJAv9rD7ZMxgbnb&sz=w1600" alt="Dokumentasi 2025 04">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="5">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 05</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1DrRkx-K9ADROURHw5DVMd91QXjjFZk_k&sz=w1600" alt="Dokumentasi 2025 05">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="6">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 06</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1u2V5sB0hb0KnN-zi_15r37k3NHevw6gh&sz=w1600" alt="Dokumentasi 2025 06">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="7">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 07</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1h7Ypw7khtcmWT9-cAAT7YqmnauejpGKE&sz=w1600" alt="Dokumentasi 2025 07">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="8">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 08</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1UdpYy80EHbr7cSSNo5LlJebG8-Zz6jQP&sz=w1600" alt="Dokumentasi 2025 08">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="9">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 09</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1hkxcGDCB2Mi3Ji-x6b49BlFgwyIhYnlh&sz=w1600" alt="Dokumentasi 2025 09">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="10">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 10</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1PCdN1JjSgRw0Zkp6CyGy1EvZ3sLYqY3H&sz=w1600" alt="Dokumentasi 2025 10">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="11">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 11</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1xsxrrl8uFHQyOUdymHYBqy6eR7ZWB5ii&sz=w1600" alt="Dokumentasi 2025 11">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="12">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 12</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=13VsgYfl9rd278nqCVTKOxDcUua2t1VV1&sz=w1600" alt="Dokumentasi 2025 12">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="13">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 13</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1Fj7uuZPB6lFwJlFxEAo4Ab6kGfjl39p7&sz=w1600" alt="Dokumentasi 2025 13">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="14">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 14</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1S64yOrlihZ1xxpWXJaahw5ykPiisLSNq&sz=w1600" alt="Dokumentasi 2025 14">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="15">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 15</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=12aINQNHktG1VlWxjBQXPRrnzVWwThrwT&sz=w1600" alt="Dokumentasi 2025 15">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="16">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 16</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1pkM71yPpE8hMiB7oSYRIroix-OPE8tgw&sz=w1600" alt="Dokumentasi 2025 16">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="17">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 17</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1_XRoyStxQuOJm6sEuQD4LzD85sBjtsZ7&sz=w1600" alt="Dokumentasi 2025 17">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="18">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 18</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1g_QEtlmoRnigDRp9sK4YtfFHeXzwsE1y&sz=w1600" alt="Dokumentasi 2025 18">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="19">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 19</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1bmSHtIhCFFMwc-3t6ReCHtAa5vF6CLz5&sz=w1600" alt="Dokumentasi 2025 19">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="20">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 20</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=15dy8C9IAfxGxi103W3MhTvbuZOIKu9wR&sz=w1600" alt="Dokumentasi 2025 20">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="21">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 21</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1_RbZMALSp08OMH9_NzrDgD8tqz5zb0i7&sz=w1600" alt="Dokumentasi 2025 21">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="22">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 22</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1ECm-oT0jW7C-2vVggABzjbycEYuseh-U&sz=w1600" alt="Dokumentasi 2025 22">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="23">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 23</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=14ihBozusN3ZPVhIvfjs2bPDTKZnEmXNl&sz=w1600" alt="Dokumentasi 2025 23">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="24">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 24</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=12NzEPX1gNVPsld-uXMLeutmA5fHSd_4b&sz=w1600" alt="Dokumentasi 2025 24">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="25">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 25</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1Sb32YQAr-SnS8Aga0ozuVLASDfrVFDsR&sz=w1600" alt="Dokumentasi 2025 25">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="26">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 26</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1-G0BNmKGd7fm8BKkqVN1z8tmMZkIEBgt&sz=w1600" alt="Dokumentasi 2025 26">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="27">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 27</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1TGEJtVT4c4HDu0HEZ05D0mGkUcYruaeF&sz=w1600" alt="Dokumentasi 2025 27">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="28">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 28</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1YCuBUBjE2Y360KG15wWMNAD9ink2JfL3&sz=w1600" alt="Dokumentasi 2025 28">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="29">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 29</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=14g7cp2hXJCqT8hfARFP3xjTHv5NyuaI8&sz=w1600" alt="Dokumentasi 2025 29">
+</div>
+</div>
+
+
+<div class="book-page photo-page" data-page="30">
+<div class="page-inner">
+<div class="page-label">2025 • MOMEN 30</div>
+<img class="drive-photo" src="https://drive.google.com/thumbnail?id=1vqMwrCC7GoXK0NPCdprtB4YHSy_kru9Q&sz=w1600" alt="Dokumentasi 2025 30">
+</div>
+</div>
+
+
+</div>
+
+
+<div class="flipbook-controls">
+
+<button
+onclick="prevBook('2025')"
+aria-label="Foto sebelumnya">
+←
+</button>
+
+<span
+class="page-indicator"
+id="indicator2025">
+Cover
+</span>
+
+<button
+onclick="nextBook('2025')"
+aria-label="Foto berikutnya">
+→
+</button>
+
+</div>
+
+<p class="flipbook-help">
+Klik sisi kanan buku untuk membuka halaman berikutnya
+• Klik sisi kiri untuk kembali
+</p>
+
+</div>
+
+</div>
+
+</div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      SOCIAL
-========================= -->
+===================================================== -->
 
 <section class="section social-section">
 
@@ -1973,8 +3096,10 @@ dan update terbaru Anak Kampung RT 010.
 class="social"
 href="https://instagram.com/anakkampungcbs_010"
 target="_blank">
+
 📷 Instagram<br>
 @anakkampungcbs_010
+
 </a>
 
 
@@ -1982,8 +3107,10 @@ target="_blank">
 class="social"
 href="https://www.tiktok.com/@anakkampungcbs_010"
 target="_blank">
+
 🎵 TikTok<br>
 @anakkampungcbs_010
+
 </a>
 
 
@@ -1991,19 +3118,22 @@ target="_blank">
 class="social"
 href="https://wa.me/6285156889002"
 target="_blank">
+
 💬 WhatsApp<br>
 0851-5688-9002
+
 </a>
 
 </div>
 
 </div>
+
 </section>
 
 
-<!-- =========================
+<!-- =====================================================
      FOOTER
-========================= -->
+===================================================== -->
 
 <footer>
 
@@ -2086,19 +3216,25 @@ FOLLOW US
 <a
 href="https://instagram.com/anakkampungcbs_010"
 target="_blank">
+
 Instagram — @anakkampungcbs_010
+
 </a>
 
 <a
 href="https://www.tiktok.com/@anakkampungcbs_010"
 target="_blank">
+
 TikTok — @anakkampungcbs_010
+
 </a>
 
 <a
 href="https://wa.me/6285156889002"
 target="_blank">
+
 WhatsApp — 0851-5688-9002
+
 </a>
 
 </div>
@@ -2118,956 +3254,457 @@ Dibuat untuk kebersamaan warga.
 </footer>
 
 
-<!-- TOAST -->
-
-<div class="toast" id="toast"></div>
-
-
 <script>
 
-/* =========================================================
-   DATA EVENT
-========================================================= */
-
-const events = [
-
-{
-    id:"event1",
-    category:"SEMARAK KEMERDEKAAN",
-    title:"Lomba Anak",
-    age:"Usia 4–6 Tahun",
-    description:"Perlombaan seru untuk anak-anak dalam rangka memeriahkan HUT Kemerdekaan RI.",
-    dateStart:"2026-08-15",
-    dateEnd:"2026-08-15",
-    dateText:"15 Agustus 2026",
-    time:"09.00 WIB",
-    location:"Balai Warga RW 007",
-    competitions:[
-        "Bendera ke Botol",
-        "Paku ke Botol",
-        "Kelereng",
-        "Jepit Balon",
-        "Makan Kerupuk"
-    ]
-},
-
-{
-    id:"event2",
-    category:"SEMARAK KEMERDEKAAN",
-    title:"Lomba Anak",
-    age:"Usia 7–10 Tahun",
-    description:"Permainan kompetitif dan seru untuk anak-anak usia sekolah dasar.",
-    dateStart:"2026-08-16",
-    dateEnd:"2026-08-17",
-    dateText:"16–17 Agustus 2026",
-    time:"08.00 WIB",
-    location:"Balai Warga RW 007",
-    competitions:[
-        "Balap Karung",
-        "Makan Kerupuk",
-        "Rebutan Bangku",
-        "Tiup Gelas",
-        "Bakiak"
-    ]
-},
-
-{
-    id:"event3",
-    category:"SEMARAK KEMERDEKAAN",
-    title:"Lomba Remaja",
-    age:"Usia 11–17 Tahun",
-    description:"Saatnya para remaja menunjukkan kekompakan, kecepatan, dan keberanian.",
-    dateStart:"2026-08-16",
-    dateEnd:"2026-08-17",
-    dateText:"16–17 Agustus 2026",
-    time:"08.00 WIB",
-    location:"Balai Warga RW 007",
-    competitions:[
-        "Balap Karung Helm",
-        "Makan Kerupuk",
-        "Rebutan Bangku",
-        "Pecah Balon Air",
-        "Bakiak",
-        "Bola Master"
-    ]
-},
-
-{
-    id:"event4",
-    category:"SEMARAK KEMERDEKAAN",
-    title:"Lomba Bapak-Bapak",
-    age:"8–17 Agustus 2026",
-    description:"Kompak, santai, dan tetap kompetitif.",
-    dateStart:"2026-08-08",
-    dateEnd:"2026-08-17",
-    dateText:"8–17 Agustus 2026",
-    time:"Sesuai jadwal",
-    location:"Balai Warga RW 007",
-    competitions:[
-        "Tenis Meja",
-        "Catur",
-        "Gaple",
-        "Bakiak",
-        "Tarik Tambang",
-        "Main Bola Dasar"
-    ]
-},
-
-{
-    id:"event5",
-    category:"KREASI WARGA",
-    title:"Lomba Tumpeng",
-    age:"Untuk Warga",
-    description:"Satu RT, satu kreasi terbaik. Tunjukkan kreativitas warga.",
-    dateStart:"2026-08-17",
-    dateEnd:"2026-08-17",
-    dateText:"17 Agustus 2026",
-    time:"Sesuai jadwal",
-    location:"Balai Warga RW 007",
-    competitions:[
-        "Kreativitas",
-        "Rasa",
-        "Penyajian"
-    ]
-},
-
-{
-    id:"event6",
-    category:"HIBURAN WARGA",
-    title:"Lomba Karaoke",
-    age:"Untuk Warga",
-    description:"Punya suara? Saatnya naik panggung. 🎤",
-    dateStart:"2026-08-22",
-    dateEnd:"2026-08-22",
-    dateText:"22 Agustus 2026",
-    time:"09.00 WIB",
-    location:"Area Balai Warga RW 007",
-    competitions:[
-        "Karaoke"
-    ]
-}
-
-];
-
-
-/* =========================================================
-   DATA PENDAFTARAN LOMBA
-========================================================= */
-
-const competitionData = [
-
-{
-    name:"Bendera ke Botol",
-    date:"2026-08-15"
-},
-
-{
-    name:"Paku ke Botol",
-    date:"2026-08-15"
-},
-
-{
-    name:"Kelereng",
-    date:"2026-08-15"
-},
-
-{
-    name:"Jepit Balon",
-    date:"2026-08-15"
-},
-
-{
-    name:"Makan Kerupuk",
-    date:"2026-08-17"
-},
-
-{
-    name:"Balap Karung",
-    date:"2026-08-17"
-},
-
-{
-    name:"Rebutan Bangku",
-    date:"2026-08-17"
-},
-
-{
-    name:"Tiup Gelas",
-    date:"2026-08-17"
-},
-
-{
-    name:"Bakiak",
-    date:"2026-08-17"
-},
-
-{
-    name:"Balap Karung Helm",
-    date:"2026-08-17"
-},
-
-{
-    name:"Pecah Balon Air",
-    date:"2026-08-17"
-},
-
-{
-    name:"Bola Master",
-    date:"2026-08-17"
-},
-
-{
-    name:"Tenis Meja",
-    date:"2026-08-17"
-},
-
-{
-    name:"Catur",
-    date:"2026-08-17"
-},
-
-{
-    name:"Gaple",
-    date:"2026-08-17"
-},
-
-{
-    name:"Tarik Tambang",
-    date:"2026-08-17"
-},
-
-{
-    name:"Main Bola Dasar",
-    date:"2026-08-17"
-},
-
-{
-    name:"Lomba Tumpeng",
-    date:"2026-08-17"
-},
-
-{
-    name:"Karaoke",
-    date:"2026-08-22"
-}
-
-];
-
-
-/* =========================================================
-   GOOGLE DRIVE PHOTO
-   FOTO1-FOTO7 TIDAK DIUBAH.
-========================================================= */
-
-const drivePhotoIds = [
-
-"19rEF9dRx767yEY0RI2svKR5upcYO3fyL",
-"1ILLEtJjWKD7378DI4sP9NJBH7XBoxzkr",
-"1O_h3Qc3A6Pd4jvCQr00Yy6Rx7jVq3CYG",
-"11dgKWhLIPdLnLiSOpHJAv9rD7ZMxgbnb",
-"1DrRkx-K9ADROURHw5DVMd91QXjjFZk_k",
-"1u2V5sB0hb0KnN-zi_15r37k3NHevw6gh",
-"1h7Ypw7khtcmWT9-cAAT7YqmnauejpGKE",
-"1UdpYy80EHbr7cSSNo5LlJebG8-Zz6jQP",
-"1hkxcGDCB2Mi3Ji-x6b49BlFgwyIhYnlh",
-"1PCdN1JjSgRw0Zkp6CyGy1EvZ3sLYqY3H",
-"1xsxrrl8uFHQyOUdymHYBqy6eR7ZWB5ii",
-"13VsgYfl9rd278nqCVTKOxDcUua2t1VV1",
-"1Fj7uuZPB6lFwJlFxEAo4Ab6kGfjl39p7",
-"1S64yOrlihZ1xxpWXJaahw5ykPiisLSNq",
-"12aINQNHktG1VlWxjBQXPRrnzVWwThrwT",
-"1pkM71yPpE8hMiB7oSYRIroix-OPE8tgw",
-"1_XRoyStxQuOJm6sEuQD4LzD85sBjtsZ7",
-"1g_QEtlmoRnigDRp9sK4YtfFHeXzwsE1y",
-"1bmSHtIhCFFMwc-3t6ReCHtAa5vF6CLz5",
-"15dy8C9IAfxGxi103W3MhTvbuZOIKu9wR",
-"1_RbZMALSp08OMH9_NzrDgD8tqz5zb0i7",
-"17ttcN8H-t1GizJCPhItjb49T-Rv8jTBX",
-"1quinenjgFNs6LmMomaKz4d78eL4-uRnn",
-"1xxnwKFOiBIKqjRjV0QRfx91Ls3wzMajr",
-"1zEXdwa6WShNt3jeltbF3mGsbR_oodLwK",
-"1aCxVynmUco9Ji55c4ReFsPWM4s3E5GQW",
-"1ECm-oT0jW7C-2vVggABzjbycEYuseh-U",
-"14ihBozusN3ZPVhIvfjs2bPDTKZnEmXNl",
-"12NzEPX1gNVPsld-uXMLeutmA5fHSd_4b",
-"1Sb32YQAr-SnS8Aga0ozuVLASDfrVFDsR",
-"1-G0BNmKGd7fm8BKkqVN1z8tmMZkIEBgt",
-"1TGEJtVT4c4HDu0HEZ05D0mGkUcYruaeF",
-"1YCuBUBjE2Y360KG15wWMNAD9ink2JfL3",
-"14g7cp2hXJCqT8hfARFP3xjTHv5NyuaI8",
-"1vqMwrCC7GoXK0NPCdprtB4YHSy_kru9Q",
-"1e2lDKodAp7QKCYfldgduavVNZJzg818x",
-"1Ipux-gNU0evid5riAE8Tdga20XJZX9KH",
-"13h2yyvkWK17pWmASN53memIu8HzkwG4P",
-"15E2xkWk8JaOtFUvzD7op9UfjhcwEZFw4",
-"1Ic_2pv_TsGKudjQy92IHeSulV2j-9VUw",
-"1GMvIi4Xrr5lbGdgdc26Ow-DBFIMrxUnW",
-"1Pjx0m311ZXd4Uw-kKImPr0N2ODQYUzj6",
-"1FfDo6-ylf-2wO7ghSTDBKZjPYSXgvgoc",
-"17V8iLGT-BB2VMgL43vG4MAAHKHar19nt",
-"1hU0VfXrVsvtNtJxK-vN5TeHQgl0ptCAY",
-"1Nfvqnsy9JUarmoMz2rc-sa56IH-z73GT",
-"1CRIZrIBD1D1kaESYcAxBwVLRjTpHYRLh",
-"1ljTMl8Uw25qyHKSY8JmisZzZy_jf9QiD",
-"1i3T0GXidEfsIdchZfgloNC1jgxTzlK5G",
-"1-5EtQkJPpWFaTg-14e3pLp46shBxUxol",
-"1DGAGpx1v0otKPFnOgpV_9rPfRxbWNcjS",
-"1NfBttHgZylsivdSYvOqrKNfZFvhKnJK2",
-"1vShAMnP6BWtzpY-HuAce5vtw3yJasGFo",
-"1NFlRwdRXFbxjXseYbepm1Xc_5DepqbGx",
-"1MBERZNG1jecBJbRPh4s4IZtlkLEGYsJ6",
-"1lINi84hTYKamrqEGVqEAYR1gnk72oydM",
-"1d8Ka8D-BGiGSScMPvHT_RSWQRBZZ81oS",
-"1ohc7CBdZktiCASOVCowlT3MxKrMNtT6u",
-"1QXtJAZ3H0u9_rXYaeYho9Hmq6oJEIDw5",
-"1uRAjiH43ewseAYvnn-E6Opdy6yBv_L4w",
-"124Mx2Bks5W8w6Q-aIuRVUUHsi7hQUIox",
-"1ROk83MN-8Zl8tAVqmpXmkUJdg0oHTDj7",
-"1PiemQsIL8hKVBs202HdRrxazpuvIiC8b",
-"12X07FinPnvsgtSog4FA1mjiVLnom7I-v",
-"1SCAsD7nhxnf1T9UcKgxpVgGYd4HI7qd8",
-"11qRo5KS7N1x3FawlUPmxhTY-Ird0iddY",
-"1d_6QKIoeIm9Vba7Rd26K94jC9X6zHKfQ",
-"1k5ah94tbG8yPAF3FVIUi_rgTU-k9LsNA",
-"1IAoe0s7Sna23AITGTOlwNsmfBCIAkDBl",
-"1xe0Zik1exgr7j-Nbp6yWECF2DCZaGwfs",
-"1XwgnMPBqSJpTJMb1MnTO13uMGUElaVWF",
-"1jC0FW9Jd3Vg5YUyOQHN7i44aQXcGOmwN",
-"11R7G6NQBdxwDw5mOHPJikiYo9eJ6TWOJ",
-"1Ez18rpUxH0jnAdotRbHJOPqJGIF4MqgC",
-"1h-_gUma3rdf6Xxh4vNr-v5raMNMvD3mt",
-"1w-HxC_Imn0yilEWZvJl2lHo3EX20-Kss",
-"1mxiNC_WWaCckgd3WPtV--uAgcVFTQN2R",
-"16qYKhXdW0T9ekpyIGjfpFPvUfmIIkX91",
-"1xgw4CNlNXXvtB8ZJfsq5HyP5YIfqUeyL",
-"1CCzbv1ytn2A08uGN4fHz-f_87NMCAqSg",
-"1DnJ3iiCG-s1_B_BAI5HlsyrSoEvqEwkc",
-"1fKABvoPe5uLIS6CYAqLsorhQWPXpltYe",
-"1ikzel9oED6KLeWDaUqjX2tlD__dHyYU8",
-"1IpX4C7QiGCoofPCScUb50Fl4IYLC8RmZ",
-"1AA7jILn71NDSbbTHZUJsttTB7opB5b7z",
-"1MS0lt0YS8G1Fc_zYRGp5yecnhRDtxCYn",
-"1IKUEyHzl4YW86eGhSVuObjJB6jX3w7-C",
-"1BDR8m4LatLfVG8fGmNeFcd3dljsjVXW2",
-"1LsGeeqjNwt6itns3-0x9EXVBACT3qoHo",
-"1zjc1GySRkfm6bOIESacFRHPf9YbBldBt",
-"1gLBQG8UMQyzRniozO_qdZg9IDi3k6GOf",
-"1EKOOgooPv8E__NHZSXO7YW207iwcWrPq",
-"1tdFwhr_xJ-EAyT8b7vPMNfSNHcL7xrbe",
-"1n2zl4A92imupvsPscOjbQkT3kG9VS-Dq",
-"1eANMm0-wJma_ZZsN7RNsm4oQ4J0FFy4V",
-"1YkPI-cKd9ie0NVbn7IsQccnTKzBIcaN6",
-"1oDnZJAj6gc29lpGHspNt2Fg4iA_8zcuq",
-"1s-WFPjIcHIkzbo3-R40VEmEI7Q4GmNUQ",
-"1YIqa9sHD3810LZGblJ4y6Z2yRb8M0oKk",
-"19Aj1Fz3sRXkKKSbjNwxoq-lREOK1qNHb",
-"1XJgTMEMMgzczp8o1LxI7JwDBPrT1M-ul",
-"1ATLtQExFnLAaQ9JNCumGQKnmZ2ZJlNgU",
-"14AIS2HtEsC9s7nJ0ak7u3EUFaDr0ea47",
-"1TesqjRieF4kL5SlRUC2HlozMsJZl0a9E",
-"1rppvab_aQq7y4p_GBL0j22h_PbwCBdsF",
-"1DtEEz6HA01Nwf1se5N4nv2uBNkLxPAeG",
-"19hDbz53TeV2OzD2l9m6SnIt9_xR7kzGc",
-"1CTlg0NbchF9JOMaS437U4bX0v8RMEhMx",
-"1RcZBzVAnXzbWJ4c6lWRO5dPwl3iuF0Ck",
-"1Fd1UYZoDxuUBTvQsLjxxKG0UmraJ0uG0",
-"1VOk4gsZ9t8vq5dfEGDebComzTYrhV3RT",
-"1pq-MRyQcs0DVNcq5WBjpf3HuR2pbTnKN",
-"1tKL5M05ZGwnKcDDKfPYKtmhP644uVFtk",
-"1IiLPFpYRzf9vm7dUItwcb7hmpvU-YFDk",
-"1r32tZhwfz8tkAwRTNeerdyGAt2LsmS8d",
-"19OoNIzw8_ZOjVWa0UCtaugTksIj-EcVK",
-"1mps3IavADTxxHbriHts32mBDvw24Wca1",
-"1t-fUjAJvlGaiE-khSE0akKyjz5O4tetn",
-"1xetpJ55ymtb02e5WRZ8MQj-82RzA8hti",
-"1_XYRdpxE4gUWBNTdPzMUVAIubX6SyOyl",
-"1AJtHy4_7keWUCaJhD2cj1xOC7T_XMid0",
-"1qMxo8QRd-Hpxw1a7IXE8i4eOgpJ-sTjI",
-"1a74KSIjJlD-vBor6PA7oyGSl26HWkgvR",
-"1G3q2qUuqGeheh_CDkXduiLcWD3b2iauC",
-"1fA6CKNFoZsbu4TOr6-NXFrYsO9OB4BiB",
-"1Vkhv6dndJS1xfZA9lVJZ5RDZrK6iasba",
-"1Glvt45F1u3BfJ7Lw4JerLgNam_eVjkBq",
-"1XOz5XmHJUzlVsIzJxCBKEOcUX9KP-CUs",
-"1fx73cQNCHoB8ACqLoz8wt_4dtiuvzJL6",
-"1RPVW1Vnrv2E7yZpvPYxb0ojmCLwUGJdN",
-"10d_Lz-eD_WAedC8yTLC0bziUxRCUHUHN",
-"18j3VannSnWpgJTF7PrCqnXxpTxgcHOGz",
-"1pp9m9155irrtWZgjx-L5PPcZ32ol_2fX",
-"19hrBDyMXqgaEXp9jUT3XiJf-xehPdOr6",
-"1xLHSyarHRrWGXPHVNdcBZMEzSkev5Ee3",
-"1BC15saqncPi1624aEWdEI89HVFMiDSPQ",
-"1cAm3Kv7Z-0g2fXMwf80lzG7B6UUCncsl",
-"1XWPZEB6UpZQzKBsusi5grSOHMtvAiOYA",
-"1qQ4VscaECgYsphcggh8AdYugfrVpB2xp",
-"1oEzcY1hYX4n3E1c4cLLwDvbctOw0gYGd",
-"1DCYKO5Cn1r4ZXNHMx-bM244Gdzwzspj-",
-"16X2ZGEmVv_tz9w9BwZOO-e1Cg0sP3nkV",
-"1M2HLcXJYhIsDl4fv2MDz8LDtYWB_IaWg",
-"1TA5cPwbo1MJ9ILNZaT2CBhMwrKaF-xaH",
-"1Ex7eZDNd-LkzoZVoEAoGxxPZZjh6CbjD",
-"1IGhoTxxH5KLdtxV1Ezuw_egGoCUCESs_",
-"1TX06KYEINNFGfRkSv2KWujcrmwLZfWUF",
-"16n1Kets7Zb1UoagP_R0Bqhzp7hOl5FHq",
-"1u4Ejw3RLCjOQ0m_vfXB80xaKrolkJtyR",
-"1W9Rywc-QUDp8OOgKTbAfOkK9SgvFNSPm"
-
-];
-
-
-/* =========================================================
+/* =====================================================
    MENU
-========================================================= */
+===================================================== */
 
 function toggleMenu(){
 
-    document
-    .getElementById("navLinks")
-    .classList
-    .toggle("open");
+document
+.getElementById("navLinks")
+.classList
+.toggle("open");
 
 }
 
 
-/* =========================================================
-   CLOSE MOBILE MENU
-========================================================= */
+/* =====================================================
+   TUTUP MENU SAAT LINK DIKLIK
+===================================================== */
 
 document
 .querySelectorAll(".nav-links a")
 .forEach(function(a){
 
-    a.addEventListener("click",function(){
+a.addEventListener("click",function(){
 
-        document
-        .getElementById("navLinks")
-        .classList
-        .remove("open");
+document
+.getElementById("navLinks")
+.classList
+.remove("open");
 
-    });
+});
 
 });
 
 
-/* =========================================================
-   DATE HELPERS
-========================================================= */
-
-function getToday(){
-
-    const now = new Date();
-
-    now.setHours(0,0,0,0);
-
-    return now;
-
-}
-
-
-function dateFromString(dateString){
-
-    const parts = dateString.split("-");
-
-    return new Date(
-        Number(parts[0]),
-        Number(parts[1])-1,
-        Number(parts[2])
-    );
-
-}
-
-
-function getEventStatus(event){
-
-    const today = getToday();
-
-    const start = dateFromString(event.dateStart);
-    const end = dateFromString(event.dateEnd);
-
-    if(today > end){
-
-        return "completed";
-
-    }
-
-    if(today >= start && today <= end){
-
-        return "today";
-
-    }
-
-    return "upcoming";
-
-}
-
-
-/* =========================================================
-   EVENT STATUS
-========================================================= */
-
-function statusHTML(event){
-
-    const status = getEventStatus(event);
-
-    if(status === "completed"){
-
-        return `
-        <div class="event-status status-completed">
-            ✓ SUDAH DILAKSANAKAN
-        </div>
-        `;
-
-    }
-
-    if(status === "today"){
-
-        return `
-        <div class="event-status status-today">
-            🔴 BERLANGSUNG HARI INI
-        </div>
-        `;
-
-    }
-
-    return `
-    <div class="event-status status-upcoming">
-        📅 AKAN DATANG
-    </div>
-    `;
-
-}
-
-
-/* =========================================================
-   RENDER EVENTS
-========================================================= */
-
-function renderEvents(){
-
-    const grid =
-    document.getElementById("eventsGrid");
-
-    grid.innerHTML = "";
-
-    events.forEach(function(event){
-
-        const status =
-        getEventStatus(event);
-
-        const completedClass =
-        status === "completed"
-        ? "completed"
-        : "";
-
-        const competitionHTML =
-        event.competitions
-        .map(function(item){
-
-            return `<span>${item}</span>`;
-
-        })
-        .join("");
-
-        const card = document.createElement("article");
-
-        card.className =
-        "event-card " + completedClass;
-
-        card.innerHTML = `
-
-            <span class="event-tag">
-                ${event.category}
-            </span>
-
-            <h3>
-                ${event.title}
-            </h3>
-
-            <div class="age">
-                ${event.age}
-            </div>
-
-            ${statusHTML(event)}
-
-            <p>
-                ${event.description}
-            </p>
-
-            <div class="card-info">
-
-                <span>
-                    📅 ${event.dateText}
-                </span>
-
-                <span>
-                    ⏰ ${event.time}
-                </span>
-
-                <span>
-                    📍 ${event.location}
-                </span>
-
-            </div>
-
-            <div
-                class="detail"
-                id="detail-${event.id}">
-
-                <div class="detail-title">
-                    CABANG PERLOMBAAN
-                </div>
-
-                <div class="lomba-list">
-                    ${competitionHTML}
-                </div>
-
-            </div>
-
-            <button
-                class="detail-btn"
-                onclick="toggleDetail(
-                    'detail-${event.id}',
-                    this
-                )">
-
-                Lihat Detail →
-
-            </button>
-
-        `;
-
-        grid.appendChild(card);
-
-    });
-
-}
-
-
-/* =========================================================
-   TOGGLE DETAIL
-========================================================= */
+/* =====================================================
+   DETAIL EVENT
+===================================================== */
 
 function toggleDetail(id,button){
 
-    const detail =
-    document.getElementById(id);
+const d=document.getElementById(id);
 
-    detail.classList.toggle("open");
+d.classList.toggle("open");
 
-    button.innerText =
-    detail.classList.contains("open")
-    ? "Tutup Detail ↑"
-    : "Lihat Detail →";
+button.innerText=
+d.classList.contains("open")
+?
+"Tutup Detail ↑"
+:
+"Lihat Detail →";
 
 }
 
 
-/* =========================================================
+/* =====================================================
+   DATA EVENT
+===================================================== */
+
+const events=[
+
+{
+title:"SEMARAK KEMERDEKAAN",
+subtitle:"Lomba Anak Usia 4–6 Tahun",
+date:"2026-08-15",
+dateText:"15 Agustus 2026",
+time:"09.00 WIB - Selesai",
+location:"Balai Warga RW 007"
+},
+
+{
+title:"SEMARAK KEMERDEKAAN",
+subtitle:"Lomba Anak Usia 7–10 Tahun",
+date:"2026-08-16",
+dateText:"16–17 Agustus 2026",
+time:"08.00 WIB",
+location:"Balai Warga RW 007"
+},
+
+{
+title:"SEMARAK KEMERDEKAAN",
+subtitle:"Lomba Remaja Usia 11–17 Tahun",
+date:"2026-08-16",
+dateText:"16–17 Agustus 2026",
+time:"08.00 WIB",
+location:"Balai Warga RW 007"
+},
+
+{
+title:"SEMARAK KEMERDEKAAN",
+subtitle:"Lomba Bapak-Bapak",
+date:"2026-08-17",
+dateText:"8–17 Agustus 2026",
+time:"-",
+location:"Balai Warga RW 007"
+},
+
+{
+title:"KREASI WARGA",
+subtitle:"Lomba Tumpeng",
+date:"2026-08-17",
+dateText:"17 Agustus 2026",
+time:"-",
+location:"Balai Warga RW 007"
+},
+
+{
+title:"HIBURAN WARGA",
+subtitle:"Lomba Karaoke",
+date:"2026-08-22",
+dateText:"22 Agustus 2026",
+time:"09.00 WIB",
+location:"Area Balai Warga RW 007"
+},
+
+{
+title:"MALAM PUNCAK",
+subtitle:"Pentas Seni",
+date:"2026-08-22",
+dateText:"22 Agustus 2026",
+time:"19.30 WIB - Selesai",
+location:"Area Balai Warga RW 007"
+}
+
+];
+
+
+/* =====================================================
    EVENT TERDEKAT OTOMATIS
-========================================================= */
+===================================================== */
 
-function renderNearestEvent(){
+function updateNearestEvent(){
 
-    const container =
-    document.getElementById("nearestEvent");
+const today=new Date();
 
-    const today =
-    getToday();
+today.setHours(0,0,0,0);
 
-    const upcoming =
-    events
-    .filter(function(event){
+const upcoming=events
+.filter(function(event){
 
-        return dateFromString(event.dateEnd) >= today;
+const eventDate=new Date(event.date+"T00:00:00");
 
-    })
-    .sort(function(a,b){
+return eventDate>=today;
 
-        return dateFromString(a.dateStart)
-        - dateFromString(b.dateStart);
+})
+.sort(function(a,b){
 
-    });
+return new Date(a.date)-new Date(b.date);
 
-    if(upcoming.length === 0){
+});
 
-        container.innerHTML = `
 
-            <h2>
-                Semua kegiatan selesai 🎉
-            </h2>
+const event=upcoming.length
+?
+upcoming[0]
+:
+events[events.length-1];
 
-            <p style="color:#667085;margin-top:8px">
-                Terima kasih sudah ikut meramaikan
-                kegiatan Anak Kampung RT 010.
-            </p>
 
-        `;
+document
+.getElementById("nearestEventTitle")
+.textContent=event.title;
 
-        return;
+document
+.getElementById("nearestEventSubtitle")
+.textContent=event.subtitle;
 
-    }
+document
+.getElementById("nearestEventDate")
+.textContent=event.dateText;
 
-    const event = upcoming[0];
+document
+.getElementById("nearestEventTime")
+.textContent=event.time;
 
-    const status =
-    getEventStatus(event);
+document
+.getElementById("nearestEventLocation")
+.textContent=event.location;
 
-    let statusText = "";
 
-    if(status === "today"){
+if(upcoming.length){
 
-        statusText =
-        `<div class="event-status status-today">
-            🔴 BERLANGSUNG HARI INI
-        </div>`;
+document
+.getElementById("nearestEventStatus")
+.innerHTML=
+'<span class="event-status status-upcoming">● EVENT TERDEKAT</span>';
 
-    }else{
+}else{
 
-        statusText =
-        `<div class="event-status status-upcoming">
-            📅 EVENT BERIKUTNYA
-        </div>`;
+document
+.getElementById("nearestEventStatus")
+.innerHTML=
+'<span class="event-status status-done">SEMUA EVENT SUDAH SELESAI</span>';
 
-    }
-
-    container.innerHTML = `
-
-        ${statusText}
-
-        <h2>
-            ${event.title}
-        </h2>
-
-        <h3>
-            ${event.age}
-        </h3>
-
-        <div class="event-info">
-
-            <div>
-                📅 <b>${event.dateText}</b>
-            </div>
-
-            <div>
-                ⏰ <b>${event.time}</b>
-            </div>
-
-            <div>
-                📍 <b>${event.location}</b>
-            </div>
-
-        </div>
-
-        <div class="lomba-preview">
-
-            <strong>
-                LOMBA
-            </strong>
-
-            <p>
-                ${event.competitions.join(" • ")}
-            </p>
-
-        </div>
-
-    `;
+}
 
 }
 
 
-/* =========================================================
-   CHECKBOX PENDAFTARAN LOMBA
-========================================================= */
+/* =====================================================
+   STATUS EVENT OTOMATIS
+===================================================== */
 
-function renderCompetitionCheckboxes(){
+function updateEventStatus(){
 
-    const container =
-    document.getElementById(
-        "competitionCheckboxes"
-    );
+const today=new Date();
 
-    const today =
-    getToday();
+today.setHours(0,0,0,0);
 
-    container.innerHTML = "";
+document
+.querySelectorAll(".event-card[data-event-date]")
+.forEach(function(card){
 
-    competitionData.forEach(function(item,index){
+const date=card.getAttribute("data-event-date");
 
-        const competitionDate =
-        dateFromString(item.date);
+const eventDate=
+new Date(date+"T00:00:00");
 
-        const isPast =
-        competitionDate < today;
+if(eventDate<today){
 
-        const wrapper =
-        document.createElement("div");
+card.classList.add("completed");
 
-        wrapper.className =
-        "checkbox-item" +
-        (isPast ? " disabled" : "");
+let oldStatus=
+card.querySelector(".automatic-status");
 
-        const inputId =
-        "competition-" + index;
+if(!oldStatus){
 
-        wrapper.innerHTML = `
+oldStatus=document.createElement("div");
 
-            <input
-                type="checkbox"
-                id="${inputId}"
-                value="${item.name}"
-                data-date="${item.date}"
-                ${isPast ? "disabled" : ""}
-            >
+oldStatus.className=
+"event-status automatic-status status-done";
 
-            <label for="${inputId}">
-                ${item.name}
-            </label>
+oldStatus.innerHTML=
+"✓ SUDAH DILAKSANAKAN";
 
-        `;
+card
+.querySelector(".card-info")
+.after(oldStatus);
 
-        container.appendChild(wrapper);
+}
 
-    });
+}
 
-
-    container
-    .querySelectorAll(
-        'input[type="checkbox"]'
-    )
-    .forEach(function(input){
-
-        input.addEventListener(
-            "change",
-            updateSelectedCount
-        );
-
-    });
+});
 
 }
 
 
-/* =========================================================
-   JUMLAH LOMBA DIPILIH
-========================================================= */
+/* =====================================================
+   DAFTAR LOMBA
+===================================================== */
 
-function updateSelectedCount(){
+function registerLomba(namaLomba,ids){
 
-    const selected =
-    document.querySelectorAll(
-        '#competitionCheckboxes input:checked'
-    ).length;
+const selected=[];
 
-    document.getElementById(
-        "selectedCount"
-    ).innerText =
-    selected +
-    " lomba dipilih";
+ids.forEach(function(id){
+
+const checkbox=
+document.getElementById(id);
+
+if(checkbox && checkbox.checked){
+
+selected.push(checkbox.value);
+
+}
+
+});
+
+
+if(selected.length===0){
+
+alert(
+"Silakan pilih minimal satu lomba terlebih dahulu."
+);
+
+return;
 
 }
 
 
-/* =========================================================
-   PENDAFTARAN LOMBA
-========================================================= */
+const nama=
+prompt(
+"Masukkan nama peserta:"
+);
 
-function sendCompetitionRegistration(e){
+if(!nama){
 
-    e.preventDefault();
+return;
 
-    const name =
-    document.getElementById(
-        "participantName"
-    ).value.trim();
-
-    const age =
-    document.getElementById(
-        "participantAge"
-    ).value.trim();
-
-    const phone =
-    document.getElementById(
-        "participantPhone"
-    ).value.trim();
-
-    const selected =
-    Array.from(
-        document.querySelectorAll(
-            '#competitionCheckboxes input:checked'
-        )
-    ).map(function(input){
-
-        return input.value;
-
-    });
+}
 
 
-    if(selected.length === 0){
-
-        showToast(
-            "Pilih minimal satu lomba terlebih dahulu."
-        );
-
-        return;
-
-    }
-
-
-    const text =
+const text=
 `Halo Admin Anak Kampung RT 010 👋
 
-Saya ingin mendaftarkan diri untuk mengikuti lomba.
+Saya ingin mendaftar lomba.
 
-*Nama Peserta:* ${name}
+*Nama Peserta:* ${nama}
 
-*Usia:* ${age} tahun
+*Kategori:* ${namaLomba}
 
-*No. WhatsApp:* ${phone}
-
-*Lomba yang dipilih:*
+*Lomba yang Dipilih:*
 ${selected.map(function(item){
-    return "✓ " + item;
+return "☑️ "+item;
 }).join("\n")}
 
-Mohon dicatat sebagai peserta.
-
-Terima kasih 🙏`;
+Terima kasih.`;
 
 
-    const url =
-    "https://wa.me/6285156889002?text=" +
-    encodeURIComponent(text);
-
-
-    window.open(url,"_blank");
+window.open(
+"https://wa.me/6285156889002?text="+
+encodeURIComponent(text),
+"_blank"
+);
 
 }
 
 
-/* =========================================================
-   FORM ASPIRASI
-========================================================= */
+/* =====================================================
+   PENDAFTARAN SEDERHANA
+===================================================== */
+
+function registerSimple(namaEvent){
+
+const nama=
+prompt(
+"Masukkan nama peserta:"
+);
+
+if(!nama){
+
+return;
+
+}
+
+
+const text=
+`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar.
+
+*Nama Peserta:* ${nama}
+
+*Pendaftaran:* ${namaEvent}
+
+Mohon informasi selanjutnya.
+
+Terima kasih.`;
+
+
+window.open(
+"https://wa.me/6285156889002?text="+
+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+
+/* =====================================================
+   PENDAFTARAN PENTAS SENI
+===================================================== */
+
+function registerPentas(e){
+
+e.preventDefault();
+
+
+const nama=
+document.getElementById("pentasName")
+.value;
+
+const jenis=
+document.getElementById("pentasType")
+.value;
+
+const jumlah=
+document.getElementById("pentasJumlah")
+.value;
+
+const judul=
+document.getElementById("pentasJudul")
+.value;
+
+const catatan=
+document.getElementById("pentasCatatan")
+.value;
+
+
+const text=
+`Halo Admin Anak Kampung RT 010 👋
+
+Saya ingin mendaftar sebagai pengisi acara Malam Puncak / Pentas Seni.
+
+*Nama / Kelompok:*
+${nama}
+
+*Jenis Penampilan:*
+${jenis}
+
+*Jumlah Orang:*
+${jumlah}
+
+*Judul Penampilan:*
+${judul}
+
+*Catatan:*
+${catatan || "-"}
+
+Mohon konfirmasi untuk pendaftaran saya.
+
+Terima kasih.`;
+
+
+window.open(
+"https://wa.me/6285156889002?text="+
+encodeURIComponent(text),
+"_blank"
+);
+
+}
+
+
+/* =====================================================
+   ASPIRASI
+===================================================== */
 
 function sendAspiration(e){
 
-    e.preventDefault();
-
-    const n =
-    document.getElementById(
-        "aspName"
-    ).value;
-
-    const c =
-    document.getElementById(
-        "aspCategory"
-    ).value;
-
-    const m =
-    document.getElementById(
-        "aspMessage"
-    ).value;
+e.preventDefault();
 
 
-    const text =
+const n=
+document
+.getElementById("aspName")
+.value;
+
+const c=
+document
+.getElementById("aspCategory")
+.value;
+
+const m=
+document
+.getElementById("aspMessage")
+.value;
+
+
+const text=
 `Halo Admin Anak Kampung RT 010 👋
 
 Saya ingin menyampaikan aspirasi.
@@ -3082,382 +3719,219 @@ ${m}
 Terima kasih.`;
 
 
-    window.open(
-        "https://wa.me/6285156889002?text="
-        + encodeURIComponent(text),
-        "_blank"
-    );
+window.open(
+"https://wa.me/6285156889002?text="+
+encodeURIComponent(text),
+"_blank"
+);
 
 }
 
 
-/* =========================================================
-   FORM PENGISI ACARA MALAM PUNCAK
-========================================================= */
+/* =====================================================
+   FLIPBOOK ENGINE
+===================================================== */
 
-function openPerformanceForm(){
+const books={
 
-    const nama =
-    prompt("Nama / Nama Kelompok:");
+2026:{
+current:0
+},
 
-    if(!nama){
-        return;
-    }
-
-    const jenis =
-    prompt(
-        "Jenis penampilan:\n\n" +
-        "Contoh: Vocal, Tari, Band, Komedi, Drama, dll."
-    );
-
-    if(!jenis){
-        return;
-    }
-
-    const anggota =
-    prompt(
-        "Jumlah anggota / penampil:"
-    );
-
-    if(!anggota){
-        return;
-    }
-
-    const durasi =
-    prompt(
-        "Perkiraan durasi penampilan:"
-    );
-
-    if(!durasi){
-        return;
-    }
-
-    const nomor =
-    prompt(
-        "Nomor WhatsApp yang bisa dihubungi:"
-    );
-
-    if(!nomor){
-        return;
-    }
-
-
-    const text =
-`Halo Admin Anak Kampung RT 010 👋
-
-Saya ingin mendaftar sebagai pengisi acara Malam Puncak / Pentas Seni.
-
-*Nama / Nama Kelompok:*
-${nama}
-
-*Jenis Penampilan:*
-${jenis}
-
-*Jumlah Penampil:*
-${anggota}
-
-*Perkiraan Durasi:*
-${durasi}
-
-*No. WhatsApp:*
-${nomor}
-
-*Acara:*
-Malam Puncak / Pentas Seni
-
-*Hari/Tanggal:*
-Sabtu, 22 Agustus 2026
-
-*Waktu:*
-19.30 WIB - Selesai
-
-*Tempat:*
-Area Balai Warga RW 07
-
-Terima kasih 🙏`;
-
-
-    window.open(
-        "https://wa.me/6285156889002?text="
-        + encodeURIComponent(text),
-        "_blank"
-    );
-
+2025:{
+current:0
 }
 
-
-/* =========================================================
-   GOOGLE DRIVE GALLERY
-========================================================= */
-
-function addDrivePhotos(){
-
-    const flipbook =
-    document.getElementById("flipbook");
-
-    drivePhotoIds.forEach(function(id,index){
-
-        const page =
-        document.createElement("div");
-
-        page.className =
-        "book-page photo-page";
-
-        page.dataset.page =
-        index + 8;
-
-        page.innerHTML = `
-
-            <div class="page-inner">
-
-                <div class="page-label">
-                    DOKUMENTASI ${String(index + 8).padStart(2,"0")}
-                </div>
-
-                <img
-                    class="drive-photo"
-                    src="https://drive.google.com/thumbnail?id=${id}&sz=w1600"
-                    alt="Dokumentasi Anak Kampung RT 010"
-                    loading="lazy"
-                    onerror="this.onerror=null;this.src='https://drive.google.com/uc?export=view&id=${id}'">
-
-            </div>
-
-        `;
-
-        flipbook.appendChild(page);
-
-    });
+};
 
 
-    const total =
-    7 + drivePhotoIds.length;
+/* =====================================================
+   UPDATE FLIPBOOK
+===================================================== */
 
-    document.getElementById(
-        "galleryCount"
-    ).innerText =
-    "Total dokumentasi: " +
-    total +
-    " halaman foto.";
+function updateBook(year){
+
+const bookId=
+"flipbook"+year;
+
+const indicator=
+document.getElementById(
+"indicator"+year
+);
+
+const pages=
+document.querySelectorAll(
+"#"+bookId+" .book-page"
+);
+
+
+const current=
+books[year].current;
+
+const total=
+pages.length-1;
+
+
+pages.forEach(function(page,index){
+
+if(index<=current-1){
+
+page.classList.add("flipped");
+
+}else{
+
+page.classList.remove("flipped");
 
 }
-
-
-/* =========================================================
-   FLIPBOOK
-========================================================= */
-
-let currentPage = 0;
-
-let totalPages = 7 + drivePhotoIds.length;
-
-
-function updateBook(){
-
-    const pages =
-    document.querySelectorAll(
-        "#flipbook .book-page"
-    );
-
-    totalPages =
-    pages.length - 1;
-
-
-    pages.forEach(function(page,index){
-
-        page.classList.toggle(
-            "flipped",
-            index <= currentPage - 1
-        );
-
-
-        page.style.zIndex =
-        index <= currentPage - 1
-        ? index
-        : pages.length + 1 - index;
-
-    });
-
-
-    const indicator =
-    document.getElementById(
-        "pageIndicator"
-    );
-
-
-    if(currentPage === 0){
-
-        indicator.textContent =
-        "Cover";
-
-    }else{
-
-        indicator.textContent =
-        "Foto " +
-        currentPage +
-        " / " +
-        totalPages;
-
-    }
-
-}
-
-
-/* =========================================================
-   NEXT PAGE
-========================================================= */
-
-function nextPage(){
-
-    if(currentPage < totalPages){
-
-        currentPage++;
-
-        updateBook();
-
-    }
-
-}
-
-
-/* =========================================================
-   PREVIOUS PAGE
-========================================================= */
-
-function prevPage(){
-
-    if(currentPage > 0){
-
-        currentPage--;
-
-        updateBook();
-
-    }
-
-}
-
-
-/* =========================================================
-   CLICK PAGE
-========================================================= */
-
-function setupFlipbookClicks(){
-
-    document
-    .querySelectorAll(
-        "#flipbook .book-page"
-    )
-    .forEach(function(page){
-
-        page.addEventListener(
-            "click",
-            function(e){
-
-                const rect =
-                page.getBoundingClientRect();
-
-                const x =
-                e.clientX - rect.left;
-
-
-                if(x > rect.width / 2){
-
-                    nextPage();
-
-                }else{
-
-                    prevPage();
-
-                }
-
-            }
-        );
-
-    });
-
-}
-
-
-/* =========================================================
-   TOAST
-========================================================= */
-
-function showToast(message){
-
-    const toast =
-    document.getElementById("toast");
-
-    toast.innerText =
-    message;
-
-    toast.classList.add("show");
-
-    setTimeout(function(){
-
-        toast.classList.remove("show");
-
-    },3000);
-
-}
-
-
-/* =========================================================
-   AUTO UPDATE SETIAP HARI
-========================================================= */
-
-function refreshDateBasedContent(){
-
-    renderEvents();
-
-    renderNearestEvent();
-
-    renderCompetitionCheckboxes();
-
-}
-
-
-/* =========================================================
-   INIT
-========================================================= */
-
-addDrivePhotos();
-
-refreshDateBasedContent();
-
-setupFlipbookClicks();
-
-updateBook();
 
 
 /*
-   Cek otomatis setiap 1 menit.
-   Jadi ketika tanggal berganti,
-   status event juga ikut berubah.
+Mengatur tumpukan halaman.
+*/
+
+if(index<=current-1){
+
+page.style.zIndex=index;
+
+}else{
+
+page.style.zIndex=
+total+1-index;
+
+}
+
+});
+
+
+if(current===0){
+
+indicator.textContent="Cover";
+
+}else{
+
+indicator.textContent=
+"Foto "+current+" / "+total;
+
+}
+
+}
+
+
+/* =====================================================
+   NEXT
+===================================================== */
+
+function nextBook(year){
+
+const pages=
+document.querySelectorAll(
+"#flipbook"+year+" .book-page"
+);
+
+const total=
+pages.length-1;
+
+
+if(
+books[year].current<total
+){
+
+books[year].current++;
+
+updateBook(year);
+
+}
+
+}
+
+
+/* =====================================================
+   PREVIOUS
+===================================================== */
+
+function prevBook(year){
+
+if(
+books[year].current>0
+){
+
+books[year].current--;
+
+updateBook(year);
+
+}
+
+}
+
+
+/* =====================================================
+   KLIK HALAMAN
+===================================================== */
+
+function setupFlipbook(year){
+
+const pages=
+document.querySelectorAll(
+"#flipbook"+year+" .book-page"
+);
+
+
+pages.forEach(function(page){
+
+page.addEventListener(
+"click",
+function(e){
+
+const rect=
+page.getBoundingClientRect();
+
+const x=
+e.clientX-rect.left;
+
+
+if(x>rect.width/2){
+
+nextBook(year);
+
+}else{
+
+prevBook(year);
+
+}
+
+});
+
+});
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+setupFlipbook("2026");
+setupFlipbook("2025");
+
+updateBook("2026");
+updateBook("2025");
+
+updateNearestEvent();
+updateEventStatus();
+
+
+/*
+Cek ulang setiap menit.
+Jadi jika halaman dibiarkan terbuka
+dan tanggal berganti, status event juga ikut berubah.
 */
 
 setInterval(function(){
 
-    refreshDateBasedContent();
+updateNearestEvent();
+updateEventStatus();
 
 },60000);
-
-
-/*
-   Cek ketika tab/browser dibuka kembali.
-*/
-
-document.addEventListener(
-    "visibilitychange",
-    function(){
-
-        if(!document.hidden){
-
-            refreshDateBasedContent();
-
-        }
-
-    }
-);
 
 </script>
 
