@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -137,25 +138,6 @@ section{
     font-size:1.7rem;
     color:var(--navy);
     cursor:pointer;
-}
-
-@media(max-width:950px){
-    .menu-btn{
-        display:block;
-    }
-    .nav-links{
-        position:absolute;
-        top:78px;
-        left:0;
-        right:0;
-        background:#fff;
-        padding:15px 20px;
-        display:none;
-        flex-direction:column;
-    }
-    .nav-links.open{
-        display:flex;
-    }
 }
 
 /* ================= HERO ================= */
@@ -299,27 +281,6 @@ section{
     font-size:.8rem;
 }
 
-@media(max-width:950px){
-    .hero-grid{
-        grid-template-columns:1fr;
-    }
-    .hero{
-        padding-top:125px;
-    }
-}
-
-@media(max-width:600px){
-    .container{
-        width:min(100% - 28px,1180px);
-    }
-    .hero h1{
-        font-size:2.5rem;
-    }
-    .feature-card{
-        padding:25px;
-    }
-}
-
 /* ================= SECTION ================= */
 
 .section{
@@ -343,12 +304,6 @@ section{
     color:var(--muted);
     max-width:650px;
     margin-top:14px;
-}
-
-@media(max-width:600px){
-    .section{
-        padding:70px 0;
-    }
 }
 
 /* ================= ABOUT ================= */
@@ -402,21 +357,6 @@ section{
     font-size:.78rem;
 }
 
-@media(max-width:950px){
-    .about-grid,
-    .aspiration-box,
-    .social-grid{
-        grid-template-columns:1fr;
-        gap:40px;
-    }
-}
-
-@media(max-width:600px){
-    .values{
-        grid-template-columns:1fr;
-    }
-}
-
 /* ================= EVENTS ================= */
 
 .section-heading{
@@ -430,9 +370,6 @@ section{
 }
 
 .event-card{
-    background:#fff;
-    border:1px solid var(--border);
-    box-shadow:var(--shadow);
     border-radius:18px;
     padding:27px;
     transition:.3s;
@@ -545,12 +482,6 @@ section{
     cursor:pointer;
 }
 
-@media(max-width:950px){
-    .events-grid{
-        grid-template-columns:1fr;
-    }
-}
-
 /* ================= FORM ================= */
 
 .form{
@@ -592,6 +523,12 @@ section{
     background:#fff;
 }
 
+.form-note{
+    font-size:.7rem;
+    color:var(--muted);
+    margin-top:6px;
+}
+
 /* ================= DYNAMIC REGISTRATION ================= */
 
 .registration-highlight{
@@ -622,9 +559,6 @@ section{
 }
 
 .notice{
-    background:#fff;
-    border:1px solid var(--border);
-    box-shadow:var(--shadow);
     border-radius:15px;
     padding:23px 25px;
     display:flex;
@@ -646,13 +580,6 @@ section{
 .notice p{
     color:var(--muted);
     font-size:.8rem;
-}
-
-@media(max-width:600px){
-    .notice{
-        flex-direction:column;
-        gap:8px;
-    }
 }
 
 /* ================= ASPIRATION ================= */
@@ -868,28 +795,6 @@ section{
     opacity:.7;
 }
 
-@media(max-width:950px){
-    .flipbook{
-        min-height:360px;
-    }
-}
-
-@media(max-width:600px){
-    .flipbook{
-        min-height:300px;
-    }
-    .page-inner{
-        padding:10px;
-    }
-    .page-label{
-        padding-bottom:7px;
-    }
-    .flipbook-controls button{
-        width:38px;
-        height:38px;
-    }
-}
-
 /* ================= SOCIAL ================= */
 
 .social-section{
@@ -930,22 +835,6 @@ section{
     font-weight:800;
 }
 
-@media(max-width:950px){
-    .social-links{
-        justify-content:flex-start;
-    }
-}
-
-@media(max-width:600px){
-    .social-links{
-        flex-direction:column;
-    }
-    .social{
-        width:100%;
-        text-align:center;
-    }
-}
-
 /* ================= FOOTER ================= */
 
 footer{
@@ -982,26 +871,9 @@ footer span{
     font-size:.8rem;
 }
 
-footer a{
-    display:block;
-    transition:.2s;
-}
-
-footer a:hover{
-    color:#fff;
-}
-
 .footer-links{
     display:grid;
     gap:7px;
-}
-
-footer h3{
-    font-size:.8rem;
-    text-transform:uppercase;
-    letter-spacing:1px;
-    color:#b0c4d6;
-    margin-bottom:14px;
 }
 
 .copyright{
@@ -1013,22 +885,107 @@ footer h3{
     font-size:.7rem;
 }
 
+/* ================= RESPONSIVE ================= */
+
 @media(max-width:950px){
+
+    .menu-btn{
+        display:block;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:78px;
+        left:0;
+        right:0;
+        background:#fff;
+        padding:15px 20px;
+        display:none;
+        flex-direction:column;
+    }
+
+    .nav-links.open{
+        display:flex;
+    }
+
+    .hero-grid,
+    .about-grid,
+    .aspiration-box,
+    .social-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero{
+        padding-top:125px;
+    }
+
+    .events-grid{
+        grid-template-columns:1fr;
+    }
+
+    .social-links{
+        justify-content:flex-start;
+    }
+
     .footer-grid{
         grid-template-columns:1fr 1fr;
+    }
+
+    .flipbook{
+        min-height:360px;
     }
 }
 
 @media(max-width:600px){
+
+    .container{
+        width:min(100% - 28px,1180px);
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .values{
+        grid-template-columns:1fr;
+    }
+
+    .notice{
+        flex-direction:column;
+        gap:8px;
+    }
+
     .footer-grid{
         grid-template-columns:1fr;
-        gap:30px;
+    }
+
+    .flipbook{
+        min-height:300px;
+    }
+
+    .page-inner{
+        padding:10px;
+    }
+
+    .page-label{
+        padding-bottom:7px;
+    }
+
+    .flipbook-controls button{
+        width:38px;
+        height:38px;
+    }
+
+    .feature-card{
+        padding:25px;
     }
 }
+
 </style>
 </head>
 
 <body>
+
 
 <!-- =========================================================
      HEADER
@@ -1894,7 +1851,7 @@ Anak Kampung RT 010.
 
 
 <!-- =====================================================
-     FLIPBOOK 2026 — DARI FOLDER LOKAL
+     FLIPBOOK 2026
 ===================================================== -->
 
 <div class="flipbook-section">
@@ -1986,7 +1943,7 @@ Klik sisi kiri untuk kembali
 
 
 <!-- =====================================================
-     FLIPBOOK 2025 — DARI GOOGLE DRIVE
+     FLIPBOOK 2025 — OTOMATIS DARI GOOGLE DRIVE
 ===================================================== -->
 
 <div class="flipbook-section">
@@ -2014,8 +1971,7 @@ id="flipbook2025"
 
 <!-- COVER -->
 
-<div
-class="book-page cover-page"
+<divclass="book-page cover-page"
 data-page="0"
 >
 
@@ -3300,137 +3256,1143 @@ Terima kasih.`;
 
 
 /* =========================================================
-   FLIPBOOK FOTO 2026 — DARI FOLDER LOKAL
+   FLIPBOOK OTOMATIS DARI GOOGLE DRIVE
 ========================================================= */
 
-// Daftar nama file foto 2026 dari folder lokal
-const photoFiles2026 = [
-    'foto2026-1.jpg',
-    'foto2026-2.jpg',
-    'foto2026-3.jpg',
-    'foto2026-4.jpg',
-    'foto2026-5.jpg',
-    'foto2026-6.jpg',
-    'foto2026-7.jpg',
-    'foto2026-8.jpg',
-    'foto2026-9.jpg',
-    'foto2026-10.jpg'
-];
+// =========================================================
+// SEMUA ID FOTO 2025 DARI GOOGLE DRIVE
+// =========================================================
 
-// Path folder foto 2026
-const folderPath2026 = 'galeri/2026/';
-
-
-/* =========================================================
-   FLIPBOOK FOTO 2025 — DARI GOOGLE DRIVE
-========================================================= */
-
-// ID foto 2025 dari Google Drive (contoh 10 foto)
-// Kamu bisa tambah lebih banyak dengan menambahkan ID di array ini
 const photoIds2025 = [
-    '1iFI-SvCZLlFhAxS8nemR8jRc03fMDcRy',
-    '1OnrWk1f2ivJZbTsyvDaPj6msgesP7pjq',
-    '1gmNDxwZ-ww6kMafIakxvnRv9gFgLpPKk',
-    '1GK7sWxJgjYtJT6IU2i_DToAHQLKEkU2H',
-    '1M7L1FGJ5ZAaBBgFoheQmwy3ryJU_0pd3',
-    '147ipSmjY3u9JCyMPNMqwr7Zqy1yX3ZGW',
-    '1h5tdytXBp5GTonb2LaVA967DOl35NRwa',
-    '12rBBiLXOt3FuZx2eTFBitT6YOV5nH021',
-    '1fyjX8MAQtg4BA8xRah3PVdUsnipKrN3Z',
-    '13hO2D2HqGwABt-_M7J-r8AmDZvDLhu5b'
+'1iFI-SvCZLlFhAxS8nemR8jRc03fMDcRy',
+'1OnrWk1f2ivJZbTsyvDaPj6msgesP7pjq',
+'1gmNDxwZ-ww6kMafIakxvnRv9gFgLpPKk',
+'1GK7sWxJgjYtJT6IU2i_DToAHQLKEkU2H',
+'1M7L1FGJ5ZAaBBgFoheQmwy3ryJU_0pd3',
+'147ipSmjY3u9JCyMPNMqwr7Zqy1yX3ZGW',
+'1h5tdytXBp5GTonb2LaVA967DOl35NRwa',
+'12rBBiLXOt3FuZx2eTFBitT6YOV5nH021',
+'1fyjX8MAQtg4BA8xRah3PVdUsnipKrN3Z',
+'13hO2D2HqGwABt-_M7J-r8AmDZvDLhu5b',
+'16I3swr7QhUFXKrjTMDnQp2BA-Bd84kll',
+'1f65ecriz416wgfNCN5ul1EOjnV5u6hel',
+'11fxiwAPiLKvqhF_OgGV0CqdyD_xQTPms',
+'1R4m7kA87JYHO39GSXJ-c-_JHodM9WRmI',
+'1IxtYf8jXNTel0mi_MNi08MSsekYfgC7x',
+'1dqAlED2UVpJvXl3NmiZdB6pY9K7vOx4p',
+'1EqVfK3laitZTsNJNHhBk92YtmvlTvF53',
+'17Hx-BaAlESb-V45RXVJg7lHnb4LF7edj',
+'1oExLrFzbA_NLNSAM4vESPPKh34CbDKfG',
+'16L1KKdDaAeuY3z3XjlYcSnr5RWGfl8Ft',
+'1JrZnr1WLnTzv0QMoiZcDPkE29u3E5y5Y',
+'1whB3COYogpX8xsJo5fIhrAyNsDqTSK4o',
+'188bZVBCWFVThLtX5jt7H8H-fAOSDzym2',
+'1QAXohDfkUsOIKMufeCMrUpJRGRiQUq3C',
+'1y0lHZ1ZeQI4sa53MF_sic0_Ue4Mh1lGE',
+'10UlGZSEKnahHArojtqzwFDiX4QINkYQT',
+'1GAjKoORCSzgIYVk101h38y8cJR66yXwL',
+'1MTDCgLjc58ZfJ2vYDqdnfJ6WBscIICfC',
+'1d9hqNHdpz9BBtJpPRR2FKnGnCMpy7jCq',
+'1qvjAGX7IsraPVlFIXsxi7cjsGD12K4o5',
+'1KZmG94O5q8eUo1o47hE8H6VY7qxTwfdm',
+'1vukh4TXyeBBQcWqnroRjoRBCaIGlNI_3',
+'1v1ywjXTNkMKG0Az5lPyO1rHi3DjxmaOu',
+'1QQSdbHYzK2sjk0wmzNUbUVeZo186tKAP',
+'1-FKcF18qF8oQBbVnHD2CmRZo0IJWao9g',
+'1X8fRYdcwUu9sLFc88_ztN5e5lUBGtUeR',
+'1Y3XhywhlowP9hyUZeowMSYJV75Grztpi',
+'1XcW315mi9aq4t_7rV9i7jKHxv0lLElJT',
+'1mSYFepBZvbV8z7Smu5lo_3v8unZbuhUY',
+'1OTAdA2sWgnmqdwAR8V-C-VqFtKX4uQh6',
+'13BVUcdDS7utAuq_I9D6cF9FHufV508uP',
+'1lQuPLgA_HcuIPGJav58jqstYo7jYWceH',
+'1A_09tg7AB3HV1NWgMZ-q1Q45a4l-vCZN',
+'1IyflSG5c7VxDAvGV-L6gza0Me42SRTaf',
+'1bOiECd1xc4FmiLYcPRXnanrCopkJD-Qs',
+'1fV4qdqSX5wJhwNMTsJLRtfJBecrOuPES',
+'1R3RSox2y02DMkRxIhmJclO1UeTlYPZSA',
+'1o6ZyfKlkbbZ0Ao0yi8R3VdiAnKZe1UIO',
+'1_CVNj4gLKJICHYOsmvXyRhIBb8RScd3L',
+'1D6RurVvfg2NndyWbVGB9l_4XYfRamsAl',
+'1pLPG-wwmde5aoMbnZMTrKsgIuQgZLh4a',
+'1JFdna5wy7N4tj8ii22GXxKoZCg3ribad',
+'1vPg6xSpntzypcsuew6bn6Qd-BZmJxUpU',
+'1yRcLTVY8q-GXSyuBZzDKy_V0hpKxAQbY',
+'1Bd85ouZ6WjEbQvJUCcnP2FPOY8JQFLt1',
+'1lUyNKYbLyqO7CjPR16meqbspwI6NTfMh',
+'1gFEfEVOqZcAjqMOQ4QsNrkn8pmb3TJBb',
+'1_uueWjKYEh4pzDdXdLptSz5EnEJ2fiyy',
+'1hfb2e-nrfrfwfudumnKC8KkaD15-ovKi',
+'1Kqz0W-8ls8FPr3yLb8C7kX8t839Dq-81',
+'1SXkIfASTOnmCVxn08-pzGOe7VE5_PMjh',
+'1vW7fshRGtXORaK9F_P4kD17B5z29o47f',
+'1Inpj_-Mz8HLi-yyFj0jPCsOYjU3senle',
+'11ezgaizKs-5462o8whIP7qyd7zguqdWt',
+'1ptclo3en1XSe2rzvfhuv7q42mmED9Q6H',
+'1P4kDz9-nS3krzEsrtJdHi1VIs7LV5bIT',
+'1J4Ev9COUPHeApHGSptFy4f43MDua88va',
+'1Yox2wc1sn5v0_e0r8dfTHI0o02sjLqt3',
+'1xdF20ZlLteDvDzxBPJJVETl5BfesMCeF',
+'1yqfV4ew3KG8DS6BK8gFbY84K8zBcmB5u',
+'1dlxdIDT2l9tb8HXr09C7RmiRnDJH3qN2',
+'1O0VF7hMm-RsGTr2NVeFOQzKsPwzLpo6g',
+'1RiYrbTSahJdGp1q9l8wv-SSbj7Lb8MhP',
+'1nsSOnjE2bz4bUS2ivhAQohsfTn7HZpiz',
+'1EX9oKGgFQdltCJSEyGk_uTKuyojjivHd',
+'1HwEhqZOSyCdC56NPutiSezheqBP75Ojp',
+'1126Bum8Aomvwjxow2tvizECEZS90Y5Qq',
+'1euWMY2TmQzTOAgW9L7ko36667WN-eTX3',
+'1CMfzq-PSDGpckP1mTlMd8Jz68-7ALnGd',
+'1iYDgol59PekupUyozD32ZzJbceIPKctc',
+'1L1Vwl0u2t32OJKG2OdrSE32spYLvq99U',
+'1MZC6MpKOxewFrkTZBIkl4eP35m1lyuC2',
+'1nnGhTMwrUS9skEfBs5bYKLBlR1dhxsd3',
+'115V64TrWEWiLJZ1wGbFgpEQCOzO6reX-',
+'17oUOAUzvS7tvwHATPjqejflIXPCht4Qd',
+'1J25K4RFbL7IonNhOLqmCtyRNkfWNCabj',
+'1JwuDbrFbdVOsdNTDbRBy8VUaaUOekm3A',
+'1pZLpZg5Ivi3DMt8hSXHzJyxHBQAshNPy',
+'1Hv2idmPMe_ucRRMKy4_FF3es0z35cPGM',
+'13YUoDJY4wC6-2rnRIDpnB_sF_cb0wbJd',
+'1W5lzvr07iMsevh9UMDruhQO-WVuycM4W',
+'1UntDHWULPgs3a3KKoCW3XgeasiSYStJU',
+'1ivPQOcEpoXz3IN-2LxupNY67oUqPOLJO',
+'16eYWtftxba4nbGuMnCKqyK3XTp-wLfgh',
+'1n-LNaEsiLWXpCOthewhrEqTenvRBESFk',
+'1LEqyvCOGPkOXc6fO490CtAwBHsxFGdcE',
+'1Q3_YeUmqfMt1iyeNdqYAIsT-RlqDNFYh',
+'1i8NlZ7tacNrXNJyqC6LYpMSrBPAPxWGp',
+'1q2nfieakS9u6h95uiJ94wZvbj-TsD5Ic',
+'1z-ATUEj54k2YUi9m8TUOUe35PrluIAl1',
+'1IG4rsaojNKcQiELVqF9Uh_Md141Qpo2n',
+'1E8GkkE0KjgUDGB6ig56MAHHNgWARYlS7',
+'1eMWllT2KDaxMPRRMzLgUMyXDoTVfXnEx',
+'1Ul4aAZVxah3dnxreJT-pt2MveLfFlcke',
+'1n4QsEDIvSgD6zdf5SeoIZU2DGyMNOJb9',
+'19qMxRbWIEeCWnN8F4jwid7Qws71hdP-Z',
+'16JcM2NJ14cOVQprhQKLctokX2iwiUyEE',
+'1paQE-ClB6p7gWqxwaPdTs-ujjvnAttEO',
+'1k3fbBFrBGNCwfAql5UmklSok8AciAOo5',
+'1HQyEiPnT2o_RYvfJi9J4VbzThIjBf3B-',
+'1MKv0yhBin45O8kOlIRMEqpvbRoOGItV8',
+'1uLEGdfmN7xwJaL8uNOlYBq6zTgT2wZWT',
+'144hybeR_b2ru4MuhoDP9rEB8BCiIwUx7',
+'1Fti-kw9vmoD9zB9MyV9TM5JoZgGizqdw',
+'1v3k2vHgKo-dJh1TAyU_Ah1XITxaN1UQc',
+'10cqnzx0GZshh_mOa7nSV8mn3tKd2CR23',
+'1UUo2VV7ATSrAgwSQNqYUZt3r2TE39WwX',
+'1M3KVVkPcpLCC5ZdHK19XfYVvkod6M1ew',
+'1q7uycLjPIz2JE4YzBr1Jk16jcBB_cUNe',
+'1k0GyK8M5BggByVGfVmH4gAmMWCygcjH_',
+'1TnyMoEH-8c3-_GZmc6RUsTUnkjHd4p0j',
+'18kG5LgaJdMRfloLosLjL3oqCCqYlyRu-',
+'1IZYRevun6qPjM_L8wG49Hw1LfM0UbUdp',
+'1ctxjGchtlooW4DJ5qUVEHAj3zBJOvjpZ',
+'1yS2Adk2Pl6DA_MujlwpD-F4AAN36K8Lz',
+'1gobb1JQ2g30nqp45bipUVC5fI6bnfHhT',
+'18vmgsQqiAJi9DxtKS2T4M-9Bk-0-r_O9',
+'1iAF2hjyBerYA-i8F5FOTYd94jRbSpVXq',
+'13arrTGndtbLJZv9ULt49rrGcFuypUqVN',
+'1aNBpHBo7ou0ul5V1fUTBaBQ4mg3e_RVA',
+'18KFdnkkr_I9VR6FOME8qbwZCM9MP7mrf',
+'1t352U3wgVof5746JBL_ai-IHKUf4BGnn',
+'1HSMdeNQE2Ya_jB6IdDomYDzNYl9oKlVJ',
+'1VLtx1wnDBwVLGDY_N9DEO_vTTHWhZHdk',
+'178b3SG9Pq6PZMd5qu0rGS5guvmSbcwIg',
+'1j1dRYtaDAKkji5_Unyw5GRv9Pp8BM_BD',
+'104q6iArE7Bg6w34CcU3ZsPNdhLIaUHjl',
+'1oqeFBUP7lvfTI089_bbF8zcqzjxr2XDG',
+'1wKcW1JVVLniEn_7cqm5Rq1T-qfS3Ushx',
+'16hgL1G0h7meHiPug5VCJng-S0Wcl2b_y',
+'1-oJBtawQXFlQH9Uh__ydKUIAegKA9dGR',
+'1JtrHKuyjPq0oMv5Ee-ul5hurfq3wnxmY',
+'18UQ5mPZ31zAZ0XF7Boq7OwV4DfNLzeJ4',
+'1uL5ivw-FHObVeaXmDqAXIyy92iTsxYgN',
+'1n-k2gYSDSbVGKVuKYw71zGpuOONpBcNq',
+'1r7paQjzGIpogBp3U7xpFtfzuzrQQLZTc',
+'1jArMJQqDbNnVlfDeCsIidpOW-nCM1dES',
+'1691dN-3-IdEUED26TZOd5CH6KciIxGEV',
+'1As6oH8u3gkMgT5JrzsfJQavIuhU894kO',
+'1jWsn7XCET5YsaAvKVGBsuffitT6vjgKq',
+'1xrZNgXcF1pnjoTaUHmV58O_d5iQe9dAt',
+'1KTZ3kblzjZiWGPJf3L6rdtlKFXy1Iflh',
+'1gGqEicrzGsT-PCsPbMV0yX3orQkxnirL',
+'12amn_79XzO-A5UaDGST5WiS8BN6InJIr',
+'1eUbePTBu-zGFSEpaw3oASG7FvqDAgViJ',
+'1IK-0btITP5u6BXql9KkTlGN68aKq_Bnl',
+'1Xt_15YkeAj9spI105gtfvefuLO_Tu3h9',
+'1k43lr-Ea3gEsmXIutsrxVJbLAa0Py5L5',
+'1lYGDOS8aVwNWQcwqlIHevvPf6EAeEMoH',
+'1qJhmhp_lCJPFBg16ssGjh9jtrtDTWWIn',
+'1-yPEZymNZ37-pZFM6TDPrekxNg27rTe4',
+'1sZ8MQ1vYk-RDnPLD6fP4SxPo0eDqCHlX',
+'1h388QLe2M3_kCeXWd8IedLszrdKmn1nV',
+'1WWqNRTvQNd9_xYr0JjnfOWdTldtlZVbS',
+'1nigws0n_u4FTfHOy_eGZ4EvbpsikFROq',
+'1EQd9gS5nTxMsmZPTcNCvNrDlNmOdB5Ig',
+'1ph1sz-wQJGyOe9l5xIKG19inIopHVmaA',
+'1Vw0-ngKlQxxzUH9h7i6ngHxKKe8s0xXC',
+'1dXFCjgCuEJMEk0EzWe3F7GCQKsZZmxp2',
+'1lB-T4Klyq5Xgp9J10lZ6JTxLNsnAI323',
+'173gemJqEuguleb-orxot6zXGfeUfDRwt',
+'1-8AcOEl3amlYnSqhx6ZZ8OzOYAX9TNko',
+'1MrUKsbXXpTs5tkNQD-v2STl5t2rZItjO',
+'15LZuzjnHba2R7-DOjBQiUyBhBubIluaQ',
+'18sw3BXSlEw73AJ38ReqiD9PkBoncxXMq',
+'1r0v_M0otXbXnqNPa8uGS0Y4qXo-APqZI',
+'1Y2J-3wFOSePPYmmdQ2Y2fAS2KXd1qdlJ',
+'1qlTAyb-480-nAiaHehvVSsw1ih2Ni33i',
+'1O22ELTtyN9f3tKgyORAD4UA0pKJvAsG2',
+'1VviVhAeECLZ8_9lykloxTSbt1DJmp-uf',
+'17QLRNyvYwc0B1l-Zk4sqM18wx7Tvkzs3',
+'1NDasFvGITXOJPVhhF9q959KK5d4zKkey',
+'1TRrRHVeyYE5kFrE1B4DZxAXvsZGQauZf',
+'1tn8hwqHx_kcGc8Sne2S9svP53vBYD8D9',
+'15mwrnZMOQqeYGS7UKcIlxTrH4y4ytUOD',
+'1NGUo_GbGN_WcsuYmnzvEwhKLtwsk1_Sm',
+'1lDunvWd5vem2IxKix06VSnWNBXO_ZI2_',
+'13yoyGpdOd8IVEmRpqJGMtwGujPSbPqQr',
+'1R7F8ppFV9WvPHJbIZxGEupWZTHbCqjBp',
+'1_YT7XCUGGWEh_GK7itsS2GR2IvG85NoU',
+'1Tamcmxqn57IO8dzqpXwtbMiEgj1GwuxD',
+'1s3uCF06ZDXCIKbwTVR-OjOfkYEWv6i7O',
+'1tGANTEpmZpW-c7kWt7fbVkV5oCeS6cn7',
+'1KJhsxvDqz6ir8mO7ZLljy4EIPl81dv1g',
+'12v03I2SVfs0J2a_3IAnLGse2eCwj-NUe',
+'1X-C3AVEIkkTHGkLVePUAZAwquqQCPpC8',
+'1i0wA71BD-Aw5vjf1umqKA0px3D3j5nLP',
+'1YPOHSF3pvuu5yebAziHlly_vDYbTvt4C',
+'1B9yFX3kd-6ZIOr9ozeW2c-uN_4GXCAX3',
+'1QqD-M_SB4j7qe-NSxuXHKAn5J2qA2Bww',
+'1eox92UF4uRa6czxBv9NwSQJ8d1H-NPYa',
+'1E-QWglImaZX3i-o_oAO6BrfuktIjDVm-',
+'1QuJvry2tdYPGrsMBCbm56LRgdaX4v7Te',
+'1Hc1uPtNrg8t0GHZm5QN23LWXi8Zu1SB_',
+'1nqR_k2Ff7Y-23DLNZ9bfCNRsL1BYyHMp',
+'1gSaGmqXb8-h8g6Jb9Lymczz6c2zT1D55',
+'11CJNiba7XKAsLMviqpwiB0aLz5sUU6yg',
+'10NBN5t5Ka5MbiZKZfUKWii4W42BUqgov',
+'1TpUu0fk4PLmo2t5XSpBFTxZ6E1yRSqDU',
+'1-Zuk9CsEhIwXSRXDrFnCyD32FLMjTJZa',
+'1dyJBkhZ7bMLyZvdDp2cCf6ylUWdrU_tt',
+'1D5Cy_haiv76V-_-G4lMRn4B2qVm2vMFY',
+'1CwH0tMbgfchrAEeP69apcms-n2SlagWQ',
+'15N_fAL5peZkJYn_CV9BbFq4-gStv4J-d',
+'1JwmPZdIFGD9-OK2a4E2DNrDa1gIA0jwW',
+'1d3p2eodgTbWyMLidm1qazkdKSlkWqUz8',
+'1euUY3fgvOz9iYN7Smx2ISna5RR8Jr53j',
+'1iZh6Dsi4tzh6DcBTkxn_XR551n9XiqCu',
+'1mtCqp6oztm7TaIgNyWxJyu6j5Gy8W1T_',
+'1XboUS6i8YJZ5Nv8TAVnm88cBHfpOMFkg',
+'1Pv7rXV2bb1hlSbQpeWgZS3_JpT6wt29q',
+'1J2ALLYALPTbSzkCQAt_u7h8GJdndfeGk',
+'1hA-JXU7Oc8guT96zelNEAdfXY8kiTb9v',
+'1-t2C0VbBx4kGRu867DA3IiyMEtspkTv5',
+'1kqGHC-B722YTkzRwd-8rD_g8kAegfmHZ',
+'11dtTm56shAGKsQbCndkiteyi2NmoO572',
+'1c0y92eJl1D4LbtUzdwscSRBlTzmMRNYb',
+'1gU-IB-LlXXOcHGK8BaYIBZAnpBAeHPQR',
+'1SmYRYLwGpDWS0LAQee3UQsEws-AZ6Vmi',
+'1geDuwAyrw1zYJWqCLNzFKMxxH88LEiph',
+'18oqcnXzcSlerfJzkJnC3f5IIm2LVm1De',
+'1FNIbdVuzzpCh3LCgokwaMOASefUXQCmT',
+'1q_iqdFyH7YTQOYV4IoR08qNLS0aW04RX',
+'1G0CV1bDsiKWVL0c0q4WO4OYKxwNNv_S0',
+'1D77y2d__6WompMQGAwZHGF4TTWdK_XH6',
+'1zkzKwnq1mpazJl9UU2yt2SeIur6HOIx0',
+'1oJ4uyo1XTp3WxCgk_AYtrufQF1dYCiMc',
+'1wJGO1exffZecFB1YQ86kvuebVHl96RCA',
+'1lrVI6FpleWwtQIuMrqdtMSKbirePqqIs',
+'1NTyyBGmVM__GeMhPeTTaavBDXzTHebkJ',
+'1GvGG7GQ5KbgbHs2PS8P6QmgzgCQLivxQ',
+'1M-U92MnDMUE_BU4I5KcJ9Sij6dm_Aql4',
+'1fZFM0zx_Q2nVLLpoGRW9WB6LxBX6vS7J',
+'1_HHvc6NeuaNshTjCHcUENTgAXczzlaOP',
+'12l-SWcAjE99qYRpVlqCbORHDF_0cn5u0',
+'1csAz79RCOjfiYHm4Uf35VWh9E5uaMjy3',
+'1aC6lfh9_EYggJ2uZxOoWb63cj7Wf8oX3',
+'1vpLrDlDjRC_6gsPRKkyEM1OmtGNTa-PU',
+'1nXtGzB0dplzIsl7L2Y9qzKpRB0aF9O7C',
+'16UEUOQ5pazhxMHJWguBRytf4FcZUcrzb',
+'1_WXiq3_FEUdbx6HddEdyoBFWLQgZeFKz',
+'1-EL8bAmWejya_U2CZ16OtkMLJlMK9Gjx',
+'1AlK9IDvE5chqjUdLA4NIOdhkcFSeYvvz',
+'1ifWj2irYxvUSG8za4toyEzupPIir_AlL',
+'1kpkYxtM4_9mjRULEZ_ecOsfKu01_RhsX',
+'1uihBv9DX3tVllmEcHhsXHOgv1FLlZvPe',
+'1yh1CyhMJ0we-SMxJi8QG5W1w22mUlFGB',
+'1m9EjPfHcD5IKJzHvhsB1cwnKFWG4E2LK',
+'1FgJyYOW1DMJE47fcloPZSfCa7aReRIRi',
+'1eba5ETC7EPXraE5t52ivnQUQI82uyl10',
+'1dyvdAsmNWeDnMk4ZEjVdEFcGc-4UM7S1',
+'1J979f6nYS3JVOnDsB267KQFIx6idJxUn',
+'1189SgOoI4uJYITuZdDkR8YFLBr2NnRHJ',
+'1F1NTEvC4wtzs6Mc4IUaIs3xVmKuZossD',
+'1BxeEqondqeh795_FMp4zHrIgiI9ySbGW',
+'12FdPiULtuH9RJbzwQOdxQTf1FlgT2qRm',
+'1n3j0O2ktOzEPdFF2x8npyM-BOAGL3eOw',
+'1iMz_zF0h7ePnVsIJZw4RFRVUuVpdDceY',
+'1G_07iS7ppgd7jiPm4PzRzxp_nM_WRGQu',
+'1M9m4WB6d1-Qd6ctjENfpEePv0mui3Mo9',
+'15gc8RgCH4dxix8210A_1f6zmazTn7bkh',
+'1C1b3zh6rbqSWUWamU4e7V1duWE_dvSnD',
+'1Ifoq0U5K-KEPZKr3xRKX8DXTTGivjwxb',
+'1E_4vsXBP-9fLV1kFfrgIn62VvZKdia6s',
+'17OByaKtbIk9zQe7__849hbuDNcIapO8R',
+'1ho7NMCiEn0HX2hvkaSyuh6TVTlz1sNM8',
+'15RaaGYwFmCLF0m_ZwUlR946KjtCFHLzd',
+'1N81ledpcGPQsmz7Pi8szPIFa30CxpN9r',
+'1VNyCj6qGIX7N4CPOkvWogRrcFv1-Kh6n',
+'1CST0j08lzLYJBnjhQ6Mj3LflV7l0MFH8',
+'1HUhY1vG3Hy8BHxRis05CzzyTLGIKcnFx',
+'18ZwU-z0_WSkDA1DWrA1X5n0HCyFqE_4v',
+'1xFYJQyVFYLU5Vokl620hb7b7dQ-TM06I',
+'1ht1pDRM_AHfgUqtdtmhut_Z5oXi9bkRg',
+'15mNEg35nqn8aUuoKqMuJIeKBCMTWhiZF',
+'18jTU7K7RFHOdLWM6EJOOmtOHICmfQabz',
+'1eWEqju4xctZiDKWOknSSqlmqw_iyj26Z',
+'1qAKk0WIagjOYPaYAh9u2V9Zxhuslyqip',
+'1OW6gt79Y-gjh9caxRUfCZJtAjKk_YnSK',
+'1ABOEQ-GKLRVXDzBSdx0_aBqzhW-7InzL',
+'1DYjaaAfLHAjyQaUNGHq0dnz7cfic3Gcj',
+'1RHATxPX9e-u2qcY15iDh3hNdW-Ul38E5',
+'1BZneUZp1m1E_4_khhzULFz3BpxfzVU1w',
+'15kubRNHZv9A8ODCpzRXCMmSih-TqMQtq',
+'176LBTF4TxnS0-4w7Ffmkj2Q_1IwGEiJG',
+'1Cui5b963k7xmUtydmGNcK2yN9rh6bhKO',
+'1LpofGQgsLwU4Ctfk_zjrMHS7FVQoFDXZ',
+'1dFrGDBrnEh8BGL3U9qSavGeoLtdmDbtu',
+'1Wfgo-wh8bxDiK-mFJNyfKFwxgjjnpmik',
+'1bPcFgXcfVqWRl75OqyBteHADb94SGL1G',
+'1vXx1DjnJCGduUf0eBuMQfqareZa0SI3A',
+'1cQ0kPsaJJ7pIF9Yewd0kEENd2xzKGARQ',
+'1TpECErROG-rNAuUnrvxBu7DTVIYyoZBj',
+'1cJt7qROv7SSRFrBqGeoNuphqFjjDza8g',
+'1aVyMSzJNnTKnjrjHqXW7C1gckiRBgwO9',
+'16fFrAQ-mBYCQ-3zUev_mBOhbrL-MMEvy',
+'18pm2WswXwqQhlfMegO5hnJYIwEj_4JOE',
+'13dSSsdebhS8XTFFAD79YsKaP9uHkXvJk',
+'1BHHOG9KzsNeXqIXJ39RctNffGNqMZvrO',
+'1erx774OOcSWR3EbHCN7t1cJ_o2rH26ey',
+'1txKqdLOpvVbGzcHdD3WIx9XUv6wkd0Bz',
+'1O1KudAJ3DG31G7h-orrFgn64_41fnj6N',
+'15e7BCWu_HdG6W_zrwJhuZGoAG5GJl2mz',
+'1oydAaPIw9r_7FD0hfPcF5x2FoHBhQcCV',
+'11hOjB8L5uaGUIml2X13Yu651rJkSGx1y',
+'1cL8SDZffyR6Zj9CBiSKaZFR2lzvbpz52',
+'1OISzRb9s5N7QQJKeXcRZ4LJSNtxoLoYE',
+'1_oq0-ibHxt4wn519auXIKysDtPddtKoz',
+'1DyYdh4OurUxWf14jgvr7xXNA5_YQT5yL',
+'1ELdX4iUE-n2p9MemDdrOELPaqASIMBXc',
+'1msvt560dMLbUGYgXWJS25OnDWx9bN-a3',
+'14dEgphWXRSaHKt9qvU2XJcd3OCMyABo3',
+'12zd8-oWqM701ODGo6GcRTlDPm0BnZ04p',
+'1cVJ2gLJ3ejBLjuSfcdpqzCLl1w2xmcEn',
+'1Cbq466zinYiRrm8FDcG2-Ej3xLs4OV45',
+'102SfcQs7qKZD2dCj9a0LtLhrI0UCP79w',
+'1JhQGcZ3AWCTVkHmb6jQbZsBCaDiEP8rh',
+'1hH2fpOQed374-W4ndBvEQhUZYxhLN8qE',
+'1Qn6tHmzxSGhIJPi1cHxuPGvnp-V3SjCW',
+'1_XrcLIOpxF1pztB_D0FfIknQbWirpIV9',
+'1lhb_IsZawAgprwY6vq3z8pjuap8fNdJJ',
+'1to7oBYm6UeI0Bp_UGSI1bJzZFpdsGCfN',
+'1WqWWa5dNGPHitGVVhsWtY6F-PsHOqSs2',
+'15kAUtGKLZ2hN8TarH-XpWgZomTnSaDda',
+'1wD67W7xtNhOnbdTkL31opwoYdntMnIaQ',
+'1SGcOutcBnzSq-WxAKsUn8jnX_bBJJ1nW',
+'11PKkU__hEiewgJgH5VsSZD_xm_ZtE8-3',
+'1VVC6-i4fG5QGWvZh-9YQaiBLxTdIVVOn',
+'1Q6dJ31aDdlNIwbUUPKqZIKZFjCzClRmK',
+'1RYmMSj8gAfb4dwP3l_wJ6t2NBktGx8zm',
+'15AdyQwOciTH60HEbs5ga2uOyq6vffKLx',
+'1LWuRfsLPlwHZTttSdocUL0X1Bc0pgYfN',
+'1E6HRnyeQYdfCGiUQxuWwiIAEkwMQ3Xch',
+'1mtlH5YfqsxjhCJrBEZHFcOVLAi_6nbna',
+'1dn1IDaTjL1Lvi3lK_ceTIFNkQbZZBq-I',
+'1ur4qwiZ4RF-_oeSDmKcoH7xaiLUEuXUJ',
+'1c9whzjPGcrVljtn_YVMim4sOXXcy2ctG',
+'1D-3aVay-CKJB-R6FdtLM7Ukj9gkjafjR',
+'1IfcUiS1lCFifd7DwTKDRAveOZThfHYP3',
+'1eQDWU_HENTxnMB2Iy3OVSVJaTmAZTvaE',
+'1jggIoX92NZfFMJ0e2_aHFkKnxaBcw2jF',
+'1fzkzXNP69vEGBxAbmGoWn5YU8pyXFoSY',
+'1owyHOZR1a8-6nWgzIBqbhbwURatmo05e',
+'1xMVFryLDVUIZrFyen8FnR0Qq0OBxCAAn',
+'1rchKA5R4WDY_kpJDiSH5B9rvoPvgGEdZ',
+'13RWMZbHK9HsvAQSk-z81zZGtd7m-IkMx',
+'1zlxaxocp1OSTd-PEFeK0e7iFA1jEQrHA',
+'1wbaTityHOwwHoEw6nDIIdNMJ0Tre1FUV',
+'1fvSrKUXYQSbgj3W62EibY12lPRc_IdyE',
+'1bkyDAPKhnLPDGKUFbCFzyT0R4pcGGiIK',
+'1sexZm0SrvLUflM-wR9t26OcwOXb768PT',
+'1Q_HyMWhf4l8rfeRW3IRjiWny7aybfvO9',
+'1H-iZ7Nfya3sGF6dQGIxmV-xGyMMkRNqI',
+'1MdJPBtVOWNvUkToQYkw3j6eAnuhNnzPf',
+'1WmR7gFgpQGc64RXRVJRzgp_GSVlBLlEo',
+'1SwVt2OcdElDaMP9omYeVrf_EEA2vZyb6',
+'1qE_hKKWDg8QKrFjyIZn1olMDNV5V_h2Y',
+'15Bh25Eak6Zw947b4BXPBt-8UyasWV4o9',
+'1H8GJfTHDNNvPB52D576vclAIK5rpPOeV',
+'1how5eDPmSgPToXVGZJjZG9XyvXUt1xvb',
+'1AZUlrrAEyN4ZypT6VqbCd_FGWjmgk1fj',
+'1wMsKA58s78-0aNqjhUPScDRIvEXP31LQ',
+'1OZlRu0D91XuF8CvOwEFIvwdswz4tDnaD',
+'1Nvik7ripu4mX5h30Ddey-5V9eZC5dYaP',
+'17agxr1woq8uyr3AlQgfTCE0_-nfW6ds9',
+'149-WkbdJVhca8eLTMuhgDp32aqN6GFnw',
+'15tN7k7glDBUHy2Al_J33APVnwaInSKIU',
+'193J_tB9q66-ugih8myfsH8JF1D8r0afP',
+'1KysBC0r3tLGl027J3tW8mYJWGbuKZtHQ',
+'15LSL9bGo5XjAlIKpqB_6dbevrL9CZo4a',
+'1obEwoGl8xAZ_IqoXosgQFDYSFw6NFtSB',
+'1Cmc3Yun0ebjsmUFNORGYQ-F5cupqin6O',
+'1FBhi-oEM9LmhtJd1VnmxaAScu8KVQTYF',
+'1YdR6PGTDVlbK2OceRQ0WcFIUZ4cWt3TA',
+'1vQgWzZe1Bcz1ohNNDgKGmgMgpwCYb-wa',
+'1swrXzDOUHobUxuB5k8eRGYHULcP1hTIq',
+'1P4IyPGrAcKDrmEmjcgu9v10hDW7-F5CD',
+'1Qm38sMl5r6gZ8y4nkT0lcnALSfYv49SR',
+'1GUmjF1l4KeJi-sNQq76eiC9XJ5whtMWL',
+'1IP8_BY8atkuIpcqjz_7HW5l84TfMeHDm',
+'1HWu2Vx2S1U711_XVIOLzr5fkeEBzMPAP',
+'1bDdsC4yX6EWx5F1Xl6_aVBkCk5HsUehi',
+'1IShBi0lc6jjn9qfMCtQisqlt6_vNkRAd',
+'1ioWw3zu_Q3QA9xkuqX2TjbaX9MfdvRRO',
+'1OX3gwfEBc4o5tco6Db5KzxlPebCMQma-',
+'1rNFB7GY3ZY9URaoZwstQi82_Ma7uS8O_',
+'1pwJwtgjJZkO5iDymNcVDPCnkPv_DcyAd',
+'1cvIlkbEvEjc17wjpP0SIUphAK2FeHmWD',
+'1Z4WlooYCG1B1SbLZnDheILLpEz_peVN6',
+'1YJ7yGhkmb_RX_Ns4NY7wRMk9fhzadVjp',
+'1sL1os0XQ2YjG77davAdiyQ2f9XPZ3-3Z',
+'16oe7KAnWCWo6bCA4szi_xwaGFit7QNg6',
+'1_NerEJA527hBC70k2Uwxs5YSo2ehOVXS',
+'1KyFiu-Ht-1Wue9VvtrNJAEzpi154j1pi',
+'18347pe0AeLbo59Hg_XZbqZPhRwISX7IG',
+'1qOc8NUHPm5ZxarJWdS_j1Njq8dzGf2QL',
+'1chzBAHuKkLkj47fSEgZwvDaQZvHdNQig',
+'1HfXRwnp0WbY2IlKsWOl-uLfZycR7FETE',
+'1zIhcpv92Ka7JEGkkZ_1sCKvG4DM7ridl',
+'1yJi0JJbxUcL110rnUlOcX4Kiqp5PKhLz',
+'1076yaGEbqRthjBhWNIkOTnFxHEBoMpBU',
+'1kiPAORpa7Tzk9Q6ohu2Aib3xVbCDjcYn',
+'14_RKqV9YMktnrnaJl6lduKAMUqboAJOO',
+'1H3QBaf_2h0SDXCB0f5PWuYxaULqjZw2H',
+'1U6zJAXB34sn6n14VU1mcghnJG660ZyNP',
+'1_P-hcjo2tOqVUDuOeOoffXkgABaZ548r',
+'1vVcexTaQZS_rQHvI2hPkmni9g5zDWVU-',
+'1CeYAxtKbMVh1FkUIRjqq2u-cq4zBmlR2',
+'1N7YwRRUI15p-1UkHuB_6_qsBBpvSX69N',
+'1AqMfEnO4Nq88MTwY-X9eYqPSSIGpedGT',
+'1_TXLmHl8-Mg1OqlrgX9-HUI1OdbQylIM',
+'1aGNDK92aqV8iEne2r5aqNyEScU7nKTyD',
+'1epDWBs0kNMtklJNhHp1eCmA_9ErQ_mrO',
+'17J5u-BTYrf8sCofy65k9Tg2XkE1_6edb',
+'1axxS4sDRQYcNvs7ENVQzGKOcCdMcHx76',
+'1aLV1ss1Yai7AMlNwJVXNcJKEJB3-WG6A',
+'1MTdREnPGBtUEk8lUX2K9S6HpxoIFLD3n',
+'1FgW_v8-A-1_oHQs7WifxxorXXIcpRZ-i',
+'10tYz5PpJbVcZc2s53nXE0ur455cSt17C',
+'1uyaSKq4sS2B6n9yBiUOCEw0n8UwF6OAi',
+'1mFRM2bziejK3diN7BHPJgPHaKM0kR0Kr',
+'1Fh9KYJvMcP_cyPzCAcWkLC_x2DIC_8bB',
+'1KamMr7r2HuERnLpGrBLz7FmLKNu0GI4-',
+'1PXQSWQ2v6UOWlfnQOJrGX8sKCDoKsITU',
+'1Ug9VqgCwsyOGxqX3vy4iNvDGQkiImoks',
+'1-kBUxKbUBpu5ggd_XgBMjSSIXC5jz85q',
+'10ov471-d7Hcoe52bgVxbqNS6tDeuzOmd',
+'1DD2H170dsQUjoxvEfPlfmnusRiSpnmE8',
+'1OwGOp3KIFXO8ApkXdXIDkmD2zOqFK_W4',
+'1Vcvs8lWd8qdwX4Na6RkRJC2yhT3Zg8RR',
+'1XqAXqoYM57nzj3tITd4C4c99fwWGJtDj',
+'1ot8m8-dSldE8BIXqllG56_EYguDmpLp-',
+'1l3Q84vwiPYXbrk3_rUUCRch4C34EHLqM',
+'13iefe_NsjtiF4C6F2Q77zYzFD7CdMEQo',
+'1k-ScMB6xoORWrm5YGzXG0WoTm3LhZs27',
+'12eCME43QlPsyuKaWWfCwa5Cg_Q4VAH60',
+'1fh1T_pqa5o44ainqfF10zQWN8-iD7JyH',
+'1zKVSgYwk7U-0Y-aJ6QEbfRG_Ahk4eOiP',
+'12WBCTyt4O1PyzCnoo0dImiHP2J37z98u',
+'1FWEt4yICV76dn44KNItaNWWtt78AKyEc',
+'1hwYhp4XixBQDgsVo5wVxIjJ__UG9WXUk',
+'1TauzJb00DLpJfU2OF-gk7cE5MvWCHwps',
+'1XEC1t_r8dGz5oDmc_xAjTLsl1slLzPYD',
+'1HgXC4JzTwqJiJxrcN_Jxf_tIxIdzQHWv',
+'1GFfYLBYp4uzWRy_HK9prN0r761Pt1L9h',
+'1qkXzbck8N_R-5TMKN6NxEwvQEsWlDJiL',
+'1h7HcYKgI4LjJxcrnlzuC5NiIWUGKt8Qs',
+'1Z2yVV465oEKWrAsT0X6n8jj7dBdkB2cY',
+'1nWPbsOxuajLQ1Bi3sVQXMIyhQNURLpet',
+'1okCJZqot8SNcT7cut9SMFGAs5FgYH7z_',
+'1Clxmx33CSJhY16pTiTp8S95HFWmLe0vb',
+'12nhuvlCI0mp88zMMQHZLzE74QYfYcagc',
+'1eEtXF3CPTHaGsEcTJlEpeFdvcWXwDbN1',
+'1Hgfh7Kf0QG7Za1E9kfPcwh6sC0R6xcHf',
+'1uAnGqt0p17odbyJCtdqQNifd15eYKDGP',
+'1sEHWrmJlPiOcLYg_6nIQ-f6BxuDXJ2B5',
+'1_tgijzrc7HxKsv9FHKvrLQrTuHfU_DKy',
+'1xlC8umMKNJpqXgDJv8OeHqqke_aWQUDG',
+'1nh8AXeac_S7sHIwX8B_6TQYdqTjZdbve',
+'1oQ04Luj0fhWQxI-FYkjxy89CUIatzizr',
+'19eMHbC0Gd5RYSMME3CNqZTIzYO5TdiT1',
+'1KGOMZWeQ81KarmBMvmaC47ysZIdZumaG',
+'1m9yjHfDlsrfeeyGeOV8FFXyZkynjKkNo',
+'1dDvPqy9nrTk2oW0wIz3bBPCG-xNZhkUs',
+'1Yl6Qmniv1ECBL6p0G71_A6A97mbnYP2U',
+'1pB3l_S4_idcDp8YUNj6-C89o7cs0qDDd',
+'13ELJmBXLeRDxQXfWi4KoWQ1qTgNOHIc4',
+'1iSmE5AluLljjj8tZwBbeJGganNnrBNPZ',
+'1uDO84oY5jdeyLQuTpQ29lvjdlFWA7o6Y',
+'1cXjnYMvN6loxs6neCiHXCEfbwB8ZhRs8',
+'121swMNLov_2PRf-DOSAwyScPDr5qSV6b',
+'1CD67kmrZxX3B8d_bIjm7BLRYRLmv-EX3',
+'1jBrv55z9A1GHoJi7zmNcuwVVebBfSSNO',
+'1hQnwpXoJSS6IoBdeVA0IOPX42SG3Xuki',
+'1u00NVDzFqLALQrdsJED9L3MwNbJPgiFh',
+'1X7IS3fcXzvxh_mj1rbyij9xXVn1k0Ypp',
+'1RDJ-c3ngnqzoa-48ltMwBqKvISa8XNdz',
+'1pv4qMWFo8ks0qlyKJZo9q00FAJs07vB4',
+'1H2ZBNuEz1a_W20nvjNr7Gox4P4GkiGSf',
+'1X1KQNzPLlYg90pTOsyA-jKUGYYWId0u5',
+'1CwWYL3M-SucYRCmjivgV0yUwbYv5V4oX',
+'1MaRp8-3c-jZw4diIE-Sdrq55ro1PWhhZ',
+'1b7zgjtfzq3Gx7YxmW3l6Zumo-MXcEgt8',
+'1pMEtYY4mgVIhCUYmXLFwRVnv-3d6aKex',
+'1DhLJot0elWqBDF12dpEvcEytGihxGKWd',
+'1Z3bGYet1p6gvQhCO7uOlprrtYuWSRsBd',
+'1S40KucScDZybUhyseNBByfoWMRUoRZpz',
+'1PFLaoQfvBb_8J7afKILgVcfj5JiUvaax',
+'1fI5q0I8JcQSE_rHKzWCV_PL3dirTgF9n',
+'1Bi_c0kfS3u-f2Zl2_MoiJGvXBYH7dgdm',
+'1cN8izxA9oO-kqRogOdOAeyQpZs2FJFq9',
+'1Pluwgz23EFwQbhRghdDoEyVN8ws4Rcof',
+'16L0HYG9jxIw9dF6wiPn4_wNzsCSBcbmi',
+'1K2ir-69Zg2wpcSRtfH7H8b3vHTP6E0z_',
+'1dw8QLihzNwSUy7omKVcMNMC1A-aFryQs',
+'1lomxMiGZKuf5ZyKh34mFUaFzeYLq3y9H',
+'1VUbSvrxREa5uWebuVs-uFVRfKN6uj4Xj',
+'1FPbyGJYdF6k03nPNiVVAKFXU2TSXcXIg',
+'1fwFQVyTtsgH6o4e2EGJxuColqcY2STXg',
+'1oYivutbnPE6ATmJ7qugKnmxvFacgUQzF',
+'16gUeh7KWqQYuvlfKrEyowG8Ykpxj9mdl',
+'1KQuQRXqBbsBS-9crYKoeXpedmYP8b7m4',
+'1bnMEvcOG8o-j4UgK-K3jbcaFa1YW0g0Z',
+'159Ms0MzqTlcP_267tPJtRCuzvb2jvKq_',
+'1y84Uduq9jT9C-giOnCOlnIvXnXQ-xnUl',
+'1oPA2A-ci1MdxbivwI8b9iyskXTEwzgk_',
+'1VcuyAdGd-NoQh-3ZvuWoOtGSQAmm2u5a',
+'1vnDWh2f7yLcLgvwFd6xhoM2PXxqsqXun',
+'1PmQVNOZGGUi21u8Tm5lU9klw8wPUK7Zd',
+'1-PEB6y3AEv9aHMxdWpiBcJwV5-iGLrdK',
+'1WMo-Xm4VU2b_MubSpg-C_dvFZoqN3uEk',
+'1-bOAwVxmaan9vf_jA8UvG5bd3pLtWcWx',
+'1bF03lXJz5XHYc-s-2pnnCFkciHAufd9N',
+'13YyiJJPJWjS7ZxwN27Y3AGl25TOQqPt4',
+'1fiy-UEr16mm2WpNoQWDyuXi8cVEFbVXC',
+'1yOmSAjC7IgUNYfPQHPWa5k4erQCw3lrg',
+'14Gkffyl8oyC8vSOqxQ7T4j2QsWT1iv2D',
+'154myRIT3Al8_nREgoq3KOwDoPZNviclK',
+'12hzhCMF_9k-EfnNen_GcxYbQQzsavUGB',
+'16zT5cJtwmMCbYEzZJBqz9cAU81PAd25m',
+'1ereVnvlPaPwO-zo5d1nqyCqQaRLaMOhW',
+'1piDc3_ual-wxdkeFJn32z7jd2ypzgdrz',
+'1Ej3PnPOtQq6XiooTMsqEEuJTOLde9_iv',
+'1XXaHTz2OKr8YqEjirGqD6C9uq8y8SThX',
+'1fhvsS-6Th7WuaQ0LXhyDxR6zHF3wvQre',
+'1DMamYIaqiVYd9wfIeAXThsIkgLHVmO0c',
+'1SxTPxchLCWxC9NsEG3DQlF5zAp2XjC1n',
+'14ebPhEhsbQjUJqqqFoFBk5qOwW7CrR29',
+'18E8i4PT4SGYIIVyQPpiA4B8MB4bzdIFq',
+'16HG4r-7E6zAzYRKgzoZa80XvtJi-oRmB',
+'18lVwNCt7fewbC5yMXJKZpyp2NQ0arGmm',
+'1BtcpSylIF8qd5pMuHrIsyoHtZx4sDhj0',
+'1RGV0A7cxjXh08zcz0SAis3h3eFNV2IqO',
+'1Fhi5OedPFUXYH-IMQIa0sGz3k9w9AjNS',
+'19bdEWW0bd-XqxXcZpnpHGS-fzhwxvA-Y',
+'1jUWBdL150zi51i8uuLxov1DmtjcJfVzT',
+'1XtoW_Tq1VYLD4e-hvGSdqofpnrsmiMoj',
+'1LwS7gUlPLYaq0MF4WHNrxdYF7LKJ8RTi',
+'1bmZviTHXvkT3IZOISw_m1KwLRbKH_ZJe',
+'1DxD_2EOIDgYlCWuGMbFb-HaYSnZ7H8yU',
+'12eYB78H7D-m3unNftibvmzycqDBTl_hI',
+'1TVlNQsPOvv5Wy4_XykKLh5LPx14KivZZ',
+'1fgW-9nIBMqi2CKKuVu2vUPNmBXggpkLm',
+'1LX2afXSJO2uDjENbD1l-fXIzKMuFFurp',
+'1zsdqP08AjV0g8hIJyL3uYggQCJ6Ll36B',
+'1q7MMN45vXQISc5VdqY09s7DzJXyIMKVK',
+'1LRIk4y38ktlNTdJ2ny_lZmxiNiZNVna7',
+'1a3-qwdPUzvQgBhXNmJL9vOoFoEApFPM4',
+'1iFmClTleYYIL1E6n8B_M18snQcRWNRV3',
+'1GK_XtlbrVJhQX7gpkIXtTV8oCrx2NvQ0',
+'1179TSfbC3J7mH5ozqqmFrr3aso278uRa',
+'1B7Tf6jid9K0R4u52jw6BIyHeTntEgs8D',
+'1pEV_PzbUwRQTHogGaENZF5engxuxJ2dM',
+'13KAVG12cHzaMSicBWvpKCTLvEuONWS42',
+'16V2JDvdEUmWmJ_KLgRE6_1I5WM0KLmai',
+'1GWNYG_2TswejUOoAr2KBoHG7TSj_642r',
+'11Sjdce52pblYohI9mcCJJCJ9v4r7t1fk',
+'1q2BWp4AwA6MbgXu-r_l2p41bh4hv2Ged',
+'1kihrH8uh92UPQ8KwJaSRi7SZTdairOYR',
+'1WhAYp3MtrGMHj5OQ3m1VJE7bNau7t85T',
+'1KMFrFxcHZRXJRsW9YSRCRC2oOz-JqVdy',
+'1sgoFead-xZlJd_khUjdDJpB6GQyS3U5a',
+'1iW98vmxQJEfj0X0jSBDAKYQYAyPgt7im',
+'1sSfu3NezzdakjozQ6NIN_xAb7p85mvY4',
+'1PUYjvS5dXa9rkKyPobADaZ0wEcjd8vCu',
+'1P1OX2T6KFLwPjedn7WrnO1ohkNxIheog',
+'1FzxYTqwBc6mitlyPsr-iNqMi6vYcYLdw',
+'1tZoTM2TVYfCZN6NFbAZWCvSp90U5MHvu',
+'1BbKArFwMR3eU9bNHI_YYT-X8jqTvKYmB',
+'1inI0CsoMTrBbuJ_N44BYRgsvi3RaG7Xl',
+'156_ulJ0ZhBlo94658VNqhxXvh_luCu9X',
+'1V271EsaWRBWxXXcMT_jZBjLgnnIw1MvP',
+'19wz_Y5F0y-2whzAzzbuQuFRgC2V7qQec',
+'1xxFBdrIqxJkuRV1fAVy7cafhPcvMTZG6',
+'1_mHgJx-W0BHvD2_AoUj0OZ65ApwkVhZb',
+'1YYpEPCDwEqJig3t04DczaY5ROW2Yqmhe',
+'1fciS9krrWX2srfLtXjkCm_TFZxYR5lVE',
+'1ARsgYp2mU7ILZhTR3VB9rjQI3T6avE0e',
+'1AyTtEhKd4FmQ_CfZza-Y0LaZfHtzhMM8',
+'1aFbBHHIkSqjnTOy8EuaMu2NFKiCDG-RG',
+'1WWqUYGok8gynul9iZn9NTwOHcTEkNV85',
+'1s9btqaFOQWo9pabhbpX_ZmhZ3Ep6q-5h',
+'1fLXWu8RhEqrkS6sWHFLUG24KjHM30WAR',
+'1sHnhOtN-2OjQCC-IGcdAOru2kNW0_l1K',
+'1YlKFyFiEfAeix3xwDgEF57KdB9kJ-ZBI',
+'1m7TUmM9U8BOWsyLl8MNVgg8ybKbP7GOr',
+'16BLUBA5zREBeVBDV3RGgbyn6eo-RekqF',
+'1iraNw-Qohiw51nSbuPqgAJKpHiKurRpb',
+'1B4lqiJi_4YRH3pcWPj3ZG_iEazxTJYJ3',
+'1KDhDh9CFfhVWayE0vFLhjnIQ3XsckuZ_',
+'1XFcWwibpUgs6DPgHMsub8RVavDdLOb2r',
+'1k41o_52ym4vWDGuLD-hv6rJyhICMZxqX',
+'1s6QUiM6LvtmxpM8GEUSHCwel63byRp-9',
+'1xslUx9qPNCYhsrK03v17_fKfdRuh5nJA',
+'1n-xvV3lNhio144rYDcd5DjNP1rp5WnOI',
+'1OvhjEk667TrxS8uIWX1p-WHwCNt4Uhcm',
+'1dhQK_ccU4sd-W0YY9q2FUeMm54pgV-l3',
+'1Rhyyu-LoBn-RKvp5fQvUVwpo4JW9iLKi',
+'1E6LbCvjqHxHlDu4bZw9upA23yl-UCa00',
+'1cGTnqLav2mrr6EHuHua6xr3SQlY09KEZ',
+'1tDjh5QBNLhRQZTnlYrInD8c3u5HryHIr',
+'1pONErHiF9SA0-hvhrxw_v9-EdQo0-23T',
+'1NYWC_96WcWHNJeqL_uWCON8N_mth6UOn',
+'1yPfdN4tjfdUyYrCWzb8APsPsISna9Jzo',
+'1RSwHiVf3bpEm-awg7akWhLs8JqQEO-W5',
+'1YomqpPA0m9yE9NE1zpHHqRRBqmf3sMP-',
+'1A-4qNp0KGgLRQXzWTht8Tm19Zy-GJls7',
+'13Shq2B0ar66fod4p-e19ozX-SUpY4zhl',
+'1I8hhunaAM0jCz2eCmex-JGHzYpOUiQgu',
+'1mFrS3L2mlv9Nmem-QewCjkVNNmGOmezV',
+'1efIf6cRBXdHbCjCvCzcXBi-NobOwk0b2',
+'1vGU2C4cyx8u_0h9bGIupp_fCntQG8eLy',
+'1Qj23-O35Ch-0WUpPkc61ziX5h4QGzl83',
+'1m9AcanIAAqX36GWIGOalnE_ongCSH7FF',
+'1u68s5wGgQviNhxmjrejVFHx29f9C93Mk',
+'1486AafJ3NdKXqOS8qlxJC0VqSQrXP10N',
+'1DvfVzI9o7OTjOY2zQAeZCT-2YWRmz-oO',
+'1tKWbH08JEKiJLHDxKQYndPmBSf-H_9Ka',
+'1giyeO5QeFQwBEAxeEurfbD5p3Wdk_YtM',
+'1J_Msl1-Zvy7meksLCygwg4-mhCuBwyND',
+'1NrGFUpYylFwSIP268LFThDhdeYoj7_gy',
+'1HMVMDBRaHc0pC5GH5MPDODYevTGqL4jX',
+'1Es6wxWKNSMoVgm23tysSs9YQKBH0-qkP',
+'1YENC-YxSiccmMaHZ1irkQEODIuN_ax7w',
+'1CVPnfs-yOz3s0V-H7VB_yjQKxTW9htcR',
+'1AiL3KfsBpBgukB0nsRKyhwwscQAzfbMP',
+'1EGpkha2SX3vOd1u5ptwRZfn7boe2Me-C',
+'1fLCPlNWSYrrc1B4AHzGk_e2PqUNuQgXW',
+'1HY94zLiLhYD_vtJ5tGFO7TEawDFqN9eP',
+'1aW6WnKXtMOMuhCzQrTCzWSE9ovfFpTcA',
+'1xeGL3ONPXWgx5rSzU6CIPXjvd6mXoYrM',
+'1NHz95svhDDTpLisK5hI72X1HzJRmrsBh',
+'1GWoSD_rv9_pST_L0ksXtX23Lo0q9pLix',
+'1nN2UP8WSlv7yzrwtvx5vNKC9FZ9v2V6j',
+'1u9MC3s_DfYUCL6KauUcSrFMvXmMPAxhT',
+'1OkfCPE1mQk9M4XvsTJCUfjTWjRUPIibP',
+'1_pP1NPeA-BjuaLMhF6GD1MtNFeJSowRr',
+'1PY0drNrn3pt-46B_9zRHETEm__Q869KQ',
+'1k7T3VH2acVpudbNsdupTPkwzuqeTYmSG',
+'1BFK9NVw5CbOrFS9t0Z4b75NPTkrwY5Zb',
+'1U7YRl32yTVhl8Ds5oVPXz2MApgUkCqRf',
+'17kOlpESrohfAZvHINFKppViQInOiJEiQ',
+'1VlGJ3DDnwNoAUkia_pfgti6jVYzJL9A1',
+'1LTcQFq5FlkrxnqppI6lhrqKSGWwHriDG',
+'1kzLVKHXNbQzlHTEDN-27o8nr85aKKyYx',
+'1DKl3FABFrNaLiGdUW3SJthWGjyBAHJPz',
+'1Iu1NkSJav782AJG_A-uxooqAAYZoqEI_',
+'1YA3uKXvd7OPJANN4xjsWNwdFxjDEXWD0',
+'101F_jadivSJTFbkZBAIqfchTHhtdQq1a',
+'1kFJ0ujHWsLAKeikRq909PV3I_CeU1F92',
+'17cCjndzuIAJlokZai-0wN0q3CWboNz1c',
+'1HFsNTPfJMv2Ahc7-yYSFcLKzWbQQBNFG',
+'1KjOKxz9j6GZkkVEDKAnut0Dq5elRLJD-',
+'1CoCTeRMOTa2gkfcjJfktUaBl2o58v1sy',
+'139Ys2csIhoYiW5afmQpV_sCVwAdvge0n',
+'1veoHd8guVe9afGo49qjkA2u9vF7md2XX',
+'1fIWc9zjyk3eCsqqF_Ch7FYUUqPaNDYsm',
+'1KGtYP8A2IV1t6cU_Nyz07gXpZPMXCkx0',
+'1rLsoOn97C8c6cijM3xVwjxLLBaGR9Nl2',
+'1xImHBQy4QMU6A89yIDLIKtylbom1wp-w',
+'12yLMEswYti_gJN8-lxISvOgh9Wt0Bwlf',
+'1KQL8MHjWaW-Y2FTT5Z25pW5M-QJwY_up',
+'11dzd3An-xZaN-pzed8iUshHP5L4qxw7p',
+'1iJhbbhbGwzTwyYuvtySoQ7q5VaZq1Muv',
+'1FRQtN6U6rJ064jafRoMIU5eJqHVGFi9C',
+'1HksIG4wUBAna9K0hZB5l-omgynb_rFGR',
+'16fFAIA1eblxE9m-HJBJsYdBIrtAG2sj1',
+'1edpUtpr-P-Nc24QhGPVCmMkMrTb4aO7y',
+'1inehS19QCxGN8uETfXQFU5uf0YrgtWiM',
+'1Y289CvEeQMqNIO7QffocR2jYetME2jEh',
+'1ioZ6MP-LcCa4AnZswIgLLZ92u-jLoTJZ',
+'1RlTyn5KZUfI7rWeMmTnGr-waS-b7K8rU',
+'1zW2lruPuQngB8JifKZ4VYwKLZ5DhdO5F',
+'1fHfESIrQPbMfWWro0mCvWtAAejLe_G_4',
+'1lEqj0TDJE--baIL-fOfH1q6U5so0F5ud',
+'1E6Y0WJh7NHkqN-RwHF2Q13tmj_hQlc_C',
+'1TAyKDEYTFsNv-OivxUltxzfx0SWiWRyb',
+'1LXSieEsckSWM1tN8RY_0rosH5PIpFhbR',
+'19dslmk9iLBSdLylXAlRboeSHrooEePTF',
+'1rXgaoFuBUyrn5hh2M57ybsO4sDZW2ISZ',
+'1H7rLD3vQBaBOKwo1_wxxPVP5igI2EWnS',
+'1Upl-bPlUM69QEtZU_gvfEGJBmq366uaH',
+'1uydBJyy2sBlE0CoZuevPXJluNjs2lIbc',
+'1h0QdE4RKPG6c_fXsaWojrv8QA9yGJe4I',
+'14pXht9pL46igK49-kPRZGHw5RJb6B6Z_',
+'10NxqrP9v0JoOqpvGMPxT39uOs2tQzXSA',
+'1_y2mSPfcmUB52qisbH1U9dTqUmuhWRR9',
+'11O1TVaD56yrNfIau3rh90ETK9zRDfz1-',
+'1RdpF3DFgumEF86OhI8AZ6iZtIanNsbRn',
+'11E6fE5OYxutLIbur4wXL03wPWJRnvXc-',
+'1Ra0n4hQ6VCsCgJgDnXi6wcsUOJxRmCD1',
+'17-mXJsjSGuPmRq42tJ5jKUakXexhcPk0',
+'1ecUID-w-6f_ULPMp-KZwozakNNGZ7Sc2',
+'15QGznKogOLyZMu0PNHvd4fdcg5TbDCtT',
+'16hbMzDU7SvRhbyXM4gbTKMvsURzvjHej',
+'1Gyy-ydsGnSzkO6VbCR-Rf9shZLd5HeXj',
+'1tWC6RwjBIF6sKEiKVEyTaxsBTLPXmmsK',
+'1qG6FHH68T5X0kJqjNRGFz-RD78M8B1RH',
+'1oGS-i9UZPvYBFAy_dQQNAn5UNFzl1kcc',
+'1sU2WmgdHmrbkZJqfGQE4DZPVW5PyieCA',
+'18wFUQgahkUcWDM5VBDVc4G5nJ4erV0Jx',
+'1qsEWMrNy--9zdgnQfK5LPzV9uItv_UZ3',
+'1tmXDZBSRhWSuB2g22FqNvZf-y2FYvTCo',
+'1uBA49ZpH9kAmJ2RYO_7Ql2InSFQ6akSQ',
+'1r2C3bWLbyYg8cOBRBgDb0Ube_X1atpcv',
+'11Dd7uwNA3frjJaygXe53nZJoCOYshcBS',
+'1NWQQVhaot9YBEO2M9X1qhIcsZNhQp3k-',
+'1jjy_gTeBNwchyMQ_oxg3BwsmbtARHk6q',
+'1zNzwwx93iTPAD1xhOL1oejoXPM3Pkx82',
+'1j86mhrsZ5xaI0c-lKIeVDaUkDH4LQsf-',
+'1nS19BZ9kGNcXy2v3t-PMWfVem30N5f5b',
+'1wOEMo9hYiH5Ei1aqbiT6o3Ta8VTGrR-Z',
+'1ugO7tfNDfl7vJQnZlPDZRAGfG83Uz9ZS',
+'1Q9nTyi4kjsdDT7XNxen0rQxEA9Wo-MCk',
+'12Ftyj-_QA107mOZNRJ7OXl7jAIxm5WWe',
+'1Zc6rkkMpVygAoLejDWVTplHZSe2Y07C8',
+'1PM8lD7yoUQ5yNaxI4uyl7UhKcFN6HJLo',
+'18e_zo4CRcOvy7-ysUWrA7NfQWykTzde4',
+'1mKQpIXUX2fj4bkwniOlxCpLOlCWU3S6Z',
+'1USD1ScDLnZE3zOCz17-TgwHwCxEdicBZ',
+'1Vyms1aCPG3x8er8UmsLh-NP9UmvtMFec',
+'1f2SG9VTzIBFeSoBVYDudmyCEZSpy8dKu',
+'10wIpC7AghwweiBFmvtk_xbtV7YJ2Jij4',
+'19yCmLSyv19QnyjF3DSA_b4uqV_qcmTLH',
+'1mZv6pJeKkpS2eNaLyo4ftqs5JIUvoHvD',
+'1xlB_iiGG6lURJGxE3N0GRIM4trwrXg0D',
+'16DY03WVkiot2Mc4B8eol_cCaxTBaiP9J',
+'1_lZjBgpAcHExr5e3T1BU_c4lWIlpW6zt',
+'1nL_c4A5pwb8oGO6c1vmTZdQ-WT37TWVI',
+'14XecY38VEj95hkP9fqlXsplXqrPSQTsq',
+'1COf4XC8ePhKw4yOdoDnSmRVb7utpzCzD',
+'1jaWj-Upgu_O4nKW8ENsf0BantHXCAUOT',
+'16S1LO-V79Ob4hbkSo-KuHolmkQjFOnLv',
+'1evMrXOR1nl9gCwIZZxKgkDb50FQcjWwQ',
+'118kIh_tDn1QBikyXkxQNu9XAxsJS8k1w',
+'1lWEvfugOFGU2Tt3KqZ5qMML7jovKytgd',
+'1uC9cpSvPeh23bOJIe0zeXd_oO0vo1WuP',
+'1lvmW6rnK2cHfQS1gdg6qg6_POuuYa0hX',
+'1jt2L27542-N9bLbrtaUcShiifGxde4-G',
+'17tnT1dT_ePSgZz8E5XRcy4UmdsJMItxx',
+'19aLTPY99JaiHsEJ0U9hNI-wQ2_Aox_R2',
+'1BOB1nRnCsaAIg2Li1yJNc0yN9W7c93DZ',
+'1QG_qf05ToxBC1pYCwjyaqIGhzND0ZBJX',
+'1G0Ri7UmMtPvN4xJzDixeq8a-kSzQYPQ7',
+'1e6TvOgF8YObRVLwDk1_aD-uQ3k5-YWzM',
+'17Z6-k_7h1GVrQ2PKwxU-tS2oq2RE5voV',
+'1ynr3TkUIe5KBenear3wp05A9uA8Es_8w',
+'1O_UtwxLjAby_JoO7A6BcSpy6a7QDstxZ',
+'1rO3efm2YJWqrLOxNHypPwWbBhV5ELy-3',
+'14sKj6DT_wMczEKlgOLlvk78llu3wnCy6',
+'1JsfsxkO0rVHHolNYIj8PNt5Ar7URvyLx',
+'1Ry2LoD0M4Pkk_1z9S-CMWMFousvcRzSn',
+'1gyMQ0vA0UI3F5Yhkt3gmUXmZkqhVkXJY',
+'1y1MO37W86TNo7eXD81Lp8ZRQ_XtYL6YY',
+'1ppFeOQ-BuMT3kqTc0AP0N_67ly4TKRg1',
+'1LR5ZKF8-EPLZ7c7gp5R6ESn5nmXJ3g1V',
+'1h1o2-32cxY_vvwE9ZTPelnmlzrbYr4nG',
+'107tPbl-bL7yYTja8lfSH8sBYJ-TTieMv',
+'1G6Zd7DF6N97FCvek8YcyfCrJQ50KHyc8',
+'1ffI01Yp78mXshRi35A8UDVFyvGrZfx05',
+'1PogQ_e8xUtmGJgkLoNayWHBcrprAR6pz',
+'17-9bkiO98QdaCJU_mcz-zm7sdYKO5-Ja',
+'16wN88U1ZJGWEExgr4GkS3jqzCP-rZ90M',
+'1hT3FJnKGtCFPxNXF7E63uhI-9fh1T8Zs',
+'1V12gsxNNUJofeJIc1F_-lwQqOgSBlTEE',
+'1ADMo25CVJxcm41cYuuEVwTL6dopeU46b',
+'1Evk4hA03W8dq2Py_TGn8vlU41v9g7cAq',
+'1PIOlYixbkB9YqFjCu32GklHr6f-N1nGi',
+'1KCbHdLVruOIDmKCtKNk79r3TsNJHbqnN',
+'19NPgrJbG8hPZlpRTl4tplDE8aYnMrdSI',
+'1IX2RFTps3VPY7UT8Gv9dcOGRf_AL-0F8',
+'1k5O6E13YaLmDNbPfitmx5FaHLnw4LwDA',
+'1dAmcwjrQomYDuwfv8oFGSWx76lSHg21I',
+'1KlPr3axx-748NGAumieGaHhtXO1fh2xG',
+'1fIrzuWVFlfsue9nJ3eVTM_cMuRNGOOwM',
+'1j9CAzFl-xaTO0O_tlBTKq4iG8XxlHIQA',
+'1lTCLXFvBaQww8cZWoeARW6rk-QFqWXoo',
+'1bi9QDWiQXXJMfeks6tuGgp5qzsx-v1j8',
+'1TwXEc58Uz3SPCHKt-uuQ1BWklu0F97hu',
+'1c4CSf2NKPlElLxw5JRG44G-Q3KZN-Kfi',
+'1AGzpRGVR0CjnyNMN-GCBjM7B-j2QDSb9',
+'10TTLFIHQFMcPBXVa0snqJXVbwmAp3lQL',
+'1cTSlJhsgIve9c4t6WRciCb2Vhwds2Op_',
+'1A-nL3z93WcD59kHojOCYj6QQCJQ4MLkl',
+'18HyRLkpXohv4kZjXttm5z8_k11uYy_oQ',
+'1fZD5gzdm3-zS1Gz5fYr4U2kGI4Te6C9B',
+'1FIdBwnJVkbYhutxznZ99DC4Mus4NyK5b',
+'1hdzHoqdmNM9UiA0eRlMVQPlJ6-tMfRkW',
+'15mM07TTJECbroTpx-fIC9aEYMXv9n3Tq',
+'1MhYoGlAQd7s2Ss4l5Zh4wP28urRUh8E6',
+'1tNBBLxS-y2ajoy4sf5zi-izE4g99QSc-',
+'1ogfIfaN3vQQu54VPRctuCepOJFaXAvz8',
+'1f3aTBDG437f5-7RiHECc1iIYeM2sfxPG',
+'1o4k2QdGgC-PWau4B7raOyJJePrQDGJ8H',
+'1qC3JCF-jHW1HQ8Cr5qBibs_o_BR4Lh2B',
+'1ZtrVfOTVx8aAurFEwK_Wdu9Op-EpcJW2',
+'1k-d7gLW9z1o6i4EbptlHiMJkSTfcYPcO',
+'1wF4dyh6TaChNjLVja63fulq-G9eCiZh9',
+'1J2IF1Ds7wckH_yw1z2QjBsmFEd7Zt3lm',
+'15G3s8HwyzxIzpGehp7wQq7o3BlENQINB',
+'1w_DwiGsZzsbnO79pQEIxiVAPfUNlEtO9',
+'1J5SHTMk2b3BMZx8cHYMRdsqHv8lD4jU1',
+'1ByLfJkWAmqGWjjw575cNBjA7FbJhqOQI',
+'1RYQrnVeTTmHSuVF_b5OArKdQhaCBkapx',
+'1aBbfzrAFgB7YMnO0TclbMPF2m9b4vQTD',
+'1Dx9m6mCrYCuQTeFslgoy7S8xuLlkAdhe',
+'15IO9MBXL0CQIcehYQJrOKBeaVhYxIGev',
+'1_YS9c71e_bTqS-IAimMm7UWWLAdZK-HP',
+'1AEu-vIJIIj9z_Kc75ih08v6RzP8KsNVf',
+'1TScNMuhLZXAaevCsY_VnlL9vd527NYnn',
+'17RpRox5P7ux0-LsPd5SPht2gkZGSvW5l',
+'1hi7UF15DGn8VZS6VnJQMA3U5VaI0TDp8',
+'1DP_I_WJCCsiBxnF0tqJwcvlb_VZ4Kwfd',
+'1GVOu6DgTy2bZkkREs-nuNEWB_PRS5-cK',
+'1ClJoWuy6kFEF9upL4k6QBHwTzTugqc8t',
+'1TH4qAK9K_b3czB-IdU-fodoF9Z-MeIIp',
+'1isrj8z19dobjL93C4ctpfwicvsDwj3vj',
+'1Xa1wQ2FlMIJW2q12y-rrtXbkPx2qLYmM',
+'1QAfUvRiTxBJfh6C532yyAFpq12HIbZn2',
+'1Lpkn40iPBLovWxuW6aPGNYV-B3vmXB3G',
+'15KUf_OLodnjJv9r7JC4GPUckbTEKGDuC',
+'1C6TSMaub3FnlDD9aVaztGIZaDXkKZXTs',
+'17hXb9y3eVxbGdntHJFxqOhQF329uuLPb',
+'1FMy1XZJdDwrypL7QCx5zNwSki5VJtPCg',
+'1oTkQDMMZAbabLga5vQ7xTx9pwqepHgCV',
+'1U164CAVDLs96Si3MSVZ_rP4M3mZSsg5b',
+'1X1a9ZmHyZ0loISUmpxN7Peu5BlS9pNUn',
+'1pfE-T7ta-HVoy8E3f2A1TNCEjAS9KXFi',
+'1W6I5S9Hg3sOkVU5pFQ_TaaTNIqichxw8',
+'1SrAuWnEWS2NqjmWFNrR1FT8plbRiYvmB',
+'1rQmQlCcpp0rtM6puzQTI1hoEK3GyLZ8O',
+'1JMYiDCx2LY6g35sZHe3d6Nb-Zb-NC5y3',
+'1caGt8j2jlOjcNAmuYBPal-WySj-Gxe0F',
+'18MBIToJ2c2xNmQYr94k1518EQQm5H8JH',
+'1I11QFGX2dwU-0lNgQkcxDaTzYbfI7jep',
+'186SNSPpnDC5QqKakzsCoVrG5087klddb',
+'13w1aT1T1-3PH6ANii8QmlGZ5fy9c88zy',
+'1QJRr8I63qIRlkfBrg8HnPWJ7sZt3p7fL',
+'14Q661PiV7hi7-0xy3o8wJa7dTP33b5Z8',
+'1CPmKeeGdAOgegZpzKcM7vIPGCtdHGqfX',
+'1NULgbMdY0fZi4678v5nbCuMiQWjTg0vH',
+'1ZlVE1VXPq4BNBtv9D1Y34K2SaHXksoep',
+'1u7922a04ySDSg5W3Nw1eHj-Ep0DOgdqY',
+'1Wejo9kM0_xBD6mNyxupTnIO--mK8pm7T',
+'1KsLaAmay09N_iIl3gFor0s9JEG2UM5zB',
+'1vr0TvVycZLlW58qqi9_wJI1rHzzMIhQr',
+'17YgX-9KoLDTJ-hPCgM28daLWTi5FIlrz',
+'1nz5atLGIjRtRijR_K3t3yeh-DrdnJTZt',
+'1B1D69KFk2suWRMJJRC0_XRYeJG4LcoMH',
+'1GW1P2ytU9pJ1gbErEX3OHhQPA7IR3_fr',
+'1opyvX2ZRsMX96KNDkzbqiCiwa1lnVxIo',
+'1W90fTaEWxKkeADI1NnzHJ_1PH99Pf80l',
+'1hfiYJrVxEO5YWh4YxUuEj11vK1Iu69pS',
+'1zpnkoE5sj1IDEJYZz_9tUHc27rPGVZmz',
+'11YCBzm0FhpmVGSsLedSB8GnF6516Y8dt',
+'1TS7xFHWl1WRWSoXaeeT6EQLKGNXR0-TL',
+'1sq7zNjRijv6fhd5gIzHzMaSd2XHD_31v',
+'1pC1VHSKoqumYfKDDB7lMErzoRwseR8oS',
+'1vw5OgW6836uADMLqhK24mA6j5u5Qmv-c',
+'18ASGAR8xGGHRo_GrOiKMVa7jQJM9HMHD',
+'1YLMpiraLY3uXHRF4wD_qUoAnGJfz6F-i',
+'1wnrdN5Ds0IlYDUbmDaZWWYiqdWgzF8Xd',
+'1Ko-sOqkmFvwPDGO0geiBtWEaFvc7lMwk',
+'1dyPpXaHGtR4TeYMhaXLVLUpCvyBmPxcs',
+'1LlgiOu1aH5EYIfyQzu9pWdWKl80IQDx5',
+'1rIQ9mcW5gz_FMLLMqC5L99Ry1E6RRf-R',
+'1Y8nHCsynrwyGg4kyq76WYoHbgCQfu7_T',
+'1SGQsasAoJNqAHjSUwOnROcxqjf6cXJ-O',
+'1uHuqKyCoE6NoZL5wIfZyFf897ZPEG1yw',
+'1q6NmyUntb-FmHHTu3-Kd86rfcLllmqu5',
+'1kjEevdA7e_BxYMbRM5Tw4-zBMT2Cn2dD',
+'1oEuEzz6CaUjITtIj9IXoRgkhMOWTpny9',
+'18w8FCGplJbt3xnov_j34DTX-MgKRsMmQ',
+'17-cmnxXuNq7e7pqImpDpxoDlwWt8yQJD',
+'1BlZ2I9Rk3SWVGq39y43fS8IbqIzeSVUm',
+'1X1Xe5t8HpVcDHz5J-ipx52obR3kbbJe7',
+'1SpHk76MRy6L5diwrIOsT56toXMUUJrVs',
+'18z_tNIwP3pPmAncBV_UASRMrycIZTkuz',
+'1m9Nn5BKKyhlLlD3b5bLSJrTEq3uTCKK-',
+'1keSccklDD4nlFtTciIF_AVHex-KZgvDQ',
+'1orM9KANs6K77To4vbPtvu4x21hlCmR8b',
+'1MjKbLx5sGAG9e8wO8crmCmFYO0d52DIE',
+'1Wl7VhNNQTFXwRI1WDk9ApxE18RS7O_On',
+'12W_YHjnyls6lLcsICg2hDLiQUfZbSXLl',
+'1c_8nSmbHjmrXGelFzyJ5o2OFmzR2VGdg',
+'1FzRZRSr_KpzMkAlVnUCotwf_nh5kctjR',
+'105zzArTbgrLOp9vc8Olql6UvcJDBIbjp',
+'1oQ4ZkZGIprILA4nAj8TJRSzjBs-8CAj2',
+'1nXY13P0lUuNp1JHsOEA6hvyKc-Y5nzvk',
+'1zDitrXAadrzzMP1RN7PEdHPgnp7vDRQg',
+'1WJD4ibvXppFbDt8jzF8ss0xT1zGYCP7Y',
+'1w3BwsUTQ4kmKQQhuqZyb6Ze6AWl-iVQ_',
+'11I5SG_3r0ehxR_4Xv5P2VsYElC3h8Zi6',
+'1m6nZi-oVd18H_fI6fB42fnJ9sLTmvGPo',
+'1NiccqY4h4NJQJ8wGHqW2PHKtTjidg9T7',
+'1n1yndsCDbvZ833l-5CuK8P45Cjdh5F4P',
+'1z2fIjtr1E9RxBrOltx4sMuXuzK1bhKub',
+'1nkCYGpAJZPQHLNhvuFmm48HqDgPhUMb7',
+'1KZf389mRSXVR8zfg0GLn3oCWiMPP2KHZ',
+'1wzs8isrN8ix8raVQuFA3DYhBsiufaWAq',
+'1iL7RZrZMt6BG091aEH_beHOjI0GpsV_F',
+'15RrUBC0szkth_aGbK7aSyp2-EuVtDHKP'
 ];
 
 
 /* =========================================================
-   FUNGSI RENDER FLIPBOOK
+   GENERATE ID UNTUK FOTO 2026
 ========================================================= */
 
-function renderFlipbook2026() {
-    const book = document.getElementById('flipbook2026');
-    if (!book) return;
+ <div class="flipbook-wrap">
+        <div class="flipbook" id="flipbook">
+
+          <div class="book-page cover-page" data-page="0">
+            <div class="cover-content">
+              <div class="cover-small">DOKUMENTASI</div>
+              <h3>ANAK KAMPUNG<br>RT 010</h3>
+              <div class="cover-line"></div>
+              <p>Bersama • Bergerak • Berkarya</p>
+              <div class="cover-hint">KLIK HALAMAN UNTUK MEMBUKA</div>
+            </div>
+          </div>
+
+         <div class="book-page photo-page" data-page="2">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 02</div>
+              <img src="galeri/Foto8.jpeg" alt="Dokumentasi foto 2" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 2</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="1">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 01</div>
+              <img src="galeri/Foto9.jpeg" alt="Dokumentasi foto 1" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 1</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="2">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 02</div>
+              <img src="galeri/Foto10.jpeg" alt="Dokumentasi foto 2" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 2</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="3">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 03</div>
+              <img src="galeri/foto7.jpeg" alt="Dokumentasi foto 3" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 3</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="4">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 04</div>
+              <img src="galeri/foto6.jpeg" alt="Dokumentasi foto 4" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 4</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="5">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 05</div>
+              <img src="galeri/foto5.jpeg" alt="Dokumentasi foto 5" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 5</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="6">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 06</div>
+              <img src="galeri/foto4.jpeg" alt="Dokumentasi foto 6" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 6</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="7">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 07</div>
+              <img src="galeri/foto3.jpeg" alt="Dokumentasi foto 7" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 7</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="7">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 07</div>
+              <img src="galeri/foto2.jpeg" alt="Dokumentasi foto 7" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 7</div>'">
+            </div>
+          </div>
+
+          <div class="book-page photo-page" data-page="7">
+            <div class="page-inner">
+              <div class="page-label">MOMEN 07</div>
+              <img src="galeri/foto1.jpeg" alt="Dokumentasi foto 7" onerror="this.style.display='none';this.parentElement.innerHTML+='<div style=display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;>📸 Foto 7</div>'">
+            </div>
+          </div>
+          
+        </div>
+];
+
+
+/* =========================================================
+   RENDER FLIPBOOK
+========================================================= */
+
+function renderFlipbook(year, photoIds) {
+
+    const book =
+    document.getElementById(
+        "flipbook" + year
+    );
+
+    if(!book) return;
+
 
     // Hapus semua halaman foto (bukan cover)
-    const photoPages = book.querySelectorAll('.photo-page');
+    const photoPages =
+    book.querySelectorAll(
+        ".photo-page"
+    );
+
     photoPages.forEach(p => p.remove());
 
-    // Tambah halaman foto dari folder lokal
-    photoFiles2026.forEach((fileName, index) => {
-        const page = document.createElement('div');
-        page.className = 'book-page photo-page';
 
-        const inner = document.createElement('div');
-        inner.className = 'page-inner';
+    // Tambah halaman foto
+    photoIds.forEach((fileId, index) => {
 
-        const label = document.createElement('div');
-        label.className = 'page-label';
-        label.textContent = 'MOMEN ' + String(index + 1).padStart(2, '0');
+        const page =
+        document.createElement("div");
 
-        const img = document.createElement('img');
-        img.src = folderPath2026 + fileName;
-        img.alt = 'Dokumentasi 2026 ' + (index + 1);
+        page.className =
+        "book-page photo-page";
+
+
+        const inner =
+        document.createElement("div");
+
+        inner.className =
+        "page-inner";
+
+
+        const label =
+        document.createElement("div");
+
+        label.className =
+        "page-label";
+
+        label.textContent =
+        "MOMEN " +
+        String(index + 1)
+        .padStart(2, "0");
+
+
+        const img =
+        document.createElement("img");
+
+        img.src =
+        "https://drive.google.com/thumbnail?id=" +
+
+        fileId +
+
+        "&sz=w1600";
+
+        img.alt =
+        "Dokumentasi " +
+        year +
+        " " +
+        (index + 1);
+
         img.onerror = function() {
-            this.style.display = 'none';
-            const fallback = document.createElement('div');
-            fallback.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;';
-            fallback.textContent = '📸 Foto 2026 ' + (index + 1);
-            this.parentElement.appendChild(fallback);
+
+            this.style.display =
+            "none";
+
+
+            const fallback =
+            document.createElement("div");
+
+            fallback.style.cssText =
+
+            "display:flex;" +
+
+            "align-items:center;" +
+
+            "justify-content:center;" +
+
+            "height:100%;" +
+
+            "color:#667085;" +
+
+            "font-size:.9rem;";
+
+            fallback.textContent =
+            "📸 Foto " +
+            year +
+            " " +
+            (index + 1);
+
+            this.parentElement
+            .appendChild(fallback);
+
         };
+
 
         inner.appendChild(label);
         inner.appendChild(img);
         page.appendChild(inner);
         book.appendChild(page);
+
     });
 
-    // Setup flipbook
-    if (flipbooks['2026']) {
-        flipbooks['2026'].current = 0;
-        updateBook('2026');
-    }
-}
-
-function renderFlipbook2025() {
-    const book = document.getElementById('flipbook2025');
-    if (!book) return;
-
-    // Hapus semua halaman foto (bukan cover)
-    const photoPages = book.querySelectorAll('.photo-page');
-    photoPages.forEach(p => p.remove());
-
-    // Tambah halaman foto dari Google Drive
-    photoIds2025.forEach((fileId, index) => {
-        const page = document.createElement('div');
-        page.className = 'book-page photo-page';
-
-        const inner = document.createElement('div');
-        inner.className = 'page-inner';
-
-        const label = document.createElement('div');
-        label.className = 'page-label';
-        label.textContent = 'MOMEN ' + String(index + 1).padStart(2, '0');
-
-        const img = document.createElement('img');
-        img.src = 'https://drive.google.com/thumbnail?id=' + fileId + '&sz=w1600';
-        img.alt = 'Dokumentasi 2025 ' + (index + 1);
-        img.onerror = function() {
-            this.style.display = 'none';
-            const fallback = document.createElement('div');
-            fallback.style.cssText = 'display:flex;align-items:center;justify-content:center;height:100%;color:#667085;font-size:.9rem;';
-            fallback.textContent = '📸 Foto 2025 ' + (index + 1);
-            this.parentElement.appendChild(fallback);
-        };
-
-        inner.appendChild(label);
-        inner.appendChild(img);
-        page.appendChild(inner);
-        book.appendChild(page);
-    });
 
     // Setup flipbook
-    if (flipbooks['2025']) {
-        flipbooks['2025'].current = 0;
-        updateBook('2025');
+    if(
+        typeof flipbooks !== "undefined"
+        &&
+        flipbooks[year]
+    ){
+
+        flipbooks[year].current = 0;
+        updateBook(year);
+
     }
+
 }
 
 
@@ -3439,96 +4401,339 @@ function renderFlipbook2025() {
 ========================================================= */
 
 const flipbooks = {
-    '2026': { current: 0 },
-    '2025': { current: 0 }
+
+    "2026":{
+        current:0
+    },
+
+    "2025":{
+        current:0
+    }
+
 };
 
-function getPages(year) {
-    return document.querySelectorAll('#flipbook' + year + ' .book-page');
+
+function getPages(year){
+
+    return document.querySelectorAll(
+
+        "#flipbook" +
+        year +
+        " .book-page"
+
+    );
+
 }
 
-function updateBook(year) {
-    const pages = getPages(year);
-    const state = flipbooks[year];
-    const total = pages.length - 1;
 
-    pages.forEach((page, index) => {
-        if (index === 0) {
-            page.style.zIndex = state.current === 0 ? total + 10 : 1;
-        } else {
-            page.style.zIndex = index <= state.current ? index : total + 10 - index;
+function updateBook(year){
+
+    const pages =
+    getPages(year);
+
+    const state =
+    flipbooks[year];
+
+    const total =
+    pages.length - 1;
+
+
+    pages.forEach((page,index)=>{
+
+        if(index === 0){
+
+            page.style.zIndex =
+
+            state.current === 0
+
+            ?
+
+            total + 10
+
+            :
+
+            1;
+
+        }else{
+
+            page.style.zIndex =
+
+            index <= state.current
+
+            ?
+
+            index
+
+            :
+
+            total + 10 - index;
+
         }
-        page.classList.toggle('flipped', index > 0 && index <= state.current);
+
+
+        page.classList.toggle(
+
+            "flipped",
+
+            index > 0 &&
+            index <= state.current
+
+        );
+
     });
 
-    const indicator = document.getElementById('pageIndicator' + year);
-    if (state.current === 0) {
-        indicator.textContent = 'Cover';
-    } else {
-        indicator.textContent = 'Foto ' + state.current + ' / ' + total;
+
+    const indicator =
+    document.getElementById(
+
+        "pageIndicator" +
+        year
+
+    );
+
+
+    if(state.current === 0){
+
+        indicator.textContent =
+        "Cover";
+
+    }else{
+
+        indicator.textContent =
+
+        "Foto " +
+        state.current +
+        " / " +
+        total;
+
     }
+
 
     resizeCurrentFlipbook(year);
+
 }
 
-function nextPage(year) {
-    const pages = getPages(year);
-    const total = pages.length - 1;
-    if (flipbooks[year].current < total) {
+
+function nextPage(year){
+
+    const pages =
+    getPages(year);
+
+    const total =
+    pages.length - 1;
+
+
+    if(
+        flipbooks[year].current <
+        total
+    ){
+
         flipbooks[year].current++;
+
         updateBook(year);
+
     }
+
 }
 
-function prevPage(year) {
-    if (flipbooks[year].current > 0) {
+
+function prevPage(year){
+
+    if(
+        flipbooks[year].current >
+        0
+    ){
+
         flipbooks[year].current--;
+
         updateBook(year);
-    }
-}
 
-function resizeCurrentFlipbook(year) {
-    const book = document.getElementById('flipbook' + year);
-    if (!book) return;
-
-    const pages = book.querySelectorAll('.book-page');
-    const current = flipbooks[year].current;
-    const currentPage = pages[current];
-
-    if (!currentPage || current === 0) {
-        const width = Math.min(book.parentElement.clientWidth, 900);
-        book.style.height = Math.max(360, width * 0.58) + 'px';
-        pages.forEach(page => { page.style.height = book.style.height; });
-        return;
     }
 
-    const img = currentPage.querySelector('img');
-    if (!img || !img.naturalWidth) return;
-
-    const ratio = img.naturalHeight / img.naturalWidth;
-    const maxWidth = Math.min(book.parentElement.clientWidth, 900);
-    let height = maxWidth * ratio;
-    if (height > 760) height = 760;
-    if (height < 360) height = 360;
-
-    book.style.height = height + 'px';
-    pages.forEach(page => { page.style.height = height + 'px'; });
 }
 
-function setupFlipbook(year) {
-    const pages = getPages(year);
-    pages.forEach((page) => {
-        page.addEventListener('click', function(e) {
-            const rect = page.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            if (x > rect.width / 2) {
-                nextPage(year);
-            } else {
-                prevPage(year);
-            }
+
+function resizeCurrentFlipbook(year){
+
+    const book =
+    document.getElementById(
+
+        "flipbook" +
+        year
+
+    );
+
+
+    if(!book) return;
+
+
+    const pages =
+    book.querySelectorAll(
+        ".book-page"
+    );
+
+
+    const current =
+    flipbooks[year].current;
+
+
+    const currentPage =
+    pages[current];
+
+
+    if(
+        !currentPage ||
+        current === 0
+    ){
+
+        const width =
+        Math.min(
+
+            book.parentElement.clientWidth,
+
+            900
+
+        );
+
+
+        book.style.height =
+
+        Math.max(
+
+            360,
+
+            width * .58
+
+        )
+
+        +
+
+        "px";
+
+
+        pages.forEach(page=>{
+
+            page.style.height =
+            book.style.height;
+
         });
+
+
+        return;
+
+    }
+
+
+    const img =
+    currentPage.querySelector("img");
+
+
+    if(
+        !img ||
+        !img.naturalWidth
+    ){
+
+        return;
+
+    }
+
+
+    const ratio =
+    img.naturalHeight /
+    img.naturalWidth;
+
+
+    const maxWidth =
+    Math.min(
+
+        book.parentElement.clientWidth,
+
+        900
+
+    );
+
+
+    let height =
+    maxWidth * ratio;
+
+
+    if(height > 760){
+
+        height = 760;
+
+    }
+
+
+    if(height < 360){
+
+        height = 360;
+
+    }
+
+
+    book.style.height =
+    height + "px";
+
+
+    pages.forEach(page=>{
+
+        page.style.height =
+        height + "px";
+
     });
+
+}
+
+
+/* =========================================================
+   SETUP FLIPBOOK CLICK
+========================================================= */
+
+function setupFlipbook(year){
+
+    const pages =
+    getPages(year);
+
+
+    pages.forEach((page)=>{
+
+        page.addEventListener(
+
+            "click",
+
+            function(e){
+
+                const rect =
+                page.getBoundingClientRect();
+
+
+                const x =
+                e.clientX -
+                rect.left;
+
+
+                if(
+                    x >
+                    rect.width / 2
+                ){
+
+                    nextPage(year);
+
+                }else{
+
+                    prevPage(year);
+
+                }
+
+            }
+
+        );
+
+    });
+
+
     updateBook(year);
+
 }
 
 
@@ -3536,36 +4741,73 @@ function setupFlipbook(year) {
    KEYBOARD NAVIGATION
 ========================================================= */
 
-document.addEventListener('keydown', function(e) {
-    if (e.key === 'ArrowRight') {
-        nextPage('2026');
-        nextPage('2025');
+document.addEventListener(
+
+    "keydown",
+
+    function(e){
+
+        if(e.key === "ArrowRight"){
+
+            nextPage("2026");
+            nextPage("2025");
+
+        }
+
+
+        if(e.key === "ArrowLeft"){
+
+            prevPage("2026");
+            prevPage("2025");
+
+        }
+
     }
-    if (e.key === 'ArrowLeft') {
-        prevPage('2026');
-        prevPage('2025');
-    }
-});
+
+);
 
 
 /* =========================================================
    RESPONSIVE
 ========================================================= */
 
-window.addEventListener('resize', function() {
-    resizeCurrentFlipbook('2026');
-    resizeCurrentFlipbook('2025');
-});
+window.addEventListener(
+
+    "resize",
+
+    function(){
+
+        resizeCurrentFlipbook("2026");
+        resizeCurrentFlipbook("2025");
+
+    }
+
+);
 
 
 /* =========================================================
    MOBILE MENU
 ========================================================= */
 
-document.querySelectorAll(".nav-links a").forEach(a => {
-    a.addEventListener("click", () => {
-        document.getElementById("navLinks").classList.remove("open");
-    });
+document
+.querySelectorAll(".nav-links a")
+.forEach(a => {
+
+    a.addEventListener(
+
+        "click",
+
+        () => {
+
+            document
+            .getElementById("navLinks")
+            .classList
+            .remove("open");
+
+        }
+
+    );
+
 });
 
 
@@ -3574,15 +4816,16 @@ document.querySelectorAll(".nav-links a").forEach(a => {
 ========================================================= */
 
 renderEvents();
+
 updateNearestEvent();
 
-// Render flipbook
-renderFlipbook2026();
-renderFlipbook2025();
+// Render flipbook dengan semua foto
+renderFlipbook("2026", photoIds2026);
+renderFlipbook("2025", photoIds2025);
 
 // Setup flipbook
-setupFlipbook('2026');
-setupFlipbook('2025');
+setupFlipbook("2026");
+setupFlipbook("2025");
 
 </script>
 
