@@ -134,18 +134,142 @@ section {
 }
 
 .hero {
+    position:relative;
+    isolation:isolate;
+    overflow:hidden;
     padding:145px 0 90px;
-    background:
-        linear-gradient(90deg, rgba(248,250,252,.30) 0%, rgba(248,250,252,.22) 43%, rgba(238,244,248,.18) 100%),
-        url('galeri/Foto8.jpeg') center center / cover no-repeat;
     min-height:100vh;
+    background:#0d1b2a;
+}
+
+/* Foto8 menjadi layer background terpisah supaya rendering lebih bersih */
+.hero::before {
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-2;
+    background-image:url('galeri/Foto8.jpeg');
+    background-repeat:no-repeat;
+    background-position:center 42%;
+    background-size:cover;
+    image-rendering:auto;
+    transform:translateZ(0);
+    filter:saturate(1.06) contrast(1.04);
+}
+
+/* Overlay dibuat lebih terkontrol agar foto tetap terlihat dan tulisan sangat jelas */
+.hero::after {
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(7,18,31,.90) 0%,
+            rgba(7,18,31,.82) 33%,
+            rgba(7,18,31,.57) 56%,
+            rgba(7,18,31,.28) 76%,
+            rgba(7,18,31,.18) 100%
+        );
 }
 
 .hero-grid {
+    position:relative;
+    z-index:1;
     display:grid;
     grid-template-columns:1.05fr .95fr;
     gap:70px;
     align-items:center;
+}
+
+/* Area teks dibuat kontras tanpa menutupi background secara berlebihan */
+.hero-grid > div:first-child {
+    max-width:720px;
+    padding:30px 32px 32px;
+    margin-left:-32px;
+    border-radius:24px;
+    background:linear-gradient(90deg,rgba(7,18,31,.34),rgba(7,18,31,.08),transparent);
+    backdrop-filter:blur(1px);
+    -webkit-backdrop-filter:blur(1px);
+}
+
+.hero .badge {
+    background:rgba(255,255,255,.94);
+    color:var(--navy);
+    box-shadow:0 8px 25px rgba(0,0,0,.12);
+}
+
+.hero h1 {
+    color:#fff;
+    text-shadow:0 3px 20px rgba(0,0,0,.42);
+}
+
+.hero h1 span {
+    color:#72b8f0;
+}
+
+.hero-desc {
+    color:rgba(255,255,255,.94);
+    font-weight:500;
+    text-shadow:0 2px 12px rgba(0,0,0,.55);
+}
+
+.hero .btn-outline {
+    background:rgba(255,255,255,.94);
+    border-color:rgba(255,255,255,.72);
+}
+
+.hero .feature-card {
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    box-shadow:0 22px 60px rgba(0,0,0,.20);
+}
+
+/* Hindari background dibesarkan berlebihan di monitor sangat lebar */
+@media(min-width:1800px) {
+    .hero::before {
+        background-size:auto 100%;
+        background-color:#0d1b2a;
+    }
+}
+
+@media(max-width:950px) {
+    .hero::after {
+        background:linear-gradient(
+            180deg,
+            rgba(7,18,31,.83) 0%,
+            rgba(7,18,31,.69) 55%,
+            rgba(7,18,31,.46) 100%
+        );
+    }
+
+    .hero-grid > div:first-child {
+        margin-left:0;
+        padding:26px 24px;
+        background:rgba(7,18,31,.34);
+    }
+}
+
+@media(max-width:600px) {
+    .hero::before {
+        background-position:center center;
+    }
+
+    .hero-grid > div:first-child {
+        padding:22px 18px;
+        border-radius:18px;
+    }
+
+    .hero h1 {
+        font-size:clamp(2.55rem,13vw,4rem);
+        letter-spacing:-2px;
+    }
+
+    .hero-desc {
+        font-size:.98rem;
+    }
 }
 
 .badge {
@@ -161,24 +285,25 @@ section {
 }
 
 .hero h1 {
-    text-shadow:0 2px 12px rgba(255,255,255,.92), 0 0 28px rgba(255,255,255,.75);
     font-size:clamp(3rem,6vw,5.3rem);
     line-height:.98;
     letter-spacing:-3px;
-    color:var(--navy);
+    color:#fff;
     font-weight:900;
+    text-shadow:0 3px 20px rgba(0,0,0,.42);
 }
 
 .hero h1 span {
-    color:var(--blue);
+    color:#72b8f0;
 }
 
 .hero-desc {
-    text-shadow:0 1px 8px rgba(255,255,255,.95);
-    max-width:570px;
-    color:var(--muted);
+    max-width:620px;
+    color:rgba(255,255,255,.94);
     font-size:1.05rem;
+    font-weight:500;
     margin:25px 0 30px;
+    text-shadow:0 2px 12px rgba(0,0,0,.55);
 }
 
 .buttons {
