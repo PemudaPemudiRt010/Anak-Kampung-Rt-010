@@ -1234,7 +1234,876 @@ footer p,footer a,footer span {
 .nearest-hidden{display:none}
 .nearest-back{border:0;background:transparent;color:#1769aa;font-weight:700;cursor:pointer;padding:0;margin-bottom:12px}
 
-.brand-icon{width:22px;height:22px;display:inline-flex;vertical-align:middle;margin-right:7px}.brand-icon svg{width:100%;height:100%;fill:currentColor}</style>
+.brand-icon{width:22px;height:22px;display:inline-flex;vertical-align:middle;margin-right:7px}.brand-icon svg{width:100%;height:100%;fill:currentColor}
+/* =========================================================
+   ELEGANT / LUXURY VISUAL REFINEMENT
+========================================================= */
+
+:root{
+    --luxury-navy:#0b1420;
+    --luxury-blue:#1e5f8f;
+    --luxury-gold:#c89b5a;
+    --luxury-cream:#f7f3ed;
+    --luxury-white:#ffffff;
+    --luxury-text:#182231;
+    --luxury-muted:#6d7784;
+    --luxury-line:rgba(18,32,48,.10);
+    --luxury-shadow:0 24px 60px rgba(12,24,38,.10);
+    --luxury-shadow-soft:0 14px 34px rgba(12,24,38,.08);
+}
+
+body{
+    background:
+        radial-gradient(circle at top left, rgba(200,155,90,.05), transparent 28%),
+        linear-gradient(180deg,#f8fafc 0%,#f4f6f8 100%);
+    color:var(--luxury-text);
+}
+
+/* HEADER */
+.header{
+    background:rgba(255,255,255,.90);
+    border-bottom:1px solid rgba(12,24,38,.08);
+    box-shadow:0 8px 30px rgba(12,24,38,.04);
+}
+
+.nav{
+    min-height:84px;
+}
+
+.brand-logo{
+    width:52px;
+    height:52px;
+    border:2px solid rgba(11,20,32,.88);
+    box-shadow:0 8px 24px rgba(12,24,38,.12);
+}
+
+.brand-text strong{
+    letter-spacing:-.2px;
+}
+
+.nav-links a{
+    position:relative;
+    padding:10px 14px;
+    border-radius:999px;
+    transition:.25s ease;
+}
+
+.nav-links a:hover{
+    background:rgba(30,95,143,.08);
+    color:var(--luxury-navy);
+}
+
+.nav-links a::after{
+    content:"";
+    position:absolute;
+    left:50%;
+    bottom:3px;
+    width:0;
+    height:1.5px;
+    background:var(--luxury-gold);
+    transition:.25s ease;
+    transform:translateX(-50%);
+}
+
+.nav-links a:hover::after{
+    width:40%;
+}
+
+/* HERO */
+.hero{
+    min-height:100vh;
+}
+
+.hero-grid{
+    gap:90px;
+}
+
+.hero-grid > div:first-child{
+    padding:38px 40px 40px;
+    border:1px solid rgba(255,255,255,.10);
+    box-shadow:0 20px 60px rgba(0,0,0,.12);
+    background:
+        linear-gradient(135deg,rgba(6,16,27,.46),rgba(6,16,27,.22) 62%,rgba(6,16,27,.06));
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+}
+
+.badge{
+    letter-spacing:1.8px;
+    border:1px solid rgba(255,255,255,.58);
+    background:rgba(255,255,255,.94)!important;
+}
+
+.hero h1{
+    font-size:clamp(3.2rem,6vw,5.7rem);
+    line-height:.94;
+    letter-spacing:-3.5px;
+}
+
+.hero h1 span{
+    color:#7cc2f1;
+}
+
+.hero-desc{
+    font-size:1.08rem;
+    line-height:1.8;
+    max-width:640px;
+}
+
+.btn{
+    border-radius:14px;
+    padding:14px 24px;
+    transition:transform .2s ease, box-shadow .2s ease, background .2s ease;
+}
+
+.btn:hover{
+    transform:translateY(-2px);
+}
+
+.btn-primary{
+    background:linear-gradient(135deg,#091522,#132b41);
+    box-shadow:0 12px 28px rgba(6,17,28,.22);
+}
+
+.btn-outline{
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+.feature-card{
+    border-radius:28px;
+    padding:38px;
+    border:1px solid rgba(12,24,38,.08);
+    box-shadow:0 30px 70px rgba(10,24,38,.16);
+}
+
+.feature-label,
+.section-label{
+    color:var(--luxury-gold);
+    letter-spacing:2.1px;
+}
+
+.feature-card h2{
+    font-size:1.85rem;
+    letter-spacing:-.4px;
+}
+
+.lomba-preview{
+    margin-top:6px;
+}
+
+/* GENERAL SECTION */
+.section{
+    padding:110px 0;
+}
+
+.section-alt{
+    background:rgba(255,255,255,.78);
+    backdrop-filter:blur(8px);
+}
+
+.section-title{
+    letter-spacing:-2.1px;
+}
+
+.section-desc{
+    font-size:1rem;
+    line-height:1.8;
+}
+
+.section-heading{
+    margin-bottom:50px;
+}
+
+/* ABOUT */
+.about-grid{
+    gap:86px;
+}
+
+.value{
+    background:linear-gradient(180deg,#ffffff 0%,#fafbfd 100%);
+    border:1px solid var(--luxury-line);
+    border-radius:18px;
+    box-shadow:var(--luxury-shadow-soft);
+    padding:26px;
+    transition:.25s ease;
+}
+
+.value:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 45px rgba(12,24,38,.11);
+}
+
+.value-icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:14px;
+    background:linear-gradient(135deg,rgba(200,155,90,.16),rgba(30,95,143,.08));
+    margin-bottom:10px;
+}
+
+/* CARDS / EVENTS */
+.events-grid{
+    gap:24px;
+}
+
+.event-card{
+    border-radius:22px;
+    padding:30px;
+    border:1px solid var(--luxury-line);
+    box-shadow:var(--luxury-shadow-soft);
+    background:linear-gradient(180deg,#fff 0%,#fbfcfd 100%);
+    transition:.28s ease;
+}
+
+.event-card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 24px 55px rgba(12,24,38,.12);
+}
+
+.event-tag{
+    border-radius:999px;
+    padding:7px 12px;
+    background:rgba(30,95,143,.08);
+    border:1px solid rgba(30,95,143,.10);
+}
+
+.register-card-btn{
+    border-radius:12px;
+    background:linear-gradient(135deg,#174f79,#2678ae);
+    box-shadow:0 12px 25px rgba(30,95,143,.18);
+}
+
+.event-register-form{
+    border-radius:16px;
+    background:linear-gradient(180deg,#fbfcfe,#f7f9fb);
+    box-shadow:inset 0 0 0 1px rgba(12,24,38,.02);
+}
+
+.event-submit-btn,
+.nearest-submit{
+    border-radius:12px;
+    background:linear-gradient(135deg,#15704a,#1a8a5c);
+    box-shadow:0 10px 22px rgba(21,112,74,.18);
+}
+
+/* NOTICE */
+.notice{
+    border-radius:20px;
+    padding:28px 30px;
+    box-shadow:var(--luxury-shadow-soft);
+    border:1px solid var(--luxury-line);
+}
+
+.notice-date{
+    background:linear-gradient(180deg,rgba(200,155,90,.14),rgba(200,155,90,.06));
+    border:1px solid rgba(200,155,90,.18);
+    border-radius:14px;
+    padding:12px 10px;
+    text-align:center;
+    color:#a66f2c;
+}
+
+/* FORMS */
+.form{
+    border-radius:24px;
+    padding:34px;
+    box-shadow:var(--luxury-shadow);
+    border:1px solid var(--luxury-line);
+}
+
+.form input,
+.form select,
+.form textarea,
+.nearest-fields input,
+.event-form-grid input{
+    border-radius:12px;
+    border:1px solid rgba(12,24,38,.10);
+    background:#fbfcfd;
+    transition:.2s ease;
+}
+
+.form input:focus,
+.form select:focus,
+.form textarea:focus,
+.nearest-fields input:focus,
+.event-form-grid input:focus{
+    background:#fff;
+    border-color:rgba(30,95,143,.45);
+    box-shadow:0 0 0 4px rgba(30,95,143,.08);
+}
+
+.nearest-choice-btn{
+    border-radius:14px;
+    background:linear-gradient(180deg,#fff,#fbfcfd);
+    box-shadow:0 8px 20px rgba(12,24,38,.04);
+}
+
+.nearest-form-block{
+    border-radius:18px;
+    box-shadow:0 12px 28px rgba(12,24,38,.06);
+}
+
+/* GALLERY */
+.gallery-section{
+    background:
+        radial-gradient(circle at 15% 10%, rgba(200,155,90,.07), transparent 28%),
+        linear-gradient(180deg,#f7f9fb 0%,#eef2f5 100%);
+}
+
+.gallery-intro{
+    margin-bottom:58px;
+}
+
+.flipbook-wrap{
+    max-width:960px;
+}
+
+.book-page{
+    border-radius:18px;
+    box-shadow:0 24px 60px rgba(10,24,38,.18);
+}
+
+.cover-page{
+    background:
+        radial-gradient(circle at top right, rgba(200,155,90,.15), transparent 35%),
+        linear-gradient(145deg,#091522,#18334a);
+}
+
+.cover-line{
+    background:linear-gradient(90deg,#b98948,#e0b873);
+}
+
+.flipbook-controls button{
+    border-radius:14px;
+    box-shadow:0 8px 18px rgba(12,24,38,.06);
+}
+
+.flipbook-controls button:hover{
+    background:#102234;
+}
+
+/* SOCIAL */
+.social-section{
+    background:
+        radial-gradient(circle at 80% 20%, rgba(200,155,90,.10), transparent 28%),
+        linear-gradient(145deg,#091522,#10283d);
+}
+
+.social{
+    border-radius:16px;
+    background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.10);
+    backdrop-filter:blur(8px);
+    transition:.25s ease;
+}
+
+.social:hover{
+    transform:translateY(-3px);
+    background:rgba(255,255,255,.10);
+}
+
+/* FOOTER */
+footer{
+    background:linear-gradient(180deg,#07111b,#050b12);
+}
+
+.footer-logo{
+    box-shadow:0 8px 20px rgba(0,0,0,.24);
+}
+
+/* SMALL LUXURY DETAILS */
+.section-label::after,
+.feature-label::after{
+    content:"";
+    display:inline-block;
+    width:28px;
+    height:1px;
+    margin-left:10px;
+    vertical-align:middle;
+    background:currentColor;
+    opacity:.55;
+}
+
+::selection{
+    background:rgba(200,155,90,.28);
+    color:#0b1420;
+}
+
+@media(max-width:950px){
+    .hero-grid{
+        gap:44px;
+    }
+
+    .hero-grid > div:first-child{
+        padding:30px 26px;
+    }
+
+    .section{
+        padding:90px 0;
+    }
+}
+
+@media(max-width:600px){
+    .nav{
+        min-height:76px;
+    }
+
+    .brand-logo{
+        width:46px;
+        height:46px;
+    }
+
+    .hero-grid > div:first-child{
+        padding:24px 20px;
+        border-radius:20px;
+    }
+
+    .hero h1{
+        font-size:clamp(2.55rem,13vw,4.15rem);
+    }
+
+    .feature-card,
+    .event-card,
+    .notice,
+    .form{
+        border-radius:18px;
+    }
+
+    .section{
+        padding:74px 0;
+    }
+}
+
+
+/* =========================================================
+   LUXURY REWORK — VERSI YANG BENAR-BENAR BERBEDA
+========================================================= */
+
+:root{
+    --ink:#101820;
+    --ink-soft:#24313d;
+    --cream:#f7f2e9;
+    --ivory:#fffdf9;
+    --gold:#b88945;
+    --gold-soft:#d9bd8a;
+    --blue:#2f5f7c;
+    --line:rgba(16,24,32,.10);
+    --glass:rgba(255,255,255,.72);
+}
+
+body{
+    background:
+        linear-gradient(180deg,#fbfaf7 0%,#f5f0e8 100%);
+    color:var(--ink);
+}
+
+h1,h2,h3,
+.section-title,
+.aspiration-copy h2,
+.feature-card h2,
+.album-heading h3{
+    font-family:"Playfair Display",serif !important;
+    letter-spacing:-.7px !important;
+}
+
+/* NAVBAR LEBIH MEWAH */
+.header{
+    top:12px;
+    left:50%;
+    right:auto;
+    width:min(1160px,calc(100% - 24px));
+    transform:translateX(-50%);
+    border:1px solid rgba(255,255,255,.75);
+    border-radius:20px;
+    background:rgba(255,255,255,.86);
+    box-shadow:0 16px 45px rgba(20,29,39,.10);
+    overflow:hidden;
+}
+
+.nav{
+    min-height:76px;
+    padding:0 18px;
+}
+
+.nav-links{
+    gap:4px;
+}
+
+.nav-links a{
+    border-radius:999px !important;
+    padding:10px 15px !important;
+    font-size:.8rem;
+    letter-spacing:.1px;
+}
+
+.nav-links a:hover{
+    background:#111d27 !important;
+    color:#fff !important;
+}
+
+/* HERO TERASA PREMIUM */
+.hero{
+    padding-top:145px !important;
+    min-height:100vh;
+}
+
+.hero::before{
+    filter:saturate(.95) contrast(1.02) brightness(1.04) !important;
+}
+
+.hero::after{
+    background:
+        linear-gradient(90deg,
+            rgba(7,13,20,.50) 0%,
+            rgba(7,13,20,.26) 35%,
+            rgba(7,13,20,.08) 62%,
+            rgba(7,13,20,.02) 100%
+        ) !important;
+}
+
+.hero-grid{
+    gap:70px !important;
+}
+
+.hero-grid > div:first-child{
+    max-width:680px;
+    padding:42px 42px 44px !important;
+    margin-left:0 !important;
+    border-radius:30px !important;
+    border:1px solid rgba(255,255,255,.20) !important;
+    background:
+        linear-gradient(135deg,
+            rgba(8,16,24,.62),
+            rgba(8,16,24,.36) 62%,
+            rgba(8,16,24,.16)
+        ) !important;
+    box-shadow:0 30px 80px rgba(0,0,0,.22) !important;
+    backdrop-filter:blur(12px) !important;
+    -webkit-backdrop-filter:blur(12px) !important;
+}
+
+.hero .badge{
+    font-size:.67rem !important;
+    padding:8px 14px !important;
+    background:rgba(247,242,233,.94) !important;
+    color:#1d2833 !important;
+    border:1px solid rgba(184,137,69,.35) !important;
+}
+
+.hero h1{
+    font-size:clamp(3.6rem,6vw,6rem) !important;
+    line-height:.90 !important;
+    color:#fff !important;
+    text-shadow:0 4px 24px rgba(0,0,0,.45) !important;
+}
+
+.hero h1 span{
+    color:#ead5b2 !important;
+}
+
+.hero-desc{
+    color:rgba(255,255,255,.93) !important;
+    font-size:1.08rem !important;
+    line-height:1.8 !important;
+    max-width:590px !important;
+}
+
+.hero .btn-primary{
+    background:#f4ecdf !important;
+    color:#111d27 !important;
+    box-shadow:0 14px 30px rgba(0,0,0,.16) !important;
+}
+
+.hero .btn-outline{
+    background:transparent !important;
+    color:#fff !important;
+    border:1px solid rgba(255,255,255,.45) !important;
+}
+
+.hero .btn-outline:hover{
+    background:#fff !important;
+    color:#111d27 !important;
+}
+
+/* EVENT TERDEKAT SEPERTI KARTU HOTEL */
+.feature-card{
+    border-radius:30px !important;
+    padding:36px !important;
+    border:1px solid rgba(184,137,69,.20) !important;
+    background:rgba(255,253,249,.94) !important;
+    box-shadow:0 28px 70px rgba(15,24,32,.18) !important;
+}
+
+.feature-card h2{
+    font-size:2rem !important;
+}
+
+.feature-card h3{
+    color:#7a5b2c !important;
+}
+
+.feature-label,.section-label{
+    color:var(--gold) !important;
+    font-weight:800 !important;
+    letter-spacing:2.4px !important;
+}
+
+/* SECTION TITLE JAUH LEBIH ELEGAN */
+.section{
+    padding:120px 0 !important;
+}
+
+.section-title{
+    font-size:clamp(2.7rem,4.5vw,4.5rem) !important;
+    line-height:.98 !important;
+    color:#17212a !important;
+}
+
+.section-desc{
+    color:#66717b !important;
+    font-size:1rem !important;
+    line-height:1.9 !important;
+}
+
+/* ALTERNATING SECTION BACKGROUNDS */
+#tentang{
+    background:var(--ivory);
+}
+
+#pengumuman{
+    background:
+        linear-gradient(180deg,#f1e9dd 0%,#f7f2ea 100%) !important;
+}
+
+#kegiatan{
+    background:#fff !important;
+}
+
+#galeri{
+    background:
+        radial-gradient(circle at 15% 10%,rgba(184,137,69,.12),transparent 30%),
+        linear-gradient(180deg,#17212a 0%,#111a22 100%) !important;
+}
+
+#galeri .section-title,
+#galeri .album-heading h3{
+    color:#fff !important;
+}
+
+#galeri .section-desc,
+#galeri .album-heading p,
+#galeri .flipbook-help{
+    color:rgba(255,255,255,.65) !important;
+}
+
+#aspirasi{
+    background:var(--cream) !important;
+}
+
+/* TENTANG */
+.about-grid{
+    gap:90px !important;
+}
+
+.about-text{
+    font-size:1.02rem !important;
+    line-height:1.9 !important;
+}
+
+.values{
+    gap:18px !important;
+}
+
+.value{
+    border-radius:22px !important;
+    padding:28px !important;
+    background:#fff !important;
+    border:1px solid rgba(184,137,69,.15) !important;
+    box-shadow:0 20px 45px rgba(18,27,35,.08) !important;
+}
+
+.value h3{
+    font-family:Inter,sans-serif !important;
+    letter-spacing:.4px !important;
+}
+
+/* PENGUMUMAN */
+.notice{
+    border-radius:24px !important;
+    padding:30px !important;
+    background:rgba(255,255,255,.88) !important;
+    border:1px solid rgba(184,137,69,.18) !important;
+    box-shadow:0 20px 45px rgba(26,33,40,.08) !important;
+}
+
+.notice-date{
+    background:#18222c !important;
+    color:#ead5b2 !important;
+    border:0 !important;
+    min-width:88px !important;
+}
+
+/* KEGIATAN */
+.event-card{
+    border-radius:24px !important;
+    padding:30px !important;
+    border:1px solid rgba(18,31,42,.08) !important;
+    background:#fff !important;
+    box-shadow:0 18px 40px rgba(17,27,36,.07) !important;
+}
+
+.event-card:hover{
+    transform:translateY(-8px) !important;
+    box-shadow:0 28px 60px rgba(17,27,36,.12) !important;
+}
+
+.event-tag{
+    background:#f5eee4 !important;
+    color:#8b6330 !important;
+    border:1px solid rgba(184,137,69,.18) !important;
+}
+
+.register-card-btn{
+    background:#18222c !important;
+    color:#fff !important;
+}
+
+.event-submit-btn,
+.nearest-submit{
+    background:#9c743c !important;
+    color:#fff !important;
+}
+
+/* FORM */
+.form{
+    border-radius:28px !important;
+    background:rgba(255,255,255,.90) !important;
+    border:1px solid rgba(184,137,69,.18) !important;
+    box-shadow:0 25px 60px rgba(20,29,38,.10) !important;
+}
+
+.form input,.form select,.form textarea,
+.nearest-fields input,
+.event-form-grid input{
+    background:#fffdf9 !important;
+    border:1px solid rgba(31,45,58,.12) !important;
+    border-radius:14px !important;
+}
+
+/* FLIPBOOK - BENAR-BENAR MEWAH */
+.flipbook-section{
+    padding:30px 0 70px !important;
+}
+
+.flipbook-wrap{
+    max-width:980px !important;
+}
+
+.book-page{
+    border-radius:22px !important;
+    border:1px solid rgba(255,255,255,.12) !important;
+    box-shadow:0 32px 90px rgba(0,0,0,.30) !important;
+}
+
+.cover-page{
+    background:
+        radial-gradient(circle at 75% 20%,rgba(210,175,115,.18),transparent 28%),
+        linear-gradient(145deg,#151f28,#0d141b) !important;
+}
+
+.cover-content h3{
+    font-size:clamp(2.5rem,4vw,4rem) !important;
+    font-family:"Playfair Display",serif !important;
+}
+
+.cover-line{
+    width:80px !important;
+    background:linear-gradient(90deg,#9a713b,#e4c28e) !important;
+}
+
+.flipbook-controls button{
+    background:rgba(255,255,255,.10) !important;
+    border:1px solid rgba(255,255,255,.18) !important;
+    color:#fff !important;
+    border-radius:50% !important;
+}
+
+.page-indicator,
+#pageIndicator2026,
+#pageIndicator2025{
+    color:#fff !important;
+}
+
+/* SOCIAL SECTION */
+.social-section{
+    background:
+        radial-gradient(circle at 80% 10%,rgba(184,137,69,.14),transparent 25%),
+        linear-gradient(145deg,#121c25,#0b1117) !important;
+}
+
+.social{
+    border-radius:18px !important;
+    background:rgba(255,255,255,.05) !important;
+    border:1px solid rgba(255,255,255,.10) !important;
+    padding:16px 18px !important;
+}
+
+/* FOOTER */
+footer{
+    background:#080d12 !important;
+    border-top:1px solid rgba(255,255,255,.06);
+}
+
+/* DETAIL HALUS */
+.section-label::after,
+.feature-label::after{
+    width:42px !important;
+    height:1px !important;
+    background:var(--gold) !important;
+}
+
+@media(max-width:950px){
+    .header{
+        top:8px;
+        width:calc(100% - 16px);
+    }
+
+    .hero-grid > div:first-child{
+        padding:34px 28px !important;
+    }
+
+    .hero h1{
+        font-size:clamp(3rem,9vw,4.7rem) !important;
+    }
+}
+
+@media(max-width:600px){
+    .header{
+        border-radius:16px;
+    }
+
+    .hero-grid > div:first-child{
+        padding:26px 20px !important;
+        border-radius:22px !important;
+    }
+
+    .hero h1{
+        font-size:clamp(2.7rem,13vw,4rem) !important;
+    }
+
+    .section{
+        padding:80px 0 !important;
+    }
+
+    .section-title{
+        font-size:clamp(2.4rem,10vw,3.4rem) !important;
+    }
+}
+
+</style>
  </head>
  <body>
   <header class="header">
