@@ -2677,7 +2677,33 @@ footer{
 }
 
 </style>
- </head>
+ 
+<style>
+/* FOLLOW US: pastikan judul terlihat jelas */
+.social-section .section-label {
+  color:#d8b06f !important;
+  opacity:1 !important;
+}
+.social-section .section-title {
+  color:#ffffff !important;
+  opacity:1 !important;
+  text-shadow:0 3px 22px rgba(0,0,0,.42) !important;
+  position:relative;
+  z-index:2;
+}
+.social-section .section-desc {
+  color:rgba(255,255,255,.80) !important;
+  opacity:1 !important;
+}
+@media(max-width:600px){
+  .social-section .section-title{
+    font-size:clamp(2.35rem,11vw,3.4rem) !important;
+    line-height:1 !important;
+  }
+}
+</style>
+
+</head>
  <body>
   <header class="header">
    <div class="container nav">
