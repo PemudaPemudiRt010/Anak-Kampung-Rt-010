@@ -2103,6 +2103,374 @@ footer{
     }
 }
 
+
+/* =========================================================
+   REALISTIC ELEGANT FLIPBOOK — TWO PAGE SPREAD
+========================================================= */
+.flipbook-wrap{
+    max-width:1120px!important;
+    margin:0 auto 90px!important;
+}
+.flipbook-stage{
+    min-height:620px!important;
+    align-items:center!important;
+    perspective:2200px!important;
+}
+.flipbook{
+    width:min(1040px,100%)!important;
+    height:auto!important;
+    aspect-ratio:1.62/1!important;
+    position:relative!important;
+    overflow:visible!important;
+}
+.book-surface{
+    position:absolute!important;
+    inset:0!important;
+    border-radius:18px!important;
+    overflow:visible!important;
+    background:transparent!important;
+    box-shadow:none!important;
+    transform:none!important;
+    opacity:1!important;
+}
+.book-surface.turn-next,
+.book-surface.turn-prev{
+    transform:none!important;
+    opacity:1!important;
+}
+
+/* CLOSED COVER */
+.closed-book{
+    width:54%;
+    height:92%;
+    margin:auto;
+    position:relative;
+    top:4%;
+    border-radius:10px 18px 18px 10px;
+    background:
+        radial-gradient(circle at 78% 18%,rgba(217,181,116,.14),transparent 26%),
+        linear-gradient(145deg,#111923,#090f15);
+    border:1px solid rgba(210,170,98,.28);
+    box-shadow:
+        22px 28px 50px rgba(0,0,0,.34),
+        inset 0 0 0 2px rgba(255,255,255,.025),
+        inset 10px 0 18px rgba(255,255,255,.025);
+}
+.closed-book::before{
+    content:"";
+    position:absolute;
+    inset:16px;
+    border:1px solid rgba(210,170,98,.72);
+    border-radius:4px 12px 12px 4px;
+    pointer-events:none;
+}
+.closed-book::after{
+    content:"";
+    position:absolute;
+    left:-13px;
+    top:8px;
+    bottom:8px;
+    width:18px;
+    border-radius:8px 0 0 8px;
+    background:linear-gradient(90deg,#0b1117,#202c37,#0c1218);
+    box-shadow:-7px 8px 18px rgba(0,0,0,.35);
+}
+.cover-ornament{
+    position:absolute;
+    inset:26px;
+    pointer-events:none;
+    opacity:.85;
+}
+.cover-ornament::before,
+.cover-ornament::after{
+    content:"✦";
+    position:absolute;
+    color:#c79a50;
+    font-size:22px;
+}
+.cover-ornament::before{top:0;right:0}
+.cover-ornament::after{bottom:0;left:0}
+.closed-cover-content{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:54px;
+    text-align:center;
+    color:#ead8b3;
+}
+.closed-cover-content .cover-small{
+    color:#c69a52!important;
+    font-size:.72rem!important;
+    letter-spacing:3.2px!important;
+}
+.closed-cover-content h3{
+    color:#e8d2a5!important;
+    font-family:"Playfair Display",serif!important;
+    font-size:clamp(2rem,3.5vw,3.8rem)!important;
+    line-height:1.03!important;
+    font-weight:700!important;
+    margin:24px 0 20px!important;
+}
+.closed-cover-content p{
+    color:#c8ad7d!important;
+}
+.cover-village{
+    width:72%;
+    height:72px;
+    margin-top:28px;
+    opacity:.46;
+    border-top:1px solid rgba(199,154,80,.45);
+    background:
+        linear-gradient(135deg,transparent 44%,rgba(199,154,80,.22) 45% 47%,transparent 48%) 0 22px/42px 28px repeat-x,
+        linear-gradient(45deg,transparent 44%,rgba(199,154,80,.16) 45% 47%,transparent 48%) 20px 32px/46px 30px repeat-x;
+}
+
+/* OPEN BOOK */
+.book-spread{
+    position:absolute;
+    inset:2% 0 3%;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    filter:drop-shadow(0 28px 34px rgba(0,0,0,.28));
+}
+.book-page-panel{
+    position:relative;
+    overflow:hidden;
+    background:#f8f4ec;
+    border:1px solid rgba(76,60,42,.15);
+}
+.book-page-panel.left{
+    border-radius:16px 2px 2px 16px;
+    box-shadow:
+        inset -18px 0 26px rgba(65,49,31,.10),
+        inset 8px 0 18px rgba(255,255,255,.75);
+}
+.book-page-panel.right{
+    border-radius:2px 16px 16px 2px;
+    box-shadow:
+        inset 18px 0 26px rgba(65,49,31,.10),
+        inset -8px 0 18px rgba(255,255,255,.75);
+}
+.book-page-panel::after{
+    content:"";
+    position:absolute;
+    inset:11px;
+    border:1px solid rgba(184,137,69,.34);
+    pointer-events:none;
+}
+.book-gutter{
+    position:absolute;
+    left:50%;
+    top:1.5%;
+    bottom:1.5%;
+    width:34px;
+    transform:translateX(-50%);
+    z-index:9;
+    pointer-events:none;
+    background:linear-gradient(90deg,
+        rgba(70,53,34,.18),
+        rgba(255,255,255,.72) 42%,
+        rgba(255,255,255,.9) 50%,
+        rgba(73,55,34,.17) 100%);
+    filter:blur(.3px);
+    opacity:.72;
+}
+.book-cover-page{
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    color:#e4c98f;
+    padding:44px;
+    background:
+        radial-gradient(circle at 74% 16%,rgba(218,181,111,.13),transparent 26%),
+        linear-gradient(145deg,#111923,#0a1016);
+}
+.book-cover-page::before{
+    content:"";
+    position:absolute;
+    inset:18px;
+    border:1px solid rgba(202,158,80,.72);
+    pointer-events:none;
+}
+.book-cover-page h3{
+    font-family:"Playfair Display",serif!important;
+    font-size:clamp(1.7rem,2.7vw,3rem)!important;
+    color:#e7d0a2!important;
+    margin:18px 0!important;
+    line-height:1.05!important;
+}
+.book-cover-page .cover-small{color:#c79a50!important}
+.book-cover-page p{color:#b99b68!important}
+.book-cover-mark{
+    width:84px;
+    height:84px;
+    border:1px solid rgba(199,154,80,.52);
+    border-radius:50%;
+    margin-top:28px;
+    display:grid;
+    place-items:center;
+    color:#c79a50;
+    font-size:30px;
+}
+.book-photo-page{
+    height:100%;
+    padding:28px 26px 30px;
+    display:flex;
+    flex-direction:column;
+    background:
+        radial-gradient(circle at 70% 0,rgba(191,157,103,.09),transparent 24%),
+        #fbf8f1;
+}
+.book-photo-page .page-label{
+    color:#665847!important;
+    padding:0 4px 10px!important;
+    font-size:.63rem!important;
+    letter-spacing:2.3px!important;
+}
+.book-photo-frame{
+    flex:1;
+    min-height:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    border:1px solid rgba(184,137,69,.28);
+    background:#f4efe6;
+    position:relative;
+}
+.book-photo-frame::before,
+.book-photo-frame::after{
+    content:"✦";
+    position:absolute;
+    color:#bd9150;
+    font-size:12px;
+    opacity:.72;
+}
+.book-photo-frame::before{top:5px;right:7px}
+.book-photo-frame::after{bottom:5px;left:7px}
+.book-photo-frame img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    display:block;
+    background:#f4efe6;
+}
+
+/* PAGE TURN SHEET */
+.page-turn-sheet{
+    position:absolute;
+    z-index:14;
+    top:1.5%;
+    bottom:1.5%;
+    left:50%;
+    width:47%;
+    transform-origin:left center;
+    pointer-events:none;
+    opacity:0;
+    border-radius:2px 16px 16px 2px;
+    background:
+        linear-gradient(90deg,
+            rgba(93,75,52,.15) 0%,
+            rgba(255,255,255,.96) 7%,
+            #fdfbf6 55%,
+            #e7e0d4 100%);
+    box-shadow:14px 12px 26px rgba(0,0,0,.20);
+}
+.book-surface.flipping-next .page-turn-sheet{
+    opacity:1;
+    animation:pageFlipNext .62s cubic-bezier(.45,.02,.2,1);
+}
+.book-surface.flipping-prev .page-turn-sheet{
+    opacity:1;
+    left:3%;
+    transform-origin:right center;
+    border-radius:16px 2px 2px 16px;
+    animation:pageFlipPrev .62s cubic-bezier(.45,.02,.2,1);
+}
+@keyframes pageFlipNext{
+    0%{transform:rotateY(0deg) skewY(0);filter:brightness(1)}
+    45%{transform:rotateY(-92deg) skewY(-2deg);filter:brightness(.84)}
+    100%{transform:rotateY(-178deg) skewY(0);filter:brightness(.96)}
+}
+@keyframes pageFlipPrev{
+    0%{transform:rotateY(0deg)}
+    45%{transform:rotateY(92deg)}
+    100%{transform:rotateY(178deg)}
+}
+
+.flipbook-controls{
+    margin-top:24px!important;
+}
+.flipbook-controls button{
+    width:46px!important;
+    height:46px!important;
+    border:1px solid rgba(200,155,90,.46)!important;
+    background:rgba(13,22,30,.78)!important;
+    color:#e1bc7a!important;
+    box-shadow:0 8px 20px rgba(0,0,0,.16)!important;
+}
+.flipbook-controls button:hover{
+    background:#c2924d!important;
+    color:#0c151d!important;
+}
+.page-indicator{
+    color:#e4c27f!important;
+    min-width:150px!important;
+}
+.flipbook-help,
+.loading-note{
+    color:rgba(255,255,255,.58)!important;
+}
+
+/* album spacing and caption */
+.album{
+    padding:10px 0 18px;
+}
+.album + .album{
+    border-top:1px solid rgba(210,175,115,.28);
+    padding-top:56px;
+}
+.album-heading{
+    margin-bottom:26px!important;
+}
+.album-heading h3{
+    color:#ead7ae!important;
+}
+.album-heading p{
+    color:rgba(255,255,255,.62)!important;
+    font-size:.9rem!important;
+    margin-top:8px!important;
+}
+
+/* MOBILE: keep book spread, just scale gracefully */
+@media(max-width:800px){
+    .flipbook-stage{min-height:430px!important}
+    .flipbook{width:100%!important;aspect-ratio:1.42/1!important}
+    .closed-book{width:70%;height:88%}
+    .book-photo-page{padding:18px 14px 20px}
+    .book-cover-page{padding:24px 16px}
+    .book-cover-mark{width:60px;height:60px;font-size:22px}
+}
+@media(max-width:560px){
+    .flipbook-stage{min-height:350px!important}
+    .flipbook{aspect-ratio:1.22/1!important}
+    .book-spread{inset:3% 0 4%}
+    .book-photo-page{padding:13px 9px 14px}
+    .book-photo-page .page-label{font-size:.5rem!important;padding-bottom:6px!important}
+    .book-cover-page h3{font-size:1.25rem!important}
+    .book-cover-page p{font-size:.62rem!important}
+    .book-cover-page .cover-small{font-size:.5rem!important}
+    .book-cover-mark{display:none}
+    .closed-cover-content{padding:26px 20px}
+    .closed-cover-content h3{font-size:1.65rem!important}
+}
+
 </style>
  </head>
  <body>
@@ -2405,7 +2773,7 @@ footer{
       <h3>
        📸 Foto 2026
       </h3>
-      
+      <p>Keseruan Anak Kampung RT 010 yang terus berlanjut di 2026.</p>
      </div>
      <div class="flipbook-wrap">
       <div class="flipbook-stage" id="stage2026">
@@ -2435,7 +2803,7 @@ footer{
       <h3>
        📷 Foto 2025
       </h3>
-      
+      <p>Momen-momen seru Anak Kampung RT 010 selama 2025.</p>
      </div>
      <div class="flipbook-wrap">
       <div class="flipbook-stage" id="stage2025">
@@ -2456,10 +2824,10 @@ footer{
        </button>
       </div>
       <p class="flipbook-help">
-       Foto 2025 dimuat satu per satu agar halaman tidak berat meski berisi 904 foto.
+       Klik panah atau sisi buku untuk melihat momen berikutnya.
       </p>
       <p class="loading-note">
-       Pastikan semua file Google Drive berstatus “Anyone with the link / Siapa saja yang memiliki link”.
+       
       </p>
      </div>
     </div>
@@ -3677,14 +4045,138 @@ const books = {
         label: "MOMEN"
     }
 };
-function renderBook(year,animateDir=null){const state=books[year],surface=document.getElementById('surface'+year),book=document.getElementById('flipbook'+year),stage=document.getElementById('stage'+year);const doRender=()=>{surface.className='book-surface';surface.innerHTML='';if(state.current===0){surface.classList.add('cover-page');surface.innerHTML=`<div><div class="cover-small">DOKUMENTASI ${year}</div><h3>ANAK KAMPUNG<br>RT 010</h3><div class="cover-line"></div><p>${year==='2026'?'Bersama • Bergerak • Berkarya':'Kenangan • Kebersamaan • Cerita'}</p><div class="cover-hint">KLIK SISI KANAN UNTUK MEMBUKA</div></div>`;sizeCover(book,stage)}else{surface.classList.add('photo-page');const num=String(state.current).padStart(year==='2025'?3:2,'0');surface.innerHTML=`<div class="page-label">${state.label} ${num}</div><div class="photo-holder"><img id="img${year}" alt="Dokumentasi ${year} - Foto ${state.current}"></div>`;const img=document.getElementById('img'+year);if(year==='2025'){img.dataset.id=foto2025[state.current-1];img.dataset.try='0';img.onerror=()=>driveFallback(img)}img.onload=()=>sizeToImage(book,stage,img);img.src=state.src(state.current)}document.getElementById('indicator'+year).textContent=state.current===0?'Cover':`Foto ${state.current} / ${state.total}`;document.getElementById('prev'+year).disabled=state.current===0;document.getElementById('next'+year).disabled=state.current===state.total};if(animateDir){surface.classList.add(animateDir==='next'?'turn-next':'turn-prev');setTimeout(doRender,260)}else doRender()}
-function driveFallback(img){const id=img.dataset.id;const t=Number(img.dataset.try||0);if(t===0){img.dataset.try='1';img.src=`https://lh3.googleusercontent.com/d/${id}=w1600`;return}img.onerror=null;img.alt='Foto tidak dapat dimuat. Periksa akses Google Drive.'}
-function sizeCover(book,stage){const max=Math.min(book.parentElement.clientWidth,900);const h=Math.max(340,Math.min(max*.58,560));book.style.width=max+'px';book.style.height=h+'px';stage.style.minHeight=h+'px'}
-function sizeToImage(book,stage,img){if(!img.naturalWidth||!img.naturalHeight)return;const avail=Math.min(book.parentElement.clientWidth,900);const maxH=window.innerWidth<=600?620:760;let w=avail,h=w*(img.naturalHeight/img.naturalWidth);if(h>maxH){h=maxH;w=h*(img.naturalWidth/img.naturalHeight)}w=Math.max(Math.min(w,avail),280);h=Math.max(h,300);book.style.width=w+'px';book.style.height=h+'px';stage.style.minHeight=h+'px'}
-function nextPage(year){const s=books[year];if(s.current<s.total){s.current++;renderBook(year,'next')}}
-function prevPage(year){const s=books[year];if(s.current>0){s.current--;renderBook(year,'prev')}}
-function setupBookClicks(year){document.getElementById('surface'+year).addEventListener('click',e=>{const r=e.currentTarget.getBoundingClientRect();if(e.clientX-r.left>r.width/2)nextPage(year);else prevPage(year)})}
-let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{['2026','2025'].forEach(y=>{const s=books[y];if(s.current===0)sizeCover(document.getElementById('flipbook'+y),document.getElementById('stage'+y));else{const img=document.getElementById('img'+y);if(img&&img.complete)sizeToImage(document.getElementById('flipbook'+y),document.getElementById('stage'+y),img)}})},150)});
+
+function makeCoverHTML(year,compact=false){
+    return `
+      <div class="${compact?'book-cover-page':'closed-book'}">
+        ${compact?'':'<div class="cover-ornament"></div>'}
+        <div class="${compact?'':'closed-cover-content'}">
+          <div class="cover-small">DOKUMENTASI ${year}</div>
+          <h3>ANAK KAMPUNG<br>RT 010</h3>
+          <div class="cover-line"></div>
+          <p>${year==='2026'?'Bersama • Bergerak • Berkarya':'Kenangan • Kebersamaan • Cerita'}</p>
+          ${compact?'<div class="book-cover-mark">⌂</div>':'<div class="cover-village"></div><div class="cover-hint">KLIK SISI KANAN UNTUK MEMBUKA</div>'}
+        </div>
+      </div>`;
+}
+
+function makePhotoHTML(year,index,side){
+    if(index<1) return makeCoverHTML(year,true);
+    const state=books[year];
+    const num=String(index).padStart(year==='2025'?3:2,'0');
+    const id=`img${year}_${side}_${index}`;
+    return `
+      <div class="book-photo-page">
+        <div class="page-label">${state.label} ${num}</div>
+        <div class="book-photo-frame">
+          <img id="${id}" alt="Dokumentasi ${year} - Foto ${index}">
+        </div>
+      </div>`;
+}
+
+function bindBookImage(year,index,side){
+    if(index<1) return;
+    const state=books[year];
+    const img=document.getElementById(`img${year}_${side}_${index}`);
+    if(!img) return;
+    if(year==='2025'){
+        img.dataset.id=foto2025[index-1];
+        img.dataset.try='0';
+        img.onerror=()=>driveFallback(img);
+    }
+    img.src=state.src(index);
+}
+
+function renderBook(year,animateDir=null){
+    const state=books[year];
+    const surface=document.getElementById('surface'+year);
+    const doRender=()=>{
+        surface.className='book-surface';
+        if(state.current===0){
+            surface.innerHTML=makeCoverHTML(year,false);
+        }else{
+            const leftIndex=state.current===1?0:state.current-1;
+            const rightIndex=state.current;
+            surface.innerHTML=`
+              <div class="book-spread">
+                <div class="book-page-panel left">${makePhotoHTML(year,leftIndex,'left')}</div>
+                <div class="book-page-panel right">${makePhotoHTML(year,rightIndex,'right')}</div>
+                <div class="book-gutter"></div>
+                <div class="page-turn-sheet"></div>
+              </div>`;
+            bindBookImage(year,leftIndex,'left');
+            bindBookImage(year,rightIndex,'right');
+        }
+        sizeBookSpread(year);
+        document.getElementById('indicator'+year).textContent=
+            state.current===0?'Cover':`Foto ${state.current} / ${state.total}`;
+        document.getElementById('prev'+year).disabled=state.current===0;
+        document.getElementById('next'+year).disabled=state.current===state.total;
+    };
+
+    if(!animateDir){doRender();return;}
+    // Render current spread first, then animate a physical sheet, then swap.
+    surface.classList.add(animateDir==='next'?'flipping-next':'flipping-prev');
+    setTimeout(()=>{
+        surface.classList.remove('flipping-next','flipping-prev');
+        doRender();
+    },560);
+}
+
+function driveFallback(img){
+    const id=img.dataset.id;
+    const t=Number(img.dataset.try||0);
+    if(t===0){
+        img.dataset.try='1';
+        img.src=`https://lh3.googleusercontent.com/d/${id}=w1600`;
+        return;
+    }
+    img.onerror=null;
+    img.alt='Foto tidak dapat dimuat.';
+}
+
+function sizeBookSpread(year){
+    const book=document.getElementById('flipbook'+year);
+    const stage=document.getElementById('stage'+year);
+    const avail=Math.min(book.parentElement.clientWidth,1040);
+    const ratio=window.innerWidth<=560?1.22:(window.innerWidth<=800?1.42:1.62);
+    const h=avail/ratio;
+    book.style.width=avail+'px';
+    book.style.height=h+'px';
+    stage.style.minHeight=h+'px';
+}
+
+function nextPage(year){
+    const s=books[year];
+    if(s.current<s.total){
+        // animate old view, update state during the turn
+        const surface=document.getElementById('surface'+year);
+        surface.classList.add('flipping-next');
+        setTimeout(()=>{
+            s.current++;
+            renderBook(year);
+        },520);
+    }
+}
+function prevPage(year){
+    const s=books[year];
+    if(s.current>0){
+        const surface=document.getElementById('surface'+year);
+        surface.classList.add('flipping-prev');
+        setTimeout(()=>{
+            s.current--;
+            renderBook(year);
+        },520);
+    }
+}
+function setupBookClicks(year){
+    document.getElementById('surface'+year).addEventListener('click',e=>{
+        const r=e.currentTarget.getBoundingClientRect();
+        if(e.clientX-r.left>r.width/2) nextPage(year);
+        else prevPage(year);
+    });
+}
+let resizeTimer;window.addEventListener('resize',()=>{clearTimeout(resizeTimer);resizeTimer=setTimeout(()=>{sizeBookSpread('2026');sizeBookSpread('2025')},150)});
 renderEvents();updateNearestEvent();setupBookClicks('2026');setupBookClicks('2025');renderBook('2026');renderBook('2025');
   
 function renderUpcomingRegistrationOptions(){
